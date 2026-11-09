@@ -56,12 +56,12 @@ flowchart LR
 | --- | --- |
 | `darkwolf-backend/app/` | FastAPI service, MongoDB access, models, change detection, collection code, and source registries |
 | `darkwolf-frontend/` | React, TypeScript, and Vite dashboard |
-| `run_full_scrape.ps1` | Windows full-cycle runner with MongoDB and Tor SOCKS preflight checks |
-| `requirements.txt` | Pinned Python dependencies for the backend and root utilities |
+| `darkwolf-backend/run_full_scrape.ps1` | Windows full-cycle runner with MongoDB and Tor SOCKS preflight checks |
+| `darkwolf-backend/requirements.txt` | Pinned Python dependencies for the backend |
 | `darkwolf-frontend/package-lock.json` | Locked frontend dependency tree |
 | `darkwolf-backend/app/data/source_inventory.json` | Source inventory used by the backend |
-| `recon/` | Source inspection utilities, inventory snapshots, and maintained investigation material |
-| `Captchy/`, `Insomnia/`, `Storm/` | Separate experimental browser/captcha tooling and its dependencies |
+| `recon/` | Source inspection utilities, inventory workbooks, snapshots, and investigation material |
+| `darkwolf-backend/Captchy/`, `darkwolf-backend/Insomnia/`, `darkwolf-backend/Storm/` | Solver packages used by the backend's configured test collectors |
 | `darkwolf-backend/.env.example` | Safe template for local backend configuration |
 
 ## Requirements
@@ -96,7 +96,7 @@ From the repository root, in PowerShell:
 ```powershell
 py -3 -m venv darkwolf-backend\.venv
 darkwolf-backend\.venv\Scripts\python.exe -m pip install --upgrade pip
-darkwolf-backend\.venv\Scripts\python.exe -m pip install -r requirements.txt
+darkwolf-backend\.venv\Scripts\python.exe -m pip install -r darkwolf-backend\requirements.txt
 Copy-Item darkwolf-backend\.env.example darkwolf-backend\.env
 ```
 
@@ -145,7 +145,7 @@ Open <http://127.0.0.1:5173>.
 With MongoDB, the backend configuration, and Tor SOCKS available, run the script from the repository root:
 
 ```powershell
-.\run_full_scrape.ps1
+.\darkwolf-backend\run_full_scrape.ps1
 ```
 
 The runner performs a preflight, then runs the collection stages in order:
@@ -160,8 +160,8 @@ Stage logs are written to `darkwolf-backend/logs/full-scrape-<timestamp>/`. If a
 To resume at a stage or change INC pagination size:
 
 ```powershell
-.\run_full_scrape.ps1 -StartAt api-leak-sites
-.\run_full_scrape.ps1 -PerPage 25
+.\darkwolf-backend\run_full_scrape.ps1 -StartAt api-leak-sites
+.\darkwolf-backend\run_full_scrape.ps1 -PerPage 25
 ```
 
 The available `-StartAt` values are `all`, `inc-ransom`, `html-leak-sites`, `api-leak-sites`, and `javascript-leak-sites`.
@@ -186,7 +186,7 @@ The frontend expects the API at `http://127.0.0.1:8000` in the current developme
 
 ## Python dependencies
 
-The root `requirements.txt` is the pinned backend/root-utilities dependency list. The frontend uses `package.json` and `package-lock.json`; use `npm ci` to install the locked versions. `Captchy/requirements.txt` is only for the separate experimental Captchy tooling and is not needed for the main app.
+`darkwolf-backend/requirements.txt` is the pinned backend dependency list. The frontend uses `package.json` and `package-lock.json`; use `npm ci` to install the locked versions. `darkwolf-backend/Captchy/requirements.txt` documents the Captchy solver's optional model tooling.
 
 ## Troubleshooting
 

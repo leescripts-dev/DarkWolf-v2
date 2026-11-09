@@ -1,5 +1,6 @@
 import json,sys
-sys.path.insert(0,r'D:\DarkWolf\darkwolf-backend')
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'darkwolf-backend'))
 from app.db.mongodb import db
 print('inventory_docs',db.leak_site_inventory.count_documents({}))
 for field in ('status','availability'):

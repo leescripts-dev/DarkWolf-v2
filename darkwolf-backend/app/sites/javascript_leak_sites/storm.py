@@ -20,9 +20,9 @@ from app.sites.javascript_leak_sites.registry import JavascriptLeakSite
 
 
 def _storm_solver():
-    project_root = Path(__file__).resolve().parents[4]
-    if str(project_root) not in sys.path:
-        sys.path.insert(0, str(project_root))
+    backend_root = Path(__file__).resolve().parents[3]
+    if str(backend_root) not in sys.path:
+        sys.path.insert(0, str(backend_root))
     return importlib.import_module("Storm.storm_solver")
 
 

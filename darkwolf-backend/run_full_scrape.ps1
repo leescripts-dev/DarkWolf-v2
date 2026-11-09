@@ -6,8 +6,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $false
-$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$backendRoot = Join-Path $projectRoot "darkwolf-backend"
+$backendRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $python = Join-Path $backendRoot ".venv\Scripts\python.exe"
 $previousTorSocksPort = $env:TOR_SOCKS_PORT
 $torPortOverrideApplied = $false

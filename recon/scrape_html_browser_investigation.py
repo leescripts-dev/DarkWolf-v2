@@ -20,9 +20,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
 ROOT = Path(__file__).resolve().parent
-INVENTORY = ROOT / "recon" / "probe_results.json"
-OUT = ROOT / "recon" / "html_bucket_browser_investigation.json"
-REPORT = ROOT / "recon" / "html_bucket_browser_investigation.md"
+INVENTORY = ROOT / "probe_results.json"
+OUT = ROOT / "html_bucket_browser_investigation.json"
+REPORT = ROOT / "html_bucket_browser_investigation.md"
 TOR_PROXY = "socks5://127.0.0.1:9050"
 PAGE_TIMEOUT_SECONDS = 75
 RENDER_WAIT_SECONDS = 35

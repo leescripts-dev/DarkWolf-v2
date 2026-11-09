@@ -1,5 +1,7 @@
 import sys,time,json
-sys.path.insert(0,r'D:\DarkWolf\darkwolf-backend')
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT.parent/'darkwolf-backend'))
 from selenium.common.exceptions import TimeoutException,WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 from app.core.config import settings
@@ -17,4 +19,4 @@ try:
   except Exception as exc: row={'group':name,'status':'inaccessible','gate':None,'error':f'{type(exc).__name__}: {str(exc)[:220]}'}
   out.append(row);print(json.dumps(row,ensure_ascii=False),flush=True)
 finally:driver.quit()
-with open(r'D:\DarkWolf\recon\browser_gate_recheck_2026-10-17.json','w',encoding='utf-8') as f:json.dump(out,f,ensure_ascii=False,indent=2)
+with (ROOT/'browser_gate_recheck_2026-10-17.json').open('w',encoding='utf-8') as f:json.dump(out,f,ensure_ascii=False,indent=2)

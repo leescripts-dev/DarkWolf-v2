@@ -22,9 +22,9 @@ from app.sites.javascript_leak_sites.registry import JavascriptLeakSite
 
 
 def _load_captcha_solver():
-    project_root = Path(__file__).resolve().parents[4]
-    if str(project_root) not in sys.path:
-        sys.path.insert(0, str(project_root))
+    backend_root = Path(__file__).resolve().parents[3]
+    if str(backend_root) not in sys.path:
+        sys.path.insert(0, str(backend_root))
     return importlib.import_module("Captchy.captcha_solver")
 
 
@@ -169,7 +169,7 @@ def collect_blackx(site: JavascriptLeakSite, tor_host: str, tor_port: int) -> di
         if driver.find_elements("css selector", ".captcha__svg svg"):
             try:
                 solver = _load_captcha_solver()
-                model_path = Path(__file__).resolve().parents[4] / "Captchy" / "captcha_model.pt"
+                model_path = Path(__file__).resolve().parents[3] / "Captchy" / "captcha_model.pt"
                 solved, reason = solver.solve_with_driver(driver, model_path=str(model_path))
             except (ImportError, OSError, RuntimeError) as exc:
                 solved, reason = False, f"captcha model unavailable: {type(exc).__name__}: {str(exc)[:180]}"

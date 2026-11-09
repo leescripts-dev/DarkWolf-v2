@@ -21,9 +21,9 @@ from app.sites.markup_date_inspector import inspect_markup_dates
 
 
 def _load_insomnia_solver():
-    project_root = Path(__file__).resolve().parents[4]
-    if str(project_root) not in sys.path:
-        sys.path.insert(0, str(project_root))
+    backend_root = Path(__file__).resolve().parents[3]
+    if str(backend_root) not in sys.path:
+        sys.path.insert(0, str(backend_root))
     return importlib.import_module("Insomnia.captcha_solver")
 
 

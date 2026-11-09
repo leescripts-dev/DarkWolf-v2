@@ -24,7 +24,7 @@ for name, url in sites:
             headers={"User-Agent": "Mozilla/5.0"},
         )
         print(name, "status", r.status_code, "ctype", r.headers.get("content-type"), "bytes", len(r.content))
-        Path(rf"D:\DarkWolf\recon\html\{name.lower()}.html").write_text(
+        (Path(__file__).resolve().parent / "html" / f"{name.lower()}.html").write_text(
             r.text[:250000], encoding="utf-8", errors="replace"
         )
     except Exception as e:

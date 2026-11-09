@@ -18,9 +18,9 @@ import requests
 from bs4 import BeautifulSoup, Tag
 
 ROOT = Path(__file__).resolve().parent
-INVENTORY = ROOT / "recon" / "probe_results.json"
-OUT = ROOT / "recon" / "html_bucket_output.json"
-REPORT = ROOT / "recon" / "html_bucket_output.md"
+INVENTORY = ROOT / "probe_results.json"
+OUT = ROOT / "html_bucket_output.json"
+REPORT = ROOT / "html_bucket_output.md"
 TOR = "socks5h://127.0.0.1:9050"
 PROXIES = {"http": TOR, "https": TOR}
 TIMEOUT = 28

@@ -13,7 +13,7 @@ router = APIRouter(prefix="/api/v1/scrape", tags=["Scrape"])
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
 BACKEND_ROOT = PROJECT_ROOT / "darkwolf-backend"
-SCRIPT_PATH = PROJECT_ROOT / "run_full_scrape.ps1"
+SCRIPT_PATH = BACKEND_ROOT / "run_full_scrape.ps1"
 LOG_ROOT = BACKEND_ROOT / "logs"
 STAGE_NAMES = ["inc-ransom", "html-leak-sites", "api-leak-sites", "javascript-leak-sites"]
 

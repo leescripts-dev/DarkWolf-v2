@@ -15,7 +15,8 @@ from openpyxl import load_workbook
 TOR = "socks5h://127.0.0.1:9050"
 PROXIES = {"http": TOR, "https": TOR}
 TIMEOUT = 45
-OUT = Path(r"D:\DarkWolf\recon")
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT
 OUT.mkdir(exist_ok=True)
 HTML_DIR = OUT / "html"
 HTML_DIR.mkdir(exist_ok=True)
@@ -77,7 +78,7 @@ def normalize_url(raw: str) -> str:
 
 
 def load_sites() -> list[dict]:
-    wb = load_workbook(r"D:\DarkWolf\Leak Sites.xlsx", data_only=True)
+    wb = load_workbook(ROOT / "inventory" / "Leak Sites.xlsx", data_only=True)
     ws = wb.active
     sites = []
     for row in ws.iter_rows(min_row=2, values_only=True):

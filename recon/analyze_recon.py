@@ -3,8 +3,9 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-results = json.loads(Path(r"D:\DarkWolf\recon\probe_results.json").read_text(encoding="utf-8"))
-html_dir = Path(r"D:\DarkWolf\recon\html")
+ROOT = Path(__file__).resolve().parent
+results = json.loads((ROOT / "probe_results.json").read_text(encoding="utf-8"))
+html_dir = ROOT / "html"
 
 WP = re.compile(r"wp-content|wordpress|wp-includes", re.I)
 BOOTSTRAP = re.compile(r"bootstrap", re.I)

@@ -13,9 +13,10 @@ import requests
 from openpyxl import load_workbook
 
 
-ROOT = Path(r"D:\DarkWolf")
-OUT = ROOT / "recon" / "new_site_probe_results.json"
-HTML_DIR = ROOT / "recon" / "html_new_sites"
+ROOT = Path(__file__).resolve().parent.parent
+RECON_ROOT = Path(__file__).resolve().parent
+OUT = RECON_ROOT / "new_site_probe_results.json"
+HTML_DIR = RECON_ROOT / "html_new_sites"
 HTML_DIR.mkdir(exist_ok=True)
 PROXY = "socks5h://127.0.0.1:9050"
 CAPTCHA_MARKERS = (
@@ -45,9 +46,9 @@ def normalize_url(raw: str) -> str:
 
 
 def load_targets() -> list[dict]:
-    old = json.loads((ROOT / "recon" / "probe_results.json").read_text(encoding="utf-8"))
+    old = json.loads((RECON_ROOT / "probe_results.json").read_text(encoding="utf-8"))
     old_names = {normalize(row["name"]) for row in old}
-    workbook = load_workbook(ROOT / "Leak Sites.xlsx", read_only=True, data_only=True)
+    workbook = load_workbook(RECON_ROOT / "inventory" / "Leak Sites.xlsx", read_only=True, data_only=True)
     targets = []
     seen = set()
     for name, link, *_ in workbook.active.iter_rows(min_row=2, values_only=True):

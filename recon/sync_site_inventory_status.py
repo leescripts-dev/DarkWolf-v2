@@ -2,10 +2,10 @@ import csv,json,sys
 from collections import Counter
 from datetime import datetime,timezone
 from pathlib import Path
-sys.path.insert(0,r'D:\DarkWolf\darkwolf-backend')
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT.parent/'darkwolf-backend'))
 from app.db.mongodb import db
 from app.entities.mapper import build_entity_id
-ROOT=Path(r'D:\DarkWolf\recon')
 scan=json.loads((ROOT/'full_site_scan_2026-10-17.json').read_text(encoding='utf-8'))
 scrape=[json.loads(line) for line in (ROOT/'full_scrape_2026-10-17.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
 browser=json.loads((ROOT/'browser_gate_recheck_2026-10-17.json').read_text(encoding='utf-8'))

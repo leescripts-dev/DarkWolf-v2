@@ -1,5 +1,7 @@
 import json, re, sys
-sys.path.insert(0, r'D:\\DarkWolf\\darkwolf-backend')
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parent/'darkwolf-backend'))
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 from app.collection.ransomware_sites import RansomwareSitesCollectionService
@@ -12,7 +14,7 @@ from app.sites.api_leak_sites.registry import API_LEAK_SITES
 from app.sites.javascript_leak_sites.collector import collect_javascript_site_pages
 from app.sites.javascript_leak_sites.registry import JAVASCRIPT_LEAK_SITES
 
-OUT=r'D:\DarkWolf\recon\full_scrape_2026-10-17.jsonl'
+OUT=str(ROOT/'full_scrape_2026-10-17.jsonl')
 GATES=re.compile(r'captcha|hcaptcha|recaptcha|turnstile|human verification',re.I)
 ANTIBOT=re.compile(r'challenge|verification|access denied|blocked|cloudflare|proof of work|ddos.guard|rate limit',re.I)
 def host(url): return (urlsplit(url).hostname or '').lower().rstrip('.')

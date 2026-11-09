@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovcali â Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#0E0F13;
+  --ink:#F4F1E9;
+  --graphite:#B9BFC9;
+  --steel:#767D8A;
+  --line:#2A2D35;
+  --accent:#FF7A1A;
+  --accent-soft:#FF7A1A22;
+  --card-bg:#15171D;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+}
+::selection{ background:var(--accent); color:var(--paper); }
+
+/* ---------- header ---------- */
+header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  padding:28px 40px 20px;
+  border-bottom:2px solid var(--ink);
+  background:var(--paper);
+}
+.brand{ display:flex; align-items:baseline; gap:14px; }
+.brand h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:26px;
+  letter-spacing:-.5px;
+}
+.brand .rev{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+  border:1px solid var(--line);
+  padding:2px 7px;
+  border-radius:3px;
+}
+nav{ display:flex; align-items:center; gap:28px; font-family:'IBM Plex Mono',monospace; font-size:13px; }
+nav a{ color:var(--graphite); text-decoration:none; position:relative; }
+nav a:hover{ color:var(--accent); }
+
+.strap{
+  padding:10px 40px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--steel);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+}
+
+.contact-btn{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  font-weight:600;
+  color:var(--accent);
+  background:var(--accent-soft);
+  border:1px solid #FF7A1A44;
+  border-radius:5px;
+  padding:6px 14px;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.contact-btn:hover{
+  background:#FF7A1A33;
+}
+
+.contact-sheet{
+  max-width:420px;
+}
+
+.contact-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+}
+
+.contact-row:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.contact-row .k{
+  flex:0 0 120px;
+  color:var(--steel);
+}
+
+.contact-row .v{
+  flex:1;
+  min-width:0;
+  color:var(--ink);
+  font-weight:500;
+  overflow-wrap:anywhere;
+  word-break:break-all;
+  white-space:normal;
+}
+
+/* ---------- countdown (used inside a post card) ---------- */
+.card-countdown{
+  display:flex;
+  gap:8px;
+  margin:14px 0 4px;
+}
+.card-countdown .box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  width:52px;
+  height:52px;
+}
+.card-countdown .box span.num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  color:var(--accent);
+  line-height:1.1;
+}
+.card-countdown .box span.lbl{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  color:var(--steel);
+  margin-top:1px;
+}
+.card.release{
+  background:
+    radial-gradient(ellipse at top right, var(--accent-soft), transparent 60%),
+    var(--card-bg);
+}
+.card.release:hover{
+  background:
+    radial-gradient(ellipse at top right, var(--accent-soft), transparent 60%),
+    #1C1F27;
+}
+.release-tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* ---------- folder card ---------- */
+.card.folder{
+  background:
+    repeating-linear-gradient(135deg, #FF7A1A0d 0 10px, transparent 10px 20px),
+    var(--card-bg);
+  border-color:#3A3D46;
+}
+.card.folder:hover{
+  background:
+    repeating-linear-gradient(135deg, #FF7A1A14 0 10px, transparent 10px 20px),
+    #1C1F27;
+}
+.folder-tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.folder-icon{
+  display:inline-flex;
+  width:14px;
+  height:11px;
+  border:1.5px solid var(--accent);
+  border-radius:2px;
+  position:relative;
+}
+.folder-icon::before{
+  content:"";
+  position:absolute;
+  top:-4px;
+  left:-1.5px;
+  width:7px;
+  height:3px;
+  border:1.5px solid var(--accent);
+  border-bottom:none;
+  border-radius:2px 2px 0 0;
+}
+.folder-count{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+}
+
+/* ---------- grid ---------- */
+main{ padding:48px 40px 100px; max-width:1180px; margin:0 auto; }
+.grid-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:28px;
+}
+.grid-head h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:38px;
+  font-weight:600;
+  letter-spacing:-1px;
+}
+.grid-head span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--steel); }
+
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:26px 24px 22px;
+  cursor:pointer;
+  position:relative;
+  transition:background .18s ease, border-color .18s ease;
+  display:flex;
+  flex-direction:column;
+  min-height:230px;
+  flex:1 1 320px;
+  max-width:calc(33.333% - 14px);
+}
+.card:hover{ background:#1C1F27; border-color:#3A3D46; }
+.card:hover .card-arrow{ transform:translate(3px,-3px); opacity:1; }
+
+.card-id{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+.card-cat{
+  color:var(--accent);
+  font-weight:600;
+}
+.card h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:21px;
+  font-weight:600;
+  line-height:1.25;
+  margin-bottom:12px;
+  letter-spacing:-.3px;
+}
+.card p{
+  font-size:14px;
+  color:var(--graphite);
+  line-height:1.55;
+  flex:1;
+}
+.card-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+}
+.card-arrow{
+  font-size:16px;
+  color:var(--accent);
+  opacity:.5;
+  transition:all .18s ease;
+}
+
+@media (max-width:900px){
+  .card{ max-width:calc(50% - 10px); }
+  header{ flex-direction:column; align-items:flex-start; gap:10px; }
+}
+@media (max-width:640px){
+  .card{ max-width:100%; }
+}
+
+/* ---------- detail overlay ---------- */
+.overlay{
+  position:fixed; inset:0;
+  background:rgba(15,14,11,.55);
+  backdrop-filter:blur(2px);
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding:40px 20px;
+  overflow-y:auto;
+  z-index:50;
+}
+.overlay.open{ display:flex; }
+
+.sheet{
+  background:var(--paper);
+  width:min(760px,100%);
+  border:2px solid var(--ink);
+  margin-top:20px;
+  animation:rise .22s ease;
+}
+@keyframes rise{ from{ transform:translateY(14px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
+
+.sheet-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 26px;
+  border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--steel);
+}
+.sheet-top-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.sheet-back{
+  background:none;
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:4px 9px;
+  cursor:pointer;
+  color:var(--graphite);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.sheet-back:hover{ border-color:var(--accent); color:var(--accent); }
+.sheet-close{
+  background:none; border:1px solid var(--line); border-radius:3px;
+  width:28px; height:28px; cursor:pointer; color:var(--ink); font-size:16px;
+  line-height:1;
+}
+.sheet-close:hover{ border-color:var(--accent); color:var(--accent); }
+
+.sheet-body{ padding:38px 44px 50px; }
+.sheet-body .cat{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  display:block;
+}
+.sheet-body h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:-1px;
+  line-height:1.12;
+  margin-bottom:18px;
+}
+.sheet-meta{
+  display:flex; gap:22px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--steel);
+  margin-bottom:30px;
+  padding-bottom:26px;
+  border-bottom:1px solid var(--line);
+}
+.spec-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-bottom:30px;
+}
+.spec{
+  background:var(--card-bg);
+  padding:12px 16px;
+}
+.spec .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--steel); text-transform:uppercase; letter-spacing:.5px; }
+.spec .v{ font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; margin-top:3px; }
+
+.sheet-body p{ font-size:16px; line-height:1.75; color:var(--graphite); margin-bottom:20px; }
+.sheet-body h4{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:19px;
+  font-weight:600;
+  margin:32px 0 12px;
+}
+.sheet-body ul{ margin:0 0 20px 20px; }
+.sheet-body li{ font-size:15px; color:var(--graphite); line-height:1.7; margin-bottom:6px; }
+
+/* ---------- folder detail listing ---------- */
+.folder-list{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.folder-list-item{
+  background:var(--card-bg);
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.folder-list-item:hover{ background:#1C1F27; }
+.folder-list-item .fli-main{ min-width:0; }
+.folder-list-item .fli-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+  margin-bottom:6px;
+}
+.folder-list-item .fli-top .cat{
+  margin:0;
+  display:inline;
+  text-transform:none;
+  letter-spacing:0;
+  font-size:11px;
+}
+.folder-list-item h4{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.folder-list-item p{
+  font-size:13px;
+  color:var(--graphite);
+  line-height:1.5;
+  margin:0;
+}
+.folder-list-item .fli-arrow{
+  flex:0 0 auto;
+  color:var(--accent);
+  font-size:15px;
+  opacity:.6;
+}
+
+footer{
+  padding:26px 40px;
+  border-top:2px solid var(--ink);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+  display:flex;
+  justify-content:space-between;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>Sovcali</h1>
+    
+  </div>
+  <nav>
+    <button class="contact-btn" id="contact-btn">Contact</button>
+  </nav>
+</header>
+<div class="strap">
+
+  <span id="clock"></span>
+</div>
+
+<main>
+  <div class="grid-head">
+    <h2>Latest entries</h2>
+    <span id="post-count">1 posts</span>
+  </div>
+  <div class="grid" id="post-grid"></div>
+</main>
+
+<footer>
+  <span>@Sovcali</span>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet">
+    <div class="sheet-top">
+      <div class="sheet-top-left">
+        <button class="sheet-back" id="sheet-back" style="display:none;">&larr; folder</button>
+        <span id="sheet-id"></span>
+      </div>
+      <button class="sheet-close" id="sheet-close">&times;</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="contact-overlay">
+  <div class="sheet contact-sheet">
+    <div class="sheet-top">
+      <span>Get in touch</span>
+      <button class="sheet-close" id="contact-close">&times;</button>
+    </div>
+    <div class="contact-row">
+      <span class="k">Get-session ID</span>
+      <code class="v">058d6e873410870bb920e6aebda023f94514f6959c9823a4222265a1adeed69719</code>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const posts = [
+
+
+            {
+          
+          id:"FN-015", cat:"Alert", date:"OCT 08 , 2026",
+          title:"HollywoodHair.pl",
+          excerpt:"List of data packages ready for public release  If the wallet is not charged by the end of the countdown, this entire database will be put up for public sale: Customer identity table (408 pages): Includes full names, emails, valid European numbers, and Polish national ID numbers (PESEL) of all your customers (along with exact birth dates)",
+
+          specs: [
+            ["Size", "10GB"],
+            ["Sample", '<a href="https://vikingfile.com/f/upVaGzMQri" target="_blank" rel="noopener">Download</a>'],
+           
+
+
+      ],
+          
+         
+       release:true, releaseDays:10, releaseDate:"2026-10-19T00:00:00",
+          body:`
+
+          <header>
+              <h1>â ï¸ The luxury salon chain Hollywood Hair has been hacked!</h1>
+          </header>
+
+          <p>
+              [Infrastructure Exposed] Game over for Hollywood Hair,
+          </p>
+
+          <p>
+              Target: HollywoodHair.pl
+   Payment deadline: 10 days
+   Cryptocurrency type: Monero (XMR) only
+  ð» Your network's technical status (undeniable facts)
+  We are not in your system; we own it. So you don't waste time with inspection teams, here is the exact address of your network holes:
+   Our access opened through abandoned accounts and unverified web forms of your Indian company (Designoweb) in Noida city.
+   All your superadmin password hashes, especially Klaudia's account and your senior admins (Suzanna, Wojtek, and Martina), have been decrypted and are in our possession.
+          </p>
+
+          <p>
+              
+   Your Amazon cloud repositories in the Stockholm region (AWS eu-north-1) had public read access. We downloaded all files without needing any code.
+  ð List of data packages ready for public release
+  If the wallet is not charged by the end of the countdown, this entire database will be put up for public sale:
+   Customer identity table (408 pages): Includes full names, emails, valid European numbers, and Polish national ID numbers (PESEL) of all your customers (along with exact birth dates)
+   4,111 official signed contracts (PDF): Final files of your luxury customers containing exact residential addresses, amounts of several thousand zloty, and their real handwritten signatures.
+   Live notification log (214,107 records): List of all your future appointments until 2027, along with internal and humiliating notes from stylists about VIP customers' skin and hair and famous influencers (like the Mama Ginekolog account).
+          </p>
+
+          <h2>ð Pressure levers (what awaits you)</h2>
+
+          <p>
+              <strong>1. Sending evidence to UODO authority:</strong>
+          </p>
+
+          <ul>
+              <li>
+                  <strong> All documents proving that you gave sensitive European citizens' data completely insecurely to employees outside the European Union (India) and violated GDPR laws will be sent directly to the Polish regulator. A 4% fine of your total global sales is enough to shut down all your branches.
+              </li>
+
+              <li>
+                  <strong>Management Gmail archive (Frank Papay):</strong>
+                  A complete 10 GB backup file of Frank Papay's personal Gmail account
+                  from 2026 has been fully extracted. This file contains the most sensitive
+                  strategic communications and undisclosed business contracts.
+              </li>
+
+              <li>
+                  2. Extorting individual customers: We will message your 4,111 wealthy and celebrity customers and send them proof of their signature and national ID leak. They will burn your salons to the ground.
+              </li>
+              <li>
+                    3. Physical database deletion: In case of non-payment, with the admin access we have, we will destroy your entire live appointment database forever with one command and lock the site service price at zero to completely stop your revenue cycle.
+              </li>            
+          <p>  
+  Your digital clock has started.
+  Either buy the link, or watch how all your branches in Warsaw, London, and Madrid fall to their knees.</p>
+
+
+
+
+      `
+        },
+
+
+
+        {
+    
+    id:"FN-014", cat:"Alert", date:"Sep 11, 2026",
+    title:"[SELL] Lucid Motors Data Auction: 5 TB of Engineering Data & Source Code",
+    excerpt:"To international automakers, technology-hungry competitors in China and the United States, and misled investors:The exclusive negotiation window with the arrogant corporate suits at Lucid Motors is now permanently closed. They chose to hide behind garbage public-relations statements, deliberately downplay the severity of the crisis, and place their bets on federal law enforcement. Since Lucid's management has proven they don't give a damn about the billions of dollars dumped into their R&D operations or the thousands of engineering hours behind them, we are, in accordance with our manifesto, formally transferring the ownership and exploitation rights of this tech to their direct competitors.",
+
+    specs: [
+  ["Contact Get-Session", 'Get-Session: 058d6e873410870bb920e6aebda023f94514f6959c9823a4222265a1adeed69719'],
+],
+    
+
+    body:`<h2>To international automakers, technology-hungry competitors in China and the United States, and misled investors:</h2>
+
+<p>The exclusive negotiation window with the arrogant corporate suits at Lucid Motors is now permanently closed. They chose to hide behind garbage public-relations statements, deliberately downplay the severity of the crisis, and place their bets on federal law enforcement. Since Lucid's management has proven they don't give a damn about the billions of dollars dumped into their R&D operations or the thousands of engineering hours behind them, we are, in accordance with our manifesto, formally transferring the ownership and exploitation rights of this tech to their direct competitors.
+This isnât some weak sample package or a basic email database. We have locked down the core engineering repository and complete technical database for the Air, Gravity SUV, and the upcoming Midsize Vehicle Platform programs.
+To demonstrate the depth of our technical access and the absolute dumpster fire facing Lucid, we are blowing the whistle on this 5 TB package-comprising 56,639 highly confidential files-secured through a clean compromise of Lucid's supply chain and their engineering partner, eShocan: </p>
+
+
+<h2> INTELLECTUAL PROPERTY ASSETS UP FOR BID </h2>
+<p> Complete Engineering Chain for the Future Midsize Platform
+Kill your R&D overhead: Your competitors no longer need to burn billions of dollars or rely on supercomputing-scale engineering muscle.
+Core geometric blueprints: The package includes complete CATIA geometric design data in .CATPart and .CATProduct formats for mission-critical components.
+IP Instrument Panel integration: Full schematics for the MONOLITH IC Display Housing, detailing its physical and structural integration with the vehicle's primary dashboard beam-the Cross Car Beam (CCB).
+Evolution history: Contains successive engineering revisions (V1, V2, and V3) alongside structural modification data, including Rib Chop Modifications. </p>
+<h2> Highly Confidential Autonomous-Driving and ADAS Sensor Simulation Data </h2>
+<h1>Data Breach Details</h1>
+
+<h2>Blown directories</h2>
+<p>Complete eShocan ADAS project directories for Lucid vehicles have been completely compromised.</p>
+
+<h2>Advanced CAE datasets</h2>
+<p>Includes specialized ANSA and HyperView engineering files in .fem, .h3d, and .out formats covering vibration, static-load, and stress-distribution analyses.</p>
+
+<h2>Target components</h2>
+<p>Structural studies for LiDAR Sensor Brackets, LiDAR Cleaning Systems, Sideview Mirror Camera Brackets, and LTE/5G Antenna Brackets.</p>
+
+<h2>Vehicle dynamics & crash testing</h2>
+<p>Contains physical crash-test analyses and LS-DYNA .key filesâsuch as the Brake Pedal Stiffness Studyâalong with comprehensive snap-fit physical simulation data.</p>
+
+<h2>Source Code, Firmware, and Factory-Test Binaries (CDB & SVCU)</h2>
+
+<h3>Electronic testing suite</h3>
+<p>We hold a staggering 3.8 GB file containing the full set of functional-test and physical burn-in test scripts for the vehicle's electronic systems.</p>
+
+<h3>Firmware & OS</h3>
+<p>Contains authentic Lucid source code for factory testing, bootloader packages, and Linux kernel images used by the vehicle platforms.</p>
+
+<h3>Vulnerability mapping</h3>
+<p>Cybersecurity researchers and competitors can now easily map out the company's central control architecture, exposing critical attack surfaces and deep system vulnerabilities.</p>
+
+<h2>Trade Secrets, Financial Information, Supply Chain Data, and Bills of Materials (BOM)</h2>
+
+<h3>Financial and sensor procurement</h3>
+<p>Highly confidential Excel spreadsheets contain complete BOMs for electronic systems and sensors.</p>
+
+<h3>Vendor pricing</h3>
+<p>Detailed procurement and unit pricing for components sourced from major suppliers, including Nexperia and other vendors.</p>
+
+<h3>Market impact</h3>
+<p>Lucid's supply-chain exclusivity and cost advantages have effectively been wiped out from this moment forward.</p>
+
+<h2>Transaction Terms and Financial Guarantee - Escrow</h2>
+
+<p>We value our time, and we value the time of serious buyers. This massive database will be transferred exclusively to the highest bidder. The package can be scoped out as a single, consolidated dataset or split into specific technological domains:
+Complete ADAS sensor and software package
+Mechanical, chassis, and powertrain/battery engineering package
+Commercial and supply-chain intelligence package
+To guarantee absolute transaction security and eliminate buyer-side risk, we accept official escrow mechanisms and Forum Escrow services managed by top-tier dark-web forums. All proposed cryptocurrency funds will remain securely locked and encrypted within the forum's escrow system until complete delivery, independent testing, and technical validation of the data chain have been performed by the buyer's engineers.
+Final Message to Lucid Motors Management
+You didn't lose your intellectual property to some technical glitch; you lost the future of your company to your own "arrogance and reckless stupidity."
+Now sit back in your executive chairs and watch as your ADAS code, production firmware, and reverse-engineered blueprints for your future platforms begin powering the assembly lines of your direct competitors around the globe.
+The auction is officially live. Qualified buyers should contact us through our communication channel on SESSION</p>
+
+`
+  },
+
+
+
+    {
+    
+    id:"FN-014", cat:"Alert", date:"Aug 30, 2026", folder:"lucidmotors",
+    title:"THE ANATOMY OF A COMPROMISED ARCHITECTURE: LUCIDâS SECRETS ARE UNRAVELED",
+    excerpt:"We have observed that you have chosen to hide behind your silence while assuring your shareholders that âeverything is under control.â You appear to believe that by remaining silent and buying time, the value of the stolen data will gradually diminish. You have miscalculated. We have no intention of burning all of our leverage at once. We understand how to play chess.",
+
+    specs: [
+  ["Download", '<a href="https://anonfilesnew.com/s/2gb-myPPjvB" target="_blank" rel="noopener">Download</a>'],
+],
+    
+
+    body:`<h5>TO THE ARROGANT MANAGEMENT OF LUCID MOTORS AND THE INVESTORS WHO HAVE BEEN MISLED BY THE COMPANYâS SILENCE:</h5>
+
+<p> We have observed that you have chosen to hide behind your silence while assuring your shareholders that âeverything is under control.â You appear to believe that by remaining silent and buying time, the value of the stolen data will gradually diminish. You have miscalculated. We have no intention of burning all of our leverage at once. We understand how to play chess.
+Today, we released a new package to demonstrate that our access extends far beyond chassis and vehicle design. We have access to the underlying technical intelligence and proprietary business information behind your vehicles. We have publicly released download links containing portions of your autonomous-driving and ADAS/LiDAR testing code, critical electronic-system firmware, and, most significantly, your complete confidential supply-chain and component-pricing information, including BOM data. </p>
+
+
+<h5> For your competitors: </h5>
+<p> Every major automaker can now see which suppliers you source your components from and the prices you pay for them. Effective immediately, your supply chain is no longer exclusively yours. </p>
+<h5> For the global security research and threat community: </h5>
+<p> Vehicle-system binaries and firmware are now publicly accessible. From this point forward, researchers around the world can examine these components for potential attack surfaces and vulnerabilities affecting your vehicle-control systems. Prepare yourselves for the possibility of billion-dollar consequences. </p> 
+<h5> LUCID MOTORS: </h5> 
+<p> We have still not released the core information relating to your powertrain systems or the proprietary battery-cell formulations upon which billions of dollars of your corporate value depend. What you have seen so far is only a small sample, intended to demonstrate what the real consequences of this situation could look like.
+We respect your business, but only on the condition that you respect the extent of our access. This package is a serious warning. The countdown to the next release of the core battery-related data has already begun. Our communication channel remains open. Either set aside your misplaced arrogance and address the consequences of your decisions, or watch as the next package exposes the technological core of Lucidâs electric-vehicle platform to the public. </p>
+
+<h5> THE CHOICE IS YOURS: NEGOTIATION OR GRADUAL DISMANTLING? </h5>
+`
+  },
+
+
+
+
+
+    {
+    
+    id:"FN-014", cat:"Alert", date:"Aug 31, 2026", folder:"lucidmotors",
+    title:"THE ENDGAME OF LUCID MOTORSâ PSYCHOLOGICAL GAME",
+    excerpt:"Addressed to Lucid Motors management, deceived investors, and the engineers who have been working unnecessary overtime for months:Lucid Motors executives claimed in the media that our intrusion was superficial and that only the systems of a âsecondary supplierâ had been compromised. They lied to you in an attempt to protect the companyâs stock value. Today, with hard and incontrovertible evidence, we are putting the truth on the table.The package released today, totaling 159 GB, is not a simple file or an email list; it is the heart of the internal design architecture of your upcoming Midsize Vehicle Platform.",
+
+    specs: [
+  ["Download", "159GB"],
+  ["Sample1", '<a href="https://vik1ngfile.site/f/k7ZFCfqWJO" target="_blank" rel="noopener">Download</a>'],
+],
+    
+
+    body:`<h4>Addressed to Lucid Motors management, deceived investors, and the engineers who have been working unnecessary overtime for months:</h4>
+
+<h4> Lucid Motors executives claimed in the media that our intrusion was superficial and that only the systems of a âsecondary supplierâ had been compromised. They lied to you in an attempt to protect the companyâs stock value. Today, with hard and incontrovertible evidence, we are putting the truth on the table. </h4>
+<h4> The package released today, totaling 159 GB, is not a simple file or an email list; it is the heart of the internal design architecture of your upcoming Midsize Vehicle Platform. </h4> 
+<h4> We have released the complete R&D archive for the critical MONOLITH IC Display Housing, along with the way it interfaces geometrically and structurally with the vehicleâs primary dashboard cross-member, the Cross Car Beam (CCB). This package includes:</h4>
+
+    <p> The complete design evolution: all engineering versions from August 2024 through June 2025, including the full progression of V1, V2, and V3 revisions, as well as the structural Rib Chop modifications.
+Highly confidential simulation results: numerical solver files from Stiffness Studies, along with stress-distribution and Strain Energy Plot results for the component. Data that competitors would otherwise have had to obtain through hundreds of hours of supercomputer time and millions of dollars in simulation costs is now available to them with a single click.
+Technical justification documentation: all formal presentation files and internal PowerPoint decks that Lucid engineers used to report structural design deficiencies to senior management. 
+
+</p>
+    
+    <h3> Why did we do this? </h3>
+
+    <p> We did not negotiate with a third party, and we firmly believe in our manifesto that we negotiate only with the actual owner of the data. And, of course, we are demanding a specific amount for this. An amount that, for the preservation of this automakerâs intellectual property (IP), could be far less costly than exposing this data or selling it to competitors.
+But Lucid management chose instead to hide behind a public-relations statement, buy time, and turn to government security teams.
+This is only the first drop of the flood. We have demonstrated to Lucid that we not only have a presence within its network, but that we know exactly which folders contain its most valuable engineering assets.
+Lucid Motors! Your foolish arrogance has turned the chassis designs of your next vehicle into a free engineering blueprint for reverse engineering by your Chinese and American competitors today. The next deadline is approaching. This time, the battery and powertrain data will be laid bare. Either pay the price for your stupidity, or watch as your entire company is downloaded piece by piece. </p>
+     
+
+
+
+    `
+    
+
+
+  },
+
+
+
+
+
+
+
+  {
+    
+    id:"FN-014", cat:"Alert", date:"Aug 28, 2026",folder:"lucidmotors",
+    title:"leak #1 lucidmotors",
+    excerpt:"In line with our previously discussed approach, the proposed strategy to formally demonstrate to Lucid that we are in possession of their data consists of the controlled upload of approximately 35 GB of technical material.This dataset comprises finite element analysis (FEA/CAE) files, specifically .fem model files, .h3d result files, .out and .spcf output files, together with associated summary reports in .pptx and .xlsx formats. The materials focus on stiffness studies, strain-energy evaluations, displacement assessments, and NVH analyses relating to the mid-sized IC display housing and the Pull/Outboard Switch simulations. ",
+
+    specs: [
+  ["Size", "35GB"],
+  ["Sample1", '<a href="https://anonfilesnew.com/s/oK1bPwwgcrG" target="_blank" rel="noopener">Download</a>'],
+  ["Samples2", '<a href="https://anonfilesnew.com/s/pqmJ8d0G1lR" target="_blank" rel="noopener">Download</a>'],
+  ["Samples3", '<a href="https://anonfilesnew.com/s/uJheU9QO52S" target="_blank" rel="noopener">Download</a>'],
+],
+    
+
+    body:`In line with our previously discussed approach, the proposed strategy to formally demonstrate to Lucid that we are in possession of their data consists of the controlled upload of approximately 35 GB of technical material.
+This dataset comprises finite element analysis (FEA/CAE) files, specifically .fem model files, .h3d result files, .out and .spcf output files, together with associated summary reports in .pptx and .xlsx formats. The materials focus on stiffness studies, strain-energy evaluations, displacement assessments, and NVH analyses relating to the mid-sized IC display housing and the Pull/Outboard Switch simulations.`
+  },
+
+    {
+    
+    id:"FN-014", cat:"Alert", date:"Aug 28, 2026",folder:"lucidmotors",
+    title:"They Failed. 100GB Drops in 2 Days ",
+    excerpt:"Despite giving the Lucid Motors company more than enough time to respond and deliberately keeping the pressure relatively low, they have still failed to take any appropriate action.In two days we will release a further update, make our position crystal clear, and also publish 100 GB of data",
+
+    specs: [
+  ["Size", "100GB"],
+],
+    
+
+    body:`Despite giving the Lucid Motors company more than enough time to respond and deliberately keeping the pressure relatively low, they have still failed to take any appropriate action.
+In two days we will release a further update, make our position crystal clear, and also publish 100 GB of data`
+  },
+
+  {
+    
+    id:"FN-014", cat:"Alert", date:"Aug 30, 2026", folder:"lucidmotors",
+    title:"The Complete Engineering Data Chain in ADAS and Automotive Structural Projects: What Usually Remains Hidden",
+    excerpt:"Companies prefer to keep the behind the scenes aspects of their design and analysis processes out of public view. What is usually released consists of final reports and summarized presentations not the actual chain through which the data is produced.",
+
+    specs: [
+  ["Discloser" , "Latest"],
+],
+    
+
+    body:`Companies prefer to keep the behind the scenes aspects of their design and analysis processes out of public view. What is usually released consists of final reports and summarized presentations not the actual chain through which the data is produced.
+
+
+
+We have this chain in our possession.
+
+
+
+What will be presented tomorrow is a documented and continuous sample of real project data involving ADAS components, structural brackets, display housings, and protective covers, with its different layers fully consistent with one another:
+
+
+
+ Part number and revision in the BOM 
+
+ Corresponding geometry in CATIA files (CATPart / CATProduct / STP) 
+
+ Finite Element Model (FEM) with the same geometry, mesh, and material identifiers 
+
+ Analysis results in H3D format (modal, static, strain energy, and various loading conditions) 
+
+ Solver files and raw outputs 
+
+ Final engineering reports with consistent dates and revision numbers 
+
+
+
+This collection demonstrates how a specific Part Number can be traced continuously from its definition through geometry, the analytical model, results, and the final engineering report, without breaks in the chain. Internal naming conventions, revision dates, and file-version identifiers are consistent with one another.
+
+
+
+We not only have access to this chain, but also possess sufficient technical understanding of the underlying engineering work: from mesh structure and material definitions to loading conditions, vibration modes, stress and displacement results, and the rationale behind design and optimization decisions.
+
+
+
+The publication of this data is intended to shed light on the actual structure of technical knowledge generation in automotive projects. What usually remains hidden from the public and even from some stakeholders is precisely these intermediate and underlying layers.
+
+
+
+What is particularly interesting is that, by ignoring the matter or simply buying time, Lucid is betraying the thousands of hours of thought, analysis, and investigation invested by its employees and engineers, as well as the companyâs own engineering IP.`
+  },
+
+
+
+
+
+];
+
+// Optional friendly titles for a folder-id. Falls back to the
+// folder-id itself (capitalized) if not listed here.
+const folderTitles = {
+  lucidmotors : "Lucidmotors"
+};
+
+const grid = document.getElementById('post-grid');
+const overlay = document.getElementById('overlay');
+const sheetBody = document.getElementById('sheet-body');
+const sheetId = document.getElementById('sheet-id');
+const sheetBack = document.getElementById('sheet-back');
+
+// Tracks which folder (if any) the currently open post sheet
+// was reached from, so the back button knows where to return.
+let activeFolderId = null;
+
+/* ---------- group posts by folder-id ---------- */
+// Posts sharing the same `folder` value are collapsed into a
+// single folder entry for the main grid. Posts without a
+// `folder` value render as normal individual cards. Order is
+// preserved based on each folder/post's first appearance.
+function buildRenderItems(list) {
+  const items = [];
+  const folderIndex = {};
+
+  list.forEach(p => {
+    if (p.folder) {
+      if (folderIndex[p.folder] === undefined) {
+        folderIndex[p.folder] = items.length;
+        items.push({ type: 'folder', folderId: p.folder, posts: [p] });
+      } else {
+        items[folderIndex[p.folder]].posts.push(p);
+      }
+    } else {
+      items.push({ type: 'post', post: p });
+    }
+  });
+
+  return items;
+}
+
+const renderItems = buildRenderItems(posts);
+
+document.getElementById('post-count').textContent = posts.length + " posts";
+
+renderItems.forEach((item) => {
+
+  if (item.type === 'folder') {
+    renderFolderCard(item.folderId, item.posts);
+    return;
+  }
+
+  renderPostCard(item.post);
+});
+
+function folderTitle(folderId) {
+  return folderTitles[folderId] || (folderId.charAt(0).toUpperCase() + folderId.slice(1));
+}
+
+function renderFolderCard(folderId, folderPosts) {
+
+  // The folder card shows the most recent post's details as
+  // its preview, plus a count of everything inside it.
+  const preview = folderPosts[folderPosts.length - 1];
+
+  const card = document.createElement('div');
+  card.className = 'card folder';
+  card.setAttribute('data-folder', folderId);
+
+  card.innerHTML = `
+    <div class="card-id">
+      <span class="folder-tag"><span class="folder-icon"></span>Folder</span>
+      <span class="folder-count">${folderPosts.length} post${folderPosts.length === 1 ? '' : 's'}</span>
+    </div>
+
+    <h3>${folderTitle(folderId)}</h3>
+
+    <p>${preview.excerpt || ''}</p>
+
+    <div class="card-foot">
+      <span>${preview.date}</span>
+      <span class="card-arrow">â</span>
+    </div>
+  `;
+
+  card.addEventListener('click', () => openFolderSheet(folderId));
+  grid.appendChild(card);
+}
+
+function renderPostCard(p) {
+
+  const card = document.createElement('div');
+
+  card.className = p.release ? 'card release' : 'card';
+  card.setAttribute('data-post', p.id);
+
+  if (p.release) {
+
+    card.innerHTML = `
+      <div class="card-id">
+        <span>${p.id}</span>
+        <span class="release-tag">Release countdown</span>
+      </div>
+
+      <h3>${p.title}</h3>
+
+      <div class="card-countdown" id="countdown-${p.id}">
+        <div class="box">
+          <span class="num cd-d">00</span>
+          <span class="lbl">days</span>
+        </div>
+
+        <div class="box">
+          <span class="num cd-h">00</span>
+          <span class="lbl">hrs</span>
+        </div>
+
+        <div class="box">
+          <span class="num cd-m">00</span>
+          <span class="lbl">min</span>
+        </div>
+
+        <div class="box">
+          <span class="num cd-s">00</span>
+          <span class="lbl">sec</span>
+        </div>
+      </div>
+
+      <div class="card-foot">
+        <span>${p.date}</span>
+        <span class="card-arrow">â</span>
+      </div>
+    `;
+
+  } else {
+
+    card.innerHTML = `
+      <div class="card-id">
+        <span>${p.id}</span>
+        <span class="card-cat">${p.cat}</span>
+      </div>
+
+      <h3>${p.title}</h3>
+
+      <p>${p.excerpt}</p>
+
+      <div class="card-foot">
+        <span>${p.date}</span>
+        <span class="card-arrow">â</span>
+      </div>
+    `;
+  }
+
+  card.addEventListener('click', () => {
+    activeFolderId = null;
+    openSheet(p);
+  });
+  grid.appendChild(card);
+
+  /*
+   * Fixed release date.
+   *
+   * The countdown is calculated from the actual releaseDate,
+   * so refreshing the page or restarting the server does not
+   * reset the countdown.
+   */
+  if (p.release && p.releaseDate) {
+
+    const target = new Date(p.releaseDate).getTime();
+
+    const el = document.getElementById(`countdown-${p.id}`);
+
+    const dEl = el.querySelector('.cd-d');
+    const hEl = el.querySelector('.cd-h');
+    const mEl = el.querySelector('.cd-m');
+    const sEl = el.querySelector('.cd-s');
+
+    function tickCountdown() {
+
+      const diff = Math.max(target - Date.now(), 0);
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      dEl.textContent = String(days).padStart(2, '0');
+      hEl.textContent = String(hours).padStart(2, '0');
+      mEl.textContent = String(minutes).padStart(2, '0');
+      sEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+  }
+}
+
+
+function openSheet(p) {
+
+  sheetId.textContent = `${p.id} â full record`;
+  sheetBack.style.display = activeFolderId ? 'flex' : 'none';
+
+  const specHtml = p.specs
+    .map(([k,v]) => `
+      <div class="spec">
+        <div class="k">${k}</div>
+        <div class="v">${v || ''}</div>
+      </div>
+    `)
+    .join('');
+
+  sheetBody.innerHTML = `
+    <span class="cat">${p.cat}</span>
+
+    <h2>${p.title}</h2>
+
+    <div class="sheet-meta">
+      <span>${p.date}</span>
+      <span>${p.id}</span>
+    </div>
+
+    <div class="spec-strip">
+      ${specHtml}
+    </div>
+
+    ${p.body}
+  `;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openFolderSheet(folderId) {
+
+  activeFolderId = folderId;
+  sheetBack.style.display = 'none';
+
+  const folderPosts = posts.filter(p => p.folder === folderId);
+
+  sheetId.textContent = `Folder â ${folderTitle(folderId)}`;
+
+  const listHtml = folderPosts.map(p => `
+    <div class="folder-list-item" data-post="${p.id}">
+      <div class="fli-main">
+        <div class="fli-top">
+          <span>${p.id}</span>
+          <span class="cat">${p.cat}</span>
+          <span>${p.date}</span>
+        </div>
+        <h4>${p.title}</h4>
+        <p>${p.excerpt || ''}</p>
+      </div>
+      <span class="fli-arrow">â</span>
+    </div>
+  `).join('');
+
+  sheetBody.innerHTML = `
+    <span class="cat">Folder</span>
+    <h2>${folderTitle(folderId)}</h2>
+    <div class="sheet-meta">
+      <span>${folderPosts.length} post${folderPosts.length === 1 ? '' : 's'}</span>
+    </div>
+    <div class="folder-list">
+      ${listHtml}
+    </div>
+  `;
+
+  sheetBody.querySelectorAll('.folder-list-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const post = folderPosts.find(p => p.id === el.getAttribute('data-post'));
+      if (post) openSheet(post);
+    });
+  });
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+sheetBack.addEventListener('click', () => {
+  if (activeFolderId) openFolderSheet(activeFolderId);
+});
+
+
+function closeSheet() {
+
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  activeFolderId = null;
+}
+
+
+document
+  .getElementById('sheet-close')
+  .addEventListener('click', closeSheet);
+
+
+overlay.addEventListener('click', e => {
+
+  if (e.target === overlay) {
+    closeSheet();
+  }
+
+});
+
+
+document.addEventListener('keydown', e => {
+
+  if (e.key === 'Escape') {
+    closeSheet();
+    closeContact();
+  }
+
+});
+
+
+const contactOverlay = document.getElementById('contact-overlay');
+
+
+function openContact() {
+
+  contactOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+}
+
+
+function closeContact() {
+
+  contactOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+
+}
+
+
+document
+  .getElementById('contact-btn')
+  .addEventListener('click', openContact);
+
+
+document
+  .getElementById('contact-close')
+  .addEventListener('click', closeContact);
+
+
+contactOverlay.addEventListener('click', e => {
+
+  if (e.target === contactOverlay) {
+    closeContact();
+  }
+
+});
+
+
+function tick() {
+
+  const d = new Date();
+
+  document.getElementById('clock').textContent =
+    d.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric'
+    })
+    + ' Â· ' +
+    d.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+}
+
+
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

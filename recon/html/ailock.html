@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiLock Data Leaks</title>
+    <link rel="stylesheet" type="text/css" href="./nes.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.min.css">
+</head>
+<body class="nes-container is-rounded is-dark" onload="generateNews()">
+    <div class="nes-container with-title is-centered is-dark">
+      <p class="title">AiLock Data Leaks</p>
+      <p><img src="./images/name.png" alt="AiLock Logo" class="logo"></p>
+      <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+    </div>
+    <div class="nes-container with-title is-dark">
+        <div id="loading-screen">
+            <p>Loading page</p>
+            <div class="progress-bar">
+                <progress class="nes-progress is-pattern" id="progress" max="100" value="0"></progress>
+            </div>
+        </div>
+        <p class="title">Latest NEWS</p>
+        <main id="news-container" class="grid-container"></main>
+    </div>
+    <div class="nes-container with-title is-dark">
+      <p class="title"></p>
+      <p align="center">AiLock Â© Since 2024</p>
+    </div>
+    <div id="modals-container"></div>
+    <script type="text/javascript" src="./news.js"></script>
+    <script type="text/javascript" src="./main.min.js"></script>
+</body>
+</html>

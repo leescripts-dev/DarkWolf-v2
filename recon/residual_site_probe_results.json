@@ -1,0 +1,215 @@
+[
+  {
+    "name": "Akira",
+    "url": "https://akiral2iz6a7qgd3ayp3l6yub7xx2uep76idk3u2kollpj5z3z636bad.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "SSLError: SOCKSHTTPSConnectionPool(host='akiral2iz6a7qgd3ayp3l6yub7xx2uep76idk3u2kollpj5z3z636bad.onion', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTI"
+  },
+  {
+    "name": "CRPx0",
+    "url": "http://tlxoddx4odmc2qvsmtsbgwwsv5j45osb5sox7mz6izxliuju5mkulzad.onion/index.php",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='tlxoddx4odmc2qvsmtsbgwwsv5j45osb5sox7mz6izxliuju5mkulzad.onion', port=80): Max retries exceeded with url: /index.php (Caused by ConnectTimeoutError(<SOCKSConnection(host="
+  },
+  {
+    "name": "Crypto24",
+    "url": "http://j5o5y2feotmhvr7cbcp2j2ewayv5mn5zenl3joqwx67gtfchhezjznad.onion/",
+    "ok": true,
+    "captcha": false,
+    "title": "CRYPTO24 | Data Leak Site",
+    "status": 200,
+    "preview": " CRYPTO24 | Data Leak Site ",
+    "script_count": 1,
+    "table_count": 0
+  },
+  {
+    "name": "DYSPHOR1A",
+    "url": "http://y3maveiwszbnrziufbbberx74cvrdcsf72nxzuqxzv7ppdmmqzffazid.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='y3maveiwszbnrziufbbberx74cvrdcsf72nxzuqxzv7ppdmmqzffazid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='y3maveiw"
+  },
+  {
+    "name": "ExfilSquad",
+    "url": "http://exfil5gqmbxrg6yky5aeitkdj7kfwxxjh3wxzrtlewjqi2x67o634iyd.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='exfil5gqmbxrg6yky5aeitkdj7kfwxxjh3wxzrtlewjqi2x67o634iyd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='exfil5gq"
+  },
+  {
+    "name": "EXFS Team",
+    "url": "http://y7pigjllv5mqgxh6jgvdim74f5hvanzrgvkpzdfvfsetewryky7xoqyd.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='y7pigjllv5mqgxh6jgvdim74f5hvanzrgvkpzdfvfsetewryky7xoqyd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='y7pigjll"
+  },
+  {
+    "name": "Genesis",
+    "url": "http://genesis6ixpb5mcy4kudybtw5op2wqlrkocfogbnenz3c647ibqixiad.onion",
+    "ok": true,
+    "captcha": false,
+    "title": "GENESIS",
+    "status": 200,
+    "preview": " GENESIS :root{--bg:#f4f4f5;--bg-dark:#18181b;--header:#e4e4e7;--header-dark:#27272a} GENESIS Archive Tags About GENESIS genesis.info@onionmail.org Owens Distributors Specializes in providing industrial machinery & equipment services 2026-09-30 · 1min Owens Distributors Vera Scie",
+    "script_count": 0,
+    "table_count": 0
+  },
+  {
+    "name": "LeakedData",
+    "url": "https://business-data-leaks.com/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "SSLError: SOCKSHTTPSConnectionPool(host='business-data-leaks.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation o"
+  },
+  {
+    "name": "Majinahanashi",
+    "url": "http://lthicpjqc7gkn5eq3epxndc2uig3yngvcbdya4u3m3byjod5km4yuwqd.onion/#blog",
+    "ok": true,
+    "captcha": false,
+    "title": "MAJIN — Entry",
+    "status": 200,
+    "preview": " MAJIN — Entry MAJIN I'm not a robot Checking session… Match the pattern Slide to verify Preparing verification… Verify Release to check. Keyboard: arrows, then Enter. MAJIN This catalog and its entry verification require JavaScript and first-party cookies. They are unavailable w",
+    "script_count": 2,
+    "table_count": 0
+  },
+  {
+    "name": "Medusa",
+    "url": "http://medusaxko7jxtrojdkxo66j7ck4q5tgktf7uqsqyfry4ebnxlcbkccyd.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='medusaxko7jxtrojdkxo66j7ck4q5tgktf7uqsqyfry4ebnxlcbkccyd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='medusaxk"
+  },
+  {
+    "name": "Meow",
+    "url": "http://meow6xanhzfci2gbkn3lmbqq7xjjufskkdfocqdngt3ltvzgqpsg5mid.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='meow6xanhzfci2gbkn3lmbqq7xjjufskkdfocqdngt3ltvzgqpsg5mid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='meow6xan"
+  },
+  {
+    "name": "NightSpire",
+    "url": "http://a2lyiiaq4n74tlgz4fk3ft4akolapfrzk772dk24iq32cznjsmzpanqd.onion/datas.php",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='a2lyiiaq4n74tlgz4fk3ft4akolapfrzk772dk24iq32cznjsmzpanqd.onion', port=80): Max retries exceeded with url: /datas.php (Caused by ConnectTimeoutError(<SOCKSConnection(host="
+  },
+  {
+    "name": "NightSpire",
+    "url": "http://nspirep7orjq73k2x2fwh2mxgh74vm2now6cdbnnxjk2f5wn34bmdxad.onion/database",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='nspirep7orjq73k2x2fwh2mxgh74vm2now6cdbnnxjk2f5wn34bmdxad.onion', port=80): Max retries exceeded with url: /database (Caused by ConnectTimeoutError(<SOCKSConnection(host='"
+  },
+  {
+    "name": "Prinz Eugen",
+    "url": "http://prinzkpn6d3itrgcytmsmlcpt5mgwn3ihpck2hsed5cezlbtbi3wklid.onion/campaigns",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='prinzkpn6d3itrgcytmsmlcpt5mgwn3ihpck2hsed5cezlbtbi3wklid.onion', port=80): Max retries exceeded with url: /campaigns (Caused by ConnectTimeoutError(<SOCKSConnection(host="
+  },
+  {
+    "name": "ShinyHunters",
+    "url": "http://espeonsh2drryv4bsonur5ud7d6gooho2mvktqdmakdpoxkwwersinid.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='espeonsh2drryv4bsonur5ud7d6gooho2mvktqdmakdpoxkwwersinid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='espeonsh"
+  },
+  {
+    "name": "Space Bears",
+    "url": "http://5butbkrljkaorg5maepuca25oma7eiwo6a2rlhvkblb4v6mf3ki2ovid.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='5butbkrljkaorg5maepuca25oma7eiwo6a2rlhvkblb4v6mf3ki2ovid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='5butbkrl"
+  },
+  {
+    "name": "SPIRALS",
+    "url": "http://spiralstfe7rtbna7zlv6szdwmjvjszf2d64zkf6z5jykrwnw5jbgpyd.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='spiralstfe7rtbna7zlv6szdwmjvjszf2d64zkf6z5jykrwnw5jbgpyd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='spiralst"
+  },
+  {
+    "name": "Warlock",
+    "url": "http://warlockhga5iw3t54ps5iytlilf7hlvxy7kwrkidspn4qoh64s4vsuyd.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='warlockhga5iw3t54ps5iytlilf7hlvxy7kwrkidspn4qoh64s4vsuyd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='warlockh"
+  },
+  {
+    "name": "World Leaks",
+    "url": "http://worldleaksartrjm3c6vasllvgacbi5u3mgzkluehrzhk2jz4taufuid.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='worldleaksartrjm3c6vasllvgacbi5u3mgzkluehrzhk2jz4taufuid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='worldlea"
+  },
+  {
+    "name": "xpl0itrs",
+    "url": "http://2kieaq6jnwgrru62wwtxaafg35q6rzweg7y2xjfnbhvq5wd4eojqv6yd.onion",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPConnectionPool(host='2kieaq6jnwgrru62wwtxaafg35q6rzweg7y2xjfnbhvq5wd4eojqv6yd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='2kieaq6j"
+  },
+  {
+    "name": "ZaWoo",
+    "url": "https://fyenuhkq3pfhnbpidj5jm2fl2lryxip4byhg6eozynrnlomu4szf2nyd.onion/",
+    "ok": false,
+    "captcha": false,
+    "title": null,
+    "status": null,
+    "preview": "",
+    "error": "ConnectTimeout: SOCKSHTTPSConnectionPool(host='fyenuhkq3pfhnbpidj5jm2fl2lryxip4byhg6eozynrnlomu4szf2nyd.onion', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSHTTPSConnection(host='f"
+  }
+]

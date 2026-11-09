@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vexy Ransomware | Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" href="/logo/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Inter',sans-serif;
+    background:#0a0a0a;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    padding:24px 16px
+}
+
+.container{
+    width:100%;
+    max-width:1100px;      
+    text-align:center;
+    opacity:0;
+    transform:translateY(16px);
+    animation:fadeUp .6s cubic-bezier(.4,0,.2,1) .1s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.logo-wrap{
+    width:90px;
+    height:90px;
+    margin:0 auto 18px;
+}
+.logo-wrap img{width:100%;height:100%;object-fit:contain}
+
+.brand-title{
+    font-size:48px;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-bottom:24px;
+    color:#fff;
+}
+
+
+
+.since-line{
+    margin-top:6px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#6f6f6f;
+    text-align:center;
+}
+.since-line strong{
+    color:#cfcfcf;
+    font-weight:600;
+}
+.tox-id{
+    margin-top:22px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#6f6f6f;
+    text-align:center;
+    word-break:break-all;
+}
+.tox-id strong{
+    color:#cfcfcf;
+    font-weight:600;
+}
+.contact-link{
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    letter-spacing:1px;
+}
+.contact-link:hover{color:#d0d0d0}
+.since-timer{
+    margin-top:6px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#6f6f6f;
+    text-align:center;
+}
+
+.btn-row{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    margin-bottom:16px;
+}
+
+.action-btn{
+    padding:10px 28px;
+    background:#111;
+    border:1px solid #222;
+    border-radius:10px;
+    color:#fff;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    cursor:pointer;
+    transition:all .2s;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.action-btn:hover{
+    background:#151515;
+    border-color:#333;         
+    transform:translateY(-2px);
+}
+
+.action-btn i{
+    font-size:14px;
+    color:#888;
+    transition: color .2s;
+}
+
+.action-btn:hover i{
+    color:#fff;
+}
+
+.leaked-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+    color:#444;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.leaked-label::before,
+.leaked-label::after{
+    content:'';
+    width:30px; 
+    height:1px;
+    background:#333;
+}
+
+.boxes-wrap{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap:20px;
+}
+
+.target-box{
+    background:#0d0d0d; 
+    border:1px solid #222;
+    border-radius:12px;
+    padding:28px 20px;      
+    min-height:340px;       
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    transition: all .2s ease;
+}
+
+.running-state{
+    cursor: not-allowed;    
+    opacity: 0.5;           
+    pointer-events: none;   
+}
+
+.clickable-box{
+    cursor: pointer;        
+    opacity: 1;             
+    border: 1px solid #333; 
+}
+
+.clickable-box:hover{
+    border-color:#fff;      
+    background:#111;        
+    transform:translateY(-4px); 
+}
+
+.timer-sub-box{
+    background:#111;
+    border:1px solid #1a1a1a;
+    border-radius:8px;
+    padding:8px 14px;
+    display:inline-block;
+    margin: 0 auto 20px auto;
+    transition: all .3s ease; 
+}
+
+.published-sub-box{
+    background:#0a0a0a;
+    border:1px solid #333;
+}
+
+.timer{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:#fff;
+    letter-spacing:0.5px;
+}
+
+.published-link{
+    color:#fff;          
+    text-decoration:none;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    letter-spacing:2px;
+    font-size:11px;         
+    display:block;
+}
+
+.company-name{
+    font-size:14px;         
+    color:#fff;
+    font-weight:700;        
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;     
+    word-break: break-word;
+}
+
+.details-row{
+    display:flex;
+    flex-direction:row;      
+    justify-content:center; 
+    gap:16px;                
+    margin-bottom:20px;     
+    flex-wrap: wrap;
+}
+
+.detail-item{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:#888;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.detail-item i{
+    color:#555;
+    width:14px;
+    text-align:center;
+}
+
+.description-text{
+    font-size:12px;
+    color:#555;
+    line-height:1.5;
+    margin-bottom:20px;     
+    text-align:center; 
+    word-break: break-word;
+}
+
+.date-row{
+    display:flex;
+    align-items:center;
+    justify-content:center; 
+    gap:6px;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    color:#555;
+    margin-top: auto;       
+}
+
+.date-row i{
+    color:#444;
+}
+
+.no-data-label {
+    font-size: 13px;
+    color: #333;
+    padding: 40px 0;
+    letter-spacing: 1px;
+}
+
+@media(max-width:960px){
+    .boxes-wrap{ grid-template-columns: repeat(2, 1fr); } 
+}
+@media(max-width:640px){
+    .boxes-wrap{ grid-template-columns: 1fr; } 
+    .target-box{ max-width: 380px; margin: 0 auto; width: 100%; }
+}
+
+@media(max-width:480px){
+    .logo-wrap{width:72px;height:72px}
+    .brand-title{font-size:32px;letter-spacing:1px}
+    .action-btn{padding:9px 22px;font-size:13px}
+    .leaked-label{font-size:10px;letter-spacing:1px;gap:8px}
+    .leaked-label::before, .leaked-label::after{width:20px;}
+    .target-box{padding:20px 16px; min-height:280px;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="logo-wrap">
+        <img src="/logo/logo.png" alt="VEXY">
+    </div>
+    
+    <h1 class="brand-title">VEXY RANSOMWARE</h1>
+    
+    <div class="btn-row">
+        <a href="/login" class="action-btn">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> LOGIN
+        </a>
+        <a href="/registration" class="action-btn">
+            <i class="fa-solid fa-user-plus"></i> REGISTER
+        </a>
+    </div>
+
+    <div class="leaked-label">LEAKED DATA</div>
+
+    <div class="boxes-wrap">
+                                    <div class="target-box running-state" id="box_v41">
+                    
+                        <div class="timer-sub-box" id="timerSubBox_v41">
+                            <div class="timer" id="countdown_v41">
+                                <span id="cDays_v41">00D</span> 
+                                <span id="cHours_v41">00H</span> 
+                                <span id="cMinutes_v41">00M</span>
+                                <span id="cSeconds_v41">00S</span>
+                            </div>
+                        </div>
+                    
+                    <div class="company-name">KOOKABARRA JUICE</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://kookabarra.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 37 GB</div>
+                    </div>
+                    
+                    <p class="description-text">French manufacturer specializing in fresh-pressed fruit juices, detox juices, smoothies, nectars and other fresh fruit products, serving both professionals and consumers.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-10-06 20:03:09 UTC                    </div>
+                </div>
+
+                                    <script>
+                        (function() {
+                            var rawDeadline = "2026-10-30 00:00:00";
+                            var cleaned = rawDeadline.replace(' ', 'T') + 'Z';
+                            var countDownDate = new Date(cleaned).getTime();
+                            var uid = "v41";
+
+                            if (isNaN(countDownDate) || countDownDate < Date.now()) {
+                                var vBox = document.getElementById("box_" + uid);
+                                if (vBox) {
+                                    vBox.classList.remove("running-state");
+                                    vBox.classList.add("clickable-box");
+                                    var sBox = document.getElementById("timerSubBox_" + uid);
+                                    if (sBox) {
+                                        sBox.innerHTML = '<span class="published-link">PUBLISHED</span>';
+                                        sBox.classList.add("published-sub-box");
+                                    }
+                                }
+                                return;
+                            }
+
+                            var x = setInterval(function() {
+                                var now = Date.now();
+                                var distance = countDownDate - now;
+
+                                if (distance <= 0) {
+                                    clearInterval(x);
+                                    var vBox = document.getElementById("box_" + uid);
+                                    if (vBox) {
+                                        vBox.classList.remove("running-state");
+                                        vBox.classList.add("clickable-box");
+                                        var sBox = document.getElementById("timerSubBox_" + uid);
+                                        if (sBox) {
+                                            sBox.innerHTML = '<span class="published-link">PUBLISHED</span>';
+                                            sBox.classList.add("published-sub-box");
+                                        }
+                                    }
+                                } else {
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    document.getElementById("cDays_" + uid).innerHTML = days + "D";
+                                    document.getElementById("cHours_" + uid).innerHTML = (hours < 10 ? "0" : "") + hours + "H";
+                                    document.getElementById("cMinutes_" + uid).innerHTML = (minutes < 10 ? "0" : "") + minutes + "M";
+                                    document.getElementById("cSeconds_" + uid).innerHTML = (seconds < 10 ? "0" : "") + seconds + "S";
+                                }
+                            }, 1000);
+                        })();
+                    </script>
+                
+                            <div class="target-box running-state" id="box_v34">
+                    
+                        <div class="timer-sub-box" id="timerSubBox_v34">
+                            <div class="timer" id="countdown_v34">
+                                <span id="cDays_v34">00D</span> 
+                                <span id="cHours_v34">00H</span> 
+                                <span id="cMinutes_v34">00M</span>
+                                <span id="cSeconds_v34">00S</span>
+                            </div>
+                        </div>
+                    
+                    <div class="company-name">Majani Insurance Brokers</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://majaninsure.com/</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 2.1 GB</div>
+                    </div>
+                    
+                    <p class="description-text">Majani Insurance Brokers is an independent insurance broker serving both businesses and individuals. It arranges insurance products across areas including general business insurance, motor, medical, life, investment, marine, liability, property and agricultural-related covers</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-25 13:01:42 UTC                    </div>
+                </div>
+
+                                    <script>
+                        (function() {
+                            var rawDeadline = "2026-10-20 00:00:00";
+                            var cleaned = rawDeadline.replace(' ', 'T') + 'Z';
+                            var countDownDate = new Date(cleaned).getTime();
+                            var uid = "v34";
+
+                            if (isNaN(countDownDate) || countDownDate < Date.now()) {
+                                var vBox = document.getElementById("box_" + uid);
+                                if (vBox) {
+                                    vBox.classList.remove("running-state");
+                                    vBox.classList.add("clickable-box");
+                                    var sBox = document.getElementById("timerSubBox_" + uid);
+                                    if (sBox) {
+                                        sBox.innerHTML = '<span class="published-link">PUBLISHED</span>';
+                                        sBox.classList.add("published-sub-box");
+                                    }
+                                }
+                                return;
+                            }
+
+                            var x = setInterval(function() {
+                                var now = Date.now();
+                                var distance = countDownDate - now;
+
+                                if (distance <= 0) {
+                                    clearInterval(x);
+                                    var vBox = document.getElementById("box_" + uid);
+                                    if (vBox) {
+                                        vBox.classList.remove("running-state");
+                                        vBox.classList.add("clickable-box");
+                                        var sBox = document.getElementById("timerSubBox_" + uid);
+                                        if (sBox) {
+                                            sBox.innerHTML = '<span class="published-link">PUBLISHED</span>';
+                                            sBox.classList.add("published-sub-box");
+                                        }
+                                    }
+                                } else {
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    document.getElementById("cDays_" + uid).innerHTML = days + "D";
+                                    document.getElementById("cHours_" + uid).innerHTML = (hours < 10 ? "0" : "") + hours + "H";
+                                    document.getElementById("cMinutes_" + uid).innerHTML = (minutes < 10 ? "0" : "") + minutes + "M";
+                                    document.getElementById("cSeconds_" + uid).innerHTML = (seconds < 10 ? "0" : "") + seconds + "S";
+                                }
+                            }, 1000);
+                        })();
+                    </script>
+                
+                            <div class="target-box clickable-box" data-link="/secret/c359e07d36fe51d5ae393a88f06a2b1a-131ed773-bb7c-11f1-ad3c-eab4b0345e68" id="box_v31">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Quy Nhon University</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://qnu.edu.vn</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 50GB</div>
+                    </div>
+                    
+                    <p class="description-text">Quy Nhon University (QNU) is a public, multidisciplinary university located in Quy Nhon City, Binh Dinh Province, Vietnam. Established in 1977, the university has a long-standing tradition in teacher education and has developed into a comprehensive institution offering a wide range of academic programs.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-18 14:00:27 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/41573345a4cc1f9284d84b22b6149ee6-131ed657-bb7c-11f1-ad3c-eab4b0345e68" id="box_v30">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">STP Fashion Lab</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://stpfashionlab.it</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 79.94GB</div>
+                    </div>
+                    
+                    <p class="description-text">stpfashionlab.it is the website of STP Fashion Lab, a Tuscan company that has specialized in making Made in Italy womenswear for over twenty years. It produces the FRIVOLITÉ brand, founded in 2019, which targets independent, sensitive, and playful women.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-17 01:36:11 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/3d21e0ead4829d26f89f1f81773d1703-131ed53c-bb7c-11f1-ad3c-eab4b0345e68" id="box_v29">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Hashimoto Jimuki</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://aoa21.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 12 GB</div>
+                    </div>
+                    
+                    <p class="description-text">Japanese company providing office equipment, IT equipment and services, office furniture, meeting/conferencing systems, and computer support.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-15 18:45:57 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/07fc53bd4e403e82c64f021a84db3059-131ed3f3-bb7c-11f1-ad3c-eab4b0345e68" id="box_v28">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Strad Solutions</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://stradsolutions.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 46.52 GB</div>
+                    </div>
+                    
+                    <p class="description-text">Strad Solutions provides cloud hosting, dedicated servers, managed IT, cybersecurity, and disaster recovery services for businesses worldwide.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-12 15:45:03 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/7b52075392ab0cccd4082d1f93a998ea-131ed151-bb7c-11f1-ad3c-eab4b0345e68" id="box_v27">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">i2k2 Networks</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://i2k2.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 100 GB</div>
+                    </div>
+                    
+                    <p class="description-text">i2k2 Networks Pvt. Ltd., established in 1999, is a leading Indian provider of cloud computing, web hosting, managed IT, data center, backup, disaster recovery, and DevOps solutions. With 25+ years of experience, 4,000+ customers, Tier III-compliant data centers, and 24/7 support, i2k2 delivers secure, scalable, and reliable IT solutions worldwide.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-10 20:16:11 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/55a4858ff77802a40eec743385752c81-131ed01f-bb7c-11f1-ad3c-eab4b0345e68" id="box_v26">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Logar Network Solutions</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://logar.com.br</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 55GB</div>
+                    </div>
+                    
+                    <p class="description-text">Logar Network Solutions is a Brazilian managed IT services provider (MSP) that delivers outsourced IT management, cybersecurity, cloud infrastructure, backup and disaster recovery, software licensing, hardware lifecycle management, and custom software development. The company primarily serves medium-sized businesses across multiple industries, offering 24/7 IT monitoring and support. It has served more than 500 companies and operates across six Brazilian states.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-09 13:51:46 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/209f66ec508c8fd6dabd38508267ff58-131ece6b-bb7c-11f1-ad3c-eab4b0345e68" id="box_v25">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">United Group</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://united-group.in</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 116GB</div>
+                    </div>
+                    
+                    <p class="description-text">United Group is a diversified Indian business group delivering innovative, quality-driven products and services across multiple industries in India and global markets.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-07 14:45:43 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/d37f9e9b287e61c2bf287228b2a5680f-131ecc9b-bb7c-11f1-ad3c-eab4b0345e68" id="box_v21">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Sancity</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://sancity.in</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 130 MB</div>
+                    </div>
+                    
+                    <p class="description-text">An active, unlisted public company incorporated in 2012, operating in real estate/construction and real-estate marketing &amp;amp;amp; sales</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-06 14:05:19 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/6277a81088479cfa1c1ecd15e06f6314-131ecb5a-bb7c-11f1-ad3c-eab4b0345e68" id="box_v19">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Mega Velocity</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://megavelocity.net</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 46.68 GB</div>
+                    </div>
+                    
+                    <p class="description-text">New Delhi–based private technology company incorporated in 2013. Its registered business classification is software publishing, consultancy and supply, including software development, maintenance and web-page design. Its network records also identify MEGA VELOCITY PVT LTD as an Internet/hosting network operator.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-05 16:12:16 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/00ed9c83ee1bde60a63e899c05c89783-131ec990-bb7c-11f1-ad3c-eab4b0345e68" id="box_v17">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Sancity Soft Touch</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://softtouch4u.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 100 MB</div>
+                    </div>
+                    
+                    <p class="description-text">IT services company providing web design &amp;amp;amp; development, software/application development, payment gateway services, digital marketing, mobile applications, software testing and cloud-related services.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-04 15:33:10 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/bf3b1ae77e9c087109d0dc08f415abc5-131ec599-bb7c-11f1-ad3c-eab4b0345e68" id="box_v16">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Annapurna Fashion</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://annapurnafashion.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 3.48 GB</div>
+                    </div>
+                    
+                    <p class="description-text">Manufacturer, supplier and exporter/distributor of fabrics and apparel-related products, including cotton fabrics, shirting, suiting, jacquard, sherwani fabrics, uniforms, ladies tops and readymade garments</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-04 15:10:05 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/f98a305edd545575d6ce03f8a6d00134-131ebbbb-bb7c-11f1-ad3c-eab4b0345e68" id="box_v15">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Palsana Enviro (PEPL)</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://palsanaenviro.com</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 220 MB</div>
+                    </div>
+                    
+                    <p class="description-text">Environmental services company operating a Common Effluent Treatment Plant (CETP) for textile-processing industries. PEPL collects, treats and disposes of industrial wastewater and also recycles treated water for member industries. Its current stated treatment capacity is 150 MLD, with 50 MLD recycling capacity.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-04 14:52:57 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/2e1737a0577b9e351b7d2fd771bd69b9-131eb907-bb7c-11f1-ad3c-eab4b0345e68" id="box_v14">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">McDonalds Ecuador</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://mcdonalds.com.ec</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 42.08 GB</div>
+                    </div>
+                    
+                    <p class="description-text">McDonalds Ecuador is the local franchise operation of the global McDonalds brand. The company operates fast-food restaurants across Ecuador, offering products such as burgers, fries, beverages, breakfast items, and childrens meals. It operates under the McDonalds franchise model through Arcos Dorados, the largest McDonalds franchise operator in Latin America and the Caribbean.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-03 12:33:16 UTC                    </div>
+                </div>
+
+                
+                            <div class="target-box clickable-box" data-link="/secret/73c45d9df2da5b114f0911e3dae08c3f-131ea7e1-bb7c-11f1-ad3c-eab4b0345e68" id="box_v12">
+                    
+                        <div class="timer-sub-box published-sub-box">
+                            <span class="published-link">PUBLISHED</span>
+                        </div>
+                    
+                    <div class="company-name">Engefitas</div>
+                    
+                    <div class="details-row">
+                                                    <div class="detail-item"><i class="fa-solid fa-globe"></i> https://engefitas.com.br</div>
+                                                <div class="detail-item"><i class="fa-solid fa-hard-drive"></i> 27.25 GB</div>
+                    </div>
+                    
+                    <p class="description-text">Engefitas is a Brazilian company that produces various adhesive tapes and adhesives for industries like packaging, automotive, construction, electronic, and manufacturing sectors.</p>
+                    
+                    <div class="date-row">
+                        <i class="fa-regular fa-clock"></i> 
+                        2026-09-02 16:15:53 UTC                    </div>
+                </div>
+
+                
+                        </div>
+
+
+
+    <div class="tox-id"><a href="/contact" class="contact-link">CONTACT US</a></div>
+
+
+    <div class="since-line">WE'VE BEEN WORKING SINCE <strong>SEPTEMBER 3, 2026</strong></div>
+
+    <div class="since-timer" id="sinceTimer">0 YEARS 0 DAYS 0 HOURS</div>
+</div>
+
+<script>
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+(function(){
+    var start = Date.UTC(2026, 8, 3);
+    var el = document.getElementById('sinceTimer');
+    if (!el) return;
+
+    function render(){
+        var now = Date.now();
+        var years = 0;
+        var anniversary = new Date(start);
+        while (true) {
+            var next = new Date(anniversary.getTime());
+            next.setUTCFullYear(next.getUTCFullYear() + 1);
+            if (next.getTime() > now) break;
+            anniversary = next;
+            years++;
+        }
+        var rest = now - anniversary.getTime();
+        var days = Math.floor(rest / 86400000);
+        var hours = Math.floor((rest % 86400000) / 3600000);
+        el.textContent = years + ' YEARS ' + days + ' DAYS ' + hours + ' HOURS';
+    }
+
+    render();
+    setInterval(render, 1000);
+})();
+
+document.addEventListener('click', function(e) {
+    var box = e.target.closest('.target-box.clickable-box');
+    if (box) {
+        var targetLink = box.getAttribute('data-link');
+        if (targetLink && targetLink !== '#') {
+            if (/^https?:\/\//i.test(targetLink)) {
+                window.open(targetLink, '_blank', 'noopener');
+            } else {
+                window.location.href = targetLink;
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

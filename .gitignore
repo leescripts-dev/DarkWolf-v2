@@ -1,0 +1,35 @@
+# Python
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local configuration and secrets
+.env
+**/.env
+!.env.example
+!**/.env.example
+
+# JavaScript dependencies and build output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+
+# Local runtime output
+logs/
+**/logs/
+*.log
+*.pid
+.vscode/
+.idea/
+debug/
+New Text Document.txt
+*.inspect.ndjson
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini

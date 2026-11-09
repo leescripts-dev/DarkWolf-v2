@@ -1,0 +1,358 @@
+[
+  {
+    "name": "AiLock",
+    "url": "http://http:/dhnsppqjaaa22lsqxl2tfhji4ca43743kubltnodvsft3hkvai77p6ad.onion/",
+    "scripts": [],
+    "error": "SOCKSHTTPConnectionPool(host='http', port=80): Max retries exceeded with url: /dhnsppqjaaa22lsqxl2tfhji4ca43743kubltnodvsft3hkvai77p6ad.onion/ (Caused by NewConnectionError(\"SOCKSConnection(host='http', port=80): Failed to establish a new connection: 0x04: Host unreachable\"))"
+  },
+  {
+    "name": "Black Nevas",
+    "url": "http://ctyfftrjgtwdjzlgqh4avbd35sqrs6tde4oyam2ufbjch6oqpqtkdtid.onion",
+    "scripts": [
+      {
+        "url": "http://ctyfftrjgtwdjzlgqh4avbd35sqrs6tde4oyam2ufbjch6oqpqtkdtid.onion/static/js/main.19c04d85.js",
+        "status": 200,
+        "bytes": 615698,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\black_nevas_script0.js",
+        "endpoint_strings": [
+          "/api/category/exist",
+          "/api/files/download",
+          "/api/files/root",
+          "/api/files/root/",
+          "/api/hidden/",
+          "/api/publication",
+          "/api/publication/",
+          "/api/statistic"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://ctyfftrjgtwdjzlgqh4avbd35sqrs6tde4oyam2ufbjch6oqpqtkdtid.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "DLS",
+    "bytes": 790
+  },
+  {
+    "name": "BlackX",
+    "url": "http://blackxppq2jvqyg4slyg3sbszv7ib2avaaycvhff5qipgdoepqi57xyd.onion",
+    "scripts": [
+      {
+        "url": "http://blackxppq2jvqyg4slyg3sbszv7ib2avaaycvhff5qipgdoepqi57xyd.onion/assets/index-DxyZcB_e.js",
+        "status": 200,
+        "bytes": 1420456,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\blackx_script0.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://blackxppq2jvqyg4slyg3sbszv7ib2avaaycvhff5qipgdoepqi57xyd.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "Black X",
+    "bytes": 488
+  },
+  {
+    "name": "cry0",
+    "url": "http://cryoblogedawivdcknyd4jsjxkrx3xrqqltxla6wwjjnzm3f3jaxjzqd.onion",
+    "scripts": [],
+    "error": "SOCKSHTTPConnectionPool(host='cryoblogedawivdcknyd4jsjxkrx3xrqqltxla6wwjjnzm3f3jaxjzqd.onion', port=80): Max retries exceeded with url: / (Caused by NewConnectionError(\"SOCKSConnection(host='cryoblogedawivdcknyd4jsjxkrx3xrqqltxla6wwjjnzm3f3jaxjzqd.onion', port=80): Failed to establish a new connection: 0x04: Host unreachable\"))"
+  },
+  {
+    "name": "Eclipse",
+    "url": "http://eclipse4g5kxfwsvpu4qx5sdcnrji6gxl5gt67bucjlgt35g7akvjoid.onion",
+    "scripts": [
+      {
+        "url": "http://eclipse4g5kxfwsvpu4qx5sdcnrji6gxl5gt67bucjlgt35g7akvjoid.onion/js/blog-challenge.js",
+        "status": 200,
+        "bytes": 3488,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\eclipse_script0.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://eclipse4g5kxfwsvpu4qx5sdcnrji6gxl5gt67bucjlgt35g7akvjoid.onion/challenge/?next=/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "Eclipse Blog",
+    "bytes": 1161
+  },
+  {
+    "name": "GAMMAX",
+    "url": "http://gammax6w3dkfdjfrjthtmqzsioue52vzy6lz54qy6jcvmogfpubutjyd.onion/",
+    "scripts": [
+      {
+        "url": "http://gammax6w3dkfdjfrjthtmqzsioue52vzy6lz54qy6jcvmogfpubutjyd.onion/src/style.js?a=1791705891",
+        "status": 200,
+        "bytes": 48246,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\gammax_script0.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://gammax6w3dkfdjfrjthtmqzsioue52vzy6lz54qy6jcvmogfpubutjyd.onion/src/app.js?a=1791705891",
+        "status": 200,
+        "bytes": 38632,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\gammax_script1.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://gammax6w3dkfdjfrjthtmqzsioue52vzy6lz54qy6jcvmogfpubutjyd.onion/",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "title": "GAMMAX // BLOG",
+    "bytes": 336709
+  },
+  {
+    "name": "Global",
+    "url": "http://globaldonejcrwbe7ujwuzptsummx3rvba54wcjoxrjvqgo37y4aqwid.onion/",
+    "scripts": [],
+    "error": "SOCKSHTTPConnectionPool(host='globaldonejcrwbe7ujwuzptsummx3rvba54wcjoxrjvqgo37y4aqwid.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='globaldonejcrwbe7ujwuzptsummx3rvba54wcjoxrjvqgo37y4aqwid.onion', port=80) at 0x294470cfbd0>, 'Connection to globaldonejcrwbe7ujwuzptsummx3rvba54wcjoxrjvqgo37y4aqwid.onion timed out. (connect timeout=30)'))"
+  },
+  {
+    "name": "INC RANSOM",
+    "url": "http://incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion/",
+    "scripts": [
+      {
+        "url": "http://incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion/assets/index-DjzwPXL3.js",
+        "status": 200,
+        "bytes": 383580,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\inc_ransom_script0.js",
+        "endpoint_strings": [
+          "/api/v1/blog/create/report",
+          "/api/v1/blog/get/captcha",
+          "/api/v1/blog/get/news",
+          "/blog/news"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "NULL",
+    "bytes": 448
+  },
+  {
+    "name": "INTERLOCK",
+    "url": "http://ebhmkoohccl45qesdbvrjqtyro2hmhkmh6vkyfyjjzfllm3ix72aqaid.onion/leaks.php",
+    "scripts": [],
+    "error": null,
+    "final_url": "http://ebhmkoohccl45qesdbvrjqtyro2hmhkmh6vkyfyjjzfllm3ix72aqaid.onion/leaks.php",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Interlock",
+    "bytes": 321603
+  },
+  {
+    "name": "Kairos",
+    "url": "http://kairosgeuzkzz3ajntqcyxl3ib36szz3mg62mb3zbui33pbk3uzo4qqd.onion/catalog",
+    "scripts": [
+      {
+        "url": "http://kairosgeuzkzz3ajntqcyxl3ib36szz3mg62mb3zbui33pbk3uzo4qqd.onion/assets/index-CANSeGzA.js",
+        "status": 200,
+        "bytes": 78607,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\kairos_script0.js",
+        "endpoint_strings": [
+          "https://www.comparitech.com/news/ransomware-gang-says-it-stole-confidential-files-from-taos-county-nm-demands-ransom-in-7-days/"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://kairosgeuzkzz3ajntqcyxl3ib36szz3mg62mb3zbui33pbk3uzo4qqd.onion/catalog",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Kairos",
+    "bytes": 5918
+  },
+  {
+    "name": "Leaknet",
+    "url": "http://nleakk6sejx45jxtk7x6iyt65hwvfrkifc5v7ertdlwm3gttbpvlvxqd.onion",
+    "scripts": [],
+    "error": null,
+    "final_url": "http://nleakk6sejx45jxtk7x6iyt65hwvfrkifc5v7ertdlwm3gttbpvlvxqd.onion/",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "title": "News Blog",
+    "bytes": 1423553
+  },
+  {
+    "name": "Money Message",
+    "url": "http://blogvl7tjyjvsfthobttze52w36wwiz34hrfcmorgvdzb6hikucb7aqd.onion/",
+    "scripts": [],
+    "error": "SOCKSHTTPConnectionPool(host='blogvl7tjyjvsfthobttze52w36wwiz34hrfcmorgvdzb6hikucb7aqd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='blogvl7tjyjvsfthobttze52w36wwiz34hrfcmorgvdzb6hikucb7aqd.onion', port=80) at 0x294472b8af0>, 'Connection to blogvl7tjyjvsfthobttze52w36wwiz34hrfcmorgvdzb6hikucb7aqd.onion timed out. (connect timeout=30)'))"
+  },
+  {
+    "name": "Morpheus",
+    "url": "http://izsp6ipui4ctgxfugbgtu65kzefrucltyfpbxplmfybl5swiadpljmyd.onion/",
+    "scripts": [
+      {
+        "url": "http://izsp6ipui4ctgxfugbgtu65kzefrucltyfpbxplmfybl5swiadpljmyd.onion/assets/index-guft1Rhh.js",
+        "status": 200,
+        "bytes": 713042,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\morpheus_script0.js",
+        "endpoint_strings": [
+          "/intrumpwetrust/api/"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://izsp6ipui4ctgxfugbgtu65kzefrucltyfpbxplmfybl5swiadpljmyd.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "MORPHEUS (contact morpheus.support@onionmail.org)",
+    "bytes": 565
+  },
+  {
+    "name": "Panzer",
+    "url": "http://pnzruro7syvwvefx5mpo2fhzi4jftgquynsqf3vy5x3no57yp2iz4nyd.onion/",
+    "scripts": [
+      {
+        "url": "http://pnzruro7syvwvefx5mpo2fhzi4jftgquynsqf3vy5x3no57yp2iz4nyd.onion/assets/index-BsnGcuyW.js",
+        "status": 200,
+        "bytes": 47391,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\panzer_script0.js",
+        "endpoint_strings": [
+          "/admin/companies-data",
+          "/admin/news",
+          "/affiliate/blog-api",
+          "/affiliate/news"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://pnzruro7syvwvefx5mpo2fhzi4jftgquynsqf3vy5x3no57yp2iz4nyd.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "Panzer",
+    "bytes": 1159
+  },
+  {
+    "name": "SETTRA",
+    "url": "http://settra5ldqwgtw5q7z5awbsvlksakyfojuc5slgrz5lvapune4fantqd.onion",
+    "scripts": [
+      {
+        "url": "http://settra5ldqwgtw5q7z5awbsvlksakyfojuc5slgrz5lvapune4fantqd.onion/.within.website/x/cmd/anubis/static/js/main.mjs?cacheBuster=v1.27.1-0.20260811045059-10d172bafdde+dirty",
+        "status": 200,
+        "bytes": 6594,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\settra_script0.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://settra5ldqwgtw5q7z5awbsvlksakyfojuc5slgrz5lvapune4fantqd.onion/",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "title": "Loading",
+    "bytes": 4822
+  },
+  {
+    "name": "Termite Ransomware",
+    "url": "http://termiteuslbumdge2zmfmfcsrvmvsfe4gvyudc5j6cdnisnhtftvokid.onion/",
+    "scripts": [
+      {
+        "url": "http://termiteuslbumdge2zmfmfcsrvmvsfe4gvyudc5j6cdnisnhtftvokid.onion/assets/index-CW_sIBt8.js",
+        "status": 200,
+        "bytes": 360782,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\termite_ransomware_script0.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://termiteuslbumdge2zmfmfcsrvmvsfe4gvyudc5j6cdnisnhtftvokid.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "Termite",
+    "bytes": 454
+  },
+  {
+    "name": "TITAN",
+    "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion",
+    "scripts": [
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/0pqt~8bl3ukh4.js",
+        "status": 200,
+        "bytes": 44414,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script0.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/0r7m44~cm1a3r.js",
+        "status": 200,
+        "bytes": 227314,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script1.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/0e-wrhqh4h3r5.js",
+        "status": 200,
+        "bytes": 140798,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script2.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/turbopack-0-00k3gngun1o.js",
+        "status": 200,
+        "bytes": 10580,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script3.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/13h-0fd.p-1ga.js",
+        "status": 200,
+        "bytes": 9091,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script4.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/0d3shmwh5_nmn.js",
+        "status": 200,
+        "bytes": 54646,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script5.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/03~yq9q893hmn.js",
+        "status": 200,
+        "bytes": 112594,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script6.js",
+        "endpoint_strings": []
+      },
+      {
+        "url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/_next/static/chunks/16fce0~0kfr7_.js",
+        "status": 200,
+        "bytes": 32720,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\titan_script7.js",
+        "endpoint_strings": []
+      }
+    ],
+    "error": null,
+    "final_url": "http://x4bccxlsmjsxlnnf3ocvndlshgfkagzytpqmsjnlfykceumnw6i4hkqd.onion/",
+    "status": 307,
+    "content_type": "text/html; charset=utf-8",
+    "title": "TITAN",
+    "bytes": 13260
+  },
+  {
+    "name": "ULOSE",
+    "url": "http://egm34gsyx65wb6jyqds4esvkskl34barx4robuebjhqpc4dfeavg7fyd.onion/",
+    "scripts": [
+      {
+        "url": "http://egm34gsyx65wb6jyqds4esvkskl34barx4robuebjhqpc4dfeavg7fyd.onion/assets/index-apCSQOOt.js",
+        "status": 200,
+        "bytes": 453987,
+        "file": "D:\\DarkWolf\\recon\\round2\\html\\ulose_script0.js",
+        "endpoint_strings": [
+          "/api",
+          "http://localhost:5000/api"
+        ]
+      }
+    ],
+    "error": null,
+    "final_url": "http://egm34gsyx65wb6jyqds4esvkskl34barx4robuebjhqpc4dfeavg7fyd.onion/",
+    "status": 200,
+    "content_type": "text/html",
+    "title": "ULOSE",
+    "bytes": 389
+  }
+]

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Insomnia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    body {
+      background: #ffffff;
+      color: #222222;
+      font-family: 'Cascadia Code', monospace;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    #captcha-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      background: #ffffff;
+    }
+    #captcha-box {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      max-width: 300px;
+      width: 90%;
+    }
+    #captcha-box h2 {
+      margin: 0 0 16px 0;
+      font-size: 1.2em;
+      color: #000000;
+    }
+    #captcha-input {
+      padding: 8px;
+      margin: 0 0 12px 0;
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #aaa;
+      font-family: 'Cascadia Code', monospace;
+      font-size: 1em;
+      text-align: center;
+      width: 100px;
+      box-sizing: border-box;
+    }
+    #captcha-button {
+      padding: 8px 16px;
+      background: #f8f8f8;
+      color: #000000;
+      border: 1px solid #aaa;
+      font-family: 'Cascadia Code', monospace;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #captcha-button:hover {
+      background: #e0e0e0;
+    }
+    #captcha-message {
+      color: #cc0000;
+      min-height: 1.2em;
+      margin-top: 8px;
+    }
+    #main-content {
+      display: none;
+      padding: 20px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+      flex: 1;
+    }
+    .header {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 12px;
+    }
+    .logo-link {
+      display: block;
+      width: 420px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .logo-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .book-card {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+      margin: 16px auto 0 auto;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .card-cover {
+      flex: 0 0 180px;
+      height: 140px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .card-cover .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 6px;
+    }
+
+    .card-info {
+      flex: 1;
+      height: 140px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 6px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .card-info .info-title {
+      margin: 0;
+      font-size: 1.2em;
+      color: #000000;
+      line-height: 1.3;
+    }
+    .card-info .info-title a {
+      color: #000000;
+      text-decoration: none;
+    }
+    .card-info .info-title a:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+    .card-info .info-author {
+      margin: 0;
+      color: #555555;
+      font-style: italic;
+      font-size: 0.82em;
+      line-height: 1.3;
+    }
+    .card-info .info-desc {
+      margin: 0;
+      line-height: 1.4;
+      color: #333333;
+      font-size: 0.82em;
+      word-break: break-word;
+    }
+
+    .card-meta {
+      flex: 0 0 350px;
+      height: 140px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      padding: 8px;
+      font-size: 0.80em;
+      color: #555555;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .card-meta span strong {
+      color: #000000;
+    }
+    .card-meta span {
+      margin: 0;
+      display: block;
+      overflow: hidden;
+    }
+
+    .global-footer {
+      text-align: center;
+      padding-bottom: 15px;
+      margin-top: 10px;
+      color: #000000;
+      font-size: 1.0em;
+      font-family: 'Cascadia Code', monospace;
+      font-size: 0.80em;
+      font-weight: bold;
+    }    
+  </style>
+</head>
+<body>
+
+  <div id="captcha-screen">
+    <div id="captcha-box">
+      <h2>Human Verification</h2>
+      <p id="captcha-question">What is 1 + 1 = ?</p>
+      <input type="text" id="captcha-input" inputmode="numeric" pattern="[0-9]*" placeholder="?" autocomplete="off" autofocus>
+      <br>
+      <button id="captcha-button">Submit</button>
+      <p id="captcha-message"></p>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <div class="header">
+      <a href="/" class="logo-link">
+        <img src="/logo.png" alt="Library">
+      </a>
+    </div>
+
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/PraxisEMR/metadata/cover.jpg" alt="Praxis EMR" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/PraxisEMR/">Praxis EMR</a></h3>
+        <p class="info-author">Healthcare Software</p>
+        <p class="info-desc">Praxis EMR is a highly rated EHR for physicians and medical providers, using AI to boost efficiency and accuracy. It lets clinicians document in their own words, improving usability, satisfaction, and time spent on patient care.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.praxisemr.com</span><span><strong>Revenue:</strong> $7.2 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Commerce, California, USA</span><span><strong>Notified:</strong> 2026-9-17</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Nephrologyassoc/metadata/cover.jpg" alt="Nephrology Associates" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Nephrologyassoc/">Nephrology Associates</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">Nephrology Associates, PC has provided expert kidney care in Bridgeport, CT for over 40 years. Board-certified physicians offer patient-focused nephrology services, including office visits, hospital consults, home dialysis, and in-center hemodialysis by referral.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.nephrologyassoc.net</span><span><strong>Revenue:</strong> $5.1 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Bridgeport, Connecticut, USA</span><span><strong>Notified:</strong> 2026-9-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Agape/metadata/cover.jpg" alt="Metropolitan Community Health Services" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Agape/">Metropolitan Community Health Services</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">Agape Health Services, a CCBHC/FQHC run by Metropolitan Community Health Services, offers sliding-scale primary, preventive, dental, pharmacy, and behavioral health care, plus mobile, law-enforcement, training, and reentry services.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.agapechc.org</span><span><strong>Revenue:</strong> $19.3 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Washington, North Carolina, USA</span><span><strong>Notified:</strong> 2026-8-24</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/NorthShore/metadata/cover.jpg" alt="NorthShore Health Centers" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/NorthShore/">NorthShore Health Centers</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">NorthShore Health Centers offers comprehensive care in Indiana, including behavioral health, dental, pediatrics, and womenâs health. It runs multiple health centers and mobile units across Porter, Lake, La Porte, and Jasper counties.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.northshorehealth.org</span><span><strong>Revenue:</strong> $84.3 million</span><span><strong>Employees:</strong> 201-500</span><span><strong>Location:</strong> Chesterton, Indiana, USA</span><span><strong>Notified:</strong> 2026-8-10</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/MnM/metadata/cover.jpg" alt="Maglin, Miskiv &amp; Associates" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/MnM/">Maglin, Miskiv &amp; Associates</a></h3>
+        <p class="info-author">Accounting</p>
+        <p class="info-desc">Maglin Miskiv &amp; Associates in Parsippany, NJ offers personalized accounting, tax planning, bookkeeping, payroll, financial consulting, tax prep, and audit support for individuals and businesses. Contact them for a consultation.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> none</span><span><strong>Revenue:</strong> $10.8 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Parsippany, New Jersey, USA</span><span><strong>Notified:</strong> 2026-8-7</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/MTFAS/metadata/cover.jpg" alt="Metro Tulsa Foot" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/MTFAS/">Metro Tulsa Foot</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">A comprehensive foot and ankle treatment center with five locations in the Tulsa Metro area. They offer a range of services including treatment for common foot pains, deformities, and injuries, and provide same-day appointments for urgent needs.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.tulsafoot.com</span><span><strong>Revenue:</strong> $5.7 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Broken Arrow, Oklahoma, USA</span><span><strong>Notified:</strong> 2026-8-3</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Aurora/metadata/cover.jpg" alt="Aurora Health Management" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Aurora/">Aurora Health Management</a></h3>
+        <p class="info-author">Hospital &amp; Health Care</p>
+        <p class="info-desc">Aurora Health Management, LLC operates a skilled nursing and rehab center in Frederick, MD. With nearly 25 years in long-term care, it improves troubled facilities through comprehensive management, programs, and Medicare/Medicaid standards.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.aurorahealthmgt.com</span><span><strong>Revenue:</strong> $14.3 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Millersville, Maryland, USA</span><span><strong>Notified:</strong> 2026-7-27</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Codinter/metadata/cover.jpg" alt="Codinter" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Codinter/">Codinter</a></h3>
+        <p class="info-author">Commercial and Service Industry Machinery Manufacturing</p>
+        <p class="info-desc">Private company supplying welding, cutting, finishing products and services across North/Central/South America. Offers equipment, tools, accessories, consumables - from mobile units to robotic systems. Oil industry: pipeline, tanks, refinery, platforms.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.codinter.com</span><span><strong>Revenue:</strong> $10.7 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Miami, Florida, USA</span><span><strong>Notified:</strong> 2026-8-5</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/PPBH/metadata/cover.jpg" alt="Park Place Behavioral Health Care" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/PPBH/">Park Place Behavioral Health Care</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">PPBHC provides mental health and substance use services in Osceola County, Florida, with 40+ yearsâ experience. They offer crisis intervention, therapy, recovery-oriented care, telehealth, and partner with GENOA for medication access.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.ppbh.org</span><span><strong>Revenue:</strong> $16.6 million</span><span><strong>Employees:</strong> 201-500</span><span><strong>Location:</strong> Kissimmee, Florida, USA</span><span><strong>Notified:</strong> 2026-7-23</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Laempereich/metadata/cover.jpg" alt="Laempe Reich" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Laempereich/">Laempe Reich</a></h3>
+        <p class="info-author">Industrial Machinery &amp; Equipment</p>
+        <p class="info-desc">Laempe Reich is North Americaâs leading foundry core machine supplier, providing sand core equipment and technology for metal casting. As partner of Laempe MÃ¶ssner Sinto, it serves the industry for over 80 years.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.laempereich.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Trussville, Alabama, USA</span><span><strong>Notified:</strong> 2026-7-1</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Merrit/metadata/cover.jpg" alt="Merritt Woodwork" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Merrit/">Merritt Woodwork</a></h3>
+        <p class="info-author">Building Materials</p>
+        <p class="info-desc">Merritt provides strategic interior solutions for global estates and superyachts, from concept to execution. With precision planning and careful craftsmanship, it partners with top designers and craftsmen to deliver unparalleled results for generations.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.merrittwoodwork.com</span><span><strong>Revenue:</strong> $81.3 million</span><span><strong>Employees:</strong> 201-500</span><span><strong>Location:</strong> Mentor, Ohio, USA</span><span><strong>Notified:</strong> 2026-7-15</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/SkySolutions/metadata/cover.jpg" alt="Sky Solutions" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/SkySolutions/">Sky Solutions</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">Sky Solutions is a leading distribution company for Telecommunication products and services in PanamÃ¡. Currently serving 4 regions in Panama covering +4,000 points of sales; retail chains and supermarkets.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.skysolutions.com.pa</span><span><strong>Revenue:</strong> $6 million</span><span><strong>Employees:</strong> 51-100</span><span><strong>Location:</strong> Panama</span><span><strong>Notified:</strong> 2026-7-5</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/TVG/metadata/cover.jpg" alt="The Vant Group" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/TVG/">The Vant Group</a></h3>
+        <p class="info-author">Business Services &amp; Finance General</p>
+        <p class="info-desc">The Vant Group, founded in 1999, is an M&amp;A advisory firm serving businesses up to $250M in revenue. It provides valuations, sell/buy-side advisory, and employee/partner buyouts, leveraging experienced professionals. Clients are mainly entrepreneurs and owners.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.thevantgroup.com</span><span><strong>Revenue:</strong> $15.7 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Dallas, Texas, USA</span><span><strong>Notified:</strong> 2026-5-13</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/MCHRA/metadata/cover.jpg" alt="Mid-Cumberland Human Resource Agency" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/MCHRA/">Mid-Cumberland Human Resource Agency</a></h3>
+        <p class="info-author">Non-Profit &amp; Charitable Organizations</p>
+        <p class="info-desc">MCHRA is a nonprofit promoting self-sufficiency via Meals-on-Wheels, public transit, in-home services, and community corrections. It serves adults needing care, transit users, and long-term care residents, emphasizing inclusivity and translation services.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.mchra.com</span><span><strong>Revenue:</strong> $27.2 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Erin, Tennessee, USA</span><span><strong>Notified:</strong> 2026-5-18</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/ARNAPA/metadata/cover.jpg" alt="Nephrology Associates" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/ARNAPA/">Nephrology Associates</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">Nephrology Associates, PA is a leading central Arkansas nephrology practice with seven highly trained physicians across seven locations. They provide compassionate kidney care, accept all insurances, and aim to create a welcoming environment for patients.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.arnapa.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Little Rock, Arkansas, USA</span><span><strong>Notified:</strong> 2026-4-6</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/METOSystems/metadata/cover.jpg" alt="METO Systems" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/METOSystems/">METO Systems</a></h3>
+        <p class="info-author">Industrial Machinery &amp; Equipment</p>
+        <p class="info-desc">METO Systems designs and manufactures stainless-steel industrial materialâhandling equipment for regulated industries. Products include lifts, blenders, transporters, and docking systems, they offer installation, training, customization, and support.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.metosystems.com</span><span><strong>Revenue:</strong> $6 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Parsippany, New Jersey, USA</span><span><strong>Notified:</strong> 2026-3-31</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/UnitedMD/metadata/cover.jpg" alt="United Medical Doctors" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/UnitedMD/">United Medical Doctors</a></h3>
+        <p class="info-author">Hospitals &amp; Physicians Clinics</p>
+        <p class="info-desc">United Medical Doctors (UMD) is an independent multiâspecialty medicalâsurgical group with 70+ Southern California locations and 40+ specialties. They focus on highâquality, compassionate care, patient satisfaction, process improvement, outpatient surgery, clinical research.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.unitedmd.com</span><span><strong>Revenue:</strong> $51.5 million</span><span><strong>Employees:</strong> 201-500</span><span><strong>Location:</strong> Murrieta, California, USA</span><span><strong>Notified:</strong> 2026-3-31</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Noble/metadata/cover.jpg" alt="Noble Inc." class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Noble/">Noble Inc.</a></h3>
+        <p class="info-author">Energy, Utilities &amp; Waste</p>
+        <p class="info-desc">Noble Casing, Inc., founded in 2009, provides casing running and conductor drilling services in the Rocky Mountain region, emphasizing safety, training and equipment upkeep. Subsidiaries Noble Drilling and Noble Trucking support production and rig moves.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.nobleoilfieldservices.com</span><span><strong>Revenue:</strong> $88 million</span><span><strong>Employees:</strong> 201-500</span><span><strong>Location:</strong> Williston, North Dakota, USA</span><span><strong>Notified:</strong> 2026-3-4</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/VFHC/metadata/cover.jpg" alt="Valley Family Health Care" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/VFHC/">Valley Family Health Care</a></h3>
+        <p class="info-author">Physicians Clinics</p>
+        <p class="info-desc">Valley Family Health Care is a Community Health Center offering medical, dental, behavioral health, and nutrition services. With 12 locations (including a mobile unit), they accept major insurances and provide income-based sliding fees to ensure accessible care.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.vfhc.org</span><span><strong>Revenue:</strong> $24.5 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Payette, Idaho, USA</span><span><strong>Notified:</strong> 2026-3-7</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Atlas/metadata/cover.jpg" alt="Atlas Ocean Voyages" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Atlas/">Atlas Ocean Voyages</a></h3>
+        <p class="info-author">Travel Arrangements</p>
+        <p class="info-desc">Atlas Ocean Voyages offers year-round all-inclusive expedition cruises for under 200 guests, led by expert guides and caring crew. Luxurious yachts sail poleâtoâpole to pristine, hardâtoâreach destinations for nature, culture, and culinary exploration.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.atlasoceanvoyages.com</span><span><strong>Revenue:</strong> $11 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Fort Lauderdale, Florida, USA</span><span><strong>Notified:</strong> 2026-2-27</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Belmont/metadata/cover.jpg" alt="Belmont Plastic Surgery" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Belmont/">Belmont Plastic Surgery</a></h3>
+        <p class="info-author">Physicians Clinics</p>
+        <p class="info-desc">Belmont Plastic Surgery, led by award-winning surgeon Dr. Jules Feledy, offers comprehensive cosmetic and reconstructive procedures. The practice specializes in breast augmentation, body contouring, and facial rejuvenation, delivering natural-looking.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.belmontplasticsurgeryva.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Stafford, Virginia, USA</span><span><strong>Notified:</strong> 2026-2-24</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Ripple/metadata/cover.jpg" alt="Ripple Neuro" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Ripple/">Ripple Neuro</a></h3>
+        <p class="info-author">Biotechnology Research</p>
+        <p class="info-desc">Ripple Neuro builds neuroscience research tools and medical devices for electrophysiology, offering portable wireless processors, implantable tech, and accessories for various models. They serve researchers in BCI, closed-loop stimulation, and wireless signal acquisition.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.rippleneuro.com</span><span><strong>Revenue:</strong> $7 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Millcreek, Utah, USA</span><span><strong>Notified:</strong> 2026-2-14</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Thrash/metadata/cover.jpg" alt="Thrash Commercial Contractors" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Thrash/">Thrash Commercial Contractors</a></h3>
+        <p class="info-author">Construction Management</p>
+        <p class="info-desc">Thrash is a Southeast commercial builder offering general contracting, construction management, preconstruction, and design-build. Known for detailed execution, clear communication, and strong client relationships across institutions and states.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.thrashco.com</span><span><strong>Revenue:</strong> $121 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Brandon, Mississippi, USA</span><span><strong>Notified:</strong> 2026-2-2</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Zaner/metadata/cover.jpg" alt="Zaner Group" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Zaner/">Zaner Group</a></h3>
+        <p class="info-author">Finance</p>
+        <p class="info-desc">Zaner, a family-owned brokerage since 1980, provides global commodities risk-management, advisory, research, and trading tech. Serving futures, metals, currencies, energies and agriculture, they offer hedging, precious metals solutions, competitive pricing.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.zaner.com</span><span><strong>Revenue:</strong> $6 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Chicago, Illinois, USA</span><span><strong>Notified:</strong> 2026-2-4</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/ASP/metadata/cover.jpg" alt="Application Solution Providers" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/ASP/">Application Solution Providers</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">Application Solution Providers, Inc. delivers cloud-based DaaS and software, plus consulting, development, marketing, support, and trainingâenabling flexible, remote operations with tailored, customer-focused solutions to boost efficiency.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.aspdd.com</span><span><strong>Revenue:</strong> &lt;$5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Longmont, Colorado, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Syverson/metadata/cover.jpg" alt="The Syverson Group" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Syverson/">The Syverson Group</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">TSG is a retained executive search firm specializing in medical device and life sciences recruiting. They deliver rapid, client and candidate-focused talent acquisitionâincluding diagnostics, clinical research and leadership placement.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.thesyversongroup.com</span><span><strong>Revenue:</strong> &lt;$5 million</span><span><strong>Employees:</strong> 1-10</span><span><strong>Location:</strong> Alpharetta, Georgia, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Aviam/metadata/cover.jpg" alt="Aviam Corporate Housing" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Aviam/">Aviam Corporate Housing</a></h3>
+        <p class="info-author">Hospitality</p>
+        <p class="info-desc">Aviam is the nation&#x27;s premier corporate housing provider, offering furnished, fully equipped accommodations with maid service, 24/7 emergency support, and customizable packages for executives, teams, or interns â more comfort and savings than hotels.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.aviam.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> New Braunfels, Texas, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/AdMark/metadata/cover.jpg" alt="AdMark Asia Group" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/AdMark/">AdMark Asia Group</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">AdMark Home is a leading Asia-wide executive search firm (offices in Hong Kong, Shanghai, Tokyo) specializing in consumer, communication and retail sectors. With 7,000+ placements, they emphasize deep client insight, diligent screening, and long-term partnerships.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.admarkasiagroup.com</span><span><strong>Revenue:</strong> &lt;$5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Honolulu, Hawaii, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Copier/metadata/cover.jpg" alt="Copier Careers" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Copier/">Copier Careers</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">Copier Careers is a recruiting firm connecting Copier Channel employers with skilled professionals. It focuses on strategic placementsâSales Reps, Managers, and other office equipment rolesâto help businesses grow, and provides job seekers a job board.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.copiercareers.com</span><span><strong>Revenue:</strong> $5.5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Golden Valley, Minnesota, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Chiarottino/metadata/cover.jpg" alt="Chiarottino" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Chiarottino/">Chiarottino</a></h3>
+        <p class="info-author">Law Firms and Legal Services</p>
+        <p class="info-desc">Chiarottino and Nicoletti Advogados is full-service law firm in corporate law, offering tailored legal services across environment, arbitration, finance, compliance, litigation, contracts, digital, family, real estate, capital markets, IP, labor, tax, wealth.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.chiarottino.com.br</span><span><strong>Revenue:</strong> $6 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Sao Paulo, Brazil</span><span><strong>Notified:</strong> 2026-1-23</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/Enviro-Hub/metadata/cover.jpg" alt="Enviro-Hub Holdings" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/Enviro-Hub/">Enviro-Hub Holdings</a></h3>
+        <p class="info-author">Business Services</p>
+        <p class="info-desc">Enviro-Hub restores the environment using innovative technologies. It trades, recycles and refines e-waste and metals, supplies healthcare products, and manages property investments. The firm serves clients needing sustainable waste management and healthcare solutions.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.enviro-hub.com</span><span><strong>Revenue:</strong> $33 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Singapore, SG</span><span><strong>Notified:</strong> 2026-1-19</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/TriCitiesGastroenterology/metadata/cover.jpg" alt="Tri-Cities Gastroenterology" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/TriCitiesGastroenterology/">Tri-Cities Gastroenterology</a></h3>
+        <p class="info-author">Hospitals - Physicians Clinics</p>
+        <p class="info-desc">Tri-Cities Gastroenterology provides comprehensive digestive care focused on whole-person wellness, using human and technological resources to ensure patient comfort and timely, reliable information and reports for referring physicians.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.digestivewellness.net</span><span><strong>Revenue:</strong> $8 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Kingsport, Tennessee, USA</span><span><strong>Notified:</strong> 2025-12-16</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/DunnAndDunn/metadata/cover.jpg" alt="Dunn and Dunn" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/DunnAndDunn/">Dunn and Dunn</a></h3>
+        <p class="info-author">Law Firms - Legal Services</p>
+        <p class="info-desc">Dunn and Dunn is a Boston - based law firm established in 1928. They specialize in providing legal counsel and representation to healthcare professionals. Core practice areas include: Medical malpractice defense, Long-term care defense, General liability defense</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.dunnanddunn.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Boston, Massachusetts, USA</span><span><strong>Notified:</strong> 2026-1-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/ACLA/metadata/cover.jpg" alt="Anatomic Clinical Laboratory Associates" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/ACLA/">Anatomic Clinical Laboratory Associates</a></h3>
+        <p class="info-author">Hospitals - Physicians Clinics</p>
+        <p class="info-desc">Nashville-based physician-owned pathology group serving Middle Tennessee with high-quality diagnostics care with timely reporting and accessibility for clinicians, subspecialty expertise, timely reports, and community care for uninsured patients</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.aclapath.com</span><span><strong>Revenue:</strong> $9 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Nashville, Tennessee, USA</span><span><strong>Notified:</strong> 2025-11-25</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/OHI/metadata/cover.jpg" alt="Optimum Health Institute" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/OHI/">Optimum Health Institute</a></h3>
+        <p class="info-author">Hospitals - Physicians Clinics</p>
+        <p class="info-desc">Optimum Health Institute (OHI) runs faith-based, holistic 3-week wellness retreats in San Diego and Austin. Combining classes, activities, and nutrient-rich meals, OHI supports body, mind, and spirit for stress reduction, fitness, and spiritual growth.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.optimumhealth.org</span><span><strong>Revenue:</strong> $6.7 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Lemon Grove, California, USA</span><span><strong>Notified:</strong> 2025-12-22</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/SchureMed/metadata/cover.jpg" alt="SchureMed" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/SchureMed/">SchureMed</a></h3>
+        <p class="info-author">Medical Equipment Manufacturing</p>
+        <p class="info-desc">SchureMed makes surgical patient-positioning equipment that improves safety, comfort, and outcomes. Their range covers orthopedic, laparoscopic, and custom OR solutions, backed by in-house R&amp;D, manufacturing, competitive pricing, and tailored customer service.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.schuremed.com</span><span><strong>Revenue:</strong> $7 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Abington, Massachusetts, USA</span><span><strong>Notified:</strong> 2025-12-19</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/DeVal/metadata/cover.jpg" alt="DeVal LCS" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/DeVal/">DeVal LCS</a></h3>
+        <p class="info-author">Industrial Machinery &amp; Equipment</p>
+        <p class="info-desc">DeVal LCS is a U.S. mechanical and electro-mechanical manufacturer specializing in armament and groundâsupport equipment for the DoD. An AS9100D-certified business, DeVal provides build-to-print turnkey manufacturing, precision machining, and assembly.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.devallcs.com</span><span><strong>Revenue:</strong> $10.2 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Philadelphia, Pennsylvania, USA</span><span><strong>Notified:</strong> 2025-10-29</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/PartsLife/metadata/cover.jpg" alt="Parts Life, Inc" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/PartsLife/">Parts Life, Inc</a></h3>
+        <p class="info-author">Defense and Space Manufacturing</p>
+        <p class="info-desc">Parts Life, Inc., is an certified supplier of engineering, manufacturing, and alternate-source DMSMS solutions for military systems. Our reverse engineering and R.O.P.E. services produce source-approved manufacturable data; prototypes tested for form, fit, function.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.partslifeinc.com </span><span><strong>Revenue:</strong> $19 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Moorestown, New Jersey, USA</span><span><strong>Notified:</strong> 2025-10-29</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/SouthernIllinoisDermatology/metadata/cover.jpg" alt="Southern Illinois Dermatology" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/SouthernIllinoisDermatology/">Southern Illinois Dermatology</a></h3>
+        <p class="info-author">Hospitals - Physicians Clinics</p>
+        <p class="info-desc">Southern Illinois Dermatology, founded in 1996 by Board-Certified Dr. Ted G. Van Acker, has grown from one office to 15 locations. We offer general, surgical, cosmetic dermatology and advanced laser treatments with attentive, professional care.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.siderm.com</span><span><strong>Revenue:</strong> $14.3 Million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Herrin, Illinois, USA</span><span><strong>Notified:</strong> 2025-11-28</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/FlintHillsDialysis/metadata/cover.jpg" alt="Flint Hills Dialysis" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/FlintHillsDialysis/">Flint Hills Dialysis</a></h3>
+        <p class="info-author">Hospitals - Physicians Clinics</p>
+        <p class="info-desc">Flint Hills Dialysis focuses on dialysis and chronic kidney disease management, creating personalized treatment plans to improve patients&#x27; lives. With clinics in Manhattan and Marysville, Kansas, their team emphasizes patient education and compassionate care.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.fhdks.com</span><span><strong>Revenue:</strong> $5.6 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Manhattan, Kansas, USA</span><span><strong>Notified:</strong> 2025-12-4</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/RellaAssociates/metadata/cover.jpg" alt="Rella Associates" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/RellaAssociates/">Rella Associates</a></h3>
+        <p class="info-author">Law Firms - Legal Services</p>
+        <p class="info-desc">Rella Associates, P.C. provides legal help in Workers Compensation, Social Security Disability, and NYCERS for job injuries and illnesses. Led by Gerarda Rella and Michael Catallo, the Sleepy Hollow firm delivers personalized, aggressive representation and timely client communication.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.rella-associates.com</span><span><strong>Revenue:</strong> $5 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Sleepy Hollow, New York, USA</span><span><strong>Notified:</strong> 2025-12-4</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/IMMCT/metadata/cover.jpg" alt="Internal Medicine of Milford" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/IMMCT/">Internal Medicine of Milford</a></h3>
+        <p class="info-author">Physicians Clinics</p>
+        <p class="info-desc">Internal Medicine of Milford â a patient-focused practice in Milford, CT offering internal and family medicine: acute care, preventive services, chronic disease management, and in-office testing for individuals and families seeking trusted, high-quality local care.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.immct.com</span><span><strong>Revenue:</strong> $8 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Milford, Connecticut, USA</span><span><strong>Notified:</strong> 2025-11-5</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/CarlyleSeniorCare/metadata/cover.jpg" alt="Carlyle Senior Care of Florence" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/CarlyleSeniorCare/">Carlyle Senior Care of Florence</a></h3>
+        <p class="info-author">Health Care and Social Assistance</p>
+        <p class="info-desc">CSC, a respected private nursing home, delivers high-quality skilled nursing, memory care, rehabilitation, medication management, assistance with ADLs, nutritious meals, social programs, and end-of-life care in a supportive, community-driven environment.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.carlyleflorence.com</span><span><strong>Revenue:</strong> $57 million</span><span><strong>Employees:</strong> 100-500</span><span><strong>Location:</strong> Florence, South Carolina, USA</span><span><strong>Notified:</strong> 2025-10-31</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/GMNP/metadata/cover.jpg" alt="Gruel Mills Nims Pylman" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/GMNP/">Gruel Mills Nims Pylman</a></h3>
+        <p class="info-author">Law Firms - Legal Services</p>
+        <p class="info-desc">Gruel Mills Nims Pylman PLLC is a Grand Rapids personal injury firm with national reach. With 35 years experience, they represent victims of vehicle-construction accidents, sexual abuse, and medical malpractice, focusing on trust, access, and full compensation.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.gmnp.com</span><span><strong>Revenue:</strong> $4 million</span><span><strong>Employees:</strong> 11-50</span><span><strong>Location:</strong> Grand Rapids, Michigan, USA</span><span><strong>Notified:</strong> 2025-11-10</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/IFS/metadata/cover.jpg" alt="Integrated Fresh Solutions" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/IFS/">Integrated Fresh Solutions</a></h3>
+        <p class="info-author">Grocery Retail</p>
+        <p class="info-desc">IFS supplies fresh produce, perishable logistics, warehousing, and custom support to foodservice, retail, and wholesale. With subsidiaries Fresh-Link Produce, Kool Logistics, and Synergy Worldwide, IFS streamlines farm-to-table operations.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.integratedfresh.com</span><span><strong>Revenue:</strong> $160 million</span><span><strong>Employees:</strong> 51-200</span><span><strong>Location:</strong> Swedesboro, New Jersey, USA</span><span><strong>Notified:</strong> 2025-10-8</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="card-cover">
+        <img src="/Company/AdvancedHealthcareProfessionals/metadata/cover.jpg" alt="Advanced Healthcare Professionals" class="cover-img">
+      </div>
+      <div class="card-info">
+        <h3 class="info-title"><a href="/Company/AdvancedHealthcareProfessionals/">Advanced Healthcare Professionals</a></h3>
+        <p class="info-author">Wellness and Fitness Services</p>
+        <p class="info-desc">Advanced Healthcare Professionals offers compassionate personal care attendants in homes, apartments, and assisted living. With 10+ years serving hundreds of clients, we match qualified caregivers to tailored schedulesâ24/7, including holidays.</p>
+      </div>
+      <div class="card-meta">
+        <span><strong>Website:</strong> www.ahp.agency</span><span><strong>Revenue:</strong> $8.1 million</span><span><strong>Employees:</strong> 10-50</span><span><strong>Location:</strong> Houston, Texas, USA</span><span><strong>Notified:</strong> 2025-11-6</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="global-footer">
+    Tox ID FA21E360945F602504728A05A39758C38B6A5B5DA1969717AF05838D14FDCD3DE17455833F11
+  </footer>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('captchaPassed') === 'true') {
+        document.getElementById('captcha-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }
+    });
+
+    const num1 = Math.floor(Math.random() * 15) + 1;
+    let num2, operator, correctAnswer;
+    if (Math.random() > 0.5) {
+      num2 = Math.floor(Math.random() * 15) + 1;
+      operator = '+';
+      correctAnswer = num1 + num2;
+    } else {
+      num2 = Math.floor(Math.random() * num1) + 1;
+      operator = '-';
+      correctAnswer = num1 - num2;
+    }
+    document.getElementById('captcha-question').textContent = `What is ${num1} ${operator} ${num2} = ?`;
+
+    document.getElementById('captcha-button').addEventListener('click', function() {
+      const input = document.getElementById('captcha-input').value.trim();
+      const message = document.getElementById('captcha-message');
+      if (!/^\d+$/.test(input)) {
+        message.textContent = "Please enter a number.";
+        return;
+      }
+      const userAnswer = parseInt(input, 10);
+      if (userAnswer === correctAnswer) {
+        document.getElementById('captcha-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        localStorage.setItem('captchaPassed', 'true');
+      } else {
+        message.textContent = 'Incorrect. Try again.';
+        document.getElementById('captcha-input').value = '';
+        document.getElementById('captcha-input').focus();
+      }
+    });
+
+    document.getElementById('captcha-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') document.getElementById('captcha-button').click();
+    });
+    
+  </script>
+
+</body>
+</html>

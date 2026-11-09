@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="theme-color" content="#0d0d0d" />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="icon" href="data:,">
+		<link href="/app/immutable/entry/start.BIuiyLXN.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/BouYt4kJ.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/D1JnxQY7.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/BUApaBEI.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/BYQI-9BY.js" rel="modulepreload">
+		<link href="/app/immutable/entry/app.D_oafEK1.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/CpxnE0SK.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/BsVR0lEJ.js" rel="modulepreload">
+		
+		<style>
+			#init-loader {
+				position: fixed;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #1a1917;
+				z-index: 9999;
+			}
+			#init-loader span {
+				font-family: "JetBrains Mono", monospace;
+				font-size: 11px;
+				color: #d4d0c8;
+				letter-spacing: 1px;
+			}
+			#init-loader .c {
+				animation: b 1s step-end infinite;
+			}
+			@keyframes b {
+				0%, 50% { opacity: 1; }
+				51%, 100% { opacity: 0; }
+			}
+			html.loaded #init-loader {
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.2s ease;
+			}
+		</style>
+	</head>
+	<body style="background-color: #1a1917; color: #d4d0c8;">
+		<div id="init-loader"><span>&#47;&#47; LOADING<span class="c">&#95;</span></span></div>
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_b35an1 = {
+						base: ""
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/app/immutable/entry/start.BIuiyLXN.js"),
+						import("/app/immutable/entry/app.D_oafEK1.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dark Project</title>
+
+        <link href="font.css" rel="stylesheet" />
+        <link href="all.min.css" rel="stylesheet" />
+
+        <link rel="icon" type="image/svg" sizes="16x16" href="/img/favicon.svg" />
+
+        <link href="libs/aos/aos.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            .terminal-controls {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                padding-left: 4px;
+            }
+            .control {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: sans-serif;
+                font-weight: 700;
+                font-size: 8px;
+                color: rgba(0, 0, 0, 0.7);
+                cursor: default;
+                box-sizing: border-box;
+                transition: transform 0.1s ease;
+            }
+            .control.close {
+                background-color: #ff5f56;
+                border: 1px solid #e0443e;
+            }
+            .control.minimize {
+                background-color: #ffbd2e;
+                border: 1px solid #dea123;
+            }
+            .control.maximize {
+                background-color: #27c93f;
+                border: 1px solid #1aab29;
+            }
+            .control::before {
+                content: '';
+                opacity: 0;
+                transition: opacity 0.1s ease;
+            }
+            .control.close:hover::before {
+                content: 'â';
+                opacity: 1;
+            }
+            .control.minimize:hover::before {
+                content: 'â';
+                opacity: 1;
+                font-size: 9px;
+            }
+            .control.maximize:hover::before {
+                content: '+';
+                opacity: 1;
+                font-size: 9px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="scanlines"></div>
+
+        <header id="siteHeader">
+            <div class="container header-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-skull"></i>
+                    <span class="logo-text" id="logoText">Dark Project</span>
+                </a>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a id="companiesHeadLink" href="/#dispatches"
+                                ><span></span> Companies</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/affiliates"><span></span>Affiliates</a>
+                        </li>
+                        <li>
+                            <a href="/how-to-buy-btc"><span></span> Buy BTC</a>
+                        </li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="glitch" data-text="Dark Project">Dark Project</h1>
+                    </div>
+
+                    <div
+                        class="terminal-container"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-title">
+                                    <i class="fas fa-terminal"></i> threat_feed.log
+                                </div>
+
+                                <div class="terminal-controls">
+                                    <div class="control close" title="Close"></div>
+                                    <div class="control minimize" title="Minimize"></div>
+                                    <div class="control maximize" title="Zoom"></div>
+                                </div>
+                            </div>
+                            <div class="terminal-content" id="terminalContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breaking-news" style="display: none">
+            <div class="container">
+                <div class="breaking-header">
+                    <div class="breaking-label">Breaking</div>
+                    <div class="ticker">
+                        <div class="ticker-content" id="breakingTicker">
+                            <span class="ticker-item">Loadingâ¦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <section id="dispatches" class="section section-tight">
+                <div class="container">
+                    <div class="section-head" data-aos="fade-up">
+                        <div>
+                            <div class="section-kicker">
+                                <i class="fas fa-file-lines"></i>
+                                <h2>Companies</h2>
+                            </div>
+                        </div>
+
+                        <div class="controls-row">
+                            <div class="select-wrap">
+                                <select id="articlePerPage" class="select">
+                                    <option value="20" selected>Per page: 20</option>
+                                    <option value="24">Per page: 24</option>
+                                    <option value="28">Per page: 28</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-grid">
+                        <div>
+                            <div id="articlesList" class="news-list"></div>
+                            <div class="pagination" data-aos="fade-up">
+                                <div id="articlePageMeta" class="page-meta"></div>
+                                <div id="articlePageActions" class="page-actions"></div>
+                            </div>
+                        </div>
+
+                        <aside class="sidebar" style="display: none">
+                            <div
+                                class="card reveal"
+                                data-aos="fade-left"
+                                data-aos-delay="100"
+                                style="margin-bottom: 2rem"
+                            >
+                                <div class="side-title">
+                                    <i
+                                        class="fas fa-rss"
+                                        style="color: var(--color-accent); margin-right: 8px"
+                                    ></i>
+                                    Live Feed
+                                </div>
+                                <div id="live-feed">
+                                    <div class="feed-item">Loadingâ¦</div>
+                                </div>
+                            </div>
+
+                            <div class="card reveal" data-aos="fade-left" data-aos-delay="200">
+                                <div class="side-title">
+                                    <i
+                                        class="fas fa-hashtag"
+                                        style="color: var(--color-accent); margin-right: 8px"
+                                    ></i>
+                                    Topics
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                                    <span class="tag">Malware</span>
+                                    <span class="tag">OSINT</span>
+                                    <span class="tag">Privacy</span>
+                                    <span class="tag">Exploits</span>
+                                    <span class="tag">APT</span>
+                                    <span class="tag">Recon</span>
+                                    <span class="tag">Leaks</span>
+                                    <span class="tag">Supply chain</span>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact-block">
+                <div class="container">
+                    <h2 class="contact-title" data-aos="fade-up">Contact</h2>
+                    <div class="contact-line" data-aos="zoom-in"></div>
+
+                    <div class="contact">
+                        <div class="contact-text" data-aos="fade-left">
+                            <p>
+                                If youâre a journalist, blogger, or have access to corporate
+                                networks, weâd love to connect with you. For any inquiries or if you
+                                encounter issues with our website, feel free to reach out at the
+                                email provided.
+                            </p>
+                            <div class="contact-wrap">
+                                <span>TOX_ID:</span>
+                                <p class="contact-email" id="copyBtn">
+                                    243AAD0D1875CA4D48034E799785F2C9EA225E4466C87FA9B9297F7BEADC694478C7DE0A7639
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script src="libs/aos/aos.js"></script>
+        <script src="config.js"></script>
+        <script type="module" src="js/index.js"></script>
+    </body>
+</html>

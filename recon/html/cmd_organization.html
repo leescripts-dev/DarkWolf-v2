@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMD // home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="">
+    <header>
+        <nav>
+            <div class="logo">
+                CMD_
+                <span class="cursor"></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="/">home</a>
+                <a href="/items" class="items-link">
+                    companies
+                    <span class="items-count">(41)</span>
+                </a>
+                <a href="/about">about</a>
+                
+            </div>
+
+            
+        </nav>
+    </header>
+    
+    <main>
+        
+            
+        
+        
+        
+<div class="hero">
+    <h1><span>CMD</span> Organization</h1>
+    <p>IT Security organization est. 2026.</p>
+</div>
+
+
+
+<!-- Bid Modal -->
+<!-- Bid Modal -->
+<div id="bidModal" class="form-modal">
+    <div class="modal-content" style="max-width: 550px;">
+        <span class="close" onclick="closeBidModal()">&times;</span>
+        
+        <!-- Header -->
+        <div class="modal-header">
+            <h2>PLACE BID</h2>
+            <p id="modal-auction-title" class="modal-subtitle"></p>
+        </div>
+        
+        <!-- Form -->
+        <form id="bidForm" onsubmit="submitBid(event)">
+            <input type="hidden" id="bid-auction-id" name="auction_id">
+            
+            <div class="form-group">
+                <label for="bid-email" class="form-label">EMAIL ADDRESS</label>
+                <input type="email" id="bid-email" name="email" class="form-control" required placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="bid-price" class="form-label">YOUR BID (BTC)</label>
+                <input type="text" id="bid-price" name="price" class="form-control" required placeholder="0.0015">
+            </div>
+            
+            <p class="form-help" id="current-price-hint" style="margin-top: -0.5rem; margin-bottom: 1rem;"></p>
+            
+            <div class="form-group">
+                <label for="bid-comment" class="form-label">COMMENT (OPTIONAL)</label>
+                <textarea id="bid-comment" name="comment" class="form-control" rows="3" placeholder="Your message..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="closeBidModal()">CANCEL</button>
+                <button type="submit" class="btn-primary">SEND BID</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<h1>_ latest companies</h1>
+
+
+<div class="items-grid">
+    
+    <div class="item-card">
+    <div class="item-header">
+        
+        <img src="/image/3a972d53834781cd.jpg" 
+            alt="Medlink Georgia" 
+            class="title-image">
+        
+        <h2>
+            
+            <a href="https://www.medlinkga.org" target="_blank" rel="noopener">Medlink Georgia</a>
+            
+    </div>
+    
+    
+    <div class="description-before">
+        We have proudly been serving northeast Georgia since 1976. As a federally qualified health center, we are able to offer uninsured and underinsured patients a sliding fee scale. No one is denied services due to lack of income or insurance status. Many of our employees are bi-lingual, eliminating the language barrier and providing a more comfortable and welcoming environment for all cultures.
+    </div>
+    
+    
+    
+    <div class="item-images">
+        
+        <img src="/image/9c50f097c4c2574e.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/977a70805c1444c2.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/847ef222c3b11568.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/cb9f46b4f28d0672.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/f1de4ca69252ed57.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/e59b19e248f598c7.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/408b5f6f1a441b97.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/e487c0bcac65b249.png" 
+            alt="Medlink Georgia" 
+            class="gallery-thumb"
+            data-description="">
+        
+    </div>
+    
+    
+    
+    <div class="item-links inline">
+        
+        <a href="/click/142" target="_blank" rel="noopener">Documents</a>
+        
+        <a href="/click/143" target="_blank" rel="noopener">Document tree</a>
+        
+    </div>
+    
+    
+    
+    <div class="description-after">
+        We have 285 GB of downloaded data. 
+    </div>
+    
+</div>
+    
+    <div class="item-card">
+    <div class="item-header">
+        
+        <img src="/image/c9aff961fafd0f05.jpg" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="title-image">
+        
+        <h2>
+            
+            <a href="https://stewartbellandassociates.ca" target="_blank" rel="noopener">Stewart Belland &amp; Associates Inc.</a>
+            
+    </div>
+    
+    
+    <div class="description-before">
+        Stewart Belland &amp; Associates Inc. (SBA) is a Civil Enforcement Agency licensed by the Province of Alberta. Operating since 1996, under the Alberta Civil Enforcement Act and Regulations, as a Civil Enforcement Agency we are legislated to enforce Civil Warrants.<br>
+SBA retains the services of Provincial Licensed Bailiffs, who follow a compressive Rule of Conduct, in performing their functions throughout all jurisdictions within the Province of Alberta.
+    </div>
+    
+    
+    
+    <div class="item-images">
+        
+        <img src="/image/cd187e678414ad4b.png" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/67ae315bf07e93b6.png" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/447cd54520da0983.png" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/76926d4d0055e9a3.png" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="gallery-thumb"
+            data-description="">
+        
+        <img src="/image/e2075f578d3cf3e6.png" 
+            alt="Stewart Belland &amp; Associates Inc." 
+            class="gallery-thumb"
+            data-description="">
+        
+    </div>
+    
+    
+    
+    <div class="item-links inline">
+        
+        <a href="/click/138" target="_blank" rel="noopener">Documents</a>
+        
+        <a href="/click/139" target="_blank" rel="noopener">Document tree</a>
+        
+    </div>
+    
+    
+    
+    <div class="description-after">
+        We have 296 GB of downloaded data. 
+    </div>
+    
+</div>
+    
+    <div class="item-card">
+    <div class="item-header">
+        
+        <img src="/image/8a1c33d077b26c29.jpg" 
+            alt="Contact Group" 
+            class="title-image">
+        
+        <h2>
+            
+            <a href="https://www.contactgroup.com.au" target="_blank" rel="noopener">Contact Group</a>
+            
+    </div>
+    
+    
+    <div class="description-before">
+        Contact Group is a proudly Tasmanian company specializing in building services and multi-technology solutions. They offer award-winning services across various divisions, including electrical and communications, HVAC-R, infrastructure, fire, technology, security, plumbing, and facilities maintenance, ensuring a high-quality customer experience. Their intended clients span multiple sectors such as commercial, government, healthcare, education, and more. With over 35 years of experience, Contact Group is committed to excellence and sustainability in their operations.
+    </div>
+    
+    
+    
+    <div class="item-images">
+        
+        <img src="/image/fde6b7162eec11cc.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+        <img src="/image/713eb956d858a261.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+        <img src="/image/0344e5d5cf9581f0.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+        <img src="/image/6e2e6843f0b7f7b7.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+        <img src="/image/aabc2ab0b9c78745.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+        <img src="/image/b2030ceadebde9c0.PNG" 
+            alt="Contact Group" 
+            class="gallery-thumb"
+            data-description="None">
+        
+    </div>
+    
+    
+    
+    <div class="item-links inline">
+        
+        <a href="/click/136" target="_blank" rel="noopener">Documents</a>
+        
+        <a href="/click/137" target="_blank" rel="noopener">Document tree</a>
+        
+    </div>
+    
+    
+    
+    <div class="description-after">
+        We have 3 TB of downloaded data. 
+    </div>
+    
+</div>
+    
+</div>
+
+
+<div class="view-all-container">
+    <a href="/items" class="view-all-link">view all companies →</a>
+</div>
+
+
+
+
+<!-- CONTACT US SECTION -->
+<div class="contact-section">
+    <h1>_ contact us</h1>
+    <div class="contact-reference">
+        <p>For inquiries, partnerships, or support:</p>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <span class="contact-prompt">$</span>
+                <a href="mailto:cmd2official@onionmail.org" class="contact-link">cmd2official@onionmail.org</a>
+            </div>
+            <div class="contact-method">
+                <span class="contact-prompt">$</span>
+                <a href="mailto:cmdhtmnjksgkuhilrtrh@onionmail.org" class="contact-link">cmdhtmnjksgkuhilrtrh@onionmail.org</a>
+            </div>
+            <div class="contact-method">
+                <span class="contact-prompt">$</span>
+                <a href="https://cmdofficial.com" class="contact-link">Clearnet mirror: https://cmdofficial.com</a>
+            </div>
+            <div class="contact-method">
+                <span class="contact-prompt">$</span>
+                <a href="http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion" class="contact-link">Main link: http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion</a>
+            </div>
+            <div class="contact-method" style="border-left-color: var(--accent-red);">
+                <span class="contact-prompt" style="color: var(--accent-red);">></span>
+                <a href="#" class="contact-button" onclick="openContactModal(); return false;">open contact form</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Modal -->
+<!-- Contact Modal -->
+<div id="contactModal" class="form-modal">
+    <div class="modal-content" style="max-width: 550px;">
+        <span class="close" onclick="closeContactModal()">&times;</span>
+        
+        <!-- Header -->
+        <div class="modal-header">
+            <h2>CONTACT US</h2>
+            <p class="modal-subtitle">Send us a message and we'll respond soon</p>
+        </div>
+        
+        <!-- Form -->
+        <form id="contactForm" onsubmit="submitContact(event)">
+            <div class="form-group">
+                <label for="contact-email" class="form-label">EMAIL ADDRESS</label>
+                <input type="email" id="contact-email" name="email" class="form-control" required placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="contact-comment" class="form-label">MESSAGE</label>
+                <textarea id="contact-comment" name="comment" class="form-control" rows="4" required placeholder="Your message..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="closeContactModal()">CANCEL</button>
+                <button type="submit" class="btn-primary">SEND MESSAGE</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- BTC SECTION - SIMPLIFIED -->
+<div class="btc-section">
+    <h1>_ how to buy BTC?</h1>
+    
+    <!-- Live BTC Price - Real-time only -->
+    <div class="btc-price-container">
+        <div class="price-label">1 BTC =</div>
+        <div class="price-value" id="btc-price">$ ---</div>
+    </div>
+    
+    <!-- Step-by-Step Guide -->
+    <div class="btc-guide">
+        <h2 class="symbol">_ 3 simple steps</h2>
+        
+        <div class="guide-steps">
+            <!-- Step 1 -->
+            <div class="guide-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Choose an Exchange</h3>
+                    <p>Select from trusted platforms below. Compare fees and features.</p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="guide-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Create Account & Verify</h3>
+                    <p>Sign up and complete identity verification (KYC). Takes 5-10 minutes.</p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="guide-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Buy Bitcoin</h3>
+                    <p>Deposit funds and purchase BTC. Store in your wallet or on the exchange.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Exchange Cards -->
+    <h1>_ recommended exchanges</h1>
+    <div class="btc-exchanges">
+        <!-- Coinbase -->
+        <div class="exchange-card">
+            <div class="exchange-badge popular">🔥 MOST POPULAR</div>
+            <div class="exchange-header">
+                <img src="/static/images/coinbase-logo.png" 
+                     alt="CoinBase" 
+                     class="exchange-logo"
+                     onerror="this.src='https://cryptologos.cc/logos/coinbase-coin-logo.png'; this.onerror=null;">
+                <h2>
+                    <a href="https://www.coinbase.com" target="_blank" rel="noopener">CoinBase</a>
+                </h2>
+            </div>
+            <div class="exchange-features">
+                <div class="feature">
+                    <span class="feature-check">✓</span> Beginner friendly
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> Credit/debit cards
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> Bank transfers
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> 0.5% trading fee
+                </div>
+            </div>
+            <div class="exchange-description">
+                <p>Best for beginners. Simple interface and educational resources.</p>
+            </div>
+            <div class="exchange-action">
+                <a href="https://www.coinbase.com" target="_blank" rel="noopener" class="exchange-button coinbase">
+                    <span>BUY ON COINBASE</span>
+                    <span class="button-arrow">→</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Binance -->
+        <div class="exchange-card">
+            <div class="exchange-badge">⚡ LOWEST FEES</div>
+            <div class="exchange-header">
+                <img src="/static/images/binance-logo.png" 
+                     alt="Binance" 
+                     class="exchange-logo"
+                     onerror="this.src='https://cryptologos.cc/logos/binance-coin-bnb-logo.png'; this.onerror=null;">
+                <h2>
+                    <a href="https://www.binance.com" target="_blank" rel="noopener">Binance</a>
+                </h2>
+            </div>
+            <div class="exchange-features">
+                <div class="feature">
+                    <span class="feature-check">✓</span> Advanced trading
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> 500+ cryptocurrencies
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> 0.1% trading fee
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> Staking rewards
+                </div>
+            </div>
+            <div class="exchange-description">
+                <p>World's largest exchange. Advanced features and lowest fees.</p>
+            </div>
+            <div class="exchange-action">
+                <a href="https://www.binance.com" target="_blank" rel="noopener" class="exchange-button binance">
+                    <span>BUY ON BINANCE</span>
+                    <span class="button-arrow">→</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Kraken -->
+        <div class="exchange-card">
+            <div class="exchange-badge">🛡️ MOST SECURE</div>
+            <div class="exchange-header">
+                <img src="/static/images/kraken-logo.png" 
+                     alt="Kraken" 
+                     class="exchange-logo"
+                     onerror="this.src='https://cryptologos.cc/logos/kraken-logo.png'; this.onerror=null;">
+                <h2>
+                    <a href="https://www.kraken.com" target="_blank" rel="noopener">Kraken</a>
+                </h2>
+            </div>
+            <div class="exchange-features">
+                <div class="feature">
+                    <span class="feature-check">✓</span> Strong security
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> Margin trading
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> 0.16% trading fee
+                </div>
+                <div class="feature">
+                    <span class="feature-check">✓</span> Staking available
+                </div>
+            </div>
+            <div class="exchange-description">
+                <p>Best for security. Longest track record in the industry.</p>
+            </div>
+            <div class="exchange-action">
+                <a href="https://www.kraken.com" target="_blank" rel="noopener" class="exchange-button kraken">
+                    <span>BUY ON KRAKEN</span>
+                    <span class="button-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Price Update Notice -->
+    <div class="btc-price-update">
+        <span class="update-label">Price updates every 30 seconds</span>
+        <span class="update-icon">⟳</span>
+    </div>
+</div>
+
+
+    </main>
+    
+    <footer>
+        <a href="http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion" class="contact-link">Main link: http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion</a><br><a href="https://cmdofficial.com" class="contact-link">Clearnet mirror: https://cmdofficial.com</a>
+        <p>© 2026 CMD Organization</p>
+    </footer>
+    
+    <script src="/static/script.js"></script>
+    
+</body>
+</html>

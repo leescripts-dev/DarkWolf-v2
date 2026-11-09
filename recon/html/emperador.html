@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EMPERADOR</title>
+    <link rel="icon" type="image/png" href="/favicon-32.png">
+    <style>
+        :root { --primary: #dc2626;  --bg: #f3f4f6; --panel: #ffffff; --text: #000000; --border: #e5e7eb; --muted: #6b7280; --hover: #e5e7eb; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .navbar { background: var(--panel); border-bottom: 1px solid var(--border); }
+        .navbar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 8px 20px; }
+        .nav-brand { font-size: 40px; font-weight: bold; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: bold; text-transform: uppercase; transition: color 0.2s; }
+
+        
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: 0.3s; }
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .navbar-inner { flex-wrap: wrap; padding: 15px 20px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; text-align: center; padding-top: 15px; margin-top: 15px; border-top: 1px solid var(--hover); gap: 15px; }
+            .nav-links.active { display: flex; }
+        }
+        
+        .container { max-width: 1200px; margin: 40px auto 80px; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s;
+            text-decoration: none;
+            color: inherit;
+            min-width: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { border-color: var(--primary); }
+        .for-sale-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -46px;
+            transform: rotate(45deg);
+            background: #22c55e;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 44px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .card:has(.timer.released-status):hover { border-color: #22c55e; }
+        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; color: var(--text); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; display: block; }
+        .card-desc { font-size: 14px; font-family: 'Segoe UI', Tahoma, sans-serif; color: var(--text); line-height: 1.5; height: 105px; flex: none; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; text-align: justify; hyphens: auto; -webkit-hyphens: auto; word-break: break-word; margin-top: 10px; }
+        
+        .timer { font-family: monospace; font-size: 24px; color: white; font-weight: bold; text-align: center; line-height: 54px; padding: 0 10px; background: var(--primary); border-radius: 6px; margin-bottom: 10px; min-height: 54px; }
+        .timer.released-status { background: #22c55e; }
+        
+        .pagination { margin-top: 40px; display: flex; justify-content: center; gap: 10px; }
+        .page-link { padding: 8px 16px; background: var(--panel); border: 1px solid var(--border); color: var(--text); text-decoration: none; border-radius: 4px; }
+        .page-link:hover { background: var(--hover); }
+        .current { padding: 8px 16px; background: var(--primary); color: white; border-radius: 4px; font-weight: bold; }
+        
+        .footer { background: var(--panel); border-top: 1px solid var(--border); padding: 15px 20px; margin-top: auto; }
+        .footer-copy { text-align: center; color: var(--text); font-size: 12px; }
+    </style>
+    </head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a href="/" class="nav-brand" style="display: inline-flex; align-items: center; gap: 8px;"><img src="/logo.png?v=2" alt="" style="height: 60px;">EMPERADOR</a>
+            <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="/about/">About</a>
+                <a href="/features/">Features</a>
+                <a href="/join/">Join</a>
+                <a href="/contact/">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 100px;">
+            <h1 style="display: inline-block; font-size: 60px; font-weight: bold; letter-spacing: 6px; color: white; background: var(--primary); padding: 10px 30px; border-radius: 8px; margin: 0;">LEAKS OF SHAME</h1>
+        </div>
+        <div class="grid">
+            
+            <a href="/post/sitepro-rentals/" class="card">
+                
+                <div class="card-title">SitePro Rentals</div>
+                
+                <div class="timer " data-end="2026-10-11T16:08:23.429357+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">Hi, since SitePro Rentals is not negotiating, and is currently airing our message, EVERYTHING will be leaked.
+
+You still have time to save this.
+
+You know where to contact us. $150,000 and all of this can disappear.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 10, 2026 1:32 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                6.2 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Construction" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" /><path d="M14 6a6 6 0 0 1 6 6v3" /><path d="M4 15v-3a6 6 0 0 1 6-6" /><rect x="2" y="15" width="20" height="4" rx="1" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>120</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/imperial-diamond-jewellery/" class="card">
+                
+                <div class="card-title">Imperial Diamond Jewellery</div>
+                
+                <div class="timer " data-end="2026-10-23T15:52:47.517977+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">Engaged in the sale of jewelry made of precious metals, 
+diamond jewelry and the manufacture of custom jewelry.
+Country: Hong Kong, China. Year of foundation: 2011
+Financial documents, personal and customer data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 9, 2026 3:52 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                3.1 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Finance" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" /><circle cx="12" cy="12" r="2" /><path d="M6 12h.01M18 12h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>1672</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/pancaribbean-logistics-group/" class="card">
+                
+                <div class="card-title">PANCARIBBEAN LOGISTICS GROUP</div>
+                
+                <div class="timer " data-end="2026-10-19T10:03:24.724348+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">Panamanian logistics company operating 
+in the field of international cargo transportation.
+Financial documents, personal and customer data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 5, 2026 10:03 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                40.0 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Transportation" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>6517</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/metrocolor-sa/" class="card">
+                
+                <div class="card-title">METROCOLOR S.A.</div>
+                
+                <div class="timer " data-end="2026-10-19T08:51:15.210233+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">A Peruvian company from the printing industry.
+Commercial printing, packaging, labels, boxes, books, 
+magazines, booklets and promotional products.
+The archives contain several thousand documents with personnel and customer data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 5, 2026 8:51 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                21.6 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Technology" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>6624</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/omur-hirdavat-ltd/" class="card">
+                
+                <div class="card-title">OMUR HIRDAVAT LTD</div>
+                
+                <div class="timer " data-end="2026-10-24T17:11:14.673553+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">A Turkish company engaged in the wholesale and 
+retail trade of construction and household fittings
+The archives contain several thousand documents with 
+personnel and customer data</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 4, 2026 5:11 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                3.4 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>7239</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/la-ponderosa/" class="card">
+                
+                <div class="card-title">LA PONDEROSA</div>
+                
+                <div class="timer " data-end="2026-10-15T09:12:18.924675+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">GRANJA AVICOLA LA PONDEROSA
+Venezuela
+The corporate purpose is mainly the purchase, 
+sale, import, export, breeding, processing and marketing 
+of all types of poultry and/or domestic 
+animals in general.
+The archives contain several thousand documents with personnel 
+and customer data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Oct 1, 2026 9:12 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                3.4 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>10824</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/polikem/" class="card">
+                
+                <div class="card-title">Polikem</div>
+                
+                <div class="timer " data-end="2026-10-14T16:34:58.474046+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">Polikem is a Colombian company dedicated to the development, manufacture, and marketing of chemical products for industrial and automotive applications. With decades of experience, the company provides practical and reliable solutions tailored to the needs of various industries and consumers.
+
+This leak includes sensitive information, such as the company’s financial status, inventory records, and other internal data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 29, 2026 4:30 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                388.3 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>12329</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/receita-federal-do-brasil/" class="card">
+                
+                <div class="card-title">RECEITA FEDERAL DO BRASIL</div>
+                
+                <div class="timer " data-end="2026-10-13T07:57:23.619200+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">MINISTÉRIO DA FAZENDA
+SECRETARIA DA RECEITA FEDERAL DO BRASIL
+The archives contain several thousand documents with personnel and customer data,
+as well as all user date on gov.br with passwords.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 23, 2026 7:57 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                6.3 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Finance" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" /><circle cx="12" cy="12" r="2" /><path d="M6 12h.01M18 12h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>18743</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/electrolux/" class="card">
+                
+                <div class="card-title">Electrolux</div>
+                
+                <div class="timer " data-end="2026-10-17T15:29:05.773183+00:00">
+                    
+                        Loading...
+                    
+                </div>
+                
+                <div class="card-desc">Electrolux Group is a Swedish multinational home-appliance manufacturer, producing refrigerators, washing machines, ovens, dishwashers, vacuum cleaners, and other household appliances under several brands worldwide.
+
+We were able to access your azure database, and export every piece of data which adds up to ~41GB.
+
+You will receive an email shortly containing the instructions you need to proceed.
+
+Ransom demand starts at 20 million USD.
+
+Electrolux_backup.7z(~41gb uncompressed) is currently password locked, but if they do not pay the ransom, the password and the data WILL be leaked or sold to interested parties.
+
+Time is ticking, Pay the ransom.
+
+If you are having issues receiving instructions, contact me at: xdlmfao@morke.ru
+
+And if youre still having an issue with that... contact my session: 05651c7323273b723588d47455471ee9e27feb5187a30f2933554a705aacb38358</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 19, 2026 3:26 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                12.7 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>21176</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/amazon-informatica/" class="card">
+                
+                <span class="for-sale-ribbon">For Sale</span>
+                
+                <div class="card-title">Amazon Informatica</div>
+                
+                <div class="timer released-status">$5,000</div>
+                
+                <div class="card-desc">Amazon Informática LTDA is a prominent Information Technology (IT) solutions integrator and managed services provider founded in Brazil in 1995.
+
+Amazon Informática&#x27;s primary market focus is the public sector and government agencies, serving various state and federal entities in Brazil.To support these operations, they maintain strategic corporate offices in Brasília/DF (to service the federal government cluster) and Belém/PA. Furthermore, the company has expanded its footprint internationally with operational branches in Latin America and Europe (Portugal), where they deliver customized government tech solutions and enterprise infrastructure support to large private corporations in those regions.
+
+Full commitment of the network having full access to infrastructure, thus ensuring full access to the databases containing confidential and financial information! 
+Virtual Infrastructure and Database Cluster with active administrative master credentials exposed in text clear inside get_bk.bat. Hosts compromised. The targets contain production and integration databases with sensitive PII schemas, employee registries, banking credentials, CPF, and RG data.
+
+TOX ID: 3D6EF83C3C4517FE42B212A934D4B08579A5F20522828C4E4818EA117F53063377C4D769640B
+SESSION: 052a5fe97f7b1822c2225ba884b5f719c07ec99da7d838421a20958938f54cb539</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 28, 2026 4:27 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                110.0 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Government" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Technology" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>12887</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/electrolux-2/" class="card">
+                
+                <div class="card-title">Electrolux 2...</div>
+                
+                <div class="timer released-status" data-end="2026-09-28T05:16:55.712791+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Hi Electrolux, im getting kind of inpatient, therefore i might just leak something. If i hear nothing from you in the next 3 days, more data WILL be leaked.
+
+Thanks.
+
+Emails: xdlmfao@morke.ru
+Session: 05651c7323273b723588d47455471ee9e27feb5187a30f2933554a705aacb38358</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 28, 2026 2:15 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                1.8 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Retail" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Transportation" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>16593</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/car-service-abschlepp/" class="card">
+                
+                <div class="card-title">Car Service Abschlepp</div>
+                
+                <div class="timer released-status" data-end="2026-10-07T09:14:06.725389+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">CSA Car Service Abschlepp- &amp; Bergungsdienst GmbH
+Genslerstraße 72, 13055 Berlin
+Archived personal and corporate data of employees and customers
+Here are the most important documents</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 27, 2026 9:14 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                2.8 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Transportation" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>14369</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/electrolux-1/" class="card">
+                
+                <div class="card-title">Electrolux</div>
+                
+                <div class="timer released-status" data-end="2026-09-28T17:57:50.446924+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Hello Electrolux,
+
+Still no response from you. When we called your IT helpdesk posing as threat researchers and asked about the breach, we were told, &quot;We cannot talk about it.&quot;
+
+You have one week before we release more data - starting with information on your employees.
+
+We&#x27;d prefer to settle this directly.
+
+EMAIL: xdlmfao@morke.ru
+SESSION: 05651c7323273b723588d47455471ee9e27feb5187a30f2933554a705aacb38358</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 26, 2026 10:47 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                50.1 KB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Retail" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Transportation" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>12734</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/alabama-womans-health-care/" class="card">
+                
+                <div class="card-title">Alabama Woman&#x27;s Health Care</div>
+                
+                <div class="timer released-status" data-end="2026-09-30T14:54:24.933772+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Alabama Woman&#x27;s Health Care
+Comprehensive Consultative Medicine, Wellbeing and Aesthetic Care Organization
+Several thousand documents of employees and clients and an archive of photos
+420 Lowell Dr
+Suite 400
+Huntsville, AL 35801</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 20, 2026 2:54 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                2.5 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Medical" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Other" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>20442</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/studio-notarile-associato-salvatore-costantino-e-anna-favarato/" class="card">
+                
+                <div class="card-title">Studio Notarile Associato Salvatore Costantino E Anna Favarato</div>
+                
+                <div class="timer released-status" data-end="2026-09-30T08:30:04.894250+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Studio Notarile Associato Salvatore Costantino E Anna Favarato, Follina 
++39 0438 971778
+Piazza Iv Novembre, 20, 31051, Follina , Italia
+Notary&#x27;s office
+several thousand documents
+There are many customer documents and employee data.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 20, 2026 8:30 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                7.1 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Finance" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" /><circle cx="12" cy="12" r="2" /><path d="M6 12h.01M18 12h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Other" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>20352</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/cassias-mg-government/" class="card">
+                
+                <div class="card-title">Cassias MG Government</div>
+                
+                <div class="timer released-status" data-end="2026-09-29T07:21:56.500866+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">network commitment, from government credentials to justice panels, such as access to the financial sector, police, personal data, medical (SUS), RG(CIN), BIRTH CERTIFICATE, CPF (identity number in Brazil) among other data from CASSIAS.MG.GOV departments, we will give you a deadline to negotiate with us!</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 19, 2026 7:14 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                720.0 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Medical" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Government" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Finance" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" /><circle cx="12" cy="12" r="2" /><path d="M6 12h.01M18 12h.01" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>22021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/westbridge-institute-of-technology-inc/" class="card">
+                
+                <div class="card-title">Westbridge Institute of Technology, Inc.</div>
+                
+                <div class="timer released-status" data-end="2026-09-22T13:57:14.247906+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Westbridge Institute of Technology, Inc. is an educational institution in the Philippines that offers various technical and vocational programs. It is designed to provide students with practical skills and knowledge in fields such as information technology, healthcare, business, and other technical disciplines. The leak includes full employee information, full student information, and full guardian information</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 17, 2026 8:51 AM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                102.0 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Education" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>22386</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/rda-motors-spa/" class="card">
+                
+                <div class="card-title">RDA MOTORS S.P.A.</div>
+                
+                <div class="timer released-status" data-end="2026-09-26T20:26:23.677706+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">is an Italian company engaged in premium cars. There are many customer documents and employee data</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 16, 2026 8:26 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                7.3 GB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Technology" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Other" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>22609</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/navitrans/" class="card">
+                
+                <div class="card-title">Navitrans</div>
+                
+                <div class="timer released-status" data-end="2026-09-23T13:28:03.035520+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Navitrans is a leading Colombian distributor and service provider specializing in commercial trucks and heavy machinery, offering a comprehensive range of products and services including vehicle sales, spare parts distribution, and maintenance and repair services through a nationwide network of workshops. This post includes sensitive data about prices, financing, and other operational information.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 14, 2026 1:18 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                191.5 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Manufacturing" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01" /><path d="M16 16h.01" /><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" /><path d="M8 16h.01" /></svg>
+                                </span>
+                                
+                                
+                                
+                                <span title="Transportation" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>24224</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/post/nexbex-solutions-private-limited/" class="card">
+                
+                <div class="card-title">Nexbex Solutions Private Limited</div>
+                
+                <div class="timer released-status" data-end="2026-10-10T00:35:31.903169+00:00">
+                    
+                        PUBLISHED
+                    
+                </div>
+                
+                <div class="card-desc">Since there has been no response regarding the data breach, the data is being sold; you know you don&#x27;t have all of it. If you don&#x27;t buy it, I will sell it to the competition or publish it on various forums.
+
+Nexbex Solutions Private Limited is a technology consulting and software engineering firm incorporated in November 2023, headquartered in Malappuram, Kerala (India). Classified as an emerging private company, it operates with a paid-up capital of 10 million Indian rupees (₹10 Lakhs) and a compact team, generating estimated annual revenue of less than $1.2 million USD. Its core business focuses on computer programming, custom mobile application development (such as its corporate loyalty platforms Nexi Paints and Grace Petroleum), and digital solutions for retail automation, e-commerce, and smart lead management for growing small and medium-sized enterprises.
+
+We have access to all their databases with their clients&#x27; sensitive data, which include names, emails, phone numbers, addresses, etc. 600 MB.
+
+Domains: club7ms.com, rayssportsnetwork.com, hwzthat.com, etc.
+Subdomains	Type
+	staging, edmontoneagles, masc, psca, live, kkr, victoriapark, staging.victoriapark, spartans, blaze, ramblers, eagle	
+	admin.bookings-staging, backend.academy, admin.spike.booking, etc.
+
+
+We have the source code for all 200+ of their projects. 10 GB +. including its website. going up.</div>
+                <div style="border-top: 1px solid var(--border); margin-top: 15px; padding-top: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Sep 11, 2026 10:46 PM
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); margin-top: 4px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                600.0 MB
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                
+                                
+                                <span title="Technology" style="display: inline-flex; align-items: center; cursor: default; color: var(--text);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                                </span>
+                                
+                                
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>22273</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+
+        
+        <div class="pagination" style="display: flex; align-items: center; gap: 10px;">
+            
+            <span class="page-link" style="opacity: 0.5; cursor: not-allowed;">&laquo; Prev</span>
+            
+            
+            <span style="font-size: 14px; color: var(--muted); padding: 0 10px;">
+                Page 1 of 2
+            </span>
+            
+            
+            <a href="?page=2" class="page-link">Next &raquo;</a>
+            
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <div class="footer-copy">&copy; 2026 EMPERADOR</div>
+    </div>
+
+    <script>
+        function updateTimers() {
+            const timers = document.querySelectorAll('.timer');
+            const now = new Date().getTime();
+
+            timers.forEach(timer => {
+                if (timer.classList.contains('released-status')) return;
+                
+                const endStr = timer.getAttribute('data-end');
+                if (!endStr) return;
+                
+                const countDownDate = new Date(endStr).getTime();
+                const distance = countDownDate - now;
+
+                if (distance < 0) {
+                    timer.innerHTML = 'PUBLISHED';
+                    timer.classList.add('released-status');
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    timer.innerHTML = 
+                        (days > 0 ? days + "d " : "") + 
+                        hours.toString().padStart(2, '0') + "h " + 
+                        minutes.toString().padStart(2, '0') + "m " + 
+                        seconds.toString().padStart(2, '0') + "s";
+                }
+            });
+        }
+        setInterval(updateTimers, 1000);
+        updateTimers();
+
+        // Force reload if page is loaded from back-forward cache
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
+
+        function toggleNav() {
+            const links = document.getElementById('nav-links');
+            links.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

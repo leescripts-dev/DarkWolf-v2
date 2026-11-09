@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DireWolf</title>
+    <link rel="icon" type="image/svg+xml" href="/static/brand/favicon.svg">
+    <link rel="alternate icon" sizes="48x48 32x32 16x16" href="/static/brand/favicon.ico">
+    <link rel="apple-touch-icon" href="/static/brand/apple-touch-icon-180.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#1a1a1a">
+    <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --text-light: #7f8c8d;
+    --border-color: #bdc3c7;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --max-width: 1600px;
+    --border-radius: 8px;
+}
+
+[data-theme="dark"] {
+    --primary-color: #34495e;
+    --secondary-color: #3498db;
+    --background-color: #1a1a1a;
+    --card-background: #2c2c2c;
+    --text-color: #e0e0e0;
+    --text-light: #a0a0a0;
+    --border-color: #444444;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.header-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-card {
+    background: var(--card-background);
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .header-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+header.scrolled .header-card {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] header.scrolled .header-card {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Brand lockup: rune mark + wordmark, inline SVG so the stroke follows the theme
+   via currentColor. Blood eye is fixed #A8352F inside the SVG. Light theme uses
+   ink #262019, dark theme uses bone white #DAD4C6 (per DireWolf brand guide). */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #262019;
+    transition: opacity 0.2s ease;
+}
+
+[data-theme="dark"] .logo {
+    color: #DAD4C6;
+}
+
+.logo:hover {
+    opacity: 0.82;
+}
+
+.logo-mark {
+    height: 32px;
+    width: auto;
+    display: block;
+    flex: none;
+}
+
+.logo-wordmark {
+    height: 16px;
+    width: auto;
+    display: block;
+}
+
+.logo-suffix {
+    align-self: center;
+    margin-left: 0.15rem;
+    padding-left: 0.55rem;
+    border-left: 1px solid var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+/* Standalone mark on the admin login screen */
+.login-brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #262019;
+}
+
+[data-theme="dark"] .login-brand {
+    color: #DAD4C6;
+}
+
+.login-brand .logo-mark {
+    height: 46px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.main-content {
+    padding-top: 150px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+#admin-view header {
+    position: relative;
+    padding: 1rem 0;
+    background-color: transparent;
+}
+
+#admin-view header .header-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#admin-view .main-content {
+    padding-top: 2rem;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-link {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.header-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.header-link:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.header-link:hover::after {
+    transform: scaleX(1);
+}
+
+.header-link.active {
+    opacity: 1;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.header-link.active::after {
+    transform: scaleX(1);
+}
+
+[data-theme="dark"] .header-link {
+    opacity: 0.7;
+}
+
+[data-theme="dark"] .header-link:hover,
+[data-theme="dark"] .header-link.active {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    header .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    header .header-actions {
+        justify-content: center;
+    }
+    
+    .header-card {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0.8rem 1.5rem;
+        justify-content: center;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.3rem;
+    }
+    
+    .header-link {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .header-actions {
+        margin-left: 0;
+    }
+}
+
+nav {
+    margin-bottom: 2rem;
+    background-color: transparent;
+}
+
+nav .nav-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .container {
+    background-color: var(--card-background);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--background-color);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 1600px) {
+    .articles-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 4px solid transparent;
+    position: relative;
+}
+
+.card.countdown-active {
+    border-color: #27ae60;
+}
+
+.card.countdown-expired {
+    border-color: #e74c3c;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+[data-theme="dark"] .card-title {
+    color: #6b9bd1;
+}
+
+.card-title .country-flag {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.card-meta {
+    color: var(--text-light);
+    font-size: 0.75rem;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-summary {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 0.7rem;
+    flex-grow: 1;
+    font-size: 0.8rem;
+}
+
+.card-summary-item {
+    margin-bottom: 0.3rem;
+    display: flex;
+}
+
+.card-summary-label {
+    font-weight: 600;
+    min-width: 85px;
+    color: var(--text-light);
+}
+
+.card-summary-value {
+    color: var(--text-color);
+}
+
+.card-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.card-link:hover {
+    color: var(--primary-color);
+}
+
+.countdown-timer {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    background-color: var(--background-color);
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-timer.active {
+    color: #27ae60;
+}
+
+.countdown-timer.expired {
+    color: #e74c3c;
+}
+
+.data-type-tag {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-detail {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.article-header {
+    border-bottom: 2px solid var(--background-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.article-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .article-title {
+    color: #6b9bd1;
+}
+
+.article-meta {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.article-summary-section {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.article-summary-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .article-summary-title {
+    color: #6b9bd1;
+}
+
+.article-summary-content {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.summary-item {
+    display: flex;
+    padding: 0.5rem 0;
+}
+
+.summary-label {
+    font-weight: 600;
+    min-width: 150px;
+    color: var(--text-light);
+}
+
+.summary-value {
+    color: var(--text-color);
+}
+
+.summary-value a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.summary-value a:hover {
+    text-decoration: underline;
+}
+
+.article-content {
+    line-height: 2;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.file-browser-container {
+    margin-top: 2rem;
+    border-top: 2px solid var(--background-color);
+    padding-top: 2rem;
+}
+
+.file-browser-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.file-browser-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+[data-theme="dark"] .file-browser-title {
+    color: #6b9bd1;
+}
+
+.file-browser-external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.file-browser-external-link:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.file-browser-external-link svg {
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .file-browser-external-link {
+    background: #4a90d9;
+}
+
+[data-theme="dark"] .file-browser-external-link:hover {
+    background: #6b9bd1;
+}
+
+.file-browser-iframe {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+    .article-summary-section {
+        padding: 1rem;
+    }
+    
+    .article-summary-content .summary-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .article-summary-content .summary-label {
+        min-width: auto;
+    }
+    
+    .file-browser-iframe {
+        height: 400px;
+    }
+    
+    .article-title {
+        font-size: 1.5rem;
+    }
+    
+    .article-detail {
+        padding: 1.5rem;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-success {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #229954;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+textarea.form-control {
+    min-height: 200px;
+    resize: vertical;
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.table-container {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:hover {
+    background-color: var(--background-color);
+}
+
+[data-theme="dark"] th {
+    background-color: #34495e;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+}
+
+.modal-close {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--text-color);
+}
+
+.message {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.message-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.empty-state h2 {
+    margin-bottom: 1rem;
+}
+
+.back-btn {
+    margin-bottom: 1.5rem;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.login-box .btn {
+    width: 100%;
+}
+
+.theme-toggle {
+    position: relative;
+    background: #2c3e50;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    color: #f8f9fa;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: #f8f9fa;
+    color: #2c3e50;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+.theme-toggle-icon {
+    font-size: 1rem;
+}
+
+header .theme-toggle {
+}
+
+header .theme-toggle:hover {
+}
+
+[data-theme="dark"] .message-success {
+    background-color: #1e4620;
+    color: #7dcea0;
+    border-color: #27ae60;
+}
+
+[data-theme="dark"] .message-error {
+    background-color: #4a1e1e;
+    color: #f1948a;
+    border-color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.75rem 0;
+    }
+    
+    .header-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .header-card {
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+    
+    .theme-toggle {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .main-content {
+        padding-top: 120px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    nav .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    nav .container > div {
+        width: 100%;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .toolbar {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .toolbar h2 {
+        margin-bottom: 0;
+    }
+    
+    .toolbar .btn {
+        width: 100%;
+    }
+}
+</style>
+    <script>(function() {
+    'use strict';
+
+    const THEME_KEY = 'direwolf-theme';
+    const LIGHT_THEME = 'light';
+    const DARK_THEME = 'dark';
+
+    function getCurrentTheme() {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        if (savedTheme) {
+            return savedTheme;
+        }
+        
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return DARK_THEME;
+        }
+        
+        return LIGHT_THEME;
+    }
+
+    function applyTheme(theme) {
+        if (theme === DARK_THEME) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+        localStorage.setItem(THEME_KEY, theme);
+        updateThemeToggleButton(theme);
+    }
+
+    function toggleTheme() {
+        const currentTheme = getCurrentTheme();
+        const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
+        applyTheme(newTheme);
+    }
+
+    function updateThemeToggleButton(theme) {
+        const buttons = document.querySelectorAll('.theme-toggle');
+        buttons.forEach(button => {
+            const icon = button.querySelector('.theme-toggle-icon');
+            const text = button.querySelector('.theme-toggle-text');
+            
+            if (theme === DARK_THEME) {
+                if (icon) icon.textContent = '☀️';
+                if (text) text.textContent = 'Light';
+            } else {
+                if (icon) icon.textContent = '🌙';
+                if (text) text.textContent = 'Dark';
+            }
+        });
+    }
+
+    function initTheme() {
+        const theme = getCurrentTheme();
+        applyTheme(theme);
+    }
+
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem(THEME_KEY)) {
+                applyTheme(e.matches ? DARK_THEME : LIGHT_THEME);
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+        initTheme();
+    }
+
+    window.toggleTheme = toggleTheme;
+})();
+</script>
+    <style>
+        .net-status { display: none; }
+        .net-status.show {
+            display: block;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 2000;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+        .net-status.offline { background: #8a6d3b; }
+        .net-status.online { background: #3c763d; }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-wrapper">
+            <div class="header-card">
+                <a href="/" class="logo" aria-label="DireWolf home">
+                    <svg class="logo-mark" viewBox="14 0 41 66" aria-hidden="true" focusable="false">
+                        <g stroke="currentColor" stroke-width="7.5" stroke-linecap="square" stroke-linejoin="miter" fill="none">
+                            <path d="M21,11 L21,53"/>
+                            <path d="M21,20 L33,9"/>
+                            <path d="M21,22 L43,32.5 L21,43"/>
+                            <path d="M21,45 L34,57"/>
+                        </g>
+                        <path d="M26.5,29.7 L29.3,32.5 L26.5,35.3 L23.7,32.5 Z" fill="#A8352F"/>
+                    </svg>
+                    <svg class="logo-wordmark" viewBox="0 0 302 50" aria-hidden="true" focusable="false">
+                        <g transform="translate(4,5.5)" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="6" fill="none">
+                            <path d="M0,0 L0,40 M0,0 L13,0 L23,10 L23,30 L13,40 L0,40"/>
+                            <path d="M43,0 L43,40"/>
+                            <path d="M63,0 L63,40 M63,0 L76,0 L82,6 L82,13 L76,19 L63,19 M70,19 L84,40"/>
+                            <path d="M104,0 L104,40 M104,0 L123,0 M104,20 L119,20 M104,40 L123,40"/>
+                            <path d="M143,0 L151,40 L153,40 L159,12 L165,40 L167,40 L175,0"/>
+                            <path d="M201.5,0 L211.5,0 L218,8 L218,32 L211.5,40 L201.5,40 L195,32 L195,8 Z"/>
+                            <path d="M238,0 L238,40 L255,40"/>
+                            <path d="M275,0 L275,40 M275,0 L294,0 M275,20 L290,20"/>
+                        </g>
+                    </svg>
+                </a>
+                <a href="/" class="header-link active">Home</a>
+                <a href="/about" class="header-link">About</a>
+                <a href="/faq" class="header-link">FAQ</a>
+                <a href="/fraud-warning" class="header-link">Fraud Warning</a>
+                <div class="header-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <span class="theme-toggle-icon">🌙</span>
+                        <span class="theme-toggle-text">Dark</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="net-status" role="status" aria-live="polite"></div>
+
+    <main class="main-content">
+        <div id="articles-view">
+            <div id="articles-list">
+<div class="articles-grid">
+<div class="card countdown-active">
+    <h2 class="card-title">
+        <span class="country-flag">🇧🇷</span>
+        <span>Softruck</span>
+    </h2>
+    <div class="card-meta">Published: 2026-10-04</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Softruck</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.softruck.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">30GB</span></div></div>
+    <a href="/article/137" class="card-link">Read More →</a>
+    <div class="countdown-timer active" data-end-time="2026-10-18T06:59:00Z">5d 12h</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇲🇾</span>
+        <span>Port of Tanjung Pelepas</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-11</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Port of Tanjung Pelepas</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.ptp.com.my</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Marine Shipping &amp; Transportation</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">200G</span></div></div>
+    <a href="/article/135" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T15:39:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇿🇦</span>
+        <span>RelyComply AML Platform</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-09</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">RelyComply AML Platform</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://relycomply.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Financial Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">200GB</span></div></div>
+    <a href="/article/134" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T17:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇿🇦</span>
+        <span>Cartrack Holdings</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-08</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Cartrack Holdings</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.cartrack.co.za</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">451GB</span></div></div>
+    <a href="/article/131" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-21T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>EMS1R</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-08</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">EMS1R</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://ems1r.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Corporate Wellness Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">110GB</span></div></div>
+    <a href="/article/129" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T17:30:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Precision Vehicle Logistics</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-07</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Precision Vehicle Logistics</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.precisionvehiclelogistics.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Freight &amp; Logistics Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/128" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-22T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇫🇷</span>
+        <span>TrainMe</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-07</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">TrainMe</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://trainme.co</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Corporate Wellness Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/127" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-22T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Semper Laser</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-07</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Semper Laser</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.semperlaser.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Spa and Salon Management · Florida</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/125" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-22T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>eAssist Dental Solutions</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-06</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">eAssist Dental Solutions</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://dentalbilling.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Healthcare</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/124" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-20T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>myLaurel</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-06</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">myLaurel</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.mylaurelhealth.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Elderly Care Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/123" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-20T19:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇹🇭</span>
+        <span>PTT Oil and Retail Business</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-02</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">PTT Oil and Retail Business</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.pttor.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Chemicals</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/119" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T16:25:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇧🇷</span>
+        <span>Oportunidados</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-01</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Oportunidados</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://oportunidados.com.br/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Business Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/118" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T16:00:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇮🇩</span>
+        <span>PT Intraco Penta Tbk</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-01</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">PT Intraco Penta Tbk</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">http://intracopenta.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Industrial Machinery &amp; Equipment</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">64G</span></div></div>
+    <a href="/article/117" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T15:08:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Honeycomb Programs Inc</span>
+    </h2>
+    <div class="card-meta">Published: 2026-09-01</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Honeycomb Programs Inc</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://honeycombinsurance.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Insurance</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">1.4T</span></div></div>
+    <a href="/article/116" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T13:53:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇨🇱</span>
+        <span>Hospital Clnico Universidad de Chile</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-30</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Hospital Clnico Universidad de Chile</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.redclinica.cl/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Hospitals</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">240GB</span></div></div>
+    <a href="/article/115" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T07:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇹🇷</span>
+        <span>Erdem Hospital</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-30</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Erdem Hospital</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.erdemhastahanesi.com.tr/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Hospitals</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">260GB</span></div></div>
+    <a href="/article/114" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T07:21:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇦🇹</span>
+        <span>THQ Nordic</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-30</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">THQ Nordic</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://thqnordic.com/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Multimedia,Games,Graphics Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">335GB</span></div></div>
+    <a href="/article/113" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-30T18:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇮🇹</span>
+        <span>Studio Legale ESE</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-25</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Studio Legale ESE</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://studiolegaleese.it/</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Law Firms , Legal Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">Yes</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">420GB</span></div></div>
+    <a href="/article/112" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T12:30:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇬🇧</span>
+        <span>Studee</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Studee</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://studee.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">-</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">51G</span></div></div>
+    <a href="/article/110" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T01:21:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇬🇧</span>
+        <span>Reviso Cloud Accounting Limited</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Reviso Cloud Accounting Limited</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.reviso.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">-</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">55G</span></div></div>
+    <a href="/article/109" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T01:16:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇦🇪</span>
+        <span>MCT Group of Companies</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">MCT Group of Companies</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.mctuae.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Building Materials</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">20G</span></div></div>
+    <a href="/article/108" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T02:35:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>HP Carriers</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">HP Carriers</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.hpcarriers.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">-</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">50G</span></div></div>
+    <a href="/article/107" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T02:32:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Allstar Industries</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Allstar Industries</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.allstarindustries.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Business Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">50G</span></div></div>
+    <a href="/article/106" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T02:27:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Deer Creek-Mackinaw CUSD</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Deer Creek-Mackinaw CUSD</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.deemack.org</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Education</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">1G</span></div></div>
+    <a href="/article/105" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T02:24:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇦🇪</span>
+        <span>iSON XPERIENCES</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">iSON XPERIENCES</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.isonxperiences.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Business Services</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">300G</span></div></div>
+    <a href="/article/103" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T02:13:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Diaco Global</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Diaco Global</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.diacoglobal.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Jewelry &amp; Watch Retail</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">80G</span></div></div>
+    <a href="/article/102" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T01:58:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇬🇧</span>
+        <span>Authenticate Information Systems</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Authenticate Information Systems</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.authenticateis.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">-</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">20G</span></div></div>
+    <a href="/article/101" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T01:55:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇵🇹</span>
+        <span>ProSim Aviation Research</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">ProSim Aviation Research</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://prosim.aero</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Engineering Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">20G</span></div></div>
+    <a href="/article/100" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-05T06:59:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇬🇧</span>
+        <span>The Revel Collective</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">The Revel Collective</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.therevelcollective.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Hospitality</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">700G</span></div></div>
+    <a href="/article/99" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-01T01:48:00Z">Ended</div>
+</div>
+<div class="card countdown-expired">
+    <h2 class="card-title">
+        <span class="country-flag">🇺🇸</span>
+        <span>Aztec Software</span>
+    </h2>
+    <div class="card-meta">Published: 2026-08-21</div>
+    <div class="card-summary"><div class="card-summary-item"><span class="card-summary-label">Company:</span><span class="card-summary-value">Aztec Software</span></div><div class="card-summary-item"><span class="card-summary-label">Website:</span><span class="card-summary-value">https://www.aztecsoftware.com</span></div><div class="card-summary-item"><span class="card-summary-label">Industry:</span><span class="card-summary-value">Engineering Software</span></div><div class="card-summary-item"><span class="card-summary-label">GDPR:</span><span class="card-summary-value">No</span></div><div class="card-summary-item"><span class="card-summary-label">Data Size:</span><span class="card-summary-value">-</span></div></div>
+    <a href="/article/98" class="card-link">Read More →</a>
+    <div class="countdown-timer expired" data-end-time="2026-09-17T19:00:00Z">Ended</div>
+</div>
+</div>
+<div class="pagination-wrap" style="text-align:center;margin:1.5rem 0;display:flex;gap:1rem;justify-content:center;"><a class="btn btn-primary" href="/?offset=30">Older →</a>
+</div></div>
+        </div>
+    </main>
+
+    <script>
+        // The article list is rendered server-side; the scripts below only enhance it
+        // (live countdowns, connectivity banner, header shadow). With JavaScript disabled
+        // the content is still fully readable.
+
+        // --- Live countdown (refines the server-rendered initial value each second) ---
+        function calculateCountdown(endTime) {
+            const distance = new Date(endTime).getTime() - Date.now();
+            if (distance < 0) return { expired: true, text: 'Ended' };
+            const days = Math.floor(distance / 86400000);
+            const hours = Math.floor((distance % 86400000) / 3600000);
+            const minutes = Math.floor((distance % 3600000) / 60000);
+            const seconds = Math.floor((distance % 60000) / 1000);
+            if (days > 0) return { expired: false, text: `${days}d ${hours}h` };
+            if (hours > 0) return { expired: false, text: `${hours}h ${minutes}m` };
+            if (minutes > 0) return { expired: false, text: `${minutes}m ${seconds}s` };
+            return { expired: false, text: `${seconds}s` };
+        }
+
+        function updateAllCountdowns() {
+            document.querySelectorAll('.countdown-timer').forEach(timer => {
+                const endTime = timer.getAttribute('data-end-time');
+                if (!endTime || endTime === '0001-01-01T00:00:00Z') return;
+                const countdown = calculateCountdown(endTime);
+                timer.textContent = countdown.text;
+                const card = timer.closest('.card');
+                if (countdown.expired) {
+                    timer.classList.remove('active'); timer.classList.add('expired');
+                    if (card) { card.classList.remove('countdown-active'); card.classList.add('countdown-expired'); }
+                } else {
+                    timer.classList.remove('expired'); timer.classList.add('active');
+                    if (card) { card.classList.remove('countdown-expired'); card.classList.add('countdown-active'); }
+                }
+            });
+        }
+        updateAllCountdowns();
+        setInterval(updateAllCountdowns, 1000);
+
+        // --- Connectivity banner. Content is server-rendered and the service worker
+        //     serves cached pages when offline; this only surfaces the state. ---
+        function setNetBanner(state) {
+            const el = document.getElementById('net-status');
+            if (!el) return;
+            if (!state) { el.className = ''; el.textContent = ''; return; }
+            if (state === 'offline') {
+                el.className = 'net-status show offline';
+                el.textContent = 'You appear to be offline — showing cached content.';
+            } else if (state === 'online') {
+                el.className = 'net-status show online';
+                el.textContent = 'Back online.';
+                setTimeout(() => setNetBanner(null), 2500);
+            }
+        }
+        window.addEventListener('offline', () => setNetBanner('offline'));
+        window.addEventListener('online', () => setNetBanner('online'));
+        if (!navigator.onLine) setNetBanner('offline');
+
+        // --- Header shadow on scroll ---
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (!header) return;
+            if (window.pageYOffset > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+    <script>
+        // Register the service worker for offline app-shell caching (weak/intermittent network).
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kairos</title>
+    <!-- Preconnect to improve connection time -->
+    <link rel="preconnect" href="http://localhost:5173" />
+    <!-- DNS prefetch for external resources if any -->
+    <link rel="dns-prefetch" href="http://localhost:5173" />
+    <style>
+      /* Initial loading screen - shown immediately before React loads */
+      #initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #1A1B23;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        color: #6B7FD7;
+      }
+      
+      #initial-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      .loader-spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(107, 127, 215, 0.2);
+        border-top-color: #6B7FD7;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-bottom: 16px;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      .loader-text {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      
+      /* Hide root until React is ready */
+      #root:empty {
+        display: none;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CANSeGzA.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-Boxow9mf.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-EqWfmR8E.js">
+    <link rel="modulepreload" crossorigin href="./assets/admin-CStMNJXj.js">
+    <link rel="modulepreload" crossorigin href="./assets/service-details-BMM9a_Mv.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-CE2ilmmb.css">
+  </head>
+  <body>
+    <div id="initial-loader">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading...</div>
+    </div>
+    <div id="root"></div>
+    <!-- Load script with defer to not block HTML parsing -->
+    <!-- In dev mode, Vite will inject HMR client, but it won't block initial render -->
+    <script>
+      // Track when script tag is encountered
+      const scriptEncounterTime = performance.now();
+      console.log('📜 [PERF] Script tag encountered at:', scriptEncounterTime);
+      
+      // Track resource loading
+      if ('PerformanceObserver' in window) {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (entry.name.includes('.js') || entry.name.includes('.tsx') || entry.name.includes('.ts')) {
+              console.log('📦 [PERF] Resource loaded:', entry.name, 'Duration:', entry.duration.toFixed(2), 'ms', 'Size:', entry.transferSize ? (entry.transferSize / 1024).toFixed(2) + ' KB' : 'unknown');
+            }
+          }
+        });
+        observer.observe({ entryTypes: ['resource'] });
+      }
+    </script>
+    <script>
+      // Performance tracking
+      const pageLoadStart = performance.now();
+      window.__scriptStartTime = pageLoadStart;
+      console.log('📄 [PERF] HTML page load started at:', pageLoadStart);
+      
+      // Track DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', function() {
+        const domReady = performance.now();
+        console.log('📄 [PERF] DOMContentLoaded at:', domReady, 'Duration:', (domReady - pageLoadStart).toFixed(2), 'ms');
+      });
+      
+      // Hide initial loader when React app mounts
+      window.addEventListener('load', function() {
+        const windowLoad = performance.now();
+        console.log('📄 [PERF] Window load event at:', windowLoad, 'Duration:', (windowLoad - pageLoadStart).toFixed(2), 'ms');
+        
+        setTimeout(function() {
+          const loader = document.getElementById('initial-loader');
+          if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(function() {
+              loader.remove();
+            }, 300);
+          }
+        }, 100);
+      });
+      
+      // Track navigation timing
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (performance.timing) {
+            const timing = performance.timing;
+            const metrics = {
+              'DNS lookup': timing.domainLookupEnd - timing.domainLookupStart,
+              'TCP connection': timing.connectEnd - timing.connectStart,
+              'Server response': timing.responseEnd - timing.requestStart,
+              'DOM processing': timing.domComplete - timing.domInteractive,
+              'Page load': timing.loadEventEnd - timing.navigationStart,
+            };
+            console.log('📊 [PERF] Navigation Timing:', metrics);
+          }
+          
+          // Web Vitals
+          if (performance.getEntriesByType) {
+            const navigation = performance.getEntriesByType('navigation')[0];
+            if (navigation) {
+              console.log('📊 [PERF] Navigation Entry:', {
+                'DNS': navigation.domainLookupEnd - navigation.domainLookupStart,
+                'TCP': navigation.connectEnd - navigation.connectStart,
+                'Request': navigation.responseStart - navigation.requestStart,
+                'Response': navigation.responseEnd - navigation.responseStart,
+                'DOM': navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+                'Load': navigation.loadEventEnd - navigation.loadEventStart,
+                'Total': navigation.loadEventEnd - navigation.fetchStart,
+              });
+            }
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

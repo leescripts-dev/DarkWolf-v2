@@ -1,0 +1,7 @@
+# Install into the darkwolf-backend virtual environment to enable the optional
+# BlackX SVG CAPTCHA model integration. Selenium is supplied by the backend.
+numpy
+opencv-python-headless
+pillow
+pytesseract
+torch

@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karma Leaks — Leaks</title>
+    <link rel="icon" href="/static/img/favicon.png" type="image/png">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+    <style>
+/* @font-face declarations — Roboto Mono */
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/roboto-mono-400-cyrillic-ext.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/roboto-mono-400-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/roboto-mono-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/roboto-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/roboto-mono-400-cyrillic-ext.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/roboto-mono-400-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/roboto-mono-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/roboto-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* @font-face declarations — Space Grotesk */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/space-grotesk-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(/static/fonts/space-grotesk-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/space-grotesk-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(/static/fonts/space-grotesk-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* === Crimson Noir Theme === */
+:root {
+    --bg: #0a0a0a;
+    --bg-card: #0f0f0f;
+    --bg-card-hover: #141414;
+    --border: #1a1a1a;
+    --border-hover: #2a2a2a;
+    --accent: #e63946;
+    --accent-light: #ff6b6b;
+    --accent-dark: #a8001e;
+    --accent-glow: rgba(230, 57, 70, 0.15);
+    --accent-glow-strong: rgba(230, 57, 70, 0.3);
+    --text: #d4d4d4;
+    --text-dim: #555555;
+    --text-bright: #ffffff;
+    --tag-bg: rgba(230, 57, 70, 0.1);
+    --tag-border: rgba(230, 57, 70, 0.3);
+    --font-mono: 'Roboto Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+a { color: var(--accent-light); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent); }
+
+/* === HEADER (auto-hide on scroll) === */
+.header-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+.header-wrap.hidden { transform: translateY(-100%); }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 2.5rem;
+    background: rgba(20, 8, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border: none;
+    box-shadow: none;
+}
+/* Spacer so content doesn't hide behind fixed header */
+.header-spacer { height: 52px; }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+.logo img {
+    height: 26px;
+    filter: drop-shadow(0 0 6px var(--accent-glow-strong));
+}
+.logo span {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.nav a {
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s;
+    padding: 0.3rem 0.4rem;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+.nav a:hover {
+    color: var(--accent-light);
+}
+.nav a.active {
+    color: var(--accent);
+    background: var(--accent-glow);
+}
+.status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.6rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+.status-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+/* Mobile burger */
+.burger { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; padding: 0.3rem; }
+.nav-mobile { display: none; }
+
+/* === HERO === */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero-ascii {
+    color: var(--accent);
+    font-size: 0.55rem;
+    line-height: 1.15;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+    text-shadow: 0 0 10px var(--accent-glow-strong);
+    animation: fadeIn 1s ease-out;
+}
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.8rem;
+    animation: slideUp 0.6s ease-out 0.2s both;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+    color: var(--text-dim);
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    font-size: 0.85rem;
+    animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+/* === STATS ROW === */
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    animation: slideUp 0.6s ease-out 0.6s both;
+}
+.stat-item { text-align: center; }
+.stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    text-shadow: 0 0 15px var(--accent-glow-strong);
+}
+.stat-label {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 0.7rem 2.5rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, box-shadow 0.3s;
+    animation: slideUp 0.6s ease-out 0.8s both;
+}
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--accent);
+    transition: left 0.3s;
+    z-index: -1;
+}
+.btn-cta:hover {
+    color: var(--text-bright);
+    box-shadow: 0 0 20px var(--accent-glow-strong);
+}
+.btn-cta:hover::before { left: 0; }
+
+/* === CATALOG / CARDS === */
+.catalog {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.catalog-category { margin-bottom: 2rem; }
+.catalog-category h2 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 1px;
+}
+.catalog-category h2 span { color: var(--accent); }
+
+.card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* === CARD === */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.8rem;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    animation: slideUp 0.5s ease-out both;
+}
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow), inset 0 0 30px var(--accent-glow);
+    background: var(--bg-card-hover);
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+.card-header-left { display: flex; align-items: center; gap: 1rem; }
+.card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--text-bright);
+}
+.card-version {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+}
+
+/* Tags */
+.card-tags {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+.tag {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--tag-border);
+    background: var(--tag-bg);
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Stats row in card */
+.card-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+.card-stats span { display: flex; align-items: center; gap: 0.3rem; }
+
+/* Popularity bar */
+.popularity {
+    margin-bottom: 1rem;
+}
+.popularity-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.popularity-bar {
+    height: 3px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.popularity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-light));
+    box-shadow: 0 0 8px var(--accent-glow-strong);
+    transition: width 1s ease-out;
+}
+
+/* Data preview */
+.data-preview {
+    background: rgba(230, 57, 70, 0.03);
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+.data-preview-title {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+.data-preview table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.65rem;
+}
+.data-preview th {
+    text-align: left;
+    color: var(--accent);
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+    white-space: nowrap;
+}
+.data-preview td {
+    padding: 0.25rem 0.5rem;
+    color: var(--text-dim);
+    border-bottom: 1px solid rgba(26,26,26,0.5);
+    white-space: nowrap;
+}
+
+/* File tree */
+.file-tree {
+    color: var(--accent-light);
+    font-size: 0.7rem;
+    line-height: 1.7;
+    background: rgba(230, 57, 70, 0.03);
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--accent);
+    white-space: pre;
+    overflow-x: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out, margin 0.4s ease-out;
+    padding: 0 1rem;
+    margin: 0;
+}
+.file-tree.open {
+    max-height: 500px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-meta {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1rem 0;
+}
+
+/* Price row */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-price {
+    font-size: 0.85rem;
+    color: var(--text);
+}
+.card-price span {
+    color: var(--accent);
+    font-weight: 700;
+    font-family: var(--font-display);
+}
+
+/* Buttons */
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    flex: 1;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--text-dim);
+}
+.btn:hover {
+    color: var(--text-bright);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+.btn-primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text-bright);
+}
+.btn-primary:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+    box-shadow: 0 0 15px var(--accent-glow-strong);
+}
+.btn-danger {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.btn-danger:hover {
+    background: var(--accent);
+    color: var(--text-bright);
+}
+.btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* === COMPACT CARDS (catalog listing) === */
+.card-compact {
+    display: flex;
+    flex-direction: column;
+}
+.card-compact .card-desc-truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    max-height: 2.7em;
+}
+.card-compact .card-stats {
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+.card-compact .popularity {
+    margin-bottom: 0.5rem;
+}
+
+/* === FEATURED CARDS (compact for homepage) === */
+.card-featured {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    animation: slideUp 0.5s ease-out both;
+}
+.card-featured:nth-child(1) { animation-delay: 0.2s; }
+.card-featured:nth-child(2) { animation-delay: 0.35s; }
+.card-featured:nth-child(3) { animation-delay: 0.5s; }
+.card-featured:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+    background: var(--bg-card-hover);
+}
+.card-featured-info { flex: 1; }
+.card-featured-info h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text-bright);
+    margin-bottom: 0.3rem;
+}
+.card-featured-info p {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+.card-featured-meta {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-top: 0.3rem;
+}
+.card-featured-meta span { margin-right: 1rem; }
+.card-featured-price {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* === FOOTER === */
+.footer-full {
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+.footer-contact {
+    background: linear-gradient(180deg, rgba(230,57,70,0.03) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.footer-heading {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+.footer-heading span { color: var(--accent); }
+.footer-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.footer-channel {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+}
+.footer-channel:hover { border-color: var(--accent); }
+.footer-channel-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    min-width: 60px;
+}
+.footer-channel-value {
+    font-size: 0.8rem;
+    color: var(--text);
+    word-break: break-all;
+    flex: 1;
+}
+.footer-channel-note {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+}
+.footer-pgp-block {
+    margin-bottom: 1.5rem;
+}
+.footer-pgp-block summary {
+    font-size: 0.7rem;
+    color: var(--accent-light);
+    cursor: pointer;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.footer-pgp-block summary:hover { color: var(--accent); }
+.footer-pgp-block pre {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin-top: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.footer-rules {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.footer-rules span::before {
+    content: '\25CF ';
+    color: var(--accent);
+    font-size: 0.5rem;
+}
+.footer-bottom {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+}
+.footer-pgp-fp { margin-bottom: 0.4rem; word-break: break-all; }
+.footer-bottom .footer-links { margin-bottom: 0.4rem; }
+.footer-bottom .footer-links a { margin: 0 0.5rem; color: var(--text-dim); }
+.footer-bottom .footer-links a:hover { color: var(--accent); }
+.footer-motto {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+@media (max-width: 768px) {
+    .footer-contact { padding: 2rem 1rem; }
+    .footer-channel { flex-direction: column; gap: 0.3rem; }
+    .footer-rules { flex-direction: column; gap: 0.5rem; }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--accent); }
+    50% { opacity: 0.4; box-shadow: 0 0 10px var(--accent); }
+}
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 5px var(--accent-glow); }
+    50% { box-shadow: 0 0 20px var(--accent-glow-strong); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .header { gap: 0.5rem; padding: 0.5rem 1rem; }
+    .logo span { display: none; }
+    .logo img { height: 22px; }
+    .nav { gap: 0.3rem; }
+    .nav a { font-size: 0.6rem; padding: 0.25rem 0.35rem; letter-spacing: 1px; }
+    .status { display: none; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .hero h1 { font-size: 1.6rem; }
+    .stats-row { gap: 1.5rem; }
+    .stat-num { font-size: 1.4rem; }
+    .catalog { padding: 2rem 1rem; }
+    .card { padding: 1.2rem; }
+    .card-actions { flex-direction: column; }
+    .card-actions .btn { flex: none; }
+    .card-featured { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+}
+@media (max-width: 480px) {
+    .header { flex-wrap: wrap; justify-content: center; }
+    .nav { order: 2; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .header-spacer { height: 80px; }
+}
+
+/* === INNER PAGES === */
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+.page-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text-bright);
+    margin-bottom: 2rem;
+    animation: slideUp 0.5s ease-out;
+}
+.page-title span { color: var(--accent); }
+
+.terminal-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    animation: slideUp 0.5s ease-out 0.1s both;
+}
+.terminal-block .prompt { color: var(--accent); }
+.terminal-block .output { color: var(--text); }
+
+.guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+.guarantee-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    animation: slideUp 0.5s ease-out both;
+}
+.guarantee-card:nth-child(1) { animation-delay: 0.1s; }
+.guarantee-card:nth-child(2) { animation-delay: 0.2s; }
+.guarantee-card:nth-child(3) { animation-delay: 0.3s; }
+.guarantee-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+.guarantee-card .icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+.guarantee-card h3 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+}
+.guarantee-card p { font-size: 0.7rem; color: var(--text-dim); }
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--text-bright);
+    margin-bottom: 1.5rem;
+}
+.steps-list {
+    counter-reset: steps;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+.steps-list li {
+    counter-increment: steps;
+    padding: 1rem 1rem 1rem 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    font-size: 0.8rem;
+    transition: background 0.2s;
+}
+.steps-list li:hover { background: var(--bg-card); }
+.steps-list li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0.5rem;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contact-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+.contact-card h3 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+}
+.contact-card .value { font-size: 0.75rem; color: var(--text); word-break: break-all; }
+.contact-card .placeholder { color: var(--text-dim); font-style: italic; }
+
+.pgp-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    font-size: 0.65rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin-bottom: 2rem;
+}
+
+/* === TIMER === */
+.card-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+    margin: -1.8rem -1.8rem 1.2rem -1.8rem;
+    background: linear-gradient(90deg, rgba(230,57,70,0.15) 0%, rgba(230,57,70,0.05) 100%);
+    border-bottom: 1px solid var(--accent-dark);
+    font-size: 0.7rem;
+}
+.timer-icon {
+    font-size: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+.timer-label {
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+.timer-digits {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px var(--accent-glow-strong);
+}
+.timer-digits .t-sep { color: var(--accent); opacity: 0.5; }
+.card-timer.urgent {
+    background: linear-gradient(90deg, rgba(230,57,70,0.3) 0%, rgba(230,57,70,0.1) 100%);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+.card-timer.urgent .timer-digits { color: var(--accent); }
+
+/* Timer badge (compact, for catalog cards) */
+.card-timer-badge {
+    background: rgba(230, 57, 70, 0.08);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.timer-digits-sm {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--accent-light);
+    letter-spacing: 0.5px;
+}
+.timer-digits-sm .t-sep { color: var(--accent); opacity: 0.4; font-size: 0.6rem; }
+.card-timer-badge.urgent {
+    border-color: var(--accent);
+    background: rgba(230, 57, 70, 0.15);
+}
+.card-timer-badge.urgent .timer-digits-sm { color: var(--accent); }
+
+@media (max-width: 768px) {
+    .card-timer { margin: -1.2rem -1.2rem 1rem -1.2rem; }
+}
+
+/* === MODAL === */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-out;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 40px var(--accent-glow-strong);
+    padding: 2rem;
+    max-width: 440px;
+    width: 90%;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+}
+.modal-close {
+    position: absolute;
+    top: 0.8rem; right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    transition: color 0.2s;
+}
+.modal-close:hover { color: var(--accent); }
+.modal h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    margin-bottom: 0.3rem;
+}
+.modal-subtitle {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+}
+.modal-leak-name {
+    color: var(--accent);
+    font-weight: 700;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-dim);
+}
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+.modal-actions .btn { flex: 1; padding: 0.6rem; }
+.modal-success {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+}
+.modal-success .checkmark {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+.modal-success p {
+    font-size: 0.8rem;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .guarantee-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .page-content { padding: 2rem 1rem; }
+    .modal { padding: 1.5rem; }
+}
+    </style>
+</head>
+<body>
+    
+    <div class="header-wrap" id="mainHeader">
+        <header class="header">
+            <a href="/" class="logo"><img src="/static/img/logo-animated.gif" alt="Karma Leaks"> <span>Karma Leaks</span></a>
+            <nav class="nav">
+                <a href="/" >Home</a>
+                <a href="/leaks" class="active">Leaks</a>
+                <a href="/how-it-works" >How it works</a>
+                
+            </nav>
+        </header>
+    </div>
+    <div class="header-spacer"></div>
+    
+
+    
+<section class="catalog">
+    <div class="catalog-category">
+        <h2><span>//</span> All Leaks</h2>
+        <div class="card-grid">
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/31.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Sports Endeavors</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-09-04</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="8" data-leak-id="31" data-created-at="2026-09-04 15:45:04">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Sports Endeavors is a North Carolina company founded in 1984 by brothers Mike and Brendan Moylan. It owns Soccer.com, WorldSoccerShop, and 431 Sports, selling uniforms, gear, and a...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>43 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/31" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Sports Endeavors" data-leak-id="31" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/28.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">SEARS (Grupo Sanborns)</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-08-15</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="14" data-leak-id="28" data-created-at="2026-08-15 13:59:25">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">SEARS (Grupo Sanborns, S.A. de C.V.) is a leading Mexican retail company and a key subsidiary of Grupo Carso, owned by the Slim family.
+Founded in 1903 by the Sanborn brothers, th...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>229 views</span>
+                    <span>11 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/28" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="SEARS (Grupo Sanborns)" data-leak-id="28" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/27.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Hitech Distribuzione Informatica S.r.l. (HTDI)</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-08-05</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="6" data-leak-id="27" data-created-at="2026-08-05 09:57:52">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">HTDI is a leading Italian provider of comprehensive IT solutions based in Rome (Via Tempio del Cielo). It positions itself as a single technological partner that accompanies client...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>132 views</span>
+                    <span>22 downloads</span>
+                    <span>190727 files</span>
+                    <span>272 Gb</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/27" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Hitech Distribuzione Informatica S.r.l. (HTDI)" data-leak-id="27" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/26.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Blenheim</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-07-04</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="7" data-leak-id="26" data-created-at="2026-07-04 03:58:24">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+                    <span class="tag">Blenheim</span>
+                </div>
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Blenheim is a UK-based luxury property company specializing in high-end residential real estate, architecture, bespoke home design, and property development. 
+With more than 20 ye...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>297 views</span>
+                    <span>0 downloads</span>
+                    <span>1085421 files</span>
+                    <span>430 Gb</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/26" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Blenheim" data-leak-id="26" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/25.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">ECOVACS</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-16</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="7" data-leak-id="25" data-created-at="2026-06-16 03:49:40">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">ECOVACS is a highly successful Chinese robotics company founded in 1998 in Suzhou. It has grown into a global leader in smart home cleaning solutions, with its products sold in ove...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>818 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/25" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="ECOVACS" data-leak-id="25" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/24.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">PT Darma Henwa Tbk</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-15</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="10" data-leak-id="24" data-created-at="2026-06-15 01:55:16">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">PT Darma Henwa Tbk (PTDH) is an Indonesian integrated mining services company established in 1991.
+It provides a wide range of services including heavy equipment operations, bulk ...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>1066 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/24" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="PT Darma Henwa Tbk" data-leak-id="24" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/23.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Elgon Cosmetic</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-15</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="10" data-leak-id="23" data-created-at="2026-06-15 01:44:44">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Elgon Cosmetic is an Italian professional hair care company founded in Milan in 1970.
+With over 50 years of experience, Elgon creates high-quality Made-in-Italy formulas using pre...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>491 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/23" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Elgon Cosmetic" data-leak-id="23" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/22.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">SmilePoint Dental Group</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-14</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="5" data-leak-id="22" data-created-at="2026-06-14 01:01:39">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">SmilePoint Dental Group is a fast-growing dental organization operating 26–28 offices across Texas and New Mexico.
+The group runs multiple family dental clinics and orthodontics p...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>1092 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/22" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="SmilePoint Dental Group" data-leak-id="22" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/21.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">WMC Metal Concepts</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-14</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="0" data-leak-id="21" data-created-at="2026-06-14 00:50:44">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">WMC Metal Concepts (Wagner Metall Concept) is a German-Czech metal fabrication company specializing in high-precision custom metal parts and components.
+They serve various industr...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>248 views</span>
+                    <span>5 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/21" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="WMC Metal Concepts" data-leak-id="21" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/20.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Bessone Srl</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-14</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="7" data-leak-id="20" data-created-at="2026-06-14 00:40:04">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Bessone Srl is an Italian company founded in 1961, specializing in the production and packaging of household cleaning and hygiene products.
+With full vertical integration, it mana...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>481 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span></span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/20" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Bessone Srl" data-leak-id="20" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/19.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Sanz Clima </h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-13</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="7" data-leak-id="19" data-created-at="2026-06-13 23:36:34">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Sanz Clima (sanzclima.com) is a Spanish family-owned company founded in 1956 with over 60 years of experience in HVAC systems for vehicles.
+They specialize in custom climate contr...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>1200 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span>244.4 Gb</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/19" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Sanz Clima " data-leak-id="19" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/18.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Ridge Law Firm </h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-13</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="6" data-leak-id="18" data-created-at="2026-06-13 23:06:55">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Ridge Law Firm is a Bronx-based personal injury law firm led by Michael T. Ridge.
+With decades of experience, they represent victims of car accidents, slip and falls, pedestrian i...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>1428 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span>1662.8 GB</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/18" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Ridge Law Firm " data-leak-id="18" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/16.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Saraff Global</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-13</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="10" data-leak-id="16" data-created-at="2026-06-13 22:48:01">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Saraff Global is a diversified industrial group headquartered in Bangkok, Thailand, with 12 companies operating in gems &amp; jewelry (especially diamonds), energy, IT, manufacturing, ...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>605 views</span>
+                    <span>0 downloads</span>
+                    <span>0 files</span>
+                    <span>169.2</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/16" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Saraff Global" data-leak-id="16" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/14.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Cedarland Forest Products</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-05</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="3" data-leak-id="14" data-created-at="2026-06-05 01:11:13">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+                    <span class="tag">Cedarland ransome hacked leak</span>
+                </div>
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Cedarland Forest Products is a family-owned Canadian company based in Maple Ridge, British Columbia, specializing in high-quality Western Red Cedar wood products.
+Established in 1...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>136 views</span>
+                    <span>1 downloads</span>
+                    <span>51423 files</span>
+                    <span>67.7</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/14" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Cedarland Forest Products" data-leak-id="14" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/13.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Security Department Srl </h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-03</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="5" data-leak-id="13" data-created-at="2026-06-03 02:08:38">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+                    <span class="tag">Security Department Srl hacker ransom</span>
+                </div>
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Security Department Srl is an Italian security company based in Anzi (Province of Potenza, Basilicata region). With over 20 years of experience, the company specializes in professi...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>3142 views</span>
+                    <span>68 downloads</span>
+                    <span>0 files</span>
+                    <span>286</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/13" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Security Department Srl " data-leak-id="13" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/12.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Pafco (Fiji)</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-06-02</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="4" data-leak-id="12" data-created-at="2026-06-02 04:15:10">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+                    <span class="tag">pafcofiji leak ransom</span>
+                </div>
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">PAFCO is a leading Fijian tuna processing company based in Levuka, specializing in high-quality canned tuna products.
+They offer a wide range of items including tuna flakes in coc...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>459 views</span>
+                    <span>3 downloads</span>
+                    <span>0 files</span>
+                    <span>373.1</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/12" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Pafco (Fiji)" data-leak-id="12" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="card card-compact">
+                <!-- Row 1: Logo + Title + Timer -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;">
+                        
+                        <img src="/uploads/logos/11.png" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="">
+                        
+                        <div>
+                            <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-bright);margin:0;">Caffarena</h3>
+                            <span style="font-size:0.6rem;color:var(--text-dim);">2026-05-12</span>
+                        </div>
+                    </div>
+                    <div class="card-timer-badge" data-expire-days="5" data-leak-id="11" data-created-at="2026-05-12 01:09:11">
+                        <span class="timer-digits-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tags -->
+                
+                <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+                    <span class="tag">Caffarena Hack CyberSecurity</span>
+                </div>
+                
+
+                <!-- Row 3: Description (2 lines) -->
+                <p class="card-desc card-desc-truncated" style="margin-bottom:0.8rem;">Caffarena is a Chilean company founded in 1920 in Santiago. For over 100 years, it has specialized in the production and sale of textile products, especially clothing for the whole...</p>
+
+                <!-- Row 4: Stats -->
+                <div style="display:flex;gap:1.5rem;font-size:0.7rem;color:var(--text-dim);margin-bottom:1rem;">
+                    <span>1127 views</span>
+                    <span>135 downloads</span>
+                    <span>100 files</span>
+                    <span>53</span>
+                </div>
+
+                <!-- Row 5: Price + Actions -->
+                <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.8rem;border-top:1px solid var(--border);">
+                    <div style="font-family:var(--font-display);font-size:1rem;color:var(--text-bright);font-weight:700;">
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">BTC</span>
+                        <span style="color:var(--border);margin:0 0.3rem;">/</span>
+                         <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400;">XMR</span>
+                    </div>
+                    <div style="display:flex;gap:0.4rem;">
+                        <a href="/leak/11" class="btn" style="font-size:0.6rem;padding:0.4rem 0.8rem;">DETAILS</a>
+                        <a href="#" class="btn disabled" style="font-size:0.6rem;padding:0.4rem 0.8rem;">PREVIEW</a>
+                        <button class="btn btn-primary" data-buy="Caffarena" data-leak-id="11" style="font-size:0.6rem;padding:0.4rem 1rem;">BUY</button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact & Footer -->
+    <footer class="footer-full">
+        <div class="footer-contact">
+            <div class="footer-contact-inner">
+                <h2 class="footer-heading"><img src="/static/img/logo-red.png" alt="" style="height:24px;vertical-align:middle;margin-right:0.5rem;"><span>//</span> Secure Contact</h2>
+                <div class="footer-channels">
+                    
+                    
+                    
+                    <div class="footer-channel">
+                        <span class="footer-channel-label">EMAIL</span>
+                        <span class="footer-channel-value">karmaone@cyberfear.com</span>
+                        <span class="footer-channel-note">PGP encryption mandatory</span>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <div class="footer-rules">
+                    <span>All channels checked daily</span>
+                    <span>Response within 24h</span>
+                    <span>Encryption mandatory</span>
+                    <span>Do not use clearnet</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-pgp-fp">PGP: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX</div>
+            <div class="footer-links">
+                <a href="/how-it-works">How it works</a>
+            </div>
+            <div class="footer-motto">No JS. No tracking. No logs.</div>
+        </div>
+    </footer>
+
+    <!-- Buy Modal -->
+    <div class="modal-overlay" id="buyModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="modalForm">
+                <h3>Request Access</h3>
+                <p class="modal-subtitle">Leak: <span class="modal-leak-name" id="modalLeakName">&mdash;</span></p>
+                <div class="form-group">
+                    <label>Contact email</label>
+                    <input type="email" id="buyEmail" placeholder="your@email.com" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Message (optional)</label>
+                    <textarea id="buyMessage" placeholder="Preferred payment method, questions, etc."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn" id="modalCancel">CANCEL</button>
+                    <button class="btn btn-primary" id="modalSubmit">SEND REQUEST</button>
+                </div>
+            </div>
+            <div class="modal-success" id="modalSuccess">
+                <div class="checkmark">&#10003;</div>
+                <p>Request submitted. We will contact you within 24h.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+(function(){
+    /* Header auto-hide on scroll down, show on scroll up */
+    var hdr=document.getElementById('mainHeader');
+    if(hdr){
+        var lastY=0;
+        window.addEventListener('scroll',function(){
+            var y=window.scrollY;
+            if(y>80 && y>lastY){hdr.classList.add('hidden');}
+            else{hdr.classList.remove('hidden');}
+            lastY=y;
+        });
+    }
+
+    /* Countdown timers — full (detail page) and badge (catalog) */
+    function initTimers(selector, digitsSelector) {
+        document.querySelectorAll(selector).forEach(function(el){
+            var days=parseInt(el.getAttribute('data-expire-days'))||0;
+            var createdAt=el.getAttribute('data-created-at')||'';
+            var target;
+            if(createdAt){
+                target=new Date(new Date(createdAt+'Z').getTime()+days*86400000);
+            } else {
+                target=new Date(new Date().getTime()+days*86400000);
+            }
+            var digitsEl=el.querySelector(digitsSelector);
+            if(!digitsEl) return;
+            var leakId=el.getAttribute('data-leak-id')||'';
+            function tick(){
+                var diff=target-new Date();
+                if(diff<=0){
+                    digitsEl.innerHTML='<span style="color:var(--accent)">EXPIRED</span>';
+                    el.classList.add('urgent');
+                    /* Unlock download button when timer expires */
+                    var dlBtn=document.getElementById('dl-btn-'+leakId);
+                    if(dlBtn){dlBtn.classList.remove('disabled');dlBtn.style.pointerEvents='';dlBtn.style.opacity='';dlBtn.title='';}
+                    return;
+                }
+                var d=Math.floor(diff/86400000);
+                var h=Math.floor((diff%86400000)/3600000);
+                var m=Math.floor((diff%3600000)/60000);
+                var s=Math.floor((diff%60000)/1000);
+                digitsEl.innerHTML=d+'<span class="t-sep">d </span>'+String(h).padStart(2,'0')+'<span class="t-sep">:</span>'+String(m).padStart(2,'0')+'<span class="t-sep">:</span>'+String(s).padStart(2,'0');
+                if(d<1)el.classList.add('urgent'); else el.classList.remove('urgent');
+            }
+            tick();setInterval(tick,1000);
+        });
+    }
+    initTimers('.card-timer[data-expire-days]', '.timer-digits');
+    initTimers('.card-timer-badge[data-expire-days]', '.timer-digits-sm');
+
+    /* File tree toggle */
+    document.addEventListener('click',function(e){
+        var b=e.target.closest('[data-toggle]');
+        if(!b)return;
+        var t=document.getElementById(b.getAttribute('data-toggle'));
+        if(t){t.classList.toggle('open');b.textContent=t.classList.contains('open')?'HIDE':'CONTENTS';}
+    });
+
+    /* Buy modal — POST to /api/buy */
+    var modal=document.getElementById('buyModal');
+    if(!modal)return;
+    var nameEl=document.getElementById('modalLeakName');
+    var formEl=document.getElementById('modalForm');
+    var successEl=document.getElementById('modalSuccess');
+    var emailEl=document.getElementById('buyEmail');
+    var msgEl=document.getElementById('buyMessage');
+
+    function openModal(leakName,leakId){
+        nameEl.textContent=leakName;
+        modal.setAttribute('data-leak-id',leakId);
+        formEl.style.display='block';
+        successEl.style.display='none';
+        emailEl.value='';msgEl.value='';
+        modal.classList.add('open');
+    }
+    function closeModal(){modal.classList.remove('open');}
+
+    document.addEventListener('click',function(e){
+        var buyBtn=e.target.closest('[data-buy]');
+        if(buyBtn){openModal(buyBtn.getAttribute('data-buy'),buyBtn.getAttribute('data-leak-id'));return;}
+        if(e.target.id==='modalClose'||e.target.id==='modalCancel'){closeModal();return;}
+        if(e.target===modal){closeModal();return;}
+        if(e.target.id==='modalSubmit'){
+            var email=emailEl.value.trim();
+            if(!email||email.indexOf('@')<1){emailEl.style.borderColor='var(--accent)';return;}
+            var leakId=modal.getAttribute('data-leak-id')||'';
+            fetch('/api/buy',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({leak_id:parseInt(leakId),email:email,message:msgEl.value})
+            }).then(function(r){return r.json();}).then(function(d){
+                if(d.ok){formEl.style.display='none';successEl.style.display='block';setTimeout(closeModal,2500);}
+                else{emailEl.style.borderColor='var(--accent)';}
+            });
+        }
+    });
+})();
+    </script>
+</body>
+</html>

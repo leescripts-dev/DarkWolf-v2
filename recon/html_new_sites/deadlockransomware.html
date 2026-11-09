@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadlock - Blog</title>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=unbounded:400,500,600,700&display=swap">
+    <style>
+        html{overflow-y:auto;font-size:16px;min-height:100%;background:#0B0B0B;background:linear-gradient(213.21deg,#0B0B0B 10.91%,#010E21 92.79%)}
+        *{padding:0;margin:0;outline:none;border:0;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+        .font{font-family:'Unbounded','Inter',system-ui,sans-serif}
+        body{min-height:100%;color:#FFF}
+        b,u,i,s{display:inline-block}
+        .wrap{max-width:72rem;width:100%;margin:0 auto;padding:0 1.5rem}
+        .hdr{background:#161B22;border-bottom:1px solid rgba(255,255,255,.06)}
+        .hdr-inner{display:flex;align-items:center;gap:1rem;height:64px}
+        .logo-box{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+        .logo-name{font-size:1.1rem;font-weight:400;letter-spacing:.12em;color:#FFF}
+        .divider{width:1px;height:20px;background:rgba(255,255,255,.15);flex-shrink:0}
+        .blog-label{font-size:.85rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase}
+        .content{padding:2.5rem 0 4rem}
+        .posts{overflow:hidden}
+        .post{float:left;width:48%;margin-right:4%;margin-bottom:2rem;background:#161B22;border-radius:1rem;overflow:hidden}
+        .post.even{margin-right:0}
+        .post-img{position:relative;height:10rem;background:linear-gradient(135deg,#08111f 0%,#0f2040 40%,#0a1a30 100%);overflow:hidden}
+        .post-img svg{position:absolute;right:-1.5rem;bottom:-1.5rem;width:10rem;height:10rem;opacity:.06}
+        .badge{display:inline-block;background:rgba(255,80,92,.12);border:1px solid rgba(255,80,92,.3);color:#FF505C;font-size:.7rem;font-weight:600;padding:.3rem .75rem;border-radius:2rem;position:absolute;bottom:.75rem;left:.75rem;white-space:nowrap}
+        .badge.pub{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.3);color:#34D399}
+        .post-body{padding:1.25rem}
+        .post-title{font-size:1.05rem;font-weight:700;color:#FFF;line-height:1.4;margin-bottom:.75rem}
+        .post-text{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:.875rem}
+        .post-imgs{margin-bottom:.875rem;font-size:0}
+        .thumb{display:inline-block;vertical-align:top;width:3.5rem;height:3.5rem;border-radius:.4rem;margin-right:.4rem;overflow:hidden;background:#0D1B35;cursor:pointer;text-decoration:none}
+        .thumb:hover{opacity:.85}
+        .thumb img{display:block;width:100%;height:100%}
+        .post-files{font-size:0}
+        .btn-p{display:inline-block;font-size:.72rem;font-weight:600;padding:.45rem 1rem;border-radius:.45rem;cursor:pointer;text-decoration:none;margin-right:.4rem;color:#FFF;background:#0D3971}
+        .btn-p:hover{opacity:.85}
+        .clear{clear:both}
+        .pager{text-align:center;margin-top:1.5rem;padding-bottom:.5rem;font-size:0}
+        .pg{display:inline-block;vertical-align:middle;width:2rem;height:2rem;line-height:2rem;text-align:center;border-radius:.4rem;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.5);cursor:pointer;text-decoration:none;margin:0 .12rem;background:rgba(255,255,255,.05)}
+        .pg:hover{background:rgba(255,255,255,.1);color:#FFF}
+        .pg.active{background:#0D3971!important;color:#FFF!important}
+        .pg.dis{color:rgba(255,255,255,.18);cursor:default}
+        .msg{color:rgba(255,255,255,.45);padding:3rem;text-align:center;font-size:.9rem}
+        @media(max-width:640px){.post,.post.even{float:none;width:100%;margin-right:0}}
+    </style>
+</head>
+<body>
+
+<div class="hdr">
+    <div class="wrap hdr-inner">
+        <div class="logo-box">
+            <img style="height:2.25rem;width:auto;background:#161B22;border-radius:.5rem;padding:.25rem .35rem" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOwgAADsIBFShKgAAAADxQTFRFCzlx////+Pn77e/z4+bs2NzkzNHbvcLNrbPCm6S3iZSsdoWhZneYWGuQRFqEKEh6ADNvACdrABpoAANjIKiOLQAAA75JREFUeNrtl91uIzsIgAHb+B8Dfv93PTvppMmqk26r6tys9rsZRxGfGIxxAv/421G17Xu7qcL3UfclLedc2hDY9j2Hms/KkYgQ6RepdPBvKEw736LGFBmjlYiY2pcV5iNhrHPUnBhmTLnWGBBjs68ozDpTaFIiIWIEITwIqUXkDv4nh09GLFID3mA9BUhlFcJUinxqsBow9JHwhH1FPImjR8TQDV6jK2KclfBO3pDwDlVJSJ8KvGCUlfBJYIzvsELC7PASmxSm2HrElO358UF1zBDEXgsy9hrmXu9B1ff7utiuVDvmlwIblDthFPeCbzTb5zJU252QesHucI3nIBEReZk3ukUNs7dVHNtmPBaTEuiLCoRW8YBBvQdMdfneLjVhmm7nhhbG5p8lcJBdfTbfs+Zc54YmpvfShhHS5flWoVIfxQPbnelYE4+tYI/CFux22QM0E55Q85UJqYqU42Fe8E6al72gkNIkvNN2PjRSyuqEWPdDQDOFpRclxNzwTtJDxpYQ2fnWxfEhLzjtqglqfurAY52FEEmOJT+lkCtdCLxR50eWKxwaCURBjtAIg/CEO42Pgl1wcIiJc6lt6CBEBpBfwOJDabO3kjOnmCe1iwwyzrWW2t5uZp1uZ9nWMrjVs5uZ771Nbxu+P05xRlkiS31v91OgK8alp+CINxCZUw73hwwqDcYQOR/voPMuSPAmmNpqyZwCUZpXAuvUnoqo8RCAMzscgqid8CT1S8H8bRu9HAKFXN4yqPvxZarU/POjgKFKxLwPfO+MCSQ87JeNBMY86amTOoVyEmg8JYCDw9I/HKbQzXt40tkjuyiB/XKgYa2Pwwi2JYebLHc1tfJua1j9+k6I9xetG7wV2NJr7WvPOkCBT/lkFIULvGIr5/xVb4SxTHPXWQLScDvPY+4Yl8KrFG5DVe1MmMZ9vMbpNo/8wkzYDC7xhrUj8vKVP471vvfhqu2Tu8kSzRxlC19cLFTXrphmoGEvBZ2iiI/4tH9PDRBlt5GQDV6hXgPrCM+Xqz8EyOCM2BxeorMhy3OI/XY7L0ZMsF7HS181RKn024V+QkUYCSlPhZestYVjfZ+OCVa8u0YLyKPygNcsWGCaMfSS3tp4rduTuM+MVMBsKbxGQAHUWiTOreVIQSRQ5DpHJuTpCiDwCafcV42Iuc85AeacoyakPMxAVabCn1GHngNRTMwcCTGW6QawZH3j17K0zBExMOe2tgGAjqHwddS2nYPeFPR8x2+iB8dzCfwIlQI/46cZgOq/v4D/H/8BgwM0d+Tht8QAAAAASUVORK5CYII=" alt="">
+            <span class="logo-name font">DEADLOCK</span>
+        </div>
+        <div class="divider"></div>
+        <span class="blog-label">Blog</span>
+    </div>
+</div>
+
+<div class="content">
+    <div class="wrap">
+        <div class="posts">
+            <div class="post">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge">Publishes after: <b>7d 22h 50m</b></span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">Aeroklas Duys / Duys Engineering Group</div>
+                    <p class="post-text"><b style="color:#FFF;font-weight:700">Aeroklas Duys (Pty) Ltd</b> a specialized automotive manufacturing company It was formed as a strategic joint venture between the Duys Engineering Group and Aeroklas (a prominent global automotive accessory manufacturer owned by the Eastern Polymer Group of Thailand).<br />
+<b style="color:#FFF;font-weight:700">Duys Engineering Group</b> an industrial and mechanical engineering firm founded in South Africa in 1960.<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://aeroklasduys.co.za" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://aeroklasduys.co.za</a><br />
+<a href="https://duys.co.za" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://duys.co.za</a><br />
+<a href="https://duysgroup.com" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://duysgroup.com</a></div></p>
+                </div>
+            </div>
+            <div class="post even">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">idi pharma</div>
+                    <p class="post-text"><b style="color:#FFF;font-weight:700">idi pharma</b> is an Italian pharmaceutical company specializing in the research and development of innovative nutraceuticals and medical devices. The company focuses on formulations covered by patents and unique dosage technologies to improve patient health and quality of life (but their data leak).<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://www.idipharma.com/" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://www.idipharma.com/</a></div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGFzZW5zLWlkaXBoYXJtYXxldS1jZW50cmFsLTF8STdPRlFRTDlUU1hOUE43Vlo4Mk98YXVnWFE1amVhS3phTU43ZXozRERwVGlpMVE1QTNkU1lmZzB3MW13WA%3D%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="post">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">Saber1</div>
+                    <p class="post-text"><b style="color:#FFF;font-weight:700">Saber1 Technologies LLC</b> is a American supplier and distributor of machine vision components, industrial cameras and image processing systems.<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://saber1.com/" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://saber1.com/</a></div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGFhLXNhYmVyMXxldS1jZW50cmFsLTF8VVpVQU9XMTg0RTZPNzVHSUxUNkZ8dTR0ZmN6bGVraGU5QkM3Qk1tM0NORnpXZ2pRMVFUY2xzbHRqYXp2Rw%3D%3D" class="btn-p">View Online</a>
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEyLXNhYmVyMXxldS1jZW50cmFsLTF8R045ME5aU1NCSzRQVEVLTE5ZQU58ajNpbWdERnBPN3UxbDAzTktQWXdDcVN1NzNRU3ZrUktXZVBGSG43YQ%3D%3D" class="btn-p">View Online</a>
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEzLXNhYmVyMS5jb218ZXUtY2VudHJhbC0xfDFHTFFHU1dMTUM2MDJTWDRFMEpafDZWVGU5RXBGRU5WTUd5c2Q1c0Z5dkVDSG1Ub0NpYXFxbXpQdGY2UWU%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="post even">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge">Publishes after: <b>1d 21h 43m</b></span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">Greggio Argento</div>
+                    <p class="post-text">Greggio Argento is a long-established Italian family business founded in 1948 in Sarmeola di Rubano (Padua). <br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://greggio.com" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://greggio.com/</a></div><br />
+<div style="background:rgba(255,255,255,.04);border-left:3px solid rgba(255,255,255,.2);border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:rgba(255,255,255,.55);font-style:italic;line-height:1.6">https://temp.sh/PoaaZ/Data_list.txt - 500GB</div><br />
+</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="post">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge">Publishes after: <b>3d 13h 27m</b></span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">Far West Contractors</div>
+                    <p class="post-text"><b style="color:#FFF;font-weight:700">Far West Contractors</b> is a commercial construction company and general contractor headquartered in Placentia, California Founded in 2009, the company specializes in SCIF(Sensitive Compartmented Information Facilities) construction projects for high-security facilities, as well as tenant improvements in the aerospace and defense industry.<br />
+<br />
+Their well-known project partners and clients include Boeing, Jet Propulsion Laboratory (JPL), and Northrop Grumman<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://farwestcontractors.com" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://farwestcontractors.com</a></div></p>
+                </div>
+            </div>
+            <div class="post even">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">UNION FA</div>
+                    <p class="post-text">rogdianakis.gr leads to (or is directly related to) the company Union FA (Union Financial Associates) , which is owned by Giorgos Rogdianakis (CEO of the company).<br />
+This is a company that provides accounting, tax and consulting services to businesses.<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://rogdianakis.gr" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">rogdianakis.gr</a></div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEtcm9nZGlhbmFraXN8ZXUtY2VudHJhbC0xfFFZUlpYTTVFODU0WlBIRFpBRjNXfHRWY2RJT0VVcVZMS0NZR2FGZTlPdmY4TVZDazNiTWw2RzR3NjVaVlA%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="post">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">FBC</div>
+                    <p class="post-text">Furniture Bargaining Council in South Africa. This is the tariff council for the furniture, mattress and upholstery industry.The platform serves employers and employees in the industry in regions such as Gauteng, North West, Mpumalanga, Limpopo and the Free State to handle legal and administrative processes.<br />
+<br />
+<div style="background:rgba(255,255,255,.04);border-left:3px solid rgba(255,255,255,.2);border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:rgba(255,255,255,.55);font-style:italic;line-height:1.6">186,207 files (incl. 58,000+ scanned documents), structured as:<br />
+47,749 unique SA ID numbers<br />
+39,014 bank account records<br />
+10,498 salary/payment values<br />
+28,175 pension fund records<br />
+20,420 payroll files<br />
+13,209 medical aid records<br />
+20,661 dispute/arbitration files — including unpublished award drafts and settlement discussions<br />
+Full staff list with personal email addresses, and personal folders of employees</div><br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://fbcweb.furnbed.co.za/" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://fbcweb.furnbed.co.za/</a></div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEtZmJjLnphfGV1LWNlbnRyYWwtMXxFSFJGU0g5VlBCTUFJT05PTlNTM3xVY21mYU5oSVd3dUVTU3FiWUpLTTNSbWhtamhjQjljd1puTm9zRnA5" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="post even">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">SHAHEEN LAW GROUP PLC - Richmond, Virginia, USA</div>
+                    <p class="post-text"><b style="color:#FFF;font-weight:700">Family law firm</b>, established 1995 by <b style="color:#FFF;font-weight:700">Victor A. Shaheen</b>. Now run by his three sons. 48 employees across four offices: Richmond, Midlothian, Virginia Beach, Newport News.<br />
+What do they do? They close 150+ real estate transactions EVERY MONTH for some of the largest corporate relocation programs in America.<br />
+When a Fortune-500 moves an employee to Virginia, this firm holds that employee&#039;s Social Security Number, bank wiring details, home address, family identities, and sometimes their medical clearance.<br />
+They hold everyone&#039;s future in a shared folder. We now hold the folder.<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6">WHAT WE TOOK<br />
+36,788 files · 27GB · 21,789 fully read<br />
+67,000+ SSN patterns (their own dedup says 6,017 real people —<br />
+we will let their customers decide which number to believe)</div><br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://www.shaheenlaw.com/" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://www.shaheenlaw.com/</a></div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEtc2xhd3xldS1jZW50cmFsLTF8SlVFRjhCUEdRRDdDTzVSSjJVN0J8UExHcDI0ZUVCYXlZRnNNaDNLRE5nc2JrQ1U5ZjlTYWZuUEFxV1hGMg%3D%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="post">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">JP Molyneux Studio</div>
+                    <p class="post-text">JP Molyneux Studio Ltd showcases the exclusive work of internationally renowned interior designer Juan Pablo Molyneux.<br />
+<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://www.molyneuxstudio.com" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://www.molyneuxstudio.com</a></div><br />
+<br />
+<div style="background:rgba(255,255,255,.04);border-left:3px solid rgba(255,255,255,.2);border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:rgba(255,255,255,.55);font-style:italic;line-height:1.6">700GB</div></p>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOnd3dy5tb2x5bmV1eHN0dWRpby5jb218ZXUtY2VudHJhbC0xfEFRWlYxNVY1RE9LTFhET1lWMkxKfEVDa1lYRTZqQzdhMFRTUTl5dDRGY2ZvQTZXRFhzQ0JnTTNzbEplbzM%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="post even">
+                <div class="post-img">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H15V6C15 5.167 14.708 4.458 14.125 3.875C13.542 3.292 12.833 3 12 3C11.167 3 10.458 3.292 9.875 3.875C9.292 4.458 9 5.167 9 6H7C7 4.617 7.487 3.438 8.462 2.462C9.438 1.487 10.617 1 12 1C13.383 1 14.562 1.487 15.537 2.462C16.512 3.438 17 4.617 17 6V8H18C18.55 8 19.021 8.196 19.412 8.587C19.804 8.979 20 9.45 20 10V20C20 20.55 19.804 21.021 19.412 21.412C19.021 21.804 18.55 22 18 22H6C5.45 22 4.979 21.804 4.587 21.412C4.196 21.021 4 20.55 4 20V10C4 9.45 4.196 8.979 4.587 8.587C4.979 8.196 5.45 8 6 8Z" fill="white"/></svg>                    <span class="badge pub">Published</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title font">Global Terminal Services</div>
+                    <p class="post-text">GTS legally registered as Global Terminal Hizmetleri A.Ş. It is the largest independent storage terminal for liquid fuels and oil in the entire Mediterranean region.<br />
+<div style="background:rgba(74,158,255,.07);border-left:3px solid #4A9EFF;border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:#4A9EFF;word-break:break-all;line-height:1.6"><a href="https://globalterminal-tr.com/" target="_blank" rel="noopener" style="color:#4A9EFF;text-decoration:underline;word-break:break-all">https://globalterminal-tr.com/</a></div><br />
+<div style="background:rgba(255,255,255,.04);border-left:3px solid rgba(255,255,255,.2);border-radius:0 .5rem .5rem 0;padding:.625rem .875rem;margin:.5rem 0;font-size:.8rem;color:rgba(255,255,255,.55);font-style:italic;line-height:1.6">470gb</div></p>
+                    <div class="post-imgs">
+                        <a href="https://i.ibb.co/nsfKgpn9/oheg-1.png" target="_blank" rel="noopener" class="thumb">
+                            <img src="https://i.ibb.co/nsfKgpn9/oheg-1.png" alt="">
+                        </a>
+                        <a href="https://i.ibb.co/93Y714fZ/oheg-7.png" target="_blank" rel="noopener" class="thumb">
+                            <img src="https://i.ibb.co/93Y714fZ/oheg-7.png" alt="">
+                        </a>
+                        <a href="https://i.ibb.co/5W2XdWhF/oheg-6.png" target="_blank" rel="noopener" class="thumb">
+                            <img src="https://i.ibb.co/5W2XdWhF/oheg-6.png" alt="">
+                        </a>
+                        <a href="https://i.ibb.co/MkRGYSnZ/oheg-5.png" target="_blank" rel="noopener" class="thumb">
+                            <img src="https://i.ibb.co/MkRGYSnZ/oheg-5.png" alt="">
+                        </a>
+                        <a href="https://i.ibb.co/g1cf4s8/oheg-4.png" target="_blank" rel="noopener" class="thumb">
+                            <img src="https://i.ibb.co/g1cf4s8/oheg-4.png" alt="">
+                        </a>
+                    </div>
+                    <div class="post-files">
+                        <a href="s3.php?d=d2FzYWJpOmRhdGEtc2Rhd24xOTJ8ZXUtY2VudHJhbC0xfDk1N1M2UE5VQ0FURFFEREpIQkZUfEE0dm05UnNqNlhPdmRiZTRkc1V3ckZEbXNNb0ZPMDVlOUFDYXVnU2w%3D" class="btn-p">View Online</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            <div class="pager">
+                <a href="?page=0" class="pg dis">&lsaquo;</a>
+                <a href="?page=0" class="pg active">1</a>
+                <a href="?page=1" class="pg">2</a>
+                <a href="?page=2" class="pg">3</a>
+                <a href="?page=3" class="pg">4</a>
+                <a href="?page=4" class="pg">5</a>
+                <a href="?page=5" class="pg">6</a>
+                <a href="?page=6" class="pg">7</a>
+                <a href="?page=7" class="pg">8</a>
+                <a href="?page=8" class="pg">9</a>
+                <a class="pg dis">...</a><a href="?page=10" class="pg">11</a>
+                <a href="?page=1" class="pg">&rsaquo;</a>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:1.5rem">
+            <a href="?api=1&page=0" class="btn-p" style="font-size:.8rem;padding:.55rem 1.25rem">API — JSON</a>
+        </div>
+
+        <div style="margin-top:3rem;background:#161B22;border-radius:1rem;padding:1.5rem 2rem">
+            <h3 class="font" style="font-size:1rem;font-weight:600;color:#FFF;margin-bottom:1rem">API Documentation</h3>
+            <div style="margin-bottom:1rem">
+                <div style="background:rgba(74,158,255,.07);border-radius:.5rem;padding:.75rem 1rem;font-size:.85rem;color:#4A9EFF;font-family:monospace;margin-bottom:.75rem">
+                    GET index.php?api=1&page=N
+                </div>
+                <p style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:.5rem">
+                    <b style="color:#FFF">Parameters:</b>
+                </p>
+                <ul style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.8;padding-left:1.5rem;margin-bottom:1rem">
+                    <li><code style="color:#4A9EFF;background:rgba(74,158,255,.1);padding:.1rem .35rem;border-radius:.25rem">api=1</code> — enable JSON output</li>
+                    <li><code style="color:#4A9EFF;background:rgba(74,158,255,.1);padding:.1rem .35rem;border-radius:.25rem">page=N</code> — page number (0-based, max 10000)</li>
+                </ul>
+                <p style="font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:.5rem">
+                    <b style="color:#FFF">Response:</b>
+                </p>
+                <pre style="background:#0B0B0B;border-radius:.5rem;padding:.75rem 1rem;font-size:.75rem;color:#4A9EFF;line-height:1.6;overflow-x:auto;white-space:pre-wrap;word-break:break-all">{
+  "total": 42,
+  "page": 0,
+  "per_page": 10,
+  "total_pages": 5,
+  "posts": [
+    {
+      "title": "Post title",
+      "content": "&lt;b&gt;Bold text&lt;/b&gt; with &lt;a href=...&gt;link&lt;/a&gt;",
+      "images": ["https://...", "https://..."],
+      "status": "published",
+      "timerUnix": 0
+    }
+  ],
+  "error": null
+}</pre>
+            </div>
+            <p style="font-size:.75rem;color:rgba(255,255,255,.3);line-height:1.6">
+                <b style="color:rgba(255,255,255,.4)">Notes:</b> Content is returned with BBCode rendered to HTML.
+                Files are excluded. Status is <code style="color:#34D399;background:rgba(52,211,153,.1);padding:.1rem .35rem;border-radius:.25rem">"published"</code> or <code style="color:#FF505C;background:rgba(255,80,92,.1);padding:.1rem .35rem;border-radius:.25rem">"scheduled"</code>.
+                Max 10 posts per page.
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="csrf-token" content="057872645219e73df8355251e2d7248fc2c5658d8a817d1be52d95cf956f606f">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sarcoma Group</title>
+		<link rel="icon" href="/favicon.png" type="image/x-icon">
+		<!-- <link href="./bootstrap.min.css" rel="stylesheet"> -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+		<!-- <script type="text/javascript" src="./clipboard.min.js"></script> -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+		<style type="text/css">
+			.indigo, .indigo:hover, .indigo:active, .indigo:focus {
+				background-color: indigo;
+				border-color: indigo;
+			}
+			body.bg-dark #moon-stars-fill {
+				display: none;
+			}
+			body.bg-light #sun-fill {
+				display: none;
+			}
+			
+			@font-face {
+				font-family: 'JetBrains Mono';
+				font-style: italic;
+				font-weight: 400;
+				src: url(./fonts/JetBrains_Mono/static/JetBrainsMono-Regular.woff) format('woff');
+			}
+			body {
+				font-family: 'JetBrains Mono', Roboto, monospace, sans-serif;
+			}
+			body {
+				background-color: #020019;
+			}
+			.sg-form {
+				background-color: #03011d;
+				border: 1px solid rgba(125, 83, 243, 0.5);
+			}
+			.sg-form input[type="text"], .sg-form input[type="password"], .sg-form textarea {
+				border: 2px solid #7d53f3;
+				border-radius: 6px;
+				background-color: #030021;
+				padding: 17px 40px;
+			}
+			.sg-form input[type="radio"] {
+				border: 2px solid #7d53f3;
+				border-radius: 6px;
+				background-color: #030021;
+			}
+			.sg-form input[type=file] {
+				color: #ffffff;
+			}
+			.sg-form input[type=file]::file-selector-button {
+				background-color: #100934;
+				border-color: #7d53f3;
+				border-radius: 6px;
+				color: #ffffff;
+				padding: 5px 7px;
+			}
+			.sg-form label {
+				color: #7d53f3;
+				padding-left: 20px;
+			}
+			.sg-form input:focus, .sg-form textarea:focus, .sg-form textarea:disabled {
+				background-color: #030021;
+				border-color: #86b7fe;
+			}
+			.sg-form button {
+				background-color: #100934;
+				padding: 17px 100px;
+				text-transform: capitalize;
+			}
+			.sg-form .text {
+				color: #451db5;
+			}
+			.sg-form .text a {
+				color: #7d53f3;
+			}
+			.chat-form {
+				min-height: calc(100vh - 1rem);
+				max-height: calc(100vh - 1rem);
+				border-radius: 1rem;
+				background-color: #03011d;
+				border: 1px solid rgba(125, 83, 243, 0.5);
+			}
+			.chat-form input[type="text"], input[type="number"], .chat-form input[type="password"], .chat-form textarea {
+				border: 2px solid #7d53f3;
+				border-radius: 6px;
+				background-color: #04002f;
+				padding: 17px 40px;
+				color: #ffffff;
+			}
+			.chat-form input[type="number"] {
+				width: 160px;
+			}
+			.chat-form textarea {
+				color: #ffffff !important;
+			}
+			.chat-form input[type="radio"] {
+				border: 2px solid #7d53f3;
+				border-radius: 6px;
+				background-color: #04002f;
+			}
+			.chat-form input[type=file] {
+				color: #ffffff;
+			}
+			.chat-form input[type=file]:disabled {
+				color: #666666;
+			}
+			.chat-form input[type=file]::file-selector-button {
+				background-color: #100934;
+				border-color: #7d53f3;
+				border-radius: 6px;
+				color: #ffffff;
+				padding: 5px 7px;
+			}
+			.chat-form input[type=file]:disabled::file-selector-button {
+				color: #666666;
+			}
+			.chat-form label {
+				color: #7d53f3;
+				padding-left: 20px;
+			}
+			.chat-form input:focus, .chat-form textarea:focus, .chat-form textarea:disabled {
+				background-color: #04002f;
+				border-color: #86b7fe;
+			}
+			.chat-form button {
+				background-color: #100934;
+				padding: 17px 100px;
+				text-transform: capitalize;
+			}
+			.chat-form .text {
+				color: #451db5;
+			}
+			.chat-form .text a {
+				color: #7d53f3;
+			}
+			.chat-form .clear {
+				background-color: #100934;
+				border: 2px solid #7d53f3;
+				border-radius: 6px;
+				color: #ffffff;
+				padding: 5px 7px;
+				cursor: pointer;
+				width: fit-content;
+			}
+			.chat .message .time {
+				color: #777777;
+			}
+			.chat .message .text {
+				width: fit-content;
+				min-width: 20%;
+				max-width: 50%;
+				color: #ffffff;
+				border-radius: 1rem;
+				background-color: #03011d;
+				border: 1px solid rgba(125, 83, 243, 0.5);
+			}
+			.chat .message.left .text {
+				border-top-left-radius: 0 !important;
+			}
+			.chat .message.right .text {
+				margin-left: auto;
+				margin-right: 0;
+				border-top-right-radius: 0 !important;
+			}
+			.copy_button {
+				border: 0 !important;
+				outline: 0 !important;
+				background-color: transparent !important;
+				padding: 0 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+				<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+				<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+			</symbol>
+			<symbol id="sun-fill" viewBox="0 0 16 16">
+				<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+			</symbol>
+		</svg>
+										<div class=""><!-- container container-fluid -->
+				<div class="p-5 text-center">
+					<a href="/">
+						<h1 class="mb-3 text-light">
+							<img src="./logo1.webp" height="70" alt="Sarcoma Group Logo" loading="lazy" />
+						</h1>
+					</a>
+				</div>
+				<section>
+					<div class="container pb-5 h-100">
+													<div class="row row-cols-4 mb-4">
+																										<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														59109														<hr />
+																										GYF												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/6053D373-6DB3-49B3-8646-626D1380CFBC.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: https://gyf.com.ar/<br />
+														Industry: Business Services<br />
+														GEO: Argentina													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_152" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														72277														<hr />
+																										Propane Levac Inc.												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/79BC488C-486C-46CF-A7CC-E3B31A6CE9BF.svg" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: www.propanelevac.ca<br />
+														Industry: Gas Stations, Retail<br />
+														GEO: Canada													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_150" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														71910														<hr />
+																										MecMatica												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/55D0D25A-EF85-44EC-B002-076E449228AF.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: www.mecmatica.it<br />
+														Industry: Provider of software solutions<br />
+														GEO: Italy													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_148" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														77334														<hr />
+																										Söllner												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/ED57E866-F60A-4262-98C2-2BC3DD056B05.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: bedachungen-soellner.de<br />
+														Industry: Commercial & Residential Construction<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_147" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																								</div>
+													<div class="row row-cols-4 mb-4">
+																										<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														72950														<hr />
+																										B&J Rocket Sales												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/9C6202F1-B15B-4D42-8475-FBCF81264EF5.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: bj-rocket.com<br />
+														Industry: Manufacturing<br />
+														GEO: Switzerland													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_146" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														72201														<hr />
+																										Paul Hildebrandt												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/85A98737-934A-4B02-9EFD-9164DAAE02E7.jpeg" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: hildebrandt.de<br />
+														Industry: Manufacturing<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_145" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														75350														<hr />
+																										Unimed do Brasil												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/10CCB120-1F9D-48DF-8D3F-DFE2F79AD911.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: unimed.coop.br<br />
+														Industry: Insurance<br />
+														GEO: Brazil													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_144" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														74525														<hr />
+																										Charter Industrial Supply												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/FC494EC9-6F71-4DD8-BDF9-009BB9A9AB33.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: charterindustrial.com<br />
+														Industry: Industrial Machinery & Equipment<br />
+														GEO: USA													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_143" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																								</div>
+													<div class="row row-cols-4 mb-4">
+																										<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														74967														<hr />
+																										MSB												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/830CF157-4245-4AEB-AFEE-F0EFE0ECC0FF.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: msbuilders.com<br />
+														Industry: Commercial & Residential Construction<br />
+														GEO: USA													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_142" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														75727														<hr />
+																										Thermofin												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/E96E066A-9153-49D2-8D14-A0740FF340D8.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: thermofin.de<br />
+														Industry: Building Materials<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_141" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														75042														<hr />
+																										MACMA Werbeartikel oHG												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/F5623C8C-11BA-4E2A-B48F-FA2AB9EB18F1.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: macma.de<br />
+														Industry: Manufacturing<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_140" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														75978														<hr />
+																										Pfullendorfer Tor-Systeme												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/AD50EA1C-1639-4463-B085-C6762793CC01.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: pfullendorfer.de<br />
+														Industry: Manufacturing<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_139" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																								</div>
+													<div class="row row-cols-4 mb-4">
+																										<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														74443														<hr />
+																										Miami Management												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/E6479D04-9C9B-4C27-9E27-8AF2386FBFC8.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: miamimanagement.com<br />
+														Industry: Business Services<br />
+														GEO: USA													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_138" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														74038														<hr />
+																										Kwg												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/BAD08A7C-9A24-4F46-8C11-03831E655608.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: kwg-senftenberg.de<br />
+														Industry: Business Services<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_137" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														73340														<hr />
+																										F1-Generation												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/32A24493-7868-4580-8C9A-43080006CF7D.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: f1-generation.com<br />
+														Industry: Apparel & Accessories Retail<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_136" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														72775														<hr />
+																										IAD GmbH												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/3BE79ED6-1A22-4CE7-A258-7E97F56B5DA9.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: iad.de<br />
+														Industry: Consulting<br />
+														GEO: Germany													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_135" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																								</div>
+													<div class="row row-cols-4 mb-4">
+																										<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														77772														<hr />
+																										Inox Laghi												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/B64F463D-13E6-478E-8206-E70B75889D60.jpg" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: inoxlaghi.com<br />
+														Industry: Industrial Machinery & Equipment<br />
+														GEO: Italy													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_133" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														81324														<hr />
+																										Maselli Misure S.p.A. Information												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/9398879B-4F4D-45A4-9577-B53E050F8D9B.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: maselli.com<br />
+														Industry: Manufacturing innovative optical technology<br />
+														GEO: Italy													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_132" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														85358														<hr />
+																										Metro Heating												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/ABEF29A7-A063-4EF0-8763-DB26377B587D.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: metroheatingandair.com<br />
+														Industry: Commercial & Residential Construction<br />
+														GEO: USA													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_131" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																																			<div class="col">
+										<div class="sg-form card overflow-hidden rounded h-100 text-white">
+											<div class="card-body p-2">
+												<div class="card-title text-center fs-5">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-eye" viewBox="0 0 16 16">
+															<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+															<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+														</svg>
+														81260														<hr />
+																										Harinera del Valle												</div>
+												<img class="rounded w-75 mx-auto d-block mb-3" src="/files/2988E945-1F78-4605-851C-61036AFF93DC.png" loading="lazy" />
+												<div class="card-main">
+													<hr />
+													<div class="card-text">
+														Site: hv.com.co<br />
+														Industry: Food & Beverage<br />
+														GEO: Colombia													</div>
+																									</div>
+											</div>
+											<div class="card-footer">
+												<button type="button" class="btn btn-lg btn-block indigo text-center text-white d-block m-auto company_button" data-bs-toggle="modal" data-bs-target="#company_130" style="padding: .375rem .75rem;">More info</button>
+											</div>
+										</div>
+									</div>
+																								</div>
+											</div>
+				</section>
+			</div>
+							<div class="text-center text-white">
+										<a href="/?page=1" class="text-white text-decoration-none">1</a>
+										<a href="/?page=2" class="text-white">2</a>
+										<a href="/?page=3" class="text-white">3</a>
+										<a href="/?page=4" class="text-white">4</a>
+										<a href="/?page=5" class="text-white">5</a>
+										<a href="/?page=6" class="text-white">6</a>
+										<a href="/?page=7" class="text-white">7</a>
+									</div>
+						<div class="container">
+				<div class="row my-3">
+					<div class="col-4 text-center">
+						<a href="#" class="text-center text-white m-auto fs-4" data-bs-toggle="modal" data-bs-target="#contacts">Contacts</a>
+					</div>
+					<div class="col-4 text-center">
+						<a href="#" class="text-center text-white m-auto fs-4" data-bs-toggle="modal" data-bs-target="#about">About Us</a>
+					</div>
+					<div class="col-4 text-center">
+						<a href="/news" class="text-center text-white m-auto fs-4">News</a>
+					</div>
+				</div>
+			</div>
+							<div class="modal fade company_modal" id="company_152" tabindex="-1" aria-labelledby="company_152_label" aria-hidden="true" data-id="152">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_152_label">GYF</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Design and develop IT products and services for the financial market</pre>
+								<hr />
+								<div>GEO: Argentina</div>
+								<div>Leak size: 1.5Tb</div>
+																	<div>Contains: SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="e2hziphckfndi5osd3dr24qbs5gccsk4ebsmx5l4udf54qgbsw5vl3qd.onion" target="_blank" class="text-danger">e2hziphckfndi5osd3dr24qbs5gccsk4ebsmx5l4udf54qgbsw5vl3qd.onion</a></div>
+									<hr />
+																							</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_150" tabindex="-1" aria-labelledby="company_150_label" aria-hidden="true" data-id="150">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_150_label">Propane Levac Inc.</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Propane Levac inc. specializes in the distribution of propane across Ontario and Quebec, offering a range of services tailored for residential, commercial, and agricultural needs
+</pre>
+								<hr />
+								<div>GEO: Canada</div>
+								<div>Leak size: 45Gb Archive</div>
+																	<div>Contains: Files</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="wrzwt7o2e7p6ziag7aq2yy2o45sd75re4rpnbelpkhtj2dpka63c5fyd.onion" target="_blank" class="text-danger">wrzwt7o2e7p6ziag7aq2yy2o45sd75re4rpnbelpkhtj2dpka63c5fyd.onion</a></div>
+									<hr />
+																									<img src="/files/AC79EE02-D3AC-43B4-88F5-CB2012C6CC88.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A0E53DEF-54AC-4F49-AFEC-D9DB0F8891CF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E5CC58AB-1AB6-44C7-9556-FCB77A2D7552.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/16E12125-E2D6-46B1-97F2-EC6550AF4B27.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/53E20F2D-33CF-490A-B20B-0F721B20A5C1.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_148" tabindex="-1" aria-labelledby="company_148_label" aria-hidden="true" data-id="148">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_148_label">MecMatica</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">MecMatica is focused on developing software solutions for automating manufacturing processes, particularly in the field of industrial monitoring and management.</pre>
+								<hr />
+								<div>GEO: Italy</div>
+								<div>Leak size: 74 GB</div>
+																	<div>Contains: Files, SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="skicexsnlbspjnbfxgcvjvzmlrgz2aaxexxoy3stfw4klrwnimrofnyd.onion" target="_blank" class="text-danger">skicexsnlbspjnbfxgcvjvzmlrgz2aaxexxoy3stfw4klrwnimrofnyd.onion</a></div>
+									<hr />
+																									<img src="/files/AB5DB037-540B-465E-9C21-FD87BBEB69C0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E41577DE-FACC-4726-B3BE-D216AFA714CE.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A739CC57-7720-4212-9EBF-4723DE49BD7C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/EA6B3B5B-2B16-4F44-AD86-1639B2C9321D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/62484939-EDD7-4E57-A17B-DB3FDBCE9E51.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8CADFD66-0874-4C8F-AF32-A91A93D3D562.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/7F9BF6CB-8FE1-47E8-9077-64C7C2266845.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/436691D5-8D65-4865-A634-F42D39CF8464.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_147" tabindex="-1" aria-labelledby="company_147_label" aria-hidden="true" data-id="147">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_147_label">Söllner</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Söllner
+Söllner GmbH & Co. KG is a family-owned roofing company based in Plettenberg, operating for four generations since 1902. The company specializes in roofing, carpentry, facade construction, scaffolding, and offers additional services such as container service and crane rentals. Recently, they have expanded into architecture, providing comprehensive services from design to execution. With a team of qualified professionals, Söllner serves both regional and national clients in the industrial, commercial, public, and private sectors</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 286 GB Archive</div>
+																	<div>Contains: Files, SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://dqf6l7fvqkqbwxqncznnxojdjm5bvnnqxxfnktgdgrpfbm5b2nyteaqd.onion/" target="_blank" class="text-danger">http://dqf6l7fvqkqbwxqncznnxojdjm5bvnnqxxfnktgdgrpfbm5b2nyteaqd.onion/</a></div>
+									<hr />
+																									<img src="/files/68216191-FFEF-4133-97BE-79A153CC22FA.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/13E0CBC4-A580-4149-BA17-725B2EE2FB8B.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/B2D54EED-6FF1-42D4-B6C4-053F96022648.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D90EEC1E-6D07-429B-BD37-F1D1D3DDD040.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/669ACD1B-AD7F-43A5-A2C9-7979189DFBFD.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/FC925C70-C84C-43F7-8265-34740931639E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/4DCA5AB4-406D-42A5-9BFD-DFB1FAB8D3C3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/398AE952-CA62-470D-9243-6C34FB7FC5A8.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/5FF0E86E-6950-4FCF-BE67-59346771BBD0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/4305E5B6-6E85-4D16-AA53-6643B659F4F8.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9D617F8A-B56E-4BF4-B0A6-CF42773814F0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8BB1F526-81C8-4580-877E-C15A72B28FFF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/027AEB6D-F49F-4CEF-B195-EADE72D3EDC6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/0D3F33CE-D52C-42B6-B93B-8535BFCD2CBD.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F3461F29-AABE-4030-9D56-61427482CF17.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/C7299CEB-B5B4-4617-A97C-BC509553A019.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/276FFE7D-584F-42F8-A3C1-98E8CC4819CB.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6EF5F207-6D2B-40FA-AD56-7EC796A79497.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E209A47C-3BE2-4903-97F0-76A6B3C60C35.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/556DBC14-E652-4D43-B79E-81F4E86DEB0E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E818F673-D8BC-4610-8F88-AB80CFF88DC3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8753FD3A-840C-4BAA-8FDA-CC89F8668C99.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E596722A-D69E-4441-B4D1-D09806D5BFE0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/43E08100-F9ED-4479-BC11-D5C2A7AF1608.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_146" tabindex="-1" aria-labelledby="company_146_label" aria-hidden="true" data-id="146">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_146_label">B&J Rocket Sales</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">B&J Rocket Sales
+BJ Rocket is a leading manufacturer in the tire and rubber industry, specializing in retreading blades and carbide tools. The company provides a comprehensive range of tire retreading tools and is recognized for its innovative offerings that enhance the efficiency of tire processing. Additionally, BJ Rocket caters to various sectors by producing specialized tools for materials like mineral wool, marble, and leather. Their commitment to product quality and customer satisfaction has secured their position as a trusted market leader</pre>
+								<hr />
+								<div>GEO: Switzerland</div>
+								<div>Leak size: 156 GB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://ob4kfkvgqxbiddrhzlq2yhlyfpdmnro4yptt24drsjvcekczjjaf5myd.onion/" target="_blank" class="text-danger">http://ob4kfkvgqxbiddrhzlq2yhlyfpdmnro4yptt24drsjvcekczjjaf5myd.onion/</a></div>
+									<hr />
+																									<img src="/files/E7F3811A-E0F4-4823-85E4-82BFC1C30A05.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/87DE6E07-19F1-4761-9DF0-493698EEC1C3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/13A003A7-96F1-4516-9AA5-C6D6B440B415.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/42EBCB81-392F-4D65-8654-05D5ED178E4C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/732C9D55-4281-456D-A871-06A5E1BDAFCF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/927DBA3E-C63D-4AAE-8369-38F24FED0391.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/95D85FF4-F760-4DED-8819-F688E6A38433.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/5E02E3CD-172C-48EA-92D2-F3C99CAEC127.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/FCF28E08-5C4A-47BF-A7CC-438CF8FAEE4D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9EF254AB-1A8F-4157-B465-E077F186F418.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/985F852F-D99E-4699-B800-CF0A651DBC90.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3AE67A20-BC9D-4494-B1A0-B97453F1A397.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/65640961-1216-41FE-8C31-4E4A018259AA.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1B21EFA1-F612-47AC-952F-AFC9C597D1ED.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1FD3A451-972B-453C-8A44-4BDBED1FAABF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/7C9E9BBF-74CC-41F8-964D-09A8AE606A72.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A34EF068-1A42-413A-A016-323FCB04A685.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1E9B0FF0-31F6-4878-8894-E74B49F7953E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/0A849B14-8C82-4E78-A095-B53FC8178FB0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8E8006F5-679E-4B61-B359-E9C0CF725D33.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3CD36D90-B8A2-49A0-995E-FE952536A01A.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8F338334-852E-4232-9A1E-BBCF40A393D0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/71A3204E-A271-4285-B46E-F8653B901558.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/AD15042E-F0DD-463A-AA1F-C5CB2CA6FEA1.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D209F611-E7BD-4822-BD26-71C78A4F9782.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_145" tabindex="-1" aria-labelledby="company_145_label" aria-hidden="true" data-id="145">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_145_label">Paul Hildebrandt</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Paul Hildebrandt
+Paul Hildebrandt AG is a leading packaging company offering over 50,000 products, including environmentally friendly options. With 300 employees across 14 locations in Germany, Austria, and Denmark, they provide tailored packaging solutions for a variety of industries. The company emphasizes sustainability and efficient packaging processes as part of their commitment to client solutions. Their diverse product range includes films, boxes, adhesive tapes, and various packaging materials.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 1,4 TB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://mdliyoqm37i6ze4grykoa7mc6tltrjfvr5mffhvotrf6hsi5mwsx3myd.onion/" target="_blank" class="text-danger">http://mdliyoqm37i6ze4grykoa7mc6tltrjfvr5mffhvotrf6hsi5mwsx3myd.onion/</a></div>
+									<hr />
+																									<img src="/files/6A0C764D-CE1C-420E-9B19-3089F9C0EF6F.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9937084C-E165-4470-9B91-D5FD7D0BDCF6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/06173DBF-AF8D-4209-B59F-1E8F248F9931.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E186F15E-DF02-448F-95B4-171798C89411.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1CECA983-FF04-40F5-83ED-68F8F5B72272.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E33A1E2E-EBA3-45FD-B1F7-3C6A14053D5E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/55FF29D9-3E15-4891-A154-D1541EA447BB.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/2844B8B1-3EFB-43A1-A3A9-87EF1A252F6A.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/53E63214-B9C6-4756-A4D5-571C4AA4EEF6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3E639DE1-60C5-4A1F-A521-670A969CC797.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D34AD250-627B-4BAE-95CA-551C9A84F6B4.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F845DC8A-65F2-4EA2-8B4B-98119D705E13.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/CDC88911-F3EA-4CF2-AB10-20CCD49D6266.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/46DEF7EE-48B0-41D1-9CE1-A34AA8631732.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/5D042AE8-0E57-4D0B-801F-0FC856A15A9A.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9DACC2B0-659B-42FC-8DC1-A1C0E8410DAD.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E25609FE-D812-49F4-B5EC-BCB031B296B9.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/072647D6-7F63-4FCC-B574-31A40CF7511A.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/28F0C047-86D7-4E41-890E-47297158C1E5.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/C8B9B5A8-4B0C-41C1-B095-B07919B67136.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/81078A0C-AA4B-4E50-970E-05D810A511B6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/FDFD8B79-BA6A-4FAB-ABAB-862908AA6652.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/784616C2-C0C3-4937-B88D-9FBAF5F40380.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_144" tabindex="-1" aria-labelledby="company_144_label" aria-hidden="true" data-id="144">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_144_label">Unimed do Brasil</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Unimed do Brasil
+Unimed Pelotas is a comprehensive health service center located in Pelotas, Brazil, providing a wide range of medical services and assistance. They offer client-friendly features such as an application for convenience, a doctor search guide, and online medical consultations for both adults and children. The organization also emphasizes community involvement through various programs, including health and sustainability initiatives. Their target audience includes individuals seeking health insurance and medical services tailored to their needs.</pre>
+								<hr />
+								<div>GEO: Brazil</div>
+								<div>Leak size: 2,8 TB Archive</div>
+																	<div>Contains: Files,SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://lo52rld4cl2ezr4cd73yxn7ru2fh3dtqtmjzjuraquv7bdubhabvkkad.onion/" target="_blank" class="text-danger">http://lo52rld4cl2ezr4cd73yxn7ru2fh3dtqtmjzjuraquv7bdubhabvkkad.onion/</a></div>
+									<hr />
+																									<img src="/files/7696F097-A62D-430F-A2F2-7C9D00D8EFD7.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/0CCA9AAE-5E2D-4EF9-8CED-FA1FDB6218C8.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/057D14BB-BD6E-4106-A1D1-926AC96426B9.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A30B550D-D782-47CA-906D-147B8E07CD5E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E0E3BFD8-ABF9-4348-AC1C-52FE2F4B0D6C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D0A617B9-BAAB-466C-A135-752E811E3D3A.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/4304C77B-BF23-4289-BA08-3E89F24BA74C.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_143" tabindex="-1" aria-labelledby="company_143_label" aria-hidden="true" data-id="143">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_143_label">Charter Industrial Supply</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Charter Industrial Supply
+Charter Industrial Supply is a family-owned distributor specializing in industrial and hydraulic hose and fittings, serving diverse markets such as construction, military, and original equipment manufacturing (OEM). They offer a wide range of products including valves, fasteners, and pipe fittings, and are recognized for their reliable performance and extensive inventory management solutions. The company prides itself on maintaining a 100% fill rate and meeting the demanding needs of their clients, which include industry leaders and critical projects across various sectors. As a premier distributor, they have established partnerships with top manufacturers and provide quality-certified products in accordance with ISO and military specifications.</pre>
+								<hr />
+								<div>GEO: USA</div>
+								<div>Leak size: 67 GB Archive</div>
+																	<div>Contains: Files, SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://xcvwsc3suebephhxxffjp5odqwspdaylgsyoxc3pdwjmnnl4yhtjrkad.onion/" target="_blank" class="text-danger">http://xcvwsc3suebephhxxffjp5odqwspdaylgsyoxc3pdwjmnnl4yhtjrkad.onion/</a></div>
+									<hr />
+																									<img src="/files/7AF2C59F-76C3-4F40-88E0-7C3AB097E802.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/35C2EB85-C989-46C6-A822-C573CDA606B3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F7ECCCDD-9331-49CA-B37B-91BBDE560776.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/B8B70589-E2D7-4FE5-8DAA-518BD1A2A70B.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/32A8C612-8D34-4CF1-A829-8A35E05F85F8.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/2FDF4749-B2B5-4BAB-9AD6-30C8B18AF88E.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/89359B0E-E639-402F-B33B-5019D6DB4929.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/037DA1CF-850E-4340-81B4-A451B0EF89C6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D41B0A0A-52C8-4BD6-BEE8-FE3A45B951BF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3076682F-3868-4ED2-8CD4-6264B7E626CC.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A3767633-1903-423E-86DE-5A643B956EAF.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/AFC78031-DE8E-41FA-A950-00BFD35901F0.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_142" tabindex="-1" aria-labelledby="company_142_label" aria-hidden="true" data-id="142">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_142_label">MSB</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">MSB
+MSB General Contractors specializes in disaster recovery services, offering support and solutions for clients affected by various emergencies. Their focus is on ensuring timely and efficient recovery processes for both residential and commercial projects. The company aims to serve a wide range of clients in need of recovery assistance and has a portfolio of completed projects demonstrating their capabilities. MSB is also involved in humanitarian activities, reflecting their commitment to community support</pre>
+								<hr />
+								<div>GEO: USA</div>
+								<div>Leak size: 66 GB Archive</div>
+																	<div>Contains: Files,SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://yjri5fg3bw7gqw2c7qgx2ytccmfrghwqyuavsneih34tph7ywuwj2did.onion/" target="_blank" class="text-danger">http://yjri5fg3bw7gqw2c7qgx2ytccmfrghwqyuavsneih34tph7ywuwj2did.onion/</a></div>
+									<hr />
+																									<img src="/files/9FA3A481-4230-4413-8601-60B634D7A23F.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F44D975C-E953-4CA2-8429-D23F44D57542.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D1F81EEA-6AEA-413E-BDE7-0D75C1A25872.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/5C2A662E-4613-400A-89DF-6CB92256A5B3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1F89CCCA-8CA9-4CDF-82D1-EB317FA71940.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1B17F069-D990-40A2-964C-BB0B73727742.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/2C9B610A-71F7-4E10-B992-AC288EA8DE71.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6F603C19-135B-4E4C-8306-C12F43AE026C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9D427BFE-638E-4A59-A410-0DFF575DF8B7.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/B26F6258-0196-445D-850D-245AF8794359.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F623B7ED-EE7D-4A1A-A77C-13CB7D082DC5.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/26F1308D-C7BB-41C0-BEA2-CC950E860AAC.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_141" tabindex="-1" aria-labelledby="company_141_label" aria-hidden="true" data-id="141">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_141_label">Thermofin</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Thermofin
+Thermofin GmbH specializes in innovative and high-performance cooling solutions for various industries, including industrial refrigeration and air conditioning. Their product range includes evaporators, air coolers, heat pumps, and hybrid chillers, designed to cater to both commercial and industrial clients. Established in 2002, the company has continually expanded its production capabilities and invested in creating new jobs. With a commitment to quality management and technical expertise, Thermofin serves a broad customer base while maintaining a focus on sustainable growth and employee development.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 2.9 TB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://zncifh3szqf6awg3o33qyoi43tzjaakcjmmhuytii5bsl33wwblt7yid.onion/" target="_blank" class="text-danger">http://zncifh3szqf6awg3o33qyoi43tzjaakcjmmhuytii5bsl33wwblt7yid.onion/</a></div>
+									<hr />
+																									<img src="/files/3CED74FC-FC29-4EFF-9322-A2FC1621D176.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A22190E4-75C8-48A5-83FC-87FACD4B6B6F.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6541FD2D-C2EB-4D4D-A948-66CC0C6F9A47.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6C9DF7C3-95C3-4797-A046-B505DA1FDC2C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9C94FF31-F89A-463B-8E30-CD706C350CF3.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_140" tabindex="-1" aria-labelledby="company_140_label" aria-hidden="true" data-id="140">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_140_label">MACMA Werbeartikel oHG</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">MACMA Werbeartikel oHG
+MACMA is one of the largest promotional product importers in Europe, serving as a supplier and partner to the promotional products trade. The company prides itself on being capable, fast, and reliable, with over 400 employees dedicated to ensuring customer satisfaction. Their extensive product range includes writing instruments, tools, travel accessories, and various promotional items designed to enhance customer engagement. MACMA focuses on providing high-quality products and efficient service to resellers in the promotional merchandise sector.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 285 GB Archive</div>
+																	<div>Contains: Files</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://obqwjnaur6r4lpwjbgmalazy6j5d6fgliimdlipjvdomhbodm2lmidqd.onion/" target="_blank" class="text-danger">http://obqwjnaur6r4lpwjbgmalazy6j5d6fgliimdlipjvdomhbodm2lmidqd.onion/</a></div>
+									<hr />
+																									<img src="/files/D15A1F61-8334-42F2-BE9D-9450D6221345.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/29F1EDD1-B816-4412-9EDE-B005E2D9751F.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/8298BEBB-6533-4F84-A2F3-12505B3E010C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A5828E35-5D00-4AA2-83BB-C5425A7678D0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1CFC0797-1C33-46B8-9FD2-72825B967579.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/BBE14377-57A6-48C7-AD49-EA6AB9EA6D74.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_139" tabindex="-1" aria-labelledby="company_139_label" aria-hidden="true" data-id="139">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_139_label">Pfullendorfer Tor-Systeme</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Pfullendorfer Tor-Systeme
+Pfullendorfer Tor-Systeme was a German company that manufactured high-quality, long-lasting Kipptore (tilt doors) for garages, starting in 1949. They specialized in durable, value-preserving products and offered features like varied filling options and integrated wicket doors. With over 400,000 customers, the company was known for the stability of its tilt door design and its commitment to providing customers with customized and durable solutions, though the snippet provided does not give its current status.  
+Pfullendorfer Tor-Systeme has been based in the region for over 70 years and has established itself as an attractive employer. In addition to direct entry-level commercial and industrial positions, we have been offering apprenticeships at our company for several years, thus giving young people the opportunity to shape their professional futures.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 643 GB Archive</div>
+																	<div>Contains: Files,Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://f6cwflfjehjl6hosqy7jnkefhddnk7u3eyqn4bjrufmkle53tptxr3ad.onion/" target="_blank" class="text-danger">http://f6cwflfjehjl6hosqy7jnkefhddnk7u3eyqn4bjrufmkle53tptxr3ad.onion/</a></div>
+									<hr />
+																									<img src="/files/FFA03D97-0404-4883-B884-4BFB727A7432.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/662773AB-F651-4320-B5A7-D3DE558B87C5.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/B0ABA8A1-95C6-49B8-9C9F-6B486FF1DDBA.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6502D91D-2B08-4BA2-A0B1-599DBABFED1D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/47E3B200-9DA8-4DA3-9E1D-5D3A49D9D637.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/50F5DC86-0543-4B41-AEEF-B754210EBED6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/0CB18964-865A-4D0A-96AE-B296D337AB68.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_138" tabindex="-1" aria-labelledby="company_138_label" aria-hidden="true" data-id="138">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_138_label">Miami Management</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Miami Management
+Miami Management, Inc. is a full-service property management company serving the residential, condominium, high-rise, and commercial markets in South Florida. They offer customized management plans, fully licensed Community Association Managers, and a suite of services including financial reporting, vendor negotiation, and maintenance solutions. With a focus on customer satisfaction and technological innovation, Miami Management aims to enhance the value and aesthetics of the properties they manage. Their clients range from homeowners' associations to large commercial properties seeking comprehensive and efficient management services.</pre>
+								<hr />
+								<div>GEO: USA</div>
+								<div>Leak size: 2,4 TB Archive</div>
+																	<div>Contains: Files</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://nt5fhl4xanqgcpmd63tc2v23rmuropsznaokhymkubf2nvks4aecs3ad.onion/" target="_blank" class="text-danger">http://nt5fhl4xanqgcpmd63tc2v23rmuropsznaokhymkubf2nvks4aecs3ad.onion/</a></div>
+									<hr />
+																									<img src="/files/95B47B0C-DF0D-4E3C-888D-621C413B9E15.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/FCAC20EC-3E92-4A3A-8055-026766EE0E05.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/29371ED5-8ED4-4EEE-8595-8D5E41FB9B6F.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F963FDF2-8FC4-4E94-A383-FF0550C17DE1.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/9270570D-6F74-4E31-AC41-25F779599DC3.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/84B63237-8561-4166-9C07-61FBDA7118AA.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/522A1EA7-0172-4360-9DD4-8AFB149576E5.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/28C5526C-F3A9-4788-9AAF-8BC0715002B6.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6D693C20-452A-44A0-8233-2C6EFFE283BE.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F007EF98-165F-4658-B783-9CDEF2435D85.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/397972A3-C291-4493-9798-798A69A9418F.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_137" tabindex="-1" aria-labelledby="company_137_label" aria-hidden="true" data-id="137">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_137_label">Kwg</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Kwg
+KWG mbH im Lausitzer Seenland is a modern and progressive housing service company that rents and manages residential and commercial properties in the Senftenberg region and surrounding areas. They offer a variety of housing options tailored to different needs, including affordable apartments for families, students, and seniors, as well as higher-end accommodations. The company aims to provide suitable living spaces for singles, young people, families, and seniors, with the possibility of customizing floor plans. Their services are designed to meet the diverse demands of their clients in Senftenberg, Großräschen, Schipkau, Schwarzheide, and Ortrand.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 989 GB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://dj3t7qdgyopmjnvjvni7kdfne36zlq4uic5ajqrh45stquvxcwtdc3qd.onion/" target="_blank" class="text-danger">http://dj3t7qdgyopmjnvjvni7kdfne36zlq4uic5ajqrh45stquvxcwtdc3qd.onion/</a></div>
+									<hr />
+																									<img src="/files/AFA99C8B-C915-40E5-95C1-F4681A09F087.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/4CF6B7B6-EC0C-46B4-9032-206F466D87B5.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E8F211D1-E716-48BE-AF44-C8910CB9550D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3AE3B47F-E2BD-419C-8F52-C95C57523DCE.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/27634A00-EF1B-4551-8CED-1FEDE3C86161.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_136" tabindex="-1" aria-labelledby="company_136_label" aria-hidden="true" data-id="136">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_136_label">F1-Generation</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">F1-Generation
+F1-Generation GmbH is a distributor of internationally renowned fashion brands in the European market, managing over 10 labels. Its product portfolio includes designer lingerie, loungewear, swimwear, hosiery, shapewear, and fashion accessories. The company provides support in marketing and PR, IT improvements through in-house software development, and efficient brand management. Additionally, F1-Generation organizes and conducts trade fairs and order days for its clients.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 520 GB Archive</div>
+																	<div>Contains: Files, SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://rzsqkmwfyprkqslslcf4lscqk7x24xzbxamm5jcsqqhj3vrvkdtp4did.onion/" target="_blank" class="text-danger">http://rzsqkmwfyprkqslslcf4lscqk7x24xzbxamm5jcsqqhj3vrvkdtp4did.onion/</a></div>
+									<hr />
+																									<img src="/files/4DD351A1-CE6C-4139-B99E-382DB8F835E2.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/65592783-688B-47A3-9195-0589004842D7.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/C401C5C4-8E35-458A-A78F-820FD622CF6D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/B6A9FFF4-47E3-4DB0-BBAB-51AAEDFF5F79.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/7CD3B402-578D-4BED-BCAC-DA6A6100D29D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/20D3986C-8953-43BE-BB41-19001ED67237.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/C88F9694-5F57-44A2-9D3E-35FDB0E57E5D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6D4A4F19-2011-46DD-8AA9-EDE014BA560D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/7ACC2CDD-E8A2-4289-A623-70E5FD87BE9D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/7606257B-557C-468F-A719-89F98AC80421.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/D92CC677-9289-4FEB-BF17-7449A7E31A1C.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_135" tabindex="-1" aria-labelledby="company_135_label" aria-hidden="true" data-id="135">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_135_label">IAD GmbH</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">IAD GmbH
+In addition to our traditional training and certification services, you can also take advantage of other services: from our in-house Pearson VUE test centers in Erfurt, Jena, Leipzig, Marburg, and Nordhausen, to room and hardware rental, to booking our experienced consultants and recruiting skilled workers.</pre>
+								<hr />
+								<div>GEO: Germany</div>
+								<div>Leak size: 43 GB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://sfhvr7ecppro35ch6vhrzgwtdtv3ehxem6p2thnwlgursr5vdre2nhid.onion/" target="_blank" class="text-danger">http://sfhvr7ecppro35ch6vhrzgwtdtv3ehxem6p2thnwlgursr5vdre2nhid.onion/</a></div>
+									<hr />
+																									<img src="/files/B397C67E-7836-4BB9-9E43-80D7C61C5DF7.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/305BB3C2-CA6C-4B0E-A117-B15719088035.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/851DEFE8-CAC8-44AD-9A47-2E99685D069F.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_133" tabindex="-1" aria-labelledby="company_133_label" aria-hidden="true" data-id="133">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_133_label">Inox Laghi</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Inox Laghi
+Inox laghi - A complete offer for all the major industrial areas of the international trade. Chemical, pharmaceutical, textile, petrochemical, food, paper, energy, ecology and environmental industries.</pre>
+								<hr />
+								<div>GEO: Italy</div>
+								<div>Leak size: 384 GB Archive</div>
+																	<div>Contains: Files, SQL, Exchange</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://rup34myhoxqzm5m2jcstdwxl2wgjvournnyiysghyef6wjdyk3ets6qd.onion/" target="_blank" class="text-danger">http://rup34myhoxqzm5m2jcstdwxl2wgjvournnyiysghyef6wjdyk3ets6qd.onion/</a></div>
+									<hr />
+																									<img src="/files/67AFFABA-DA2A-4E7F-AA85-02667384DFE2.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6A9DD570-04FB-4847-A19D-A326E1E0CBD4.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/64107CCD-C154-4DC1-A6A3-E48113203D91.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/A282FD0E-E12B-469E-A01F-975916992259.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3CDFF86E-9CD2-485C-88F9-792D6767F62C.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_132" tabindex="-1" aria-labelledby="company_132_label" aria-hidden="true" data-id="132">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_132_label">Maselli Misure S.p.A. Information</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Maselli Misure S.p.A. Information
+For over 70 years, Maselli has been a trusted family-owned business, dedicated to designing and manufacturing innovative optical technology for in-line and laboratory quality control analysis. Based in Parma, Italy, Maselli has a worldwide network of sister companies, distributors, and agents, making it a leading supplier of analytical instruments across multiple industries. At Maselli, we are committed to providing world-class instruments that can withstand the most critical challenges of modern industries. Our products are highly customizable to meet specific application requirements in diverse sectors, including Food & Beverage, Pharmaceutical, Chemical, Petro-Chemical, Textile, and more. With Maselli's cutting-edge technology, our customers can achieve reliable and accurate quality control measurements to ensure the highest standards of production.</pre>
+								<hr />
+								<div>GEO: Italy</div>
+								<div>Leak size: 49 GB Archive</div>
+																	<div>Contains: Files,SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="http://b2frnffyioow5tbiqvehe2ncaxdss2tmw7bvt34cwbdzsx2upbfhbzid.onion/" target="_blank" class="text-danger">http://b2frnffyioow5tbiqvehe2ncaxdss2tmw7bvt34cwbdzsx2upbfhbzid.onion/</a></div>
+									<hr />
+																									<img src="/files/999547C3-F0D8-4F6A-8857-D06323F9DC99.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/0C187987-3B90-4020-98A1-0E905BA20BE8.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/F22C499C-DD46-46D5-93AE-3E9E16A8823D.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E02E7C15-F1EE-4B80-B0DD-287B8DF15A27.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/1035CABB-5853-4016-9363-1683A9DA667C.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_131" tabindex="-1" aria-labelledby="company_131_label" aria-hidden="true" data-id="131">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_131_label">Metro Heating</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Metro Heating
+If you are tired of sweating through the smoldering summer and freezing through the chilly winter, Metro Heating And Air Conditioning is waiting to hear from you! There is no need to deal with unnecessary discomfort when we are here to offer you top-of-the-line products with your satisfaction guaranteed. Whether you are looking for air conditioning units, central heating or both, we can help you with any of your repair or installation needs. </pre>
+								<hr />
+								<div>GEO: USA</div>
+								<div>Leak size: NO DATA</div>
+																	<div>Contains: NO DATA</div>
+																<hr />
+																							</div>
+						</div>
+					</div>
+				</div>
+							<div class="modal fade company_modal" id="company_130" tabindex="-1" aria-labelledby="company_130_label" aria-hidden="true" data-id="130">
+					<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content sg-form">
+							<div class="modal-header">
+								<h5 class="modal-title text-white" id="company_130_label">Harinera del Valle</h5>
+								<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-white">
+								<pre class="text-break mb-2" style="white-space: pre-line;">Harinera del Valle
+Harinera del Valle (HV) is a prominent Colombian company with over 60 years of experience in producing and commercializing processed foods. They offer a wide range of products, including oils, flours, pastas, and ready-to-eat meal mixes, aimed at families and businesses in the food sector. Known for brands such as 'Haz de Oros' and 'Doarepa,' HV emphasizes quality and innovation in its offerings. The company strives to continue being a part of Colombian families' lives by providing delicious and nutritious food options.</pre>
+								<hr />
+								<div>GEO: Colombia</div>
+								<div>Leak size: 59 GB Archive</div>
+																	<div>Contains: Files,SQL</div>
+																<hr />
+																	<div class="text-center text-danger">Download Link: <a href="45k4wju2hwdywn3bsgs6mb6izppx6ghq5w3abcp77jz36xnu7sirltid.onion" target="_blank" class="text-danger">45k4wju2hwdywn3bsgs6mb6izppx6ghq5w3abcp77jz36xnu7sirltid.onion</a></div>
+									<hr />
+																									<img src="/files/597757F9-7ABA-4CE6-BCAF-D914F733FD2C.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/3648F41B-99B9-4FBE-9FC9-85423DBC6201.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/E36454F2-5A21-4161-813E-C7B8200162A0.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/2681D3CA-85CE-46A2-8BDC-6CB2432DF848.png" class="d-block mw-100 mb-2" loading="lazy" />
+																	<img src="/files/6BC90BF2-91D7-49C0-B0B2-AC46267790E6.png" class="d-block mw-100 mb-2" loading="lazy" />
+															</div>
+						</div>
+					</div>
+				</div>
+						<div class="modal fade" id="contacts" tabindex="-1" aria-labelledby="contacts_label" aria-hidden="true">
+				<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+					<div class="modal-content sg-form">
+						<div class="modal-header">
+							<h5 class="modal-title text-white" id="contacts_label">Contacts</h5>
+							<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-white">
+							<div>Mail: <a href="mailto:SarcomaGroup@onionmail.org" class="text-white">SarcomaGroup@onionmail.org</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="about" tabindex="-1" aria-labelledby="about_label" aria-hidden="true">
+				<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+					<div class="modal-content sg-form">
+						<div class="modal-header">
+							<h5 class="modal-title text-white" id="about_label">About Us</h5>
+							<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-white">
+							<div>
+								Today, more and more information is stored on digital media.<br />
+								Companies that store sensitive information on their servers must take a responsible attitude to security.<br />
+								Our mission is to show the world how important it is to keep data safe.<br />
+								If you see your company on our website it means that security was low.<br />
+								<br />
+								We invite access brokers, interested parties, aggrieved employees of companies to co-operate.<br />
+								Together we can be stronger and richer.<br />
+								We know how to make our cooperation profitable and safe.
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				document.addEventListener( "DOMContentLoaded", function() {
+					let company_modals = document.querySelectorAll( ".company_modal" );
+					for( let i = 0; i < company_modals.length; i++ ) {
+						company_modals[ i ].addEventListener( "shown.bs.modal", function( event ){
+							var xhr = new XMLHttpRequest();
+							xhr.open( "POST", "/", true );
+							let data = new FormData();
+							data.append( "action", "show_company" );
+							data.append( "id", this.dataset.id );
+							data.append( "csrf_token", document.querySelector('meta[name="csrf-token"]').content );
+							xhr.send( data );
+						} );
+					}
+				} );
+			</script>
+				<!-- <script src="./bootstrap.bundle.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript">
+			document.addEventListener( "DOMContentLoaded", function() {
+				new ClipboardJS( ".copy_button" );
+			} );
+			
+			document.addEventListener( "DOMContentLoaded", function() {
+				var tooltipTriggerList = [].slice.call( document.querySelectorAll( '[data-bs-toggle="tooltip"]' ) );
+				var tooltipList = tooltipTriggerList.map( function( tooltipTriggerEl ) {
+					var tooltip = new bootstrap.Tooltip( tooltipTriggerEl );
+					tooltipTriggerEl.addEventListener( 'show.bs.tooltip', function () {
+						setTimeout( function() { tooltip.hide(); }, 1000 );
+					} );
+					return tooltip;
+				} );
+			} );
+			
+			document.addEventListener( "DOMContentLoaded", function() {
+				let toastElList = [].slice.call( document.querySelectorAll( ".toast:not(.hide)" ) );
+				let toastList = toastElList.map( function ( toastEl ) {
+					return new bootstrap.Toast( toastEl );
+				} );
+				for( let i = 0; i < toastList.length; i++ ){
+					toastList[ i ].show();
+				}
+			} );
+			
+			document.addEventListener( "DOMContentLoaded", function() {
+				let popoverTriggerList = [].slice.call( document.querySelectorAll( "[data-bs-toggle=\"popover\"]" ) );
+				let popoverList = popoverTriggerList.map( function( popoverTriggerEl ){
+					var popover = new bootstrap.Popover( popoverTriggerEl );
+					popoverTriggerEl.addEventListener( 'show.bs.popover', function () {
+						setTimeout( function() { popover.hide(); }, 3000 );
+					} );
+					return popover;
+				} );
+			} );
+		</script>
+	</body>
+</html>

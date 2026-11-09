@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ransom - KAZU</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid #262626;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .logo a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            display: none;
+            align-items: center;
+            gap: 32px;
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            color: #a3a3a3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .nav-link.active {
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+        }
+
+        aside {
+            width: 256px;
+            flex-shrink: 0;
+            border-right: 1px solid #262626;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .aside-header {
+            padding: 20px 24px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+            border-bottom: 1px solid #262626;
+        }
+
+        .product-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .product-item {
+            width: 100%;
+            text-align: left;
+            padding: 20px 24px;
+            border-bottom: 1px solid #262626;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            color: #a3a3a3;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .product-item:hover {
+            color: #fff;
+            background-color: #0a0a0a;
+        }
+
+        .product-item.active {
+            background-color: #171717;
+            color: #fff;
+        }
+
+        .product-item-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .product-deadline {
+            display: block;
+            font-size: 11px;
+            color: #737373;
+            margin-top: 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .product-item.active .product-deadline {
+            color: #a3a3a3;
+        }
+
+        .product-deadline.urgent {
+            color: #f87171;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+            overflow-y: auto;
+            padding: 40px;
+        }
+
+        .content-wrapper {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .image-container {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #262626;
+            background-color: #0a0a0a;
+            margin-bottom: 32px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+        }
+
+        .product-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-top: 8px;
+            margin-bottom: 24px;
+        }
+
+        .product-flag {
+            font-size: 28px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        .countdown-box {
+            border: 1px solid #404040;
+            border-radius: 16px;
+            padding: 24px;
+            background-color: #0a0a0a;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+            margin-bottom: 6px;
+        }
+
+        .countdown-date {
+            font-size: 13px;
+            color: #a3a3a3;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .countdown-unit {
+            text-align: center;
+            min-width: 56px;
+            border: 1px solid #262626;
+            border-radius: 10px;
+            padding: 10px 8px;
+            background-color: #171717;
+        }
+
+        .countdown-value {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            line-height: 1;
+        }
+
+        .countdown-unit-name {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+            margin-top: 6px;
+        }
+
+        .countdown-box.expired {
+            border-color: rgba(248, 113, 113, 0.4);
+        }
+
+        .expired-text {
+            color: #f87171;
+        }
+
+        .summary-box {
+            border: 1px solid #262626;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .summary-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+            margin-bottom: 12px;
+        }
+
+        .summary-text {
+            color: #e5e5e5;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .description-text {
+            color: #a3a3a3;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+
+        .details-box {
+            border: 1px solid #262626;
+            border-radius: 16px;
+            padding: 0 24px;
+            margin-bottom: 32px;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid #262626;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 14px;
+            color: #737373;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: #a3a3a3;
+        }
+
+        .detail-value.white {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .samples-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .sample-box {
+            cursor: pointer;
+            background-color: #171717;
+            border: 1px solid #404040;
+            padding: 24px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .sample-box:hover {
+            border-color: #737373;
+        }
+
+        .download-icon {
+            width: 28px;
+            height: 28px;
+            color: #d4d4d4;
+        }
+
+        .sample-name {
+            font-weight: 500;
+        }
+
+        .sample-hint {
+            color: #737373;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="logo"><a href="index.html">KAZU</a></span>
+                <nav>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="news.html">News</a>
+            <a class="nav-link active" href="ransom.html">Ransom</a>
+            <a class="nav-link" href="databases.html">Databases</a>
+            <a class="nav-link" href="leak.html">Leaks</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="pgp.html">PGP</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <div class="aside-header">Ransom</div>
+            <ul class="product-list" id="productList"></ul>
+        </aside>
+
+        <main>
+            <div class="content-wrapper" id="contentWrapper"></div>
+        </main>
+    </div>
+
+    <script>
+        const items = [
+            {
+                id: 1,
+                title: "UNINTER: Distance Learning Education Platform",
+                flag: "\u{1F1E7}\u{1F1F7}",
+                image: "https://i.ibb.co/bRKYMy4V/21.png",
+                tag: "Education",
+                summary: "UNINTER is one of Brazilâs largest private higher-education groups, with a particularly strong position in distance learning (EAD). The group had approximately 729,000 active students in 2025, more than 800 education centers, and 14 international locations. In a 2026 ranking of the 20 largest higher-education institutions worldwide focused on distance education, UNINTER ranked #16 globally and #6 among Latin American institutions . The Grupo Uninter generated R$1.85 billion in gross revenue in 2025, equivalent to approximately US$355 million",
+                description: "Data Structure :Â 1.Â Documento de IdentificaÃ§Ã£o | 2. CertidÃ£o Civil de Nascimento-Casamento | 3. HistÃ³rico Escolar de ConclusÃ£o do Ensino MÃ©dio | 4. Comprovante de colaÃ§Ã£o de grau. CertidÃ£o ou declaraÃ§Ã£o de conclusÃ£o com data de colaÃ§Ã£o do grau anterior ao ingresso | 5. Certificado de conclusÃ£o do Ensino MÃ©dio | 6. HistÃ³rico do Fundamental ou parcial do Ensino MÃ©dio ou parcial do ENEM ou parcial ENCCEJA ou Prova de nivelamento | 7. Diploma de GraduaÃ§Ã£o | 8. Comprovante de vÃ­nculo com a IES de origem | 9. Comprovante de vÃ­nculo empregatÃ­cio | 10. Boletim de Desempenho | 11. DeclaraÃ§Ã£o de matrÃ­cula do Ensino MÃ©dio ou HistÃ³rico Parcial do Ensino MÃ©dio | 12. CPF",
+                website: "https://www.uninter.com/",
+                price: "$300,000",
+                date: "2026",
+                size: "7.34 TB",
+                pieces: "7,676,927 files",
+                payments: "BTC / XMR",
+                sampleName: "Sample.zip",
+                sampleUrl: "https://t.me/kazu_breach1/76",
+                deadline: "2026-10-20T23:59:59"
+            },
+            {
+                id: 2,
+                title: "Fiction Express: Digital Education Platform",
+                flag: "\u{1F1EA}\u{1F1F8}",
+                image: "https://i.ibb.co/5gHR7v1p/22.png",
+                tag: "Education",
+                summary: "Fiction Express is an educational technology company founded in 2011 that provides an interactive digital reading platform for schools, teachers, and students. The platform encourages children and young people to develop their reading comprehension, writing, vocabulary, and critical-thinking skills through stories co-created with professional authors",
+                description: "Data : 2,928,795 students ( 101,084 individually named minors )  + 121,092 teachers  + 37,670 schools + 1,297,119 student voice recordings",
+                website: "https://en.fictionexpress.com/",
+                price: "$100,000",
+                date: "2026",
+                size: "725.13 GB",
+                pieces: "3.097.557 pii + 1.297.119 voice record",
+                payments: "BTC / XMR",
+                sampleName: "Sample.zip",
+                sampleUrl: "https://t.me/kazu_breach1/87",
+                deadline: "2026-10-24T23:59:59"
+            },
+
+        ];
+
+        let selectedId = items[0].id;
+
+        function getDeadlineMs(item) {
+            return new Date(item.deadline).getTime();
+        }
+
+        function getRemaining(item) {
+            return getDeadlineMs(item) - Date.now();
+        }
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function formatDeadline(dateStr) {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        function renderProductList() {
+            const list = document.getElementById('productList');
+            list.innerHTML = items.map(item => {
+                const remaining = getRemaining(item);
+                const urgent = remaining > 0 && remaining < 86400000;
+                const deadlineText = remaining <= 0
+                    ? 'Expired'
+                    : formatDeadline(item.deadline) + ' \u2014 ' + formatCountdownShort(remaining);
+                return `
+                <li>
+                    <button 
+                        class="product-item ${item.id === selectedId ? 'active' : ''}"
+                        onclick="selectProduct(${item.id})"
+                    >
+                        <span class="product-item-title">${item.flag} ${item.title}</span>
+                        <span class="product-deadline ${remaining <= 0 ? 'urgent' : ''} ${urgent ? 'urgent' : ''}">${deadlineText}</span>
+                    </button>
+                </li>
+            `;
+            }).join('');
+        }
+
+        function formatCountdownShort(ms) {
+            const totalSec = Math.max(0, Math.floor(ms / 1000));
+            const d = Math.floor(totalSec / 86400);
+            const h = Math.floor((totalSec % 86400) / 3600);
+            const m = Math.floor((totalSec % 3600) / 60);
+            const s = totalSec % 60;
+            return pad(d) + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+        }
+
+        function renderProductDetails() {
+            const wrapper = document.getElementById('contentWrapper');
+            const selected = items.find(i => i.id === selectedId);
+
+            if (!selected) {
+                wrapper.innerHTML = '';
+                return;
+            }
+
+            const remaining = getRemaining(selected);
+            const expired = remaining <= 0;
+
+            wrapper.innerHTML = `
+                <div class="image-container">
+                    <img src="${selected.image}" alt="${selected.title}" class="product-image" />
+                </div>
+                <span class="tag">${selected.tag}</span>
+                <h1 class="product-title"><span class="product-flag">${selected.flag}</span> ${selected.title}</h1>
+
+                <div class="countdown-box" id="countdownBox">
+                    <div>
+                        <p class="countdown-label">Deadline</p>
+                        <p class="countdown-date">${formatDeadline(selected.deadline)}</p>
+                    </div>
+                    <div class="countdown-timer" id="countdownTimer"></div>
+                </div>
+
+                <div class="summary-box">
+                    <p class="summary-label">Summary</p>
+                    <p class="summary-text">${selected.summary}</p>
+                    <p class="description-text">${selected.description}</p>
+                </div>
+
+                <div class="details-box">
+                    <div class="detail-row">
+                        <span class="detail-label">Website</span>
+                        <span class="detail-value">${selected.website}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Ransom</span>
+                        <span class="detail-value white">${selected.price}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Dump Date</span>
+                        <span class="detail-value">${selected.date}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Size</span>
+                        <span class="detail-value">${selected.size}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Record</span>
+                        <span class="detail-value">${selected.pieces}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Payments Accepted</span>
+                        <span class="detail-value">${selected.payments}</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="samples-label">Samples</p>
+                    <div class="sample-box" onclick="openSample('${selected.sampleUrl}')">
+                        <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <div>
+                            <p class="sample-name">${selected.sampleName}</p>
+                            <p class="sample-hint">Click to view sample</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            updateCountdown(selected);
+        }
+
+        function updateCountdown(selected) {
+            const timer = document.getElementById('countdownTimer');
+            const box = document.getElementById('countdownBox');
+            if (!timer || !box) return;
+
+            const remaining = getRemaining(selected);
+
+            if (remaining <= 0) {
+                box.classList.add('expired');
+                timer.innerHTML = `<span class="expired-text">Expired</span>`;
+            } else {
+                const totalSec = Math.floor(remaining / 1000);
+                const d = Math.floor(totalSec / 86400);
+                const h = Math.floor((totalSec % 86400) / 3600);
+                const m = Math.floor((totalSec % 3600) / 60);
+                const s = totalSec % 60;
+
+                timer.innerHTML = `
+                    <div class="countdown-unit"><div class="countdown-value">${pad(d)}</div><div class="countdown-unit-name">Days</div></div>
+                    <div class="countdown-unit"><div class="countdown-value">${pad(h)}</div><div class="countdown-unit-name">Hours</div></div>
+                    <div class="countdown-unit"><div class="countdown-value">${pad(m)}</div><div class="countdown-unit-name">Min</div></div>
+                    <div class="countdown-unit"><div class="countdown-value">${pad(s)}</div><div class="countdown-unit-name">Sec</div></div>
+                `;
+            }
+        }
+
+        function selectProduct(id) {
+            selectedId = id;
+            renderProductList();
+            renderProductDetails();
+        }
+
+        function openSample(url) {
+            if (url) {
+                window.open(url, '_blank', 'noopener');
+            }
+        }
+
+        setInterval(function () {
+            renderProductList();
+            const selected = items.find(i => i.id === selectedId);
+            if (selected) {
+                updateCountdown(selected);
+            }
+        }, 1000);
+
+        renderProductList();
+        renderProductDetails();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1516 @@
+{
+  "generated_at": "2026-10-11T08:46:19.467865+00:00",
+  "browser": "Headless Chrome via Selenium; Tor SOCKS5 proxy",
+  "scope": "Listing metadata only; no detail pages or leak files opened/downloaded; challenge pages are not solved",
+  "page_load_timeout_seconds": 75,
+  "sites_attempted": 9,
+  "total_records": 194,
+  "sites": [
+    {
+      "site": "APT73(BASHE)",
+      "start_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/",
+      "pages_visited": 1,
+      "records_found": 133,
+      "records": [
+        {
+          "group": "APT73(BASHE)",
+          "organization": "METRABYTE.CLOUD",
+          "country_or_location": "Thailand",
+          "listed_date": "2026/07/27 12:00:00 UTC +0 (views: 79635)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "DGCEMENT.COM",
+          "country_or_location": "Pakistan",
+          "listed_date": "2026/07/22 10:00:00 UTC +0 (views: 80812)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "AZARESTAN.COM",
+          "country_or_location": "Iran",
+          "listed_date": "2026/07/20 10:00:00 UTC +0 (views: 79242)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "VICENTETRAPANI.COM",
+          "country_or_location": "Argentina",
+          "listed_date": "2026/07/17 10:00:00 UTC +0 (views: 77576)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "WESTERNINT.COM",
+          "country_or_location": "United Arab Emirates",
+          "listed_date": "2026/07/15 10:00:00 UTC +0 (views: 77544)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "AYDENIZ.COM",
+          "country_or_location": "Turkey",
+          "listed_date": "2026/07/13 10:00:00 UTC +0 (views: 80276)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FLAZIO.COM",
+          "country_or_location": "Italy",
+          "listed_date": "2026/07/10 10:00:00 UTC +0 (views: 80093)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "HOLIDAYPALACE.COM",
+          "country_or_location": "Spain",
+          "listed_date": "2026/07/08 10:00:00 UTC +0 (views: 80917)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "RITAVO.COM",
+          "country_or_location": "Vietnam",
+          "listed_date": "2026/07/06 10:00:00 UTC +0 (views: 80416)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "KLIKNKLIK.COM",
+          "country_or_location": "Indonesia",
+          "listed_date": "2026/07/03 10:00:00 UTC +0 (views: 91241)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GOV.BR",
+          "country_or_location": "Brazil",
+          "listed_date": "2026/07/01 10:00:00 UTC +0 (views: 88033)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "VIENNAAIRPORT.COM (SOLD TO 3RD PARTY)",
+          "country_or_location": "Austria",
+          "listed_date": "2026/06/29 09:47:24 UTC +0 (views: 86387)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SMARTY.ARPINET.AM",
+          "country_or_location": "Armenia",
+          "listed_date": "2026/06/03 22:00:00 UTC +0 (views: 101657)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ELECTIONS.MIA.GOV.AM FROM WOLVES OF TURAN",
+          "country_or_location": "Armenia",
+          "listed_date": "2026/06/06 12:00:00 UTC +0 (views: 102336)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TKGM.GOV.TR",
+          "country_or_location": "Turkey",
+          "listed_date": "2026/06/05 11:00:00 UTC +0 (views: 112151)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MINSA.COM.MX",
+          "country_or_location": "Mexico",
+          "listed_date": "2026/06/03 12:00:00 UTC +0 (views: 109376)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TVNMEDIA.COM",
+          "country_or_location": "Panama",
+          "listed_date": "2026/06/01 12:00:00 UTC +0 (views: 108808)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GRUPOPETERSEN.COM.AR",
+          "country_or_location": "Argentina",
+          "listed_date": "2026/05/29 12:00:00 UTC +0 (views: 108780)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NARIT.OR.TH",
+          "country_or_location": "Thailand",
+          "listed_date": "2026/05/27 12:00:00 UTC +0 (views: 108336)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ALKALOID.COM.MK",
+          "country_or_location": "Northern Macedonia",
+          "listed_date": "2026/05/25 12:00:00 UTC +0 (views: 108613)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "UNGERERANDCOMPANY.COM",
+          "country_or_location": "USA",
+          "listed_date": "2026/05/22 19:00:00 UTC +0 (views: 108303)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PROVIDENTGH.COM",
+          "country_or_location": "Ghana",
+          "listed_date": "2026/05/15 10:00:00 UTC +0 (views: 127024)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MEDIKAPLAZA.COM",
+          "country_or_location": "Indonesia",
+          "listed_date": "2026/05/13 10:00:00 UTC +0 (views: 133142)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "JGPETRUCCI.COM",
+          "country_or_location": "USA",
+          "listed_date": "2026/05/11 10:00:00 UTC +0 (views: 126282)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GRUPO-PRINCIPAL.COM",
+          "country_or_location": "Mexico",
+          "listed_date": "2026/05/08 10:00:00 UTC +0 (views: 125444)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "DUNAV.COM",
+          "country_or_location": "Serbia",
+          "listed_date": "2026/05/06 10:00:00 UTC +0 (views: 125320)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "COFACO.COM",
+          "country_or_location": "Peru",
+          "listed_date": "2026/05/04 10:00:00 UTC +0 (views: 124839)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ARRAWDAH.ORG.SA",
+          "country_or_location": "Saudi Arabia",
+          "listed_date": "2026/05/01 10:00:00 UTC +0 (views: 124702)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ALX-PC.COM",
+          "country_or_location": "Egypt",
+          "listed_date": "2026/04/29 10:00:00 UTC +0 (views: 124323)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ALGOSAIBI-GTB.COM",
+          "country_or_location": "Saudi Arabia",
+          "listed_date": "2026/04/28 10:00:00 UTC +0 (views: 123674)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "IFMIS.GO.KE",
+          "country_or_location": "Kenya",
+          "listed_date": "2026/04/29 10:00:00 UTC +0 (views: 131543)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "OLPRO.COM.MY",
+          "country_or_location": "Malaysia",
+          "listed_date": "2026/04/22 10:00:00 UTC +0 (views: 131338)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "WHESSOE.COM.MY",
+          "country_or_location": "Malaysia",
+          "listed_date": "2026/04/20 10:00:00 UTC +0 (views: 130787)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PHB.COM",
+          "country_or_location": "USA",
+          "listed_date": "2026/04/17 10:00:00 UTC +0 (views: 129399)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "EGOV.SC",
+          "country_or_location": "Seychelles",
+          "listed_date": "2026/04/15 10:00:00 UTC +0 (views: 133319)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ASUNIM.CO",
+          "country_or_location": "Spain",
+          "listed_date": "2026/04/13 10:00:00 UTC +0 (views: 132000)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "CENTRUM.SK",
+          "country_or_location": "Slovakia",
+          "listed_date": "2026/04/02 12:00:00 UTC +0 (views: 143013)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "2M.MA",
+          "country_or_location": "Morocco",
+          "listed_date": "2026/03/31 12:00:00 UTC +0 (views: 141799)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "IRES.MA",
+          "country_or_location": "Morocco",
+          "listed_date": "2026/03/29 10:00:00 UTC +0 (views: 140639)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "IAM.MA",
+          "country_or_location": "Morocco",
+          "listed_date": "2026/03/28 12:00:00 UTC +0 (views: 142748)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "DPWH.GOV.PH",
+          "country_or_location": "Philippines",
+          "listed_date": "2026/03/27 12:00:00 UTC +0 (views: 149072)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "DOGHAIRINC.COM",
+          "country_or_location": "Canada",
+          "listed_date": "2026/03/26 10:00:00 UTC +0 (views: 148396)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ISOSL.BE",
+          "country_or_location": "Belgium",
+          "listed_date": "2026/03/25 12:00:00 UTC +0 (views: 146974)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "VANHEYGHENSTAAL.BE",
+          "country_or_location": "Belgium",
+          "listed_date": "2026/03/25 10:00:00 UTC +0 (views: 147401)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MOCCAE.GOV.AE",
+          "country_or_location": "UAE",
+          "listed_date": "2026/03/24 10:00:00 UTC +0 (views: 151296)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SHJ.AE",
+          "country_or_location": "UAE",
+          "listed_date": "2026/03/23 10:00:00 UTC +0 (views: 151843)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "HACA.MA",
+          "country_or_location": "Morocco",
+          "listed_date": "2026/03/20 12:00:00 UTC +0 (views: 150041)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GEDCO.PS",
+          "country_or_location": "Palestine",
+          "listed_date": "2026/03/20 10:00:00 UTC +0 (views: 150425)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SEIT.CL",
+          "country_or_location": "Chile",
+          "listed_date": "2026/03/20 10:00:00 UTC +0 (views: 149791)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NOVOAIR-BD.COM",
+          "country_or_location": "Bangladesh",
+          "listed_date": "2026/03/18 12:00:00 UTC +0 (views: 150181)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BG.AC.RS",
+          "country_or_location": "Serbia",
+          "listed_date": "2026/03/18 10:00:00 UTC +0 (views: 143477)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BANKASIA-BD.COM",
+          "country_or_location": "Bangladesh",
+          "listed_date": "2026/03/17 12:00:00 UTC +0 (views: 143238)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BANAK.COM",
+          "country_or_location": "Spain",
+          "listed_date": "2026/03/17 10:00:00 UTC +0 (views: 142559)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "AMTAAR.COM",
+          "country_or_location": "Sudan",
+          "listed_date": "2026/02/27 14:00:00 UTC +0 (views: 149201)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "CORAHPERU.ORG",
+          "country_or_location": "Peru",
+          "listed_date": "2026/02/19 12:00:00 UTC +0 (views: 149857)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MAHIDOL.AC.TH",
+          "country_or_location": "Thailand",
+          "listed_date": "2026/02/19 10:00:00 UTC +0 (views: 149705)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "COMPENSATII.GOV.MD",
+          "country_or_location": "Moldova",
+          "listed_date": "2026/02/10 12:00:00 UTC +0 (views: 167866)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "HL.CO.UK",
+          "country_or_location": "England",
+          "listed_date": "2026/01/28 13:29:32 UTC +0 (views: 178057)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TNI.MIL.ID",
+          "country_or_location": "Indonesia",
+          "listed_date": "2026/01/28 13:28:18 UTC +0 (views: 380918)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BOOSTHEAT.COM",
+          "country_or_location": "France",
+          "listed_date": "2025/02/10 12:00:00 UTC +0 (views: 377477)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "INDIA CAR OWNERS",
+          "country_or_location": "India",
+          "listed_date": "2026/01/28 13:42:54 UTC +0 (views: 358174)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MISTRALSOLUTIONS.COM",
+          "country_or_location": "USA",
+          "listed_date": "2025/02/10 12:00:00 UTC +0 (views: 356703)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "COEL.COM.MX",
+          "country_or_location": "Mexico",
+          "listed_date": "2025/02/03 12:00:00 UTC +0 (views: 360695)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "REALTAXCANADA.COM",
+          "country_or_location": "Canada",
+          "listed_date": "2025/02/07 12:00:00 UTC +0 (views: 360807)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "OME.TV | SOLD",
+          "country_or_location": "Portugal",
+          "listed_date": "2025/02/11 10:00:00 UTC +0 (views: 370179)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FOL-23.FR",
+          "country_or_location": "France",
+          "listed_date": "2025/01/22 10:00:00 UTC +0 (views: 376186)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BETCLIC.COM",
+          "country_or_location": "Malta",
+          "listed_date": "2025/01/20 10:00:00 UTC +0 (views: 374673)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PNP.CO.ZA",
+          "country_or_location": "South Africa",
+          "listed_date": "2025/01/14 09:00:00 UTC +0 (views: 374009)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LINEBANK.CO.ID",
+          "country_or_location": "India",
+          "listed_date": "2025/01/14 09:00:00 UTC +0 (views: 388305)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FEDERALBANK.CO.IN",
+          "country_or_location": "India",
+          "listed_date": "2024/12/27 18:00:00 UTC +0 (views: 394631)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BRI.CO.ID (SOLD TO 3RD PARTY)",
+          "country_or_location": "Indonesia",
+          "listed_date": "2024/12/24 18:00:00 UTC +0 (views: 387821)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PRIXET.COM",
+          "country_or_location": "Dominican Republic",
+          "listed_date": "2024/12/20 09:00:00 UTC +0 (views: 384520)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MINERASANCRISTOBAL.COM",
+          "country_or_location": "Bolivia",
+          "listed_date": "2024/12/17 09:00:00 UTC +0 (views: 396155)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LEADBOXHQ.COM",
+          "country_or_location": "Canada",
+          "listed_date": "2024/12/16 09:00:00 UTC +0 (views: 390856)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MELHORCOMPRACLUBE.COM.BR",
+          "country_or_location": "Brazil",
+          "listed_date": "2024/12/13 09:00:00 UTC +0 (views: 394983)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BMS.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/12/13 09:00:00 UTC +0 (views: 387128)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FPJ.COM.PY PART3",
+          "country_or_location": "Paraguay",
+          "listed_date": "2024/12/13 09:00:00 UTC +0 (views: 440057)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ALIORBANK.PL",
+          "country_or_location": "Poland",
+          "listed_date": "2024/12/13 09:00:00 UTC +0 (views: 430319)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "CERTIFIEDINFOSEC.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/12/09 09:00:00 UTC +0 (views: 434378)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FPJ.COM.PY PART2",
+          "country_or_location": "Paraguay",
+          "listed_date": "2024/12/06 14:00:00 UTC +0 (views: 429587)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SIAPENET.GOV.BR",
+          "country_or_location": "Brazil",
+          "listed_date": "2024/12/09 09:00:00 UTC +0 (views: 425378)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FPJ.COM.PY PART1",
+          "country_or_location": "Paraguay",
+          "listed_date": "2024/12/03 18:00:00 UTC +0 (views: 427358)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SANSIROSTADIUM.COM",
+          "country_or_location": "Italy",
+          "listed_date": "2024/12/08 10:00:00 UTC +0 (views: 418692)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "POLLENINFORMATION.AT",
+          "country_or_location": "Austria",
+          "listed_date": "2024/12/06 09:09:00 UTC +0 (views: 429954)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SELLA.ENG.BR",
+          "country_or_location": "Brazil",
+          "listed_date": "2024/12/02 09:00:00 UTC +0 (views: 431247)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NETROMSOFTWARE.RO",
+          "country_or_location": "Romania",
+          "listed_date": "2024/12/06 09:00:00 UTC +0 (views: 434924)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LGPUNJAB.GOV.IN",
+          "country_or_location": "India",
+          "listed_date": "2024/11/28 09:00:00 UTC +0 (views: 425298)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GURECO.PL",
+          "country_or_location": "Poland",
+          "listed_date": "2024/11/28 09:00:00 UTC +0 (views: 424555)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SFR.FR",
+          "country_or_location": "France",
+          "listed_date": "2024/11/25 09:00:00 UTC +0 (views: 425935)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "RAO.HR",
+          "country_or_location": "Croatia",
+          "listed_date": "2024/11/25 09:00:00 UTC +0 (views: 430535)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PROTECTASECURITY.PE",
+          "country_or_location": "Peru",
+          "listed_date": "2024/12/03 09:09:00 UTC +0 (views: 428673)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NANOLIVE.CH 2.0",
+          "country_or_location": "Switzerland",
+          "listed_date": "2024/11/16 16:00:00 UTC +0 (views: 442850)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "EMEFARMARIO.COM.BR",
+          "country_or_location": "Brazil",
+          "listed_date": "2024/11/13 15:38:16 UTC +0 (views: 433622)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LIFTKITS4LESS.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/11/19 09:00:00 UTC +0 (views: 441747)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LAMAISONDUCITRON.COM",
+          "country_or_location": "France",
+          "listed_date": "2024/11/19 09:00:00 UTC +0 (views: 427255)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BALDINGER-AG.CH",
+          "country_or_location": "Switzerland",
+          "listed_date": "2024/11/19 09:00:00 UTC +0 (views: 421318)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ASSURIFIED.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/11/19 09:00:00 UTC +0 (views: 438505)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TRINITESOLUTIONS.COM",
+          "country_or_location": "Canada",
+          "listed_date": "2024/11/07 09:00:00 UTC +0 (views: 424867)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SCOPESET.DE",
+          "country_or_location": "Germany",
+          "listed_date": "2024/11/07 09:00:00 UTC +0 (views: 427058)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SOKKAKREATIF.COM",
+          "country_or_location": "Indonesia",
+          "listed_date": "2024/11/07 09:00:00 UTC +0 (views: 430688)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "LEGILOG.FR",
+          "country_or_location": "France",
+          "listed_date": "2024/11/07 09:00:00 UTC +0 (views: 421332)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PKAUFMANN.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/24 09:00:00 UTC +0 (views: 435360)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "APEX.UK.NET",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/10/24 09:00:00 UTC +0 (views: 435616)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MODPLAN.CO.UK",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/10/24 09:00:00 UTC +0 (views: 423378)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "HPECDS.COM",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/10/24 09:00:00 UTC +0 (views: 417201)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "THOMPSONCREEK.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/23 09:00:00 UTC +0 (views: 434719)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NORTHERNSAFETY.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/23 09:00:00 UTC +0 (views: 423497)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MGFSOURCING.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/23 09:00:00 UTC +0 (views: 428011)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "APPEN.COM",
+          "country_or_location": "Australia",
+          "listed_date": "2024/10/17 09:00:00 UTC +0 (views: 424969)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FILMAI.IN",
+          "country_or_location": "India",
+          "listed_date": "2024/10/17 09:00:00 UTC +0 (views: 421871)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "DRIZLY.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/17 09:00:00 UTC +0 (views: 419778)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ROBINHOOD.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/10/17 09:00:00 UTC +0 (views: 429672)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "THEBEAUTYCLICK.CO.UK",
+          "country_or_location": "England",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 426691)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TRANS-LOGIK.COM",
+          "country_or_location": "England",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 426122)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TALONSOLUTIONS.CO.UK",
+          "country_or_location": "England",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 425953)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SANDRO FORTE FINANCIAL SUPPORT",
+          "country_or_location": "England",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 420678)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SUSAN FISCHGRUND",
+          "country_or_location": "England",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 405569)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "NANOLIVE.CH",
+          "country_or_location": "Switzerland",
+          "listed_date": "2024/10/21 10:00:00 UTC +0 (views: 415400)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "RYLANDPETERS.COM",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/09/02 10:00:00 UTC +0 (views: 388301)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "PINDROPHEARING.CO.UK",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/09/02 10:00:00 UTC +0 (views: 387805)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GLOBACAP.COM",
+          "country_or_location": "England",
+          "listed_date": "2024/09/02 10:00:00 UTC +0 (views: 381919)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "GANNONS.CO.UK",
+          "country_or_location": "United Kingdom",
+          "listed_date": "2024/06/25 10:00:00 UTC +0 (views: 399344)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BORRER EXECUTIVE SEARCH",
+          "country_or_location": "Switzerland",
+          "listed_date": "2024/06/24 10:00:00 UTC +0 (views: 385753)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BIGALSFOODSERVICE.CO.UK",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/06/24 10:00:00 UTC +0 (views: 395074)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "APEX.UK.NET",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/06/21 10:10:00 UTC +0 (views: 395134)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "ALPHANOVACAPITAL",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/06/21 10:10:00 UTC +0 (views: 379151)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "AMI GLOBAL ASSISTANCE",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/06/21 10:10:00 UTC +0 (views: 387361)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "BRIGHTWAYCONSULTANTS.CO.UK",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/06/04 10:00:00 UTC +0 (views: 392855)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "FORTIFY.PRO",
+          "country_or_location": "Canada",
+          "listed_date": "2024/05/18 10:00:00 UTC +0 (views: 394352)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "SERVICEPOWER.COM",
+          "country_or_location": "Great Britain",
+          "listed_date": "2024/05/09 10:00:00 UTC +0 (views: 389381)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "CREDIO.EU",
+          "country_or_location": "Czech Republic",
+          "listed_date": "2024/05/09 11:00:00 UTC +0 (views: 381491)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "MELTING-MIND.DE",
+          "country_or_location": "Germany",
+          "listed_date": "2024/06/03 08:00:00 UTC +0 (views: 392862)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        },
+        {
+          "group": "APT73(BASHE)",
+          "organization": "TRIFECTA.COM",
+          "country_or_location": "USA",
+          "listed_date": "2024/04/05 07:37:45 UTC +0 (views: 391195)",
+          "listing_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/",
+          "title": "BASHE",
+          "body_chars": 23468
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "BARRACUDA",
+      "start_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks",
+      "pages_visited": 1,
+      "records_found": 12,
+      "records": [
+        {
+          "group": "BARRACUDA",
+          "organization": "Ministarstvo poljoprivrede, šumarstva i ribarstva",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Automovil Club del Ecuador ANETA",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "International Chemical Co.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Solucioning S.A.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Abtach Ltd.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "i2i-systems",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Clinical Associates of the Finger Lakes (CAFL)",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "VR Advogados",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "RS Automation Co., Ltd.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Micro-Comm Inc.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Namyang Industrial Co., Ltd.",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        },
+        {
+          "group": "BARRACUDA",
+          "organization": "Skyline Implants & Periodontics",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/leaks",
+          "title": "BARRACUDA",
+          "body_chars": 4031
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "Cinder",
+      "start_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/",
+      "pages_visited": 1,
+      "records_found": 7,
+      "records": [
+        {
+          "group": "Cinder",
+          "organization": "veritiv",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "swagelok",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "proampac",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "marvin",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "acima",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "mat-holdings-inc",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        },
+        {
+          "group": "Cinder",
+          "organization": "regencycenters",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/",
+          "title": "cinder",
+          "body_chars": 412
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "Falcon",
+      "start_url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies",
+      "pages_visited": 1,
+      "records_found": 3,
+      "records": [
+        {
+          "group": "Falcon",
+          "organization": "Hayward Holdings",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies"
+        },
+        {
+          "group": "Falcon",
+          "organization": "Globus Medical",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies"
+        },
+        {
+          "group": "Falcon",
+          "organization": "DistributionNOW (DNOW Inc.)",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies",
+          "title": "Falcon · Companies",
+          "body_chars": 561
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "Karma Leaks",
+      "start_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks",
+      "pages_visited": 1,
+      "records_found": 17,
+      "records": [
+        {
+          "group": "Karma Leaks",
+          "organization": "Sports Endeavors",
+          "country_or_location": null,
+          "listed_date": "2026-09-04",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "SEARS (Grupo Sanborns)",
+          "country_or_location": null,
+          "listed_date": "2026-08-15",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Hitech Distribuzione Informatica S.r.l. (HTDI)",
+          "country_or_location": null,
+          "listed_date": "2026-08-05",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Blenheim",
+          "country_or_location": null,
+          "listed_date": "2026-07-04",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "ECOVACS",
+          "country_or_location": null,
+          "listed_date": "2026-06-16",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "PT Darma Henwa Tbk",
+          "country_or_location": null,
+          "listed_date": "2026-06-15",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Elgon Cosmetic",
+          "country_or_location": null,
+          "listed_date": "2026-06-15",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "SmilePoint Dental Group",
+          "country_or_location": null,
+          "listed_date": "2026-06-14",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "WMC Metal Concepts",
+          "country_or_location": null,
+          "listed_date": "2026-06-14",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Bessone Srl",
+          "country_or_location": null,
+          "listed_date": "2026-06-14",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Sanz Clima",
+          "country_or_location": null,
+          "listed_date": "2026-06-13",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Ridge Law Firm",
+          "country_or_location": null,
+          "listed_date": "2026-06-13",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Saraff Global",
+          "country_or_location": null,
+          "listed_date": "2026-06-13",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Cedarland Forest Products",
+          "country_or_location": null,
+          "listed_date": "2026-06-05",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Security Department Srl",
+          "country_or_location": null,
+          "listed_date": "2026-06-03",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Pafco (Fiji)",
+          "country_or_location": null,
+          "listed_date": "2026-06-02",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        },
+        {
+          "group": "Karma Leaks",
+          "organization": "Caffarena",
+          "country_or_location": null,
+          "listed_date": "2026-05-12",
+          "listing_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks",
+          "title": "Karma Leaks — Leaks",
+          "body_chars": 5282
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "Kazu",
+      "start_url": "http://6czlbd2jfiy6765fbnbnzuwuqocg57ebvp3tbm35kib425k4qnmiiiqd.onion/ransom.html",
+      "pages_visited": 1,
+      "records_found": 2,
+      "records": [
+        {
+          "group": "Kazu",
+          "organization": "🇧🇷 UNINTER: Distance Learning Education Platform",
+          "country_or_location": null,
+          "listed_date": "Oct 20, 2026",
+          "listing_url": "http://6czlbd2jfiy6765fbnbnzuwuqocg57ebvp3tbm35kib425k4qnmiiiqd.onion/ransom.html"
+        },
+        {
+          "group": "Kazu",
+          "organization": "🇪🇸 Fiction Express: Digital Education Platform",
+          "country_or_location": null,
+          "listed_date": "Oct 24, 2026",
+          "listing_url": "http://6czlbd2jfiy6765fbnbnzuwuqocg57ebvp3tbm35kib425k4qnmiiiqd.onion/ransom.html"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://6czlbd2jfiy6765fbnbnzuwuqocg57ebvp3tbm35kib425k4qnmiiiqd.onion/ransom.html",
+          "title": "Ransom - KAZU",
+          "body_chars": 1716
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "MS13-089 Blog",
+      "start_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/",
+      "pages_visited": 1,
+      "records_found": 4,
+      "records": [
+        {
+          "group": "MS13-089 Blog",
+          "organization": "servmarmg.cl",
+          "country_or_location": "Chile, Valparaíso",
+          "listed_date": null,
+          "listing_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/"
+        },
+        {
+          "group": "MS13-089 Blog",
+          "organization": "brittanyresidential.com",
+          "country_or_location": "USA, Ohio",
+          "listed_date": null,
+          "listing_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/"
+        },
+        {
+          "group": "MS13-089 Blog",
+          "organization": "uro.com",
+          "country_or_location": "USA, Virginia",
+          "listed_date": null,
+          "listing_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/"
+        },
+        {
+          "group": "MS13-089 Blog",
+          "organization": "dgpcommercialisti.it",
+          "country_or_location": "Italy, Reggio Emilia",
+          "listed_date": null,
+          "listing_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/",
+          "title": "MS13-089 Blog",
+          "body_chars": 1167
+        }
+      ],
+      "issues": []
+    },
+    {
+      "site": "ShadowByt3$",
+      "start_url": "http://sdwbyttda4uzwdffbt4m7niuodiwhcgmkyxqg5nly2bjxqa6xtbe3fyd.onion/",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "challenge_or_gate": "challenge detected (captcha)",
+      "rendered_pages": [],
+      "issues": [
+        "challenge detected (captcha)"
+      ]
+    },
+    {
+      "site": "Vexy",
+      "start_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog",
+      "pages_visited": 1,
+      "records_found": 16,
+      "records": [
+        {
+          "group": "Vexy",
+          "organization": "KOOKABARRA JUICE",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "MAJANI INSURANCE BROKERS",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "QUY NHON UNIVERSITY",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "STP FASHION LAB",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "HASHIMOTO JIMUKI",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "STRAD SOLUTIONS",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "I2K2 NETWORKS",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "LOGAR NETWORK SOLUTIONS",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "UNITED GROUP",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "SANCITY",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "MEGA VELOCITY",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "SANCITY SOFT TOUCH",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "ANNAPURNA FASHION",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "PALSANA ENVIRO (PEPL)",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "MCDONALDS ECUADOR",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        },
+        {
+          "group": "Vexy",
+          "organization": "ENGEFITAS",
+          "country_or_location": null,
+          "listed_date": null,
+          "listing_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog"
+        }
+      ],
+      "challenge_or_gate": null,
+      "rendered_pages": [
+        {
+          "url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog",
+          "title": "Vexy Ransomware | Blog",
+          "body_chars": 5452
+        }
+      ],
+      "issues": []
+    }
+  ]
+}

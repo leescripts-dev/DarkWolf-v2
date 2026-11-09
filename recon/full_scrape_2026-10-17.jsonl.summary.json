@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-10-17T12:40:45.506144+00:00",
+  "registered_sites": 50,
+  "processed": 50,
+  "active": 35,
+  "inactive": 15,
+  "captcha": 1,
+  "anti_bot": 0,
+  "pages": 97,
+  "records_observed": 1589,
+  "first_observations": 61,
+  "events_generated": 61,
+  "errors": [],
+  "finished_at": "2026-10-17T13:16:08.595568+00:00"
+}

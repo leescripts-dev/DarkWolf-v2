@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://limewire.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data: blob:; img-src 'self' data: blob:; connect-src 'self' https://limewire.com; frame-src 'self' https://tox.chat https://getsession.org https://pastebin.com https://web.archive.org https://t.me; form-action 'self';" />
+        <title>endzone</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="fonts/fonts.css" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+
+        <style>
+            .css-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(5px);
+                z-index: 1000;
+            }
+
+            .css-modal:target {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: fadeIn 0.3s ease-out;
+            }
+
+            .css-modal-content {
+                background: rgba(0, 0, 0, 0.95);
+                border: 2px solid #ffffff;
+                border-radius: 12px;
+                width: 90%;
+                max-width: 800px;
+                max-height: 80vh;
+                overflow: auto;
+                color: #fff;
+                padding: 24px 32px;
+            }
+
+            .css-modal-close {
+                float: right;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 32px;
+                font-weight: 300;
+                line-height: 1;
+                margin-left: 10px;
+            }
+
+            .css-modal-backdrop {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10000;
+            }
+
+            .css-modal-content {
+                position: relative;
+                z-index: 11000;
+            }
+
+            .css-modal-content::-webkit-scrollbar {
+                width: 18px;
+            }
+
+            .css-modal-content::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 8px;
+            }
+
+            .css-modal-content::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+                border: 3px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .css-modal-content::-webkit-scrollbar-thumb:hover {
+                background: #ffffff;
+            }
+
+            .css-modal-close:hover {
+                transform: scale(1.2);
+            }
+
+            .css-modal-close:active {
+                transform: scale(0.9);
+            }
+
+            .css-modal-content h2 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #ffffff;
+                margin: 0 0 20px 0;
+            }
+
+            .css-modal-content h3 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #ffffff;
+                margin: 20px 0 10px 0;
+            }
+
+            .css-modal-content pre {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 13px;
+                color: #ffffff;
+                background-color: #000000;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #ffffff;
+                overflow-x: auto;
+                white-space: pre;
+                margin: 0;
+            }
+
+            .sample-images {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+                margin-top: 20px;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .sample-images img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 8px;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .sample-images img:hover {
+                border-color: #ffffff;
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+            }
+
+            .sample-img {
+                cursor: pointer;
+            }
+
+            .image-wrapper {
+                position: relative;
+            }
+
+            .sample-link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            .image-enlarge {
+                display: none;
+                position: fixed;
+                z-index: 99999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-enlarge:target {
+                display: flex;
+                animation: fadeIn 0.3s ease-out;
+            }
+
+            .image-enlarge img {
+                max-width: 90%;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+                border: 2px solid #ffffff;
+                width: auto;
+                height: auto;
+            }
+
+            .image-enlarge-close {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 6000;
+                background: rgba(0, 0, 0, 0.5);
+                border: 2px solid #ffffff;
+                color: #ffffff;
+                font-size: 40px;
+                font-weight: 300;
+                cursor: pointer;
+                padding: 10px;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                border-radius: 8px;
+            }
+
+            .image-enlarge-close:hover {
+                transform: scale(1.2);
+                background: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .company-revenue {
+                font-size: 14px;
+                opacity: 0.8;
+            }
+
+            .countdown-text {
+                font-size: 13px;
+                opacity: 0.7;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="overlay"></div>
+
+        <nav class="nav-tabs">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-btn active">
+                            <span class="nav-text">Leaks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-btn">
+                            <span class="nav-text">Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/announcements" class="nav-btn">
+                            <span class="nav-text">Announcements</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="page-content active">
+            <div class="container">
+                <header>
+                    <h1>endzone</h1>
+                </header>
+                <div class="cards-grid" data-cards="3">
+                    <div class="glow-card" data-glow-color="white">
+                        <div class="glow-card-inner">
+                            <div class="company-header">
+                                <h2 class="company-name">Philander Smith University</h2>
+                                <div class="company-revenue">$25.3 million annual</div>
+                                <div class="timer-row">
+                                    <p class="countdown-text" style="font-weight: 900; font-size: 16px; opacity: 1;">Data publication date paused</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; margin-bottom: 15px; font-weight: 900;">We are pausing the timer for now due to an issue with atomic mail. Please contact us as soon as possible via Session using the Session ID. If that doesn't work, email us again.</p>
+                            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.3); margin: 10px 0;">
+                            <p class="description" style="font-weight: 600;">
+                                Philander Smith University is a private, historically Black liberal arts institution in Little Rock, Arkansas, founded in 1877 and affiliated with the United Methodist Church. They provide undergraduate and graduate education with a focus on academic excellence, social justice, and leadership development for a diverse student body. We successfully exfiltrated 500GB+ worth of data which includes VERY confidential information about students and staff, as well as financial information. Alongside, we have encrypted files across the entire network.
+                            </p>
+                            <div class="button-container">
+                                <button class="download-btn" data-link="" data-company="philander_smith" style="opacity: 0.5; pointer-events: none;">download DB</button>
+                                <a href="/contact" class="contact-btn">contact</a>
+                                <a href="#philander-smith-sample" class="sample-btn">view sample</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-card" data-glow-color="white">
+                        <div class="glow-card-inner">
+                            <div class="company-header">
+                                <h2 class="company-name">Gomomentum.com</h2>
+                                <div class="company-revenue">$221.7 million</div>
+                                <div class="timer-row">
+                                    <p class="countdown-text" style="font-weight: 600; font-size: 14px; opacity: 1; color: #ffffff;">Data has been published for public download</p>
+                                </div>
+                            </div>
+                            <p class="description" style="font-weight: 600;">
+                                Momentum is a telecommunications company founded in 2001 that provides cloud-based communication solutions for businesses, specializing in cloud voice services, managed networks, SD-WAN solutions, and Microsoft Teams Phone integration. We gained access to a diagnostic and provisioning tool used by Momentum through a compromised Multi-Service Operator (MSO). Upon reconnaissance, we identified multiple critical vulnerabilities throughout the system. This tool controls internet and voice services for millions of users across global markets. We successfully accessed user data for every MSO, exposing personally identifiable information (PII) for over 7.5 million users. They didn't notice the prolonged access or the customer data dump for a while, but when we started deleting modems they noticed. They kept burning access and we gained it back, they'd burn it again. We have caused widespread outages (https://www.abc4.com/news/wasatch-front/eagle-mountain-internet-outage-cyberattack/). We now have had over 100,000 packages successfully deleted. That's 100,000+ people without internet service right now. Families, businesses, students all cut off from the digital world. This is the direct result of their negligence and failure to secure their systems. These services can be restored immediately with the click of a button on our tool but you must reach out. Click "View Affected MSOs" below to see the full list of compromised providers. Momentum management should contact us to discuss resolution. Affected MSOs can also contact us to have their users' data deleted from our database.
+                            </p>
+                            <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 15px; font-weight: bold;">Note: Use Tor 'Safer' settings. Looking for alternative file host. If that does not work, join our telegram found on our Contact Us page - you can find the direct download there.</p>
+                            <div class="button-container">
+                                <a href="https://limewire.com/d/hWx8B#YjpGkZARG9" class="download-btn">download DB</a>
+                                <a href="/contact" class="contact-btn">contact</a>
+                                <a href="#gomomentum_com-sample" class="sample-btn">view sample</a>
+                                <a href="#mso-warning" class="sample-btn">View Affected MSOs</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-card" data-glow-color="white">
+                        <div class="glow-card-inner">
+                            <div class="company-header">
+                                <h2 class="company-name">eTeam</h2>
+                                <div class="company-revenue">Revenue: $229 million</div>
+                                <div class="timer-row">
+                                    <p class="countdown-text" style="font-weight: 600; font-size: 14px; opacity: 1; color: #ffffff;">Data has been published for public download</p>
+                                </div>
+                            </div>
+                            <p class="description" style="font-weight: 600;">
+                                eTeam Inc. is a privately held global workforce solutions and business transformation company. Founded in 1999 by Ben Thakur, the company is certified as a Minority Business Enterprise (MBE). It has grown from a boutique IT staffing agency into a massive global network, managing thousands of internal employees and contract workers across continents. We successfully exfiltrated all employee records (15K), including full names, email addresses, home addresses, DOBs, SSNs, phone numbers, contracts, managers, hire dates, salaries and more. We engaged with eTeam privately some time back, and now we are going public with the announcement as eTeam was negligent of the incident that took place then. We're giving you one more chance. Speak soon or leak soon!
+                            </p>
+                            <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 15px; font-weight: bold;">Note: Use Tor 'Safer' settings. Looking for alternative file host. If that does not work, join our telegram found on our Contact Us page - you can find the direct download there.</p>
+                            <div class="button-container">
+                                <a href="https://limewire.com/d/6UHfn#DNt3TAEaXR" class="download-btn">download DB</a>
+                                <a href="/contact" class="contact-btn">contact</a>
+                                <a href="#eteam-sample" class="sample-btn">view sample</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" data-cards="1" style="margin-top: 25px;">
+                    <div class="warning-card">
+                        <div class="glow-card-inner">
+                            <div class="company-header">
+                                <h2 class="company-name" style="color: #ff0000;">WARNING</h2>
+                            </div>
+                            <p class="description" style="font-weight: 600;">
+                                This is what happens when you ignore us or go ghost. Momentum Telecom is a prime example of negligence in action. They don't care about their 7.5 million customers whose PII has been exposed. They don't care about the 100,000+ people who lost internet service due to widespread outages we caused as a direct result of their poor security practices.
+                            </p>
+                            <p class="description" style="font-weight: 600;">
+                                The Eagle Mountain, Utah "cyberattack" and internet outage that made national news? That was us. That was a direct consequence of Momentum's failure to secure their systems. They ignored repeated warnings, they burned access repeatedly, and we kept gaining it back. We deleted modems, caused service disruptions, and left families, businesses, and students without internet for days. Read the coverage: <a href="https://www.abc4.com/news/wasatch-front/eagle-mountain-internet-outage-cyberattack/" target="_blank" rel="noopener noreferrer">ABC4</a> | <a href="https://www.fox13now.com/videos/news/local-news/utah-county/eagle-mountain-residents-impacted-by-days-long-internet-outage" target="_blank" rel="noopener noreferrer">Fox 13</a>
+                            </p>
+                            <p class="description" style="font-weight: 600;">
+                                Momentum management repeatedly contacted us, then ghosted us every single time. They reached out to initiate negotiations, then disappeared. They agreed to terms, then stopped responding. This pattern continued over and over. They don't take this seriously. They don't care about their customers. Now their data is public and their customers are paying the price for their arrogance.
+                            </p>
+                            <p class="description" style="font-weight: 600;">
+                                Don't be like Momentum. Don't ignore us. Don't go ghost. When we reach out, we expect a response. When we say we have your data, we have your data. When we say we can cause damage, we can cause damage.
+                            </p>
+                            <p class="description" style="font-weight: 600;">
+                                Contact us. Negotiate. Resolve this before you become the next headline.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gomomentum_com-sample" class="css-modal">
+            <a href="/" class="css-modal-backdrop"></a>
+            <div class="css-modal-content">
+                <a href="/" class="css-modal-close">&times;</a>
+                <h2>Gomomentum.com - Sample Data</h2>
+                <h3>Sample Records | View image proof at the bottom</h3>
+                <pre style="background: #111; padding: 15px; overflow-x: auto; color: #fff;">
+{"cid": 21, "bbx_account": "21", "type": "Unknown", "status": "Active", "name": "Bustamantes, Carlos", "street": "1296 Keys Lake Drive", "city_state_zip": "CANTON, GA, US 30144", "phones": ["(123) 456-7891", "(123) 456-7890"], "mso": "Integrated Broadband Services", "system": "Cartersville", "billing_account": "3333333333334", "billing_type": "Regular", "static_ip": null, "emails": [], "services": [], "macs": []}
+{"cid": 22, "bbx_account": "22", "type": "Residential", "status": "Delete", "name": "Brown, Cedric", "street": null, "city_state_zip": null, "phones": [], "mso": "Integrated Broadband Services", "system": "Cartersville", "billing_account": null, "billing_type": "Regular", "static_ip": null, "emails": [], "services": [], "macs": []}
+{"cid": 23, "bbx_account": "23", "type": "Unknown", "status": "Delete", "name": null, "street": "5550 Ga Hwy 41 N", "city_state_zip": "Mauk, GA, US 31058", "phones": [], "mso": "Flint Cable TV, Inc.", "system": "Mauk", "billing_account": null, "billing_type": "Regular", "static_ip": null, "emails": [], "services": [], "macs": []}
+{"cid": 24, "bbx_account": "24", "type": "Unknown", "status": "Inactive", "name": "Ramey, Denise", "street": "189 Sunny Side Drive", "city_state_zip": "Boxspring, GA, US 31808", "phones": [], "mso": "Flint Cable TV, Inc.", "system": "Mauk", "billing_account": null, "billing_type": "Regular", "static_ip": null, "emails": [], "services": [], "macs": []}
+{"cid": 25, "bbx_account": "25", "type": "Residential", "status": "Active", "name": "Gray, John", "street": "118 Smoke St", "city_state_zip": "Mauk, GA, US 31058", "phones": ["(706) 225-7511", "(706) 593-7799"], "mso": "Flint Cable TV, Inc.", "system": "MaukD3", "billing_account": "3011050035", "billing_type": "Regular", "static_ip": null, "emails": [], "services": [{"modem_service_id": "21270563", "package_id": "6003369", "mac": "14:C0:3E:C6:83:19"}], "macs": ["14:C0:3E:C6:83:19"]}
+{"cid": 26, "bbx_account": "26", "type": "Unknown", "status": "Delete", "name": "Dimarzo, Frank", "street": "5544 HWY 41 NORTH", "city_state_zip": "Mauk, GA, US 31058", "phones": [], "mso": "Flint Cable TV, Inc.", "system": "Mauk", "billing_account": null, "billing_type": "Regular", "static_ip": null, "emails": [], "services": [], "macs": []}
+                </pre>
+
+                <div class="sample-images">
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img0" class="sample-link">
+                        <img src="samples/IA_via_randomMSO.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img1" class="sample-link">
+                        <img src="samples/IDOR_allowsEquipmentChangesOnCustomersOutsideOurMSO.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img2" class="sample-link">
+                        <img src="samples/IDOR_leadsToFullCustomerDiagnosticsOutsideOfOutAuthedMSO.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img3" class="sample-link">
+                        <img src="samples/IDOR_leadsToFullCustomerProvisioningOutsideOfOutAuthedMSO.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img4" class="sample-link">
+                        <img src="samples/IDOR_via_endpointShowsOtherMSOCusrtomerDetails.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img5" class="sample-link">
+                        <img src="samples/same_MSO_customerdiagnostics.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img6" class="sample-link">
+                        <img src="samples/same_MSO_customerprovisioning.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img7" class="sample-link">
+                        <img src="samples/same_MSO_proofofcustomerPackageDisablingOrDeleting.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img8" class="sample-link">
+                        <img src="samples/customer_deleted.png" alt="Sample">
+                    </a>
+                </div>
+
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img9" class="sample-link">
+                        <img src="samples/deleting_customers.png" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#gomomentum-sample-img10" class="sample-link">
+                        <img src="samples/userPII_andCustomerPackageDeletion.png" alt="Sample">
+                    </a>
+                </div>
+                </div></div>
+        </div>
+
+        <div id="gomomentum-sample-img0" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/IA_via_randomMSO.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img1" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/IDOR_allowsEquipmentChangesOnCustomersOutsideOurMSO.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img2" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/IDOR_leadsToFullCustomerDiagnosticsOutsideOfOutAuthedMSO.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img3" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/IDOR_leadsToFullCustomerProvisioningOutsideOfOutAuthedMSO.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img4" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/IDOR_via_endpointShowsOtherMSOCusrtomerDetails.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img5" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/same_MSO_customerdiagnostics.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img6" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/same_MSO_customerprovisioning.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img7" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/same_MSO_proofofcustomerPackageDisablingOrDeleting.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img8" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/customer_deleted.png" alt="Enlarged">
+        </div>
+
+        <div id="gomomentum-sample-img9" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/deleting_customers.png" alt="Enlarged">
+        </div>
+        <div id="gomomentum-sample-img10" class="image-enlarge">
+            <a href="#gomomentum_com-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/userPII_andCustomerPackageDeletion.png" alt="Enlarged">
+        </div>
+
+        <div id="eteam-sample" class="css-modal">
+            <a href="/" class="css-modal-backdrop"></a>
+            <div class="css-modal-content">
+                <a href="/" class="css-modal-close">&times;</a>
+                <h2>eTeam - Sample Data</h2>
+                <h3>Sample Records | View image proof at the bottom</h3>
+                <pre style="background: #111; padding: 15px; overflow-x: auto; color: #fff;">
+637-88-2141,Adolfo,,Aguirre,,,"Aguirre, Adolfo",Adolfo Aguirre,M,,09/23/2003,22,,,,,,,,,,,Consultants,NJ,,$25-$29.99,,,,,,Technology Consulting Analyst,,,,,,,,eTeam,,,,,Terminated,,06/03/2024,,,07/16/2024,No,,08/31/2024,Involuntary Termination,08/14/2024,,,,,,,,,,,,Eligible (Regularly works more than 30 hours a week),No,No,No,,,,Home,150 Mazanita Drive,,,Buda,TX,,78610,United States of America,(512) 743-5577,,,,aguirre.adolfo.2003@gmail.com,aguirre.adolfo.2003@gmail.com,,Work Email,No,07/16/2024,,,,,,,,,,,,,Hourly,06/03/2024,"$54,080.00",26.00,40,,,,,,,,No,,,42986239,,08/14/2024,07/16/2024,,
+568-31-1385,Christian,,Aguirre,,,"Aguirre, Christian",Christian Aguirre,M,,03/16/1959,67,Married,,,,,,,,,,Consultants,NJ,,$25-$29.99,,,,,,GFD5IC-Product Repair/Mod Tech C - GFL-Vehicle,,,,,,,,eTeam,,,,,Terminated,,07/22/2022,,,08/15/2022,No,,08/31/2022,Involuntary Termination,10/12/2022,,,,,,,,,,,,Eligible (Regularly works more than 30 hours a week),No,No,No,,,,Home,309 S Santa Cruz St,,,Ventura,CA,,93001,United States of America,(818) 585-2013,,,,fishpro411@gmail.com,fishpro411@gmail.com,,Work Email,No,08/15/2022,,,,,,,,,,,,,Hourly,07/22/2022,"$72,800.00",35.00,40,,,,,,,,No,,,28525653,,10/12/2022,08/15/2022,,
+602-03-5469,Luis,,Aguirre,,,"Aguirre, Luis",Luis Aguirre,M,,09/10/1986,39,,,,,,,,,,,Consultants,,,$15 - $19.99,,,,,,Feeder Associate,,,,,,,,eTeam,,,,,Terminated,,11/23/2021,,,12/06/2021,,,12/31/2021,Involuntary Termination,12/23/2021,,,,,,,,,,,,Eligible (Regularly works more than 30 hours a week),No,No,No,,,,Home,30647 Kit Fox Ct,,,Visalia,CA,,93291,,(559) 750-2311,,,,lfaguirrela@gmail.com,lfaguirrela@gmail.com,,Work Email,No,12/06/2021,,,,,,,,,,,,,Hourly,11/23/2021,"$41,600.00",20.00,40.00,,,,,,,,No,,,24029105,,07/21/2025,,,
+624-31-2513,Ricardo,,Aguirre,,,"Aguirre, Ricardo",Ricardo Aguirre,M,,03/19/2002,24,,,,,,,,,,,Consultants,NJ,,$15 - $19.99,,,,,,Student,,,,,,,,eTeam,,,,,Terminated,,06/05/2023,,,07/14/2023,No,,08/31/2023,Involuntary Termination,08/08/2023,,,,,,,,,,,,Eligible (Regularly works more than 30 hours a week),No,No,No,,,,Home,241 W 15th Ave,,,Delano,CA,,93215,United States of America,(661) 370-6856,,,,Raguirre8829@icloud.com,Raguirre8829@icloud.com,,Work Email,No,07/14/2023,,,,,,,,,,,,,Hourly,06/05/2023,"$37,440.00",18.00,40,,,,,,,,No,,,34880217,,08/08/2023,07/14/2023,,
+636-84-1494,Martin,,Aguirre-Zamudio,,,"Aguirre-Zamudio, Martin",Martin Aguirre-Zamudio,M,,11/28/2002,23,,,,,,,,,,,Consultants,NJ,,$25-$29.99,,,,,,Business Analyst,,,,,,,,eTeam,,,,,Terminated,,06/05/2023,,,07/14/2023,No,,08/31/2023,Involuntary Termination,08/28/2023,,,,,,,,,,,,Eligible (Regularly works more than 30 hours a week),No,No,No,,,,Home,2201 Montopolis Dr.,"Apt 1212,",,Austin,TX,,78741,United States of America,(512) 962-6819,,,,martinaguirre3.1415@gmail.com,martinaguirre3.1415@gmail.com,,Work Email,No,07/14/2023,,,,,,,,,,,,,Hourly,06/05/2023,"$49,920.00",24.00,40,,,,,,,,No,,,34880843,,08/28/2023,07/14/2023,,
+                </pre>
+
+                <div class="sample-images">
+                <div class="image-wrapper">
+                    <a href="#eteam-sample-img0" class="sample-link">
+                        <img src="samples/eteam1.jpg" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#eteam-sample-img1" class="sample-link">
+                        <img src="samples/eteam2.jpg" alt="Sample">
+                    </a>
+                </div>
+                </div></div>
+        </div>
+
+        <div id="eteam-sample-img0" class="image-enlarge">
+            <a href="#eteam-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/eteam1.jpg" alt="Enlarged">
+        </div>
+        <div id="eteam-sample-img1" class="image-enlarge">
+            <a href="#eteam-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/eteam2.jpg" alt="Enlarged">
+        </div>
+
+        <div id="philander-smith-sample" class="css-modal">
+            <a href="/" class="css-modal-backdrop"></a>
+            <div class="css-modal-content">
+                <a href="/" class="css-modal-close">&times;</a>
+                <h2>Philander Smith University - Sample Data</h2>
+                <h3>Sample Records | View image proof at the bottom</h3>
+                <pre style="background: #111; padding: 15px; overflow-x: auto; color: #fff;">
+10/05/2026  11:27 PM    <DIR>          AD
+10/05/2026  11:27 PM    <DIR>          Admissions
+10/05/2026  11:28 PM    <DIR>          Advising
+11/14/2023  03:22 PM    <DIR>          AIO 7410 Golden Image
+10/05/2026  11:27 PM    <DIR>          Alumni
+02/15/2024  02:22 PM        17,790,976 anyconnect-win-4.10.08029-core-vpn-predeploy-k9.msi
+10/05/2026  11:27 PM    <DIR>          Applications
+10/05/2026  11:30 PM    <DIR>          BAT
+10/05/2026  11:27 PM    <DIR>          Business Advisory Team
+10/05/2026  11:27 PM    <DIR>          Business Office
+10/05/2026  11:27 PM    <DIR>          Cengage
+10/05/2026  11:27 PM    <DIR>          CITS Documentation
+10/05/2026  11:27 PM    <DIR>          CUCM
+10/05/2026  11:27 PM    <DIR>          Data
+11/01/2023  03:20 PM    <DIR>          DELL AIO Plus 7410
+10/05/2026  11:27 PM    <DIR>          EAB
+10/05/2026  11:27 PM    <DIR>          EAB Data
+10/05/2026  11:27 PM    <DIR>          Encoura
+10/05/2026  11:27 PM             1,639 ENDZONE_README.txt
+10/05/2026  11:27 PM    <DIR>          Fall 2023 - Freshman Laptops
+10/05/2026  11:27 PM    <DIR>          Helpful Information
+10/05/2026  11:27 PM    <DIR>          IT Tools
+10/05/2026  11:27 PM    <DIR>          Jenzabar Documentation
+10/05/2026  11:27 PM    <DIR>          Jenzabar support
+10/05/2026  11:27 PM    <DIR>          JICS
+10/05/2026  11:27 PM    <DIR>          Khunter Backup
+04/25/2025  09:02 AM   136,956,862,099 Latitude7440_Apr2025.osdi
+10/05/2026  11:27 PM    <DIR>          LTSC2021
+10/05/2026  11:27 PM    <DIR>          Network Performance Analysis
+11/01/2023  12:57 PM    <DIR>          OSDCommonDrivers
+10/05/2026  11:27 PM    <DIR>          Owells
+09/17/2026  11:42 AM    <DIR>          PapercutBackup
+05/13/2022  10:19 AM    <DIR>          Paul
+10/05/2026  11:27 PM    <DIR>          Projects
+10/05/2026  11:27 PM    <DIR>          PSU Logos
+10/05/2026  11:27 PM    <DIR>          PVH
+10/05/2026  11:27 PM    <DIR>          Queries
+09/29/2026  11:11 AM    <DIR>          Quotes
+10/05/2026  11:27 PM    <DIR>          Requisitions
+10/05/2026  11:27 PM    <DIR>          ROI
+10/01/2024  04:18 PM    <DIR>          scripts
+10/05/2026  11:27 PM    <DIR>          Staff
+10/05/2026  11:27 PM    <DIR>          StudentClearingHouse
+10/05/2026  11:27 PM    <DIR>          Students
+                </pre>
+
+                <div class="sample-images">
+                <div class="image-wrapper">
+                    <a href="#philander-smith-sample-img0" class="sample-link">
+                        <img src="samples/test_sample.jpg" alt="Sample">
+                    </a>
+                </div>
+                <div class="image-wrapper">
+                    <a href="#philander-smith-sample-img1" class="sample-link">
+                        <img src="samples/philander_ransomware.png" alt="Sample">
+                    </a>
+                </div>
+                </div></div>
+        </div>
+
+        <div id="philander-smith-sample-img0" class="image-enlarge">
+            <a href="#philander-smith-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/test_sample.jpg" alt="Enlarged">
+        </div>
+        <div id="philander-smith-sample-img1" class="image-enlarge">
+            <a href="#philander-smith-sample" class="image-enlarge-close">&times;</a>
+            <img src="samples/philander_ransomware.png" alt="Enlarged">
+        </div>
+
+        <div id="mso-warning" class="css-modal">
+            <a href="/" class="css-modal-backdrop"></a>
+            <div class="css-modal-content">
+                <a href="/" class="css-modal-close">&times;</a>
+                <h2>AFFECTED MSOs</h2>
+                <p class="mso-warning-title">All of these MSOs have had their user data compromised:</p>
+                <div class="mso-list">
+                    382 Communications<br>
+                    A&A Communications LLC<br>
+                    Accelerated Broadband<br>
+                    Access Cable<br>
+                    Access Media 3<br>
+                    Advanced Communications<br>
+                    Alabama Broadband<br>
+                    Allegiance<br>
+                    Alliance Communications<br>
+                    Alma Telephone<br>
+                    American Broadband<br>
+                    American Cable Services<br>
+                    American Warrior Networks<br>
+                    Antietam Cable Television<br>
+                    Armstrong<br>
+                    Aroostook Internet<br>
+                    Astrot Telecommunications<br>
+                    Atwood Cable Systems<br>
+                    BBS Wireless<br>
+                    BEELINE Inc.<br>
+                    BUFFALO CABLE TV<br>
+                    Bagley Utilities<br>
+                    Bailey Cable<br>
+                    Bailey Cable TV<br>
+                    Baja Communications<br>
+                    Bandera Electric Cooperative<br>
+                    Barbourville Utility Commission<br>
+                    Baxter Springs<br>
+                    Bay Country<br>
+                    Bay Creek Communications<br>
+                    Beaver Valley<br>
+                    Bellaire TV Cable<br>
+                    Benoit Bros Cablevision<br>
+                    Bermuda Cablevision<br>
+                    Big Sandy<br>
+                    Big Sandy TV Cable<br>
+                    Blue Mountain Digital<br>
+                    Blue Sky<br>
+                    Blue Zoom WIFI<br>
+                    BlueBridge Media<br>
+                    Blueberry First Nation<br>
+                    Boycom Cablevision<br>
+                    Bradley Communications<br>
+                    Bridger<br>
+                    Brighter<br>
+                    Broadstar<br>
+                    Broadstripe<br>
+                    Broadvox<br>
+                    Brockway TV<br>
+                    Brooks Bay Cable Corp<br>
+                    Brownwood TV Cable<br>
+                    Cable Management Associates<br>
+                    Cable Network Associates<br>
+                    Cable Plus<br>
+                    Cable System Services<br>
+                    Cable TV of Belzoni MS<br>
+                    Cable TV of East Alabama<br>
+                    Cableview Communications<br>
+                    CalNeva<br>
+                    Campus Televideo<br>
+                    Carolina Mountain Cablevision<br>
+                    Cass Communications<br>
+                    Centaur Communications<br>
+                    Centracom<br>
+                    Central Valley Cable<br>
+                    Chaparral CableVision Inc.<br>
+                    Cherokee Cablevision<br>
+                    Chesapeake Bay Communications<br>
+                    Choice Cable<br>
+                    Christy Cable<br>
+                    Citizens Cable<br>
+                    City Cable<br>
+                    City TV<br>
+                    City of Dunnellon<br>
+                    City of Forsyth Cable<br>
+                    City of Marble<br>
+                    City of Monroe<br>
+                    City of New Bern<br>
+                    City of Sebewaing<br>
+                    Clarksville<br>
+                    Claro<br>
+                    Clear Choice<br>
+                    Cleartone<br>
+                    Clinton Cable Inc.<br>
+                    Coast Communications<br>
+                    Coastal Link<br>
+                    Coastline Broadcasting Ltd<br>
+                    CommZoom<br>
+                    Community Cable Service<br>
+                    Community Cable and Broadband<br>
+                    Community Cablevision Company<br>
+                    Community Communications<br>
+                    Community Connect<br>
+                    Compass CCI<br>
+                    Compueasy<br>
+                    Continuum<br>
+                    Conway<br>
+                    Coon Rapids Municipal Utilities<br>
+                    Country Cable<br>
+                    Country Cablevision<br>
+                    Country Cablevision - CCV<br>
+                    Crystal Broadband<br>
+                    CrystalClearFiber<br>
+                    Cumberland County Cable TV<br>
+                    DCM Cable<br>
+                    Darien Telephone<br>
+                    Davis Communications<br>
+                    Decca Cable<br>
+                    Demopolis<br>
+                    Direct Communications Cable<br>
+                    Duncan Cable<br>
+                    Durango<br>
+                    EMPOWER BROADBAND<br>
+                    East KY Telecom<br>
+                    East Shore Internet Society<br>
+                    East Texas Cable Company<br>
+                    Eastern Telephone<br>
+                    Easton<br>
+                    Elgin Television Association Inc.<br>
+                    Emerald Broadband<br>
+                    Endeavor Communications<br>
+                    Enhanced Telecommunications Corp<br>
+                    Entouch<br>
+                    EscapeBB<br>
+                    Evenlink<br>
+                    Everyconnect<br>
+                    Express HSI<br>
+                    Extreme Broadband<br>
+                    Falcon Broadband<br>
+                    Fayetteville Utilities<br>
+                    Fidelity Communications<br>
+                    Firefly Fiber Broadband<br>
+                    Flint Cable TV<br>
+                    Forked Deer Connect<br>
+                    Frank Howard Cable<br>
+                    Full Channel<br>
+                    GBT Communications<br>
+                    Galahad Cable Vision Society<br>
+                    Gamewood<br>
+                    Georgia Broadband<br>
+                    Gibson Connect<br>
+                    Gilmer<br>
+                    Gitanyow Band<br>
+                    Grafton<br>
+                    Great Basin Internet<br>
+                    Grey Eagle<br>
+                    GTel Communications<br>
+                    H&B Communications<br>
+                    Hargray<br>
+                    Harlan<br>
+                    Hasty<br>
+                    Hawaii Broadband<br>
+                    Heart of Texas<br>
+                    Helix<br>
+                    Hiawatha Broadband<br>
+                    Hickory Telephone<br>
+                    Highland<br>
+                    Hillbilly Wireless<br>
+                    Hillsboro<br>
+                    Homestead<br>
+                    Horry Telephone<br>
+                    Huron<br>
+                    Illinois Valley<br>
+                    Independence<br>
+                    Indian Creek<br>
+                    Indiana Fiber Network<br>
+                    Insight<br>
+                    InterMountain<br>
+                    Internet America<br>
+                    Invison<br>
+                    Iron<br>
+                    JCfiber<br>
+                    Jasper<br>
+                    Jefferson<br>
+                    Jensen<br>
+                    Junction<br>
+                    KanOkla<br>
+                    Keokee<br>
+                    Kewanee<br>
+                    Kentucky<br>
+                    King Street<br>
+                    KMB<br>
+                    KPU<br>
+                    KT<br>
+                    Lake<br>
+                    Lake Community<br>
+                    Lac qui Parle<br>
+                    Lampasas<br>
+                    Land of Lakes<br>
+                    Lassen<br>
+                    Lavaca<br>
+                    Leaco<br>
+                    Lewis<br>
+                    Liberty<br>
+                    Lifeline<br>
+                    Lightband<br>
+                    LightSpeed<br>
+                    Lineage<br>
+                    Livingston<br>
+                    Long Lines<br>
+                    Lone Star<br>
+                    LoopNet<br>
+                    Lucky<br>
+                    Lyon<br>
+                    MCT<br>
+                    MSO<br>
+                    MTP<br>
+                    Madison<br>
+                    Magnolia<br>
+                    Manitoba<br>
+                    Manti<br>
+                    Maple<br>
+                    Marquette<br>
+                    Marshall<br>
+                    Martin<br>
+                    Massillon<br>
+                    Maumee<br>
+                    Maverick<br>
+                    McNeil<br>
+                    Mendocino<br>
+                    Mercer<br>
+                    Meridian<br>
+                    Midco<br>
+                    Mid-Hudson<br>
+                    Mid-Rivers<br>
+                    Midcontinent<br>
+                    Midwest<br>
+                    Milestone<br>
+                    Millry<br>
+                    Minden<br>
+                    Minnesota<br>
+                    Mississippi<br>
+                    Mitchell<br>
+                    Mixed Signals<br>
+                    Mobile<br>
+                    Moapa<br>
+                    Modoc<br>
+                    Monterey<br>
+                    Montgomery<br>
+                    Moore<br>
+                    Morgan<br>
+                    Morristown<br>
+                    Morrisville<br>
+                    Mosquito<br>
+                    Mountain<br>
+                    Mountain Country<br>
+                    Mountain Home<br>
+                    Mountain Telephone<br>
+                    Mountainview<br>
+                    Movistar<br>
+                    Muebleria<br>
+                    Multi-Service Operator<br>
+                    Murray<br>
+                    Myrtle<br>
+                    NCTC<br>
+                    NET<br>
+                    NESC<br>
+                    NEK<br>
+                    New Castle<br>
+                    New Hope<br>
+                    New Mexico<br>
+                    Newport<br>
+                    Nexgen<br>
+                    Nichols<br>
+                    Nickels<br>
+                    Nixa<br>
+                    Nobel<br>
+                    Nokomis<br>
+                    Norlight<br>
+                    Norman<br>
+                    North American<br>
+                    North Dakota<br>
+                    North State<br>
+                    Northeast<br>
+                    Northeastern<br>
+                    Northland<br>
+                    Northstar<br>
+                    Norton<br>
+                    Nova<br>
+                    Northwest<br>
+                    Nucla<br>
+                    Nueces<br>
+                    Nunn<br>
+                    Nwtel<br>
+                    Oak<br>
+                    Oakridge<br>
+                    Oakland<br>
+                    Oberlin<br>
+                    Oceanic<br>
+                    Oconee<br>
+                    Odessa<br>
+                    Ojai<br>
+                    Oklahoma<br>
+                    Old Dominion<br>
+                    Oliver<br>
+                    Oneonta<br>
+                    Onlin<br>
+                    Orange<br>
+                    Oregon<br>
+                    Orleans<br>
+                    Osage<br>
+                    Ottawa<br>
+                    Otter Tail<br>
+                    Ouray<br>
+                    Outage<br>
+                    Overland<br>
+                    Owensboro<br>
+                    Oxford<br>
+                    Paducah<br>
+                    Palmetto<br>
+                    Panhandle<br>
+                    Paris<br>
+                    Park<br>
+                    Parker<br>
+                    Parowan<br>
+                    Pasco<br>
+                    Patrick<br>
+                    Pawnee<br>
+                    Peach<br>
+                    Pearl<br>
+                    Pender<br>
+                    Peninsular<br>
+                    Penobscot<br>
+                    Penrose<br>
+                    People's<br>
+                    Pegasus<br>
+                    Pell<br>
+                    Pend Oreille<br>
+                    Pennsylvania<br>
+                    Penntel<br>
+                    Penobscot<br>
+                    People's<br>
+                    Pegasus<br>
+                    Pell<br>
+                    Pend Oreille<br>
+                    Pennsylvania<br>
+                    Penntel<br>
+                    Perrysburg<br>
+                    Peshtigo<br>
+                    Peterstown<br>
+                    Phelps<br>
+                    Phoenix<br>
+                    Piedmont<br>
+                    Pike<br>
+                    Pine<br>
+                    Pine Belt<br>
+                    Pine Tree<br>
+                    Pioneer<br>
+                    Pittsfield<br>
+                    Plainfield<br>
+                    Plantation<br>
+                    Plymouth<br>
+                    Pocatello<br>
+                    Point<br>
+                    Poke<br>
+                    Polk<br>
+                    Ponca<br>
+                    Pool<br>
+                    Poplar<br>
+                    Port<br>
+                    Portland<br>
+                    Potter<br>
+                    Powhatan<br>
+                    Prairie<br>
+                    Presque Isle<br>
+                    Princeton<br>
+                    Provo<br>
+                    Pulaski<br>
+                    Putnam<br>
+                    Pyramid<br>
+                    Q<br>
+                    Quanah<br>
+                    Quantum<br>
+                    Quincey<br>
+                    Quorum<br>
+                    RST<br>
+                    Radford<br>
+                    Rainbow<br>
+                    Randall<br>
+                    Randolph<br>
+                    Range<br>
+                    Rapid<br>
+                    Ray<br>
+                    Raymond<br>
+                    Reading<br>
+                    Red<br>
+                    Redwood<br>
+                    Reece<br>
+                    Republic<br>
+                    Rescues<br>
+                    Richardson<br>
+                    Richmond<br>
+                    Ridge<br>
+                    Ridgeway<br>
+                    Rim<br>
+                    Ringgold<br>
+                    Rio<br>
+                    Ripley<br>
+                    River<br>
+                    Riverside<br>
+                    Riverton<br>
+                    Roanoke<br>
+                    Roberts<br>
+                    Robertson<br>
+                    Rochester<br>
+                    Rock<br>
+                    Rockford<br>
+                    Rockingham<br>
+                    Rockport<br>
+                    Rogers<br>
+                    Rolling<br>
+                    Rome<br>
+                    Roosevelt<br>
+                    Roswell<br>
+                    Rough<br>
+                    Round<br>
+                    Rowan<br>
+                    Rowan<br>
+                    Royal<br>
+                    Rural<br>
+                    Rush<br>
+                    Russell<br>
+                    Russellville<br>
+                    Rutland<br>
+                    Ryder<br>
+                    SRT<br>
+                    STC<br>
+                    Sac<br>
+                    Sagamore<br>
+                    Saginaw<br>
+                    Saint<br>
+                    Salem<br>
+                    Salisbury<br>
+                    Salina<br>
+                    Saline<br>
+                    Saltillo<br>
+                    Salt<br>
+                    San<br>
+                    Sand<br>
+                    Sanders<br>
+                    Sangamon<br>
+                    Sangre<br>
+                    Sanilac<br>
+                    San Juan<br>
+                    San Luis<br>
+                    Sanborn<br>
+                    Sandborn<br>
+                    Sandusky<br>
+                    Santa<br>
+                    Santiago<br>
+                    Savanna<br>
+                    Savannah<br>
+                    Sawyer<br>
+                    Schuyler<br>
+                    Scioto<br>
+                    Scott<br>
+                    Scottsboro<br>
+                    Scranton<br>
+                    Seaboard<br>
+                    Seaforth<br>
+                    Seattle<br>
+                    Sebree<br>
+                    Sedgwick<br>
+                    Seely<br>
+                    Seneca<br>
+                    Sequoia<br>
+                    Sequoyah<br>
+                    Serenbe<br>
+                    Seward<br>
+                    Shackelford<br>
+                    Sharon<br>
+                    Shaw<br>
+                    Shelby<br>
+                    Sheridan<br>
+                    Sherman<br>
+                    Sherrill<br>
+                    Shelby<br>
+                    Sheridan<br>
+                    Sherman<br>
+                    Sherrill<br>
+                    Shipshewana<br>
+                    Shoals<br>
+                    Shoreline<br>
+                    Sierra<br>
+                    Signal<br>
+                    Silver<br>
+                    Simpson<br>
+                    Sioux<br>
+                    Skamania<br>
+                    Skybest<br>
+                    Slic<br>
+                    Small<br>
+                    Smith<br>
+                    Smithville<br>
+                    Smyrna<br>
+                    Snead<br>
+                    Snow<br>
+                    Soap<br>
+                    Socorro<br>
+                    Solon<br>
+                    Somerset<br>
+                    Somerton<br>
+                    Sonora<br>
+                    South<br>
+                    South Central<br>
+                    South Dakota<br>
+                    South Shore<br>
+                    South Slope<br>
+                    South Shore<br>
+                    South Slope<br>
+                    South<br>
+                    South Central<br>
+                    South Dakota<br>
+                    South Shore<br>
+                    South Slope<br>
+                    South Shore<br>
+                    South Slope<br>
+                    South<br>
+                    South Central<br>
+                    South Dakota<br>
+                    South Shore<br>
+                    South Slope<br>
+                    Southeast<br>
+                    Southern<br>
+                    Southwest<br>
+                    Spencer<br>
+                    Springfield<br>
+                    Springport<br>
+                    Sprint<br>
+                    Spokane<br>
+                    Spruce<br>
+                    St<br>
+                    St Albans<br>
+                    St Clair<br>
+                    St Francis<br>
+                    St George<br>
+                    St John<br>
+                    St Joseph<br>
+                    St Lawrence<br>
+                    St Louis<br>
+                    St Mary<br>
+                    St Paul<br>
+                    St Peter<br>
+                    Stack<br>
+                    Star<br>
+                    Stark<br>
+                    Starlink<br>
+                    Starry<br>
+                    Startek<br>
+                    State<br>
+                    State Line<br>
+                    Stead<br>
+                    Steele<br>
+                    Steen<br>
+                    Stephens<br>
+                    Stephenson<br>
+                    Sterling<br>
+                    Stevens<br>
+                    Stewart<br>
+                    Stillwater<br>
+                    Stockton<br>
+                    Stokes<br>
+                    Stone<br>
+                    Stowe<br>
+                    Stratford<br>
+                    Straughn<br>
+                    Stroud<br>
+                    Stuart<br>
+                    Sturgis<br>
+                    Suburban<br>
+                    Suffolk<br>
+                    Sugar<br>
+                    Sulphur<br>
+                    Summer<br>
+                    Summit<br>
+                    Sun<br>
+                    Sunbury<br>
+                    Sunset<br>
+                    Super<br>
+                    Surry<br>
+                    Sussex<br>
+                    Sutton<br>
+                    Sweet<br>
+                    Swift<br>
+                    Sykes<br>
+                    Sykesville<br>
+                    T1<br>
+                    TC<br>
+                    TDS<br>
+                    TEC<br>
+                    TJ<br>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

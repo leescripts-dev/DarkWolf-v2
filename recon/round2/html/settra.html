@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><title>Loading</title><link rel="stylesheet" href="/.within.website/x/xess/xess.min.css?cachebuster=v1.27.1-0.20260811045059-10d172bafdde+dirty"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow"><script id="anubis_version" type="application/json">"v1.27.1-0.20260811045059-10d172bafdde+dirty"
+</script><script id="anubis_challenge" type="application/json">{"rules":{"algorithm":"fast","difficulty":2},"challenge":{"issuedAt":"2026-10-11T08:05:10.608557169Z","metadata":{"User-Agent":"Mozilla/5.0","X-Real-Ip":"127.0.0.1"},"id":"01a129fe-8d50-7870-b096-3247065f0399","method":"fast","randomData":"2475791f8012d106a9cab81ce51f9a8e887f085582e3ab3a209b9705e67ed9f5dd25f9a3dfdc6214fe54694f7a3031a15182b91efcd4791791d0e42384a64769","policyRuleHash":"ac980f49c4d35fab","difficulty":2,"spent":false}}
+</script><script id="anubis_base_prefix" type="application/json">""
+</script><script id="anubis_public_url" type="application/json">""
+</script></head><body id="top"><script type="ignore"><a href="/.within.website/x/cmd/anubis/api/honeypot/30aee69f-2b85-4a2a-bccb-f041ac133a20/init">Don't click me</a></script><main><h1 id="title" class="centered-div">Loading</h1><div class="centered-div"><p id="status">Loading...</p><p id="anubis-script-error" style="display:none;">Could not load JavaScript. The server may be overloaded. Please reload the page to try again.</p><script id="anubis-main" defer type="module" src="/.within.website/x/cmd/anubis/static/js/main.mjs?cacheBuster=v1.27.1-0.20260811045059-10d172bafdde+dirty"></script><script>/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this page.
+
+Copyright (c) 2026 Xe Iaso <xe.iaso@techaro.lol>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this page.
+
+## Rationale
+
+This script catches `main.mjs` failing to load and re-injects it with
+jittered exponential backoff.
+
+Without this any failures loading `main.mjs` leaves the challenge page
+sitting on the "Loading..." message forever with no error messaging
+outside of the browser console, which is unavailable on mobile browsers.
+
+Disable loading this script at your peril. You have been warned.
+*/
+(()=>{var f=(e,t=750,n=1e4)=>Math.random()*Math.min(n,t*Math.pow(e,2));var d=(e,t={},n=[])=>{let s=typeof e=="function"?e(t):Object.assign(document.createElement(e),t);return Array.isArray(n)||(n=[n]),s.append(...n),s};var i=e=>document.getElementById(e);var _=e=>e.map(i);(()=>{let e=i("anubis-main");if(!e){console.debug("can't find anubis main.mjs element via ID `anubis-main`, bailing");return}let t=e.getAttribute("src");if(!t){console.debug("can't find src attribute of script element `anubis-main`, bailing");return}let n=t.indexOf("?")===-1?"?":"&",s=4,E=750,A=1e4,c=1e4,a=0,l=0,u=()=>window.__anubisBooted===!0,p=()=>{let r=_(["anubis-script-error","status","progress"]);if(r.filter(D=>D==null).length!==0){console.debug("missing one of the following elements: anubis-script-error, status, progress. cannot proceed, bailing.");return}let[o,M,T]=r;o.style.display="block",M.style.display="none",T.style.display="none"},m=r=>()=>{if(u()||r!==l)return;if(l++,a++,a>s){p();return}let o=f(a,E,A);setTimeout(y,o)},y=()=>{if(u())return;let r=m(l),o=d("script",{async:!0,type:"module",src:t+n+"anubisRetry="+a,onerror:r});document.head.appendChild(o),setTimeout(r,c)},b=m(0);e.onerror=b,setTimeout(b,c)})();})();
+</script><div id="spinner"></div><noscript><p>Sadly, you must enable JavaScript to get past this challenge. This is required because AI companies have changed the social contract around how website hosting works. A no-JS solution is a work-in-progress.</p></noscript><div id="testarea"></div></div></main></body></html>

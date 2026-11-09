@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-16CDsLjOPKxCOmGX5kEe1M5104wB27BTXDfGu8cgAYg='; style-src 'sha256-LGLAh1iyXHOl3IgZQLIDyf5ysyjysmmUVdxD4uW9i5s='; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>NoTrace.</title>
+<link rel="icon" href="data:,">
+<style>:root{color-scheme:dark;--bg:#0A0A0A;--card:#141414;--ink:#F5F5F5;--muted:#A3A3A3;--line:#262626;--red:#E11D2E;--red-hover:#F2343F;--red-dark:#7A0E17;--amber-soft:#2A2008;--amber-line:#5C4712;--amber-ink:#F5C542;--timer:#050505}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.accent{height:3px;background:var(--red)}
+.wrap{max-width:76rem;margin:0 auto;padding:1.75rem 1.5rem 4rem}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.top{display:flex;align-items:center;gap:1.25rem;margin-bottom:2.75rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:750;font-size:1.2rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand i{width:6px;height:6px;border-radius:50%;background:#FF2A3A;box-shadow:0 0 4px 1px rgba(255,42,58,.8),0 0 10px 3px rgba(255,42,58,.35);margin:0 .15rem}
+.top .line{flex:1;height:1px;background:var(--line)}
+.pgp{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.05rem;border-radius:8px;background:var(--red);color:#fff;text-decoration:none;font-size:.88rem;font-weight:650;white-space:nowrap;transition:filter .15s}
+.pgp:hover{background:var(--red-hover)}
+.pgp svg{width:16px;height:16px}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+@media (max-width:980px){.posts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.posts{grid-template-columns:minmax(0,1fr)}.top{margin-bottom:1.75rem}}
+.post{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:0;padding:1.4rem;transition:border-color .2s}
+.post:hover{border-color:var(--red-dark)}
+.post.is-pending{border-color:rgba(225,29,46,.55);box-shadow:0 0 0 1px rgba(225,29,46,.12),0 0 22px -10px rgba(225,29,46,.5)}
+.post.is-pending:hover{border-color:rgba(225,29,46,.8)}
+.badge{position:absolute;top:1.1rem;right:1.1rem;font:500 .62rem/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .55rem;border-radius:4px;border:1px solid;white-space:nowrap}
+.badge.pending{background:rgba(245,197,66,.07);color:#F5C542;border-color:rgba(245,197,66,.4)}
+.badge.announce{background:var(--red);color:#fff;border-color:var(--red);font:800 .6rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.06em;box-shadow:0 0 8px rgba(225,29,46,.4)}
+.badge.published{background:rgba(225,29,46,.08);color:#fff;border-color:rgba(225,29,46,.45)}
+.post h2{margin:0;padding-right:8.5rem;font-size:1.2rem;line-height:1.3;letter-spacing:-.015em;overflow-wrap:anywhere}
+.date{display:flex;align-items:center;gap:.5rem;margin:.2rem 0 .8rem}
+.post time{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.new{font-size:.52rem;font-weight:800;letter-spacing:.06em;line-height:1;padding:.2rem .35rem;border-radius:3px;background:var(--red);color:#fff;box-shadow:0 0 8px rgba(225,29,46,.4)}
+.post p{margin:0 0 1.3rem;color:var(--muted);font-size:.9rem;overflow-wrap:anywhere}
+.body{margin-top:auto}
+.signed{margin-top:auto;border:1px solid var(--line);border-radius:4px;background:#000}
+.signed summary{cursor:pointer;padding:.55rem .8rem;font:500 .72rem/1.2 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:#fff;list-style-position:inside}
+.signed summary:hover{color:var(--red-hover)}
+.signed pre{margin:0;padding:.8rem;border-top:1px solid var(--line);max-height:22rem;overflow:auto;font:.7rem/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:#D4D4D4;white-space:pre-wrap;overflow-wrap:anywhere}
+.countdown{display:flex;background:#000;color:#fff;padding:.95rem .5rem .75rem;border-radius:4px;border:1px solid rgba(225,29,46,.3);box-shadow:inset 0 0 18px rgba(0,0,0,.9)}
+.countdown div{flex:1;text-align:center}
+.countdown b{display:block;font:700 1.55rem/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.countdown span{display:block;margin-top:.45rem;font:.58rem/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.countdown.done{justify-content:center;align-items:center;min-height:4.1rem;font:.8rem/1.2 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
+.dl{display:flex;align-items:center;justify-content:center;padding:.6rem .8rem;border-radius:4px;background:rgba(225,29,46,.08);color:#fff;border:1px solid rgba(225,29,46,.45);text-decoration:none;font:500 .82rem/1.2 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;transition:background .15s,border-color .15s}
+.dl:hover{background:rgba(225,29,46,.18);border-color:rgba(225,29,46,.85)}
+.sum{display:flex;align-items:center;gap:.5rem;margin-top:.65rem;font-size:.75rem;color:var(--muted)}
+.sum code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--ink)}
+.dl.disabled{pointer-events:none;opacity:.5}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}</style>
+</head>
+<body>
+<div class="accent" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="./"><i aria-hidden="true"></i>NoTrace Group</a>
+  <span class="line" aria-hidden="true"></span>
+  <a class="pgp" href="https://pastebin.com/raw/wkEuh2jF" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3m-3 3 3 3m-6-1 2 2"/></svg>PGP Key</a>
+</header>
+<main class="posts">
+  <article class="post">
+    <span class="badge announce">Announcement</span>
+    <h2>New page and PGP key</h2>
+    <div class="date"><time datetime="2026-09-17">17 Sep 2026</time></div>
+    <p>From now on, all releases will be posted here on our new page. Our PGP key is now public. Use it to confirm that every release and announcement really comes from us, and don&#x27;t trust files or messages that can&#x27;t be verified with it.</p>
+    <details class="signed">
+      <summary>Signed message</summary>
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+[NT] New site and PGP key
+
+- - From now on, all releases will be posted on our new site:
+https://notrace.ar.io
+
+Our PGP key is now public:
+https://pastebin.com/raw/wkEuh2jF
+https://web.archive.org/web/20260917135738/https://pastebin.com/raw/wkEuh2jF
+
+Fingerprint:
+EB0807C2C19D923A68C861BF55B8AF4CD415CC1C
+
+Use this key to confirm any future updates. Do not trust messages that
+cannot be verified with this key.
+-----BEGIN PGP SIGNATURE-----
+
+iJEEARYKADkWIQTrCAfCwZ2SOmjIYb9VuK9M1BXMHAUCaqvWQBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDEACgkQVbivTNQVzBzVtwEA7CEezbqWkJMOfmYmKeEz
+38suyzmAdVMBk6jBory1ZnkBANHcjQUrSS+SGl0Ap3zYGwpr00W8ct2GK3bLVhCi
+iWUH
+=tp6x
+-----END PGP SIGNATURE-----
+</pre>
+    </details>
+  </article>
+  <article class="post is-pending">
+    <span class="badge pending">Pending release</span>
+    <h2>Aldrees.com</h2>
+    <div class="date"><time datetime="2026-09-17">Updated: 17 Sep 2026</time></div>
+    <p>A Saudi Arabian Company with a revenue of $6 billion USD. </p>
+    <div class="body">
+      <div class="countdown" data-release="2026-09-24T12:00:00Z" role="timer" aria-label="Countdown">
+        <div><b data-u="d">--</b><span>Days</span></div>
+        <div><b data-u="h">--</b><span>Hours</span></div>
+        <div><b data-u="m">--</b><span>Minutes</span></div>
+        <div><b data-u="s">--</b><span>Seconds</span></div>
+      </div>
+    </div>
+  </article>
+</main>
+</div>
+<script>(function(){
+'use strict';
+function pad(n){return n<10?'0'+n:String(n)}
+var timers=[];
+document.querySelectorAll('.post').forEach(function(card){
+  var date=card.querySelector('.date');
+  var tm=date&&date.querySelector('time[datetime]');
+  if(tm){
+    var age=Date.now()-Date.parse(tm.getAttribute('datetime'));
+    if(age>=0&&age<30*864e5){
+      var nb=document.createElement('span');
+      nb.className='new';nb.textContent='NEW';
+      date.appendChild(nb);
+    }
+  }
+  var box=card.querySelector('.countdown[data-release]');
+  if(box){
+    var ms=Date.parse(box.getAttribute('data-release'));
+    if(!isNaN(ms))timers.push({el:box,at:ms});
+  }
+  var link=card.querySelector('a.dl');
+  if(link&&!/^https:\/\//i.test(link.getAttribute('href')||'')){
+    link.removeAttribute('href');link.classList.add('disabled');
+  }
+  var sum=card.querySelector('.sum');
+  if(sum){
+    var full=(sum.getAttribute('data-sha256')||'').trim().toLowerCase();
+    var code=sum.querySelector('code');
+    if(!/^[0-9a-f]{64}$/.test(full)){code.textContent='invalid checksum';return}
+    code.textContent=full.slice(0,8)+'...'+full.slice(-8);
+    code.title=full;
+  }
+});
+function tick(){
+  var now=Date.now();
+  timers.forEach(function(o){
+    if(o.fin)return;
+    var r=o.at-now;
+    if(r<=0){o.fin=true;o.el.classList.add('done');o.el.textContent='Download available soon';return}
+    var u={d:Math.floor(r/864e5),h:Math.floor(r/36e5)%24,m:Math.floor(r/6e4)%60,s:Math.floor(r/1e3)%60};
+    o.el.querySelectorAll('b[data-u]').forEach(function(b){b.textContent=pad(u[b.getAttribute('data-u')])});
+  });
+}
+if(timers.length){tick();setInterval(tick,1000)}
+})();</script>
+</body>
+</html>

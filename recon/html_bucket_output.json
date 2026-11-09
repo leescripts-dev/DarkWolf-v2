@@ -1,0 +1,2249 @@
+{
+  "generated_at": "2026-10-11T08:32:35.910970+00:00",
+  "scope": "HTML bucket; listing metadata only; no detail pages or leak files",
+  "sites_expected": 18,
+  "sites_attempted": 18,
+  "sites_missing_from_successful_inventory": [],
+  "total_records": 260,
+  "sites": [
+    {
+      "site": "APT73(BASHE)",
+      "start_url": "http://basheqtvzqwz4vp6ks5lm2ocq7i6tozqgf6vjcasj4ezmsy4bkpshhyd.onion/",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "ARCUS MEDIA",
+      "start_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+      "pages_visited": 3,
+      "records_found": 115,
+      "records": [
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Ladrillera Mecanizada",
+          "country": null,
+          "listed_date": "2026-10-09T12:51:50+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "mblllp",
+          "country": null,
+          "listed_date": "2026-10-09T12:51:41+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "AETHOS",
+          "country": null,
+          "listed_date": "2026-10-09T12:50:13+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Pantaneiro Capas",
+          "country": null,
+          "listed_date": "2026-09-27T11:36:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "AGROFRUTO SAC",
+          "country": null,
+          "listed_date": "2026-09-23T09:56:19+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "AKAZZO",
+          "country": null,
+          "listed_date": "2026-09-19T15:30:18+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Schneider’s Computing",
+          "country": null,
+          "listed_date": "2026-09-19T15:30:10+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "ARDA",
+          "country": null,
+          "listed_date": "2026-09-16T13:12:17+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Asada Sarapiqu",
+          "country": null,
+          "listed_date": "2026-09-15T11:39:39+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Mark’Techno",
+          "country": null,
+          "listed_date": "2026-08-24T13:58:43+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "ManagementPro",
+          "country": null,
+          "listed_date": "2026-08-24T13:58:31+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Power Moendas",
+          "country": null,
+          "listed_date": "2026-07-25T21:13:10+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Brazer Ingenierie",
+          "country": null,
+          "listed_date": "2026-07-25T21:13:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "I-FITNESS",
+          "country": null,
+          "listed_date": "2026-07-13T16:43:44+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "COREBI(NowVertical)",
+          "country": null,
+          "listed_date": "2026-07-13T16:43:32+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Be Travel",
+          "country": null,
+          "listed_date": "2026-07-13T16:43:22+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Distribox",
+          "country": null,
+          "listed_date": "2026-07-13T16:43:10+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "gemese.pt",
+          "country": null,
+          "listed_date": "2026-07-13T16:43:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Perpustam",
+          "country": null,
+          "listed_date": "2026-07-13T16:42:52+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "East African Gasoil",
+          "country": null,
+          "listed_date": "2025-11-08T13:14:35+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Accflex ERP",
+          "country": null,
+          "listed_date": "2025-09-16T23:49:00+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Tunad",
+          "country": null,
+          "listed_date": "2025-09-16T23:41:24+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Grup Gestio",
+          "country": null,
+          "listed_date": "2025-09-16T23:05:00+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "EB Farmacutica",
+          "country": null,
+          "listed_date": "2025-08-12T22:46:40+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "College stjb",
+          "country": null,
+          "listed_date": "2025-07-27T21:40:23+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "CCI Torrevieja",
+          "country": null,
+          "listed_date": "2025-07-27T21:40:10+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "I.P. One LTD",
+          "country": null,
+          "listed_date": "2025-07-25T23:37:47+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "SubsCorp",
+          "country": null,
+          "listed_date": "2025-07-22T00:46:28+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Protech Medical",
+          "country": null,
+          "listed_date": "2025-07-22T00:46:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "RG Mexico",
+          "country": null,
+          "listed_date": "2025-07-05T14:41:04+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "BD Group",
+          "country": null,
+          "listed_date": "2025-07-05T14:40:54+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Assetlabs",
+          "country": null,
+          "listed_date": "2025-07-05T14:40:41+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Acorn Sales",
+          "country": null,
+          "listed_date": "2025-05-30T10:29:25+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "STANDBYTE",
+          "country": null,
+          "listed_date": "2025-05-30T10:29:18+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Antea Luce",
+          "country": null,
+          "listed_date": "2025-05-26T01:57:41+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Grupo Boulevard",
+          "country": null,
+          "listed_date": "2025-05-17T22:43:11+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "RECI SYSTEMS",
+          "country": null,
+          "listed_date": "2025-05-17T22:43:01+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Road Development Corporation",
+          "country": null,
+          "listed_date": "2025-05-17T22:42:47+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Fong Shann Printing Philippines",
+          "country": null,
+          "listed_date": "2025-05-17T22:42:37+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Colegio de la Compania de Maria Vigo",
+          "country": null,
+          "listed_date": "2025-05-17T22:42:27+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Kiribati Government",
+          "country": null,
+          "listed_date": "2025-03-18T23:06:14+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "THX Transport",
+          "country": null,
+          "listed_date": "2025-03-18T23:06:06+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Coopertruni",
+          "country": null,
+          "listed_date": "2025-03-18T23:06:00+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "HYPERNOVA TELECOM",
+          "country": null,
+          "listed_date": "2025-03-12T02:10:26+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "HYPONAMIRU",
+          "country": null,
+          "listed_date": "2025-03-12T02:10:17+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "REYCOTEL",
+          "country": null,
+          "listed_date": "2025-03-07T22:24:20+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "New .Gov ?",
+          "country": null,
+          "listed_date": "2025-03-03T19:18:23+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "ICO",
+          "country": null,
+          "listed_date": "2025-03-03T18:57:47+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "synaptic.co.tz",
+          "country": null,
+          "listed_date": "2025-03-03T18:57:32+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Grafitec",
+          "country": null,
+          "listed_date": "2025-03-03T18:57:24+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "RJ IT Solutions",
+          "country": null,
+          "listed_date": "2025-03-03T18:57:15+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "logic insectes",
+          "country": null,
+          "listed_date": "2025-03-03T18:57:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Itapeseg",
+          "country": null,
+          "listed_date": "2025-03-03T18:56:52+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Openreso",
+          "country": null,
+          "listed_date": "2025-03-03T18:56:34+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "LINKGROUP",
+          "country": null,
+          "listed_date": "2025-03-03T18:56:21+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Technico",
+          "country": null,
+          "listed_date": "2025-01-31T23:52:50+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "GATTELLI SpA",
+          "country": null,
+          "listed_date": "2025-01-31T23:52:41+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Utilissimo Transportes",
+          "country": null,
+          "listed_date": "2025-01-31T23:52:33+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Eascon",
+          "country": null,
+          "listed_date": "2025-01-31T23:52:22+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Falcon Gaming",
+          "country": null,
+          "listed_date": "2025-01-31T23:52:13+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Engenet Informatica",
+          "country": null,
+          "listed_date": "2024-12-29T16:00:36+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "IEC + EMCO",
+          "country": null,
+          "listed_date": "2024-12-29T16:00:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Meerapfel Family",
+          "country": null,
+          "listed_date": "2024-12-29T16:00:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Innois",
+          "country": null,
+          "listed_date": "2024-12-29T15:59:45+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Wosac",
+          "country": null,
+          "listed_date": "2024-12-29T15:59:29+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Megaexit",
+          "country": null,
+          "listed_date": "2024-12-29T15:58:56+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Hi-Raise Constructions Holding",
+          "country": null,
+          "listed_date": "2024-12-29T15:58:40+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Enge Ilha Construção",
+          "country": null,
+          "listed_date": "2024-12-29T15:58:19+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Symantric IT",
+          "country": null,
+          "listed_date": "2024-11-21T17:19:20+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "MGEMAL",
+          "country": null,
+          "listed_date": "2024-11-21T17:00:38+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "IT Networks",
+          "country": null,
+          "listed_date": "2024-11-20T23:31:33+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "HM Environmental Services",
+          "country": null,
+          "listed_date": "2024-11-20T23:31:19+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Trust Seeds",
+          "country": null,
+          "listed_date": "2024-11-20T23:31:05+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Barneek Safety Consultancies",
+          "country": null,
+          "listed_date": "2024-11-20T23:30:55+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "PK Mulyo",
+          "country": null,
+          "listed_date": "2024-11-20T23:30:06+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Surfnet Communications",
+          "country": null,
+          "listed_date": "2024-10-29T15:46:22+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Country Club El Bosque",
+          "country": null,
+          "listed_date": "2024-10-20T15:52:24+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Vasesa",
+          "country": null,
+          "listed_date": "2024-10-20T15:52:14+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Superior Quality Insurance Agency",
+          "country": null,
+          "listed_date": "2024-10-20T15:52:04+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Petropolis Pet Resort",
+          "country": null,
+          "listed_date": "2024-10-20T15:51:53+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Interbel",
+          "country": null,
+          "listed_date": "2024-10-20T15:51:43+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Nova Sinseg",
+          "country": null,
+          "listed_date": "2024-09-24T08:40:53+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Solutii Sistemas",
+          "country": null,
+          "listed_date": "2024-09-24T08:40:50+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Partners Air",
+          "country": null,
+          "listed_date": "2024-09-24T08:35:10+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Frigocenter",
+          "country": null,
+          "listed_date": "2024-09-24T08:35:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Emtel",
+          "country": null,
+          "listed_date": "2024-09-15T15:09:14+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "UNI-PA A.Ş",
+          "country": null,
+          "listed_date": "2024-09-14T23:51:38+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Like Family’s",
+          "country": null,
+          "listed_date": "2024-09-14T23:50:23+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Rextech",
+          "country": null,
+          "listed_date": "2024-09-14T23:50:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Announcement 9-14",
+          "country": null,
+          "listed_date": "2024-09-14T23:40:02+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Doodle Tech",
+          "country": null,
+          "listed_date": "2024-07-20T13:14:45+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Freightliner of Grand Rapids & Kalamazoo",
+          "country": null,
+          "listed_date": "2024-06-29T15:52:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Clima Lodi",
+          "country": null,
+          "listed_date": "2024-06-29T15:51:11+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Total Revisjon DA",
+          "country": null,
+          "listed_date": "2024-06-26T16:53:47+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "GED Lawyers",
+          "country": null,
+          "listed_date": "2024-06-26T16:47:28+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "BankSelfStorage",
+          "country": null,
+          "listed_date": "2024-06-20T10:52:25+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Exhaustpro shops",
+          "country": null,
+          "listed_date": "2024-06-20T10:52:17+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "WinFashion ERP",
+          "country": null,
+          "listed_date": "2024-06-11T15:25:30+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Immediate Transport – UK",
+          "country": null,
+          "listed_date": "2024-06-03T23:32:36+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Botselo",
+          "country": null,
+          "listed_date": "2024-06-03T22:31:45+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "BHMAC",
+          "country": null,
+          "listed_date": "2024-06-03T22:31:39+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Duque Saldarriaga",
+          "country": null,
+          "listed_date": "2024-06-03T22:30:49+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Franja IT Integradores de Tecnología",
+          "country": null,
+          "listed_date": "2024-06-03T22:30:27+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Langescheid GbR",
+          "country": null,
+          "listed_date": "2024-06-03T22:30:26+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Colégio Nova Dimensão",
+          "country": null,
+          "listed_date": "2024-05-18T13:07:14+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Egyptian Sudanese",
+          "country": null,
+          "listed_date": "2024-05-16T00:00:18+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "RIO TECHNOLOGY",
+          "country": null,
+          "listed_date": "2024-05-16T00:00:03+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Grupo SASMET",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:51+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "GOLD RH S.A.S",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:51+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Frigrífico Boa Carne",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:33+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Cusat",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:28+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "FILSCAP",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:16+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Thibabem Atacadista",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:04+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "Braz Assessoria Contábil",
+          "country": null,
+          "listed_date": "2024-05-11T00:00:00+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ARCUS MEDIA",
+          "organization": "BRAZIL GOV",
+          "country": null,
+          "listed_date": "2024-05-08T00:01:57+00:00",
+          "listing_url": "http://arcuufpr5xxbbkin4mlidt7itmr6znlppk63jbtkeguuhszmc5g7qdyd.onion/?paged=3",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "BARRACUDA",
+      "start_url": "http://uvm6hk4wwstfddja5z5htgtlehmfyflffijz6iozsuqyacyibzxefkqd.onion/about",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "BLACKWATER",
+      "start_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+      "pages_visited": 3,
+      "records_found": 11,
+      "records": [
+        {
+          "group": "BLACKWATER",
+          "organization": "www.ptesm.com",
+          "country": null,
+          "listed_date": "2026-08-24",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "www.shalina.com",
+          "country": null,
+          "listed_date": "2026-08-15",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "www.amca.org.ar",
+          "country": null,
+          "listed_date": "2026-08-15",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "msgas.com.br",
+          "country": null,
+          "listed_date": "2026-07-25",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "txdkj.com",
+          "country": null,
+          "listed_date": "2026-07-10",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "www.utourworld.com",
+          "country": null,
+          "listed_date": "2026-06-06",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "Tuopu",
+          "country": null,
+          "listed_date": "2026-05-19",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "Compass Housing Alliance",
+          "country": null,
+          "listed_date": "2026-04-30",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "Shenzhen Gongjin Electronics",
+          "country": null,
+          "listed_date": "2026-04-29",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "Grupo EBD",
+          "country": null,
+          "listed_date": "2026-04-17",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "BLACKWATER",
+          "organization": "medical-park",
+          "country": null,
+          "listed_date": "2026-03-20",
+          "listing_url": "http://ejzl7cjxmkx7lzhiqwidmrwtfjv45pkczbc4fnyaut3t7gll3yaiq5id.onion/?page=2&per-page=10",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "Cinder",
+      "start_url": "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": [
+        "http://iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion/: ConnectTimeout: SOCKSHTTPConnectionPool(host='iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<SOCKSConnection(host='iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion', port=80) at 0x1cfc3c92520>, 'Connection to iah6477wcvisc45wl54u524fbrh4dnmtcctpg2fpe5epf3jbpkiwu4qd.onion timed out. (connect timeout=28)'))"
+      ]
+    },
+    {
+      "site": "CMD organization",
+      "start_url": "http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion/",
+      "pages_visited": 1,
+      "records_found": 3,
+      "records": [
+        {
+          "group": "CMD organization",
+          "organization": "Medlink Georgia",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "CMD organization",
+          "organization": "Stewart Belland & Associates Inc.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "CMD organization",
+          "organization": "Contact Group",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://cmdnkiqjije2tllr3biee2sjgj3i4robg2cbtilbnytdhh2wy3syrlyd.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "Daixin Ransomware",
+      "start_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+      "pages_visited": 1,
+      "records_found": 20,
+      "records": [
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Insurance Office of America",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Communicare Inc.",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "SGS Co",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Acadian Ambulance",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Dubai Municipality",
+          "country": "UAE",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Regional Cancer Center (RCC) in Thiruvananthapuram ( fabrication !!)",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Omni Hotels & Resorts",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Graphic Solutions Group Inc",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "North Texas Municipal Water District",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Bluewater Health (CA) and others",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Columbus Regional Healthcare System",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Hit Promotional Products",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "B&G Foods",
+          "country": "CA, US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Guardian Analytics",
+          "country": "US",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Astra Daihatsu Motor",
+          "country": "ID",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "AirAsia Group",
+          "country": "MY, ID, TH",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "OakBend Medical",
+          "country": "USA",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "ISTA International GmbH",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Trib Total Media",
+          "country": "USA",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Daixin Ransomware",
+          "organization": "Fitzgibbon Hospital",
+          "country": "USA",
+          "listed_date": null,
+          "listing_url": "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "DOOMMAGEDDON",
+      "start_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+      "pages_visited": 1,
+      "records_found": 16,
+      "records": [
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Cam Group LLC",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "ENKA Schools",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Chem Process Systems Pvt. Ltd.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Goodrich Logistics",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Charlottesville Police Department",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "INCOR Group",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Akpera Gayrimenkul Yatırım A.Ş.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "SITTNAK Lojistik A.Ş.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "iw steelTEC Makine San. ve Tic. A.Ş.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Reni Farmácias Associadas",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Hospital Di Camp",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Solventa & Riskmetrica | Calificadora de Riesgos",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Francisco Imóveis",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Innovano",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "Mercedes-Benz Turk",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "DOOMMAGEDDON",
+          "organization": "KOLORKIM KIMYA",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://iacjvmxjb2ivqkxxzmde4w6g53gn6ym7c3g6mfifvejyhqtp4wrkypyd.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "Emperador",
+      "start_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+      "pages_visited": 3,
+      "records_found": 31,
+      "records": [
+        {
+          "group": "Emperador",
+          "organization": "Imperial Diamond Jewellery",
+          "country": "Hong Kong",
+          "listed_date": "Oct 9, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "PANCARIBBEAN LOGISTICS GROUP",
+          "country": null,
+          "listed_date": "Oct 5, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "METROCOLOR S.A.",
+          "country": null,
+          "listed_date": "Oct 5, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "OMUR HIRDAVAT LTD",
+          "country": null,
+          "listed_date": "Oct 4, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "LA PONDEROSA",
+          "country": null,
+          "listed_date": "Oct 1, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Polikem",
+          "country": null,
+          "listed_date": "Sep 29, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "RECEITA FEDERAL DO BRASIL",
+          "country": null,
+          "listed_date": "Sep 23, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Electrolux",
+          "country": null,
+          "listed_date": "Sep 19, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Amazon Informatica",
+          "country": null,
+          "listed_date": "Sep 28, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Electrolux 2...",
+          "country": null,
+          "listed_date": "Sep 28, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Car Service Abschlepp",
+          "country": null,
+          "listed_date": "Sep 27, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Electrolux",
+          "country": null,
+          "listed_date": "Sep 26, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Alabama Woman's Health Care",
+          "country": null,
+          "listed_date": "Sep 20, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Studio Notarile Associato Salvatore Costantino E Anna Favarato",
+          "country": null,
+          "listed_date": "Sep 20, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Cassias MG Government",
+          "country": null,
+          "listed_date": "Sep 19, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Westbridge Institute of Technology, Inc.",
+          "country": null,
+          "listed_date": "Sep 17, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "RDA MOTORS S.P.A.",
+          "country": null,
+          "listed_date": "Sep 16, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Navitrans",
+          "country": null,
+          "listed_date": "Sep 14, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Nexbex Solutions Private Limited",
+          "country": null,
+          "listed_date": "Sep 11, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "EASY JOB S.A.S.",
+          "country": null,
+          "listed_date": "Sep 10, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Bosnia and Herzegovina Mine Action Center",
+          "country": null,
+          "listed_date": "Sep 9, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "BAYMER",
+          "country": null,
+          "listed_date": "Sep 9, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Universal Starch-Chem Allied Ltd",
+          "country": null,
+          "listed_date": "Sep 9, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Judicial Branch of the Province of Jujuy",
+          "country": null,
+          "listed_date": "Sep 5, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Uniguacu",
+          "country": null,
+          "listed_date": "Aug 29, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Capitol Mechanics",
+          "country": null,
+          "listed_date": "Aug 27, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Vietnam Electricity(EVNHANOI)",
+          "country": null,
+          "listed_date": "Aug 22, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "NetExam",
+          "country": null,
+          "listed_date": "Aug 20, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Prefeitura Municipal de Arcos",
+          "country": null,
+          "listed_date": "Aug 18, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "Albania's Official National Teacher Training Portal",
+          "country": null,
+          "listed_date": "Aug 16, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Emperador",
+          "organization": "City Government of Baguio",
+          "country": null,
+          "listed_date": "Aug 10, 2026",
+          "listing_url": "http://emprdr4p7iwlhpky33tswt3k2qdeljyjcdpoysabudmmrz4z32laexad.onion/?page=2",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "ENDZONE",
+      "start_url": "http://endzonezgz3sqzmtqg4acp4z7ao7xc6vunfhezjsnfqrm2ksudsredyd.onion/",
+      "pages_visited": 1,
+      "records_found": 4,
+      "records": [
+        {
+          "group": "ENDZONE",
+          "organization": "Philander Smith University",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://endzonezgz3sqzmtqg4acp4z7ao7xc6vunfhezjsnfqrm2ksudsredyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ENDZONE",
+          "organization": "Gomomentum.com",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://endzonezgz3sqzmtqg4acp4z7ao7xc6vunfhezjsnfqrm2ksudsredyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ENDZONE",
+          "organization": "eTeam",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://endzonezgz3sqzmtqg4acp4z7ao7xc6vunfhezjsnfqrm2ksudsredyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "ENDZONE",
+          "organization": "WARNING",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://endzonezgz3sqzmtqg4acp4z7ao7xc6vunfhezjsnfqrm2ksudsredyd.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "Falcon",
+      "start_url": "http://i7loab6thvz4lb7jdr3qoeumbvilwhbgnwsctnlfmvsv7g5s3vsiw6yd.onion/companies",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "Global Secret Group",
+      "start_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+      "pages_visited": 1,
+      "records_found": 49,
+      "records": [
+        {
+          "group": "Global Secret Group",
+          "organization": "Novum Energy",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Spergel",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "OFS",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Portman Finance Group",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Hinduja Tech | BMW Group & Škoda Auto",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Al Hayat | Pepsi",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Cold Front Distribution",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Lockheed Architectural Solutions, Inc.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Turn5",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Kjla",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Allied Supply Co.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "CO-OP URBAN BANK LTD",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Mesan USA",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Quality Resource Pvt",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "R L Fine Chem Pvt. Ltd.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Tiseo Paving",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "The Rubber Group",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "4M REALTY COMPANY",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Columbia University Information (Dental)",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "MACOFIN HELLAS S.A.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Cook Remodeling",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Pavillon",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Vernon & Waldrep",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Louisiana Coalition Against | Domestic Violence",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Park Manufacturing Corp.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Pro-Tuff | Decals",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Nourison | Home",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "SPDM",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Sinop Energia",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "West Nova Fuels & Superline Fuels",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Acens | Cloud & Backup",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "One Plus Capital",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "La Sevillanita",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Chappell Supply & Equipment",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Middendorf Animal Hospital & Laser Centre",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "AnyWeather",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Carpets Direct",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Baker Business & Tax Solutions",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "West Sixth Law",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Farmers Mutual Fire Insurance",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Uniview Technologies",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Coggins Insurance Agency",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Johnson City Honda",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Nexon Corp.",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Vertex Systems",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "OmniLink AG",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Stratos Network",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Cipher Dynamics",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "Global Secret Group",
+          "organization": "Prism Telecom",
+          "country": null,
+          "listed_date": null,
+          "listing_url": "http://o5lsqyar7ox25z734k6zaxt2vf7bsyi4q5rturi5iyxzqo3ica7bjsad.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "Karma Leaks",
+      "start_url": "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": [
+        "http://2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion/leaks: ConnectTimeout: SOCKSHTTPConnectionPool(host='2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion', port=80): Max retries exceeded with url: /leaks (Caused by ConnectTimeoutError(<SOCKSConnection(host='2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion', port=80) at 0x1cfc3c41eb0>, 'Connection to 2dmzkuruwpmgalhcn26kmvlg37ijqbzqo3orhxwvyf2nf3w4gfq6ikid.onion timed out. (connect timeout=28)'))"
+      ]
+    },
+    {
+      "site": "Kazu",
+      "start_url": "http://6czlbd2jfiy6765fbnbnzuwuqocg57ebvp3tbm35kib425k4qnmiiiqd.onion/ransom.html",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "MS13-089 Blog",
+      "start_url": "http://msleakjir7pxbe6onlqe5uwgvdmy6nq4mnwfy7ojswbhnleenm77vgad.onion/",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "SECP0",
+      "start_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+      "pages_visited": 1,
+      "records_found": 11,
+      "records": [
+        {
+          "group": "SECP0",
+          "organization": "NAI Earle Furman",
+          "country": null,
+          "listed_date": "21.09.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Color Communications LLC",
+          "country": null,
+          "listed_date": "27.04.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "JM Bozeman Enterprises",
+          "country": null,
+          "listed_date": "09.03.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Indigo Group",
+          "country": null,
+          "listed_date": "09.03.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Richmond Plywood Corporation Limited",
+          "country": null,
+          "listed_date": "19.02.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Mike Brandner Law",
+          "country": null,
+          "listed_date": "09.02.2026",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Publication hold announcement",
+          "country": null,
+          "listed_date": "08.05.2025",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Announcement for the Terralogic and its clients",
+          "country": null,
+          "listed_date": "14.03.2025",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Response to PRODAFT journalists",
+          "country": null,
+          "listed_date": "05.03.2025",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Passwordstate weak encryption article",
+          "country": null,
+          "listed_date": "01.03.2025",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        },
+        {
+          "group": "SECP0",
+          "organization": "Welcome",
+          "country": null,
+          "listed_date": "01.02.2025",
+          "listing_url": "http://secponewsxgrlnirowclps2kllzaotaf5w2bsvktdnz4qhjr2jnwvvyd.onion/",
+          "record_type": "listing_metadata"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "site": "ShadowByt3$",
+      "start_url": "http://sdwbyttda4uzwdffbt4m7niuodiwhcgmkyxqg5nly2bjxqa6xtbe3fyd.onion/captcha.php",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": []
+    },
+    {
+      "site": "Vexy",
+      "start_url": "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog",
+      "pages_visited": 1,
+      "records_found": 0,
+      "records": [],
+      "errors": [
+        "http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog: ConnectTimeout: SOCKSHTTPConnectionPool(host='vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion', port=80): Max retries exceeded with url: /blog (Caused by ConnectTimeoutError(<SOCKSConnection(host='vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion', port=80) at 0x1cfc3c40ef0>, 'Connection to vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion timed out. (connect timeout=28)'))"
+      ]
+    }
+  ]
+}
